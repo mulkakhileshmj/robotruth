@@ -18,8 +18,10 @@ from robotruth.results import Results
 app = typer.Typer(help="Robot CI: contract checks, honest statistics and drift fingerprints for learned robot policies.", no_args_is_help=True)
 contract_app = typer.Typer(help="Module 1: executable-policy contract manifests.", no_args_is_help=True)
 stats_app = typer.Typer(help="Module 2: honest evaluation statistics.", no_args_is_help=True)
+episodes_app = typer.Typer(help="Module 3: episode records, fleet metrics, MCAP bridge.", no_args_is_help=True)
 app.add_typer(contract_app, name="contract")
 app.add_typer(stats_app, name="stats")
+app.add_typer(episodes_app, name="episodes")
 console = Console()
 
 
@@ -122,6 +124,58 @@ def stats_interval(k: int, n: int, alpha: float = 0.05):
     from robotruth.stats.intervals import clopper_pearson, wilson
     console.print(str(wilson(k, n, alpha)))
     console.print(str(clopper_pearson(k, n, alpha)))
+
+
+@episodes_app.command("validate")
+def episodes_validate(log: Path):
+    """Validate a JSONL episode log against the schema."""
+    from robotruth.schema import EpisodeLog
+    ok, errors = EpisodeLog(log).validate()
+    console.print(f"{ok} valid records, {len(errors)} errors")
+    for line, err in errors[:20]:
+        console.print(f"  [red]line {line}[/]: {err}")
+    raise typer.Exit(code=1 if errors else 0)
+
+
+@episodes_app.command("to-results")
+def episodes_to_results(log: Path, out: Path = typer.Option(Path("results.csv"), "--out", "-o")):
+    """Export episodes with an outcome to the results CSV used by `robotruth stats compare`."""
+    from robotruth.schema import EpisodeLog
+    p = EpisodeLog(log).to_results_csv(out)
+    console.print(f"[green]wrote[/] {p}")
+
+
+@episodes_app.command("metrics")
+def episodes_metrics(log: Path, alpha: float = 0.05, out: Optional[Path] = typer.Option(None, "--out", "-o")):
+    """Fleet metrics: success, autonomous fraction, interventions per hour, MTBI, failure Pareto."""
+    from robotruth.schema import EpisodeLog, fleet_metrics
+    md = fleet_metrics(EpisodeLog(log), alpha).to_markdown()
+    console.print(md)
+    if out:
+        out.write_text(md, encoding="utf-8")
+
+
+@episodes_app.command("to-mcap")
+def episodes_to_mcap(log: Path, out: Path = typer.Option(Path("episodes.mcap"), "--out", "-o")):
+    """Write the log as JSON messages on /robotruth/episode for Foxglove or Rerun."""
+    from robotruth.schema import EpisodeLog
+    console.print(f"[green]wrote[/] {EpisodeLog(log).to_mcap(out)}")
+
+
+@episodes_app.command("from-mcap")
+def episodes_from_mcap(mcap_file: Path, out: Path = typer.Option(Path("episodes.jsonl"), "--out", "-o")):
+    """Extract /robotruth/episode messages from an MCAP file into a JSONL log."""
+    from robotruth.schema import EpisodeLog
+    log = EpisodeLog.from_mcap(mcap_file, out)
+    console.print(f"[green]wrote[/] {log.path} ({len(log.records())} records)")
+
+
+@episodes_app.command("taxonomy")
+def episodes_taxonomy():
+    """Print the failure taxonomy."""
+    from robotruth.schema import FAILURE_SUBCLASSES
+    for cls, subs in FAILURE_SUBCLASSES.items():
+        console.print(f"[bold]{cls}[/]: " + ", ".join(subs))
 
 
 if __name__ == "__main__":

@@ -15,7 +15,9 @@ Updated 2026-09-18 (night). Published to https://github.com/mulkakhileshmj/robot
 | when | box | cost | what ran | results pulled to |
 |---|---|---|---|---|
 | 2026-09-18 ~13:40 IST | Lambda 1x A10 24 GB, us-east-1, 132.145.160.192 (terminated) | $1.29/h | checkpoint probe (5 repos, 33 GB, hashed); full test suite; extractor validation; claims audit; judge and guard builds | examples/probe/2026-09-18_lambda_a10, examples/manifests/2026-09-18_lambda_a10, examples/reports |
-| 2026-09-18 ~19:45 IST | Lambda 1x A10 24 GB, us-east-1, 129.80.77.108 | $1.29/h | 16 public datasets fetched (parquet and metadata only, no video); full suite 72 passed; wheel and sdist built and clean-install verified; end-to-end validation over 13+ LeRobot datasets, BotFails nested sets, SO101 eval logs, RoboArena pairwise sessions | examples/validation/2026-09-18 (33 datasets, 1,611 episodes, RoboArena BT ranking, SO101 audit, box logs); dist/ wheel and sdist |
+| 2026-09-18 ~19:45 IST | Lambda 1x A10 24 GB, us-east-1, 129.80.77.108 (terminated) | $1.29/h | 16 public datasets fetched (parquet and metadata only, no video); full suite 72 passed; wheel and sdist built and clean-install verified; end-to-end validation over 13+ LeRobot datasets, BotFails nested sets, SO101 eval logs, RoboArena pairwise sessions | examples/validation/2026-09-18 (33 datasets, 1,611 episodes, RoboArena BT ranking, SO101 audit, box logs); dist/ wheel and sdist |
+| 2026-09-18 ~20:30 IST | Lambda 1x A10 24 GB, us-east-1, 129.213.17.113 (terminated) | $1.29/h | openpi pi0_base probe (12 GB orbax hashed); live policy-loop test (ACT in gym-aloha, guard in the loop, judge vs sim truth, two runs); arm video | examples/validation/2026-09-18/final and live_guard |
+| 2026-09-18 ~22:40 IST | Lambda 1x A10 24 GB, us-east-1, 129.80.241.17 (terminated) | $1.29/h | 72 tests, 0.1.1 wheel and sdist, open VLM judge benchmark on 140 real UR5 episodes (Qwen2.5-VL-7B) | examples/validation/2026-09-18/vlm_judge, dist/ |
 
 ## Done
 

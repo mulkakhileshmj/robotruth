@@ -31,11 +31,15 @@ app.add_typer(guard_app, name="guard")
 console = Console()
 
 
-@app.callback()
-def _version(version: bool = typer.Option(False, "--version", help="Show version and exit.")):
-    if version:
+def _version_cb(value: bool):
+    if value:
         console.print(f"robotruth {__version__}")
         raise typer.Exit()
+
+
+@app.callback()
+def _main(version: bool = typer.Option(False, "--version", help="Show version and exit.", callback=_version_cb, is_eager=True)):
+    pass
 
 
 @contract_app.command("extract")

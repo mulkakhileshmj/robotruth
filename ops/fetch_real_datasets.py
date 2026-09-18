@@ -16,7 +16,7 @@ JOBS = [
     ("Elvinky/so101-fold-clothes-dagger-20260909", NO_VIDEO),
     ("Elvinky/pi05-piperx-7h-demo-dagger-full-episodes-20260914", NO_VIDEO),
     ("jpizarrom/hilserl_so100_grocery_so100_2025112223_20", NO_VIDEO),
-    ("kantine/BotFails", NO_VIDEO),
+    ("kantine/BotFails", ["**/meta/**", "**/data/**", "**/labels/**", "*.md", "*.csv", "*.json"]),
     ("lerobot/svla_so100_pickplace", NO_VIDEO),
     ("lerobot/svla_so101_pickplace", NO_VIDEO),
     ("sixpigs1/so100_pick_cube_in_box", NO_VIDEO),
@@ -24,7 +24,7 @@ JOBS = [
     ("lerobot/aloha_static_screw_driver", NO_VIDEO),
     ("lerobot/droid_1.0.1", ["meta/**", "data/chunk-000/file-000.parquet", "README.md"]),
     ("cons909/V1-LeRobot-SO101-Eval-Videos", ["*.csv", "*.json", "*.md", "**/*.csv"]),
-    ("RoboArena/DataDump_02-03-2026", ["global_metadata.yaml", "README.md", "evaluation_sessions/*/metadata.yaml"]),
+    ("RoboArena/DataDump_02-03-2026", ["global_metadata.yaml", "README.md", "**/metadata.yaml"]),
 ]
 os.environ.setdefault("HF_HUB_DISABLE_PROGRESS_BARS", "1")
 for repo, pats in JOBS:

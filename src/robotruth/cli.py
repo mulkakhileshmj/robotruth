@@ -167,13 +167,21 @@ def episodes_to_results(log: Path, out: Path = typer.Option(Path("results.csv"),
 
 
 @episodes_app.command("metrics")
-def episodes_metrics(log: Path, alpha: float = 0.05, out: Optional[Path] = typer.Option(None, "--out", "-o")):
-    """Fleet metrics: success, autonomous fraction, interventions per hour, MTBI, failure Pareto."""
+def episodes_metrics(log: Path, alpha: float = 0.05, out: Optional[Path] = typer.Option(None, "--out", "-o"),
+                     out_dir: Optional[Path] = typer.Option(None, help="Write fleet_report.md and fleet_report.html here.")):
+    """Fleet metrics: success, autonomous fraction, interventions per hour, MTBI, failure Pareto. Markdown to stdout; --out-dir adds a styled HTML report."""
+    from robotruth.report import Report, Section
     from robotruth.schema import EpisodeLog, fleet_metrics
-    md = fleet_metrics(EpisodeLog(log), alpha).to_markdown()
+    fm = fleet_metrics(EpisodeLog(log), alpha)
+    md = fm.to_markdown()
     console.print(md)
     if out:
         out.write_text(md, encoding="utf-8")
+    if out_dir:
+        rep = Report(f"robotruth fleet report: {log.name}")
+        rep.add(Section("Fleet metrics", md))
+        md_path, html_path = rep.write(out_dir, stem="fleet_report")
+        console.print(f"[green]wrote[/] {md_path} and {html_path}")
 
 
 @episodes_app.command("to-mcap")

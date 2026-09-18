@@ -12,9 +12,9 @@ robotruth is a Python library and a command-line tool. It is not a website and n
 |---|---|---|---|
 | Configuration | Is the policy you evaluated the policy you deployed? | `robotruth contract` | built, validated on 5 public checkpoints |
 | Statistical | Is checkpoint B really better than A? | `robotruth stats` | built |
-| Outcome | Did the episode succeed, when did it fail, and why? | `robotruth episodes`, `robotruth judge` | episodes built, judge in progress |
+| Outcome | Did the episode succeed, when did it fail, and why? | `robotruth episodes`, `robotruth judge` | built; judge BA 0.93 on live rollouts |
 | Drift | Did the cell or the robot unit change under you? | `robotruth fingerprint` | built |
-| Runtime | Is the policy failing right now? | `robotruth guard` | in progress |
+| Runtime | Is the policy failing right now? | `robotruth guard` | built; validated in a live policy loop |
 
 ## Install
 
@@ -66,6 +66,17 @@ robotruth fingerprint diff cell_ref.json cell_today.json
 ```
 
 Unit fingerprints come from a fixed excitation trajectory (`t, cmd_<joint>, meas_<joint>` columns): tracking error, lag, backlash, offset, gain per joint. Cell fingerprints come from one camera frame with printed ArUco markers: marker positions and poses, exposure, sharpness, colour balance.
+
+## Measured on real public data (2026-09-18)
+
+- 33 public datasets, 1,611 real episodes ingested with zero errors; full bundles under `examples/validation/2026-09-18`.
+- Real DAgger deployment log: 129.6 interventions per hour [120.9, 138.7], autonomous fraction 0.000 [0.000, 0.029].
+- Unit fingerprints separate five different physical SO-100/101 arms: backlash 0.107 to 0.478, lag 101 to 135 ms.
+- RoboArena re-analysed: 3,284 pairwise sessions, 15 policies, Bradley-Terry ranking with bootstrap errors.
+- A real 150-trial eval log audited: 2 of 3 comparisons resolved at 95 percent; the third is inside the noise.
+- Live policy loop (ACT in gym-aloha on one A10): judge balanced accuracy 0.929 [0.651, 0.987], zero false alarms; guard conformal false-alarm bound held; video in `examples/validation/2026-09-18/live_guard/`.
+- Found in the wild: lerobot 0.6.1 silently drops an older checkpoint's normalization buffers, taking an 83 percent policy to 0 percent. The contract checker fails closed on exactly this.
+- Judge vision channel without any API key: `pip install "robotruth[open-vlm]"` and use `OpenVLMBackend` on your own GPU. The Claude backend stays optional behind `[vlm]`.
 
 ## Methods and their sources
 

@@ -1,6 +1,6 @@
 [project]
 name = "robotruth"
-version = "0.1.0"
+version = "0.1.1"
 description = "Robot CI: tells a robot lab whether a policy change is real. Contract checks, honest statistics, drift fingerprints and calibrated outcome judging for learned robot policies."
 readme = "README.md"
 requires-python = ">=3.11"
@@ -23,11 +23,12 @@ dependencies = [
 dev = ["pytest>=8.0", "pytest-cov>=5.0", "ruff>=0.5", "mcap>=1.1"]
 mcap = ["mcap>=1.1"]
 vlm = ["anthropic>=0.40"]
+open-vlm = ["transformers>=4.49", "torch>=2.4", "pillow>=10.0", "accelerate>=1.0"]
 gpu = ["torch>=2.4"]
 
 [project.urls]
-Homepage = "https://github.com/robotruth/robotruth"
-Changelog = "https://github.com/robotruth/robotruth/blob/main/CHANGELOG.md"
+Homepage = "https://github.com/mulkakhileshmj/robotruth"
+Changelog = "https://github.com/mulkakhileshmj/robotruth/blob/main/CHANGELOG.md"
 
 [project.scripts]
 robotruth = "robotruth.cli:app"

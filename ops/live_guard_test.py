@@ -35,11 +35,31 @@ def make_env():
 
 
 def load_policy(device: str):
+    """Load the ACT checkpoint plus its normalization statistics.
+
+    lerobot 0.6.1 drops this old checkpoint's normalize_* buffers on load ("Unexpected
+    key(s)" warning) and runs the policy unnormalized: 83 percent reported success becomes
+    0 percent. This is exactly the executable-policy configuration failure the robotruth
+    contract module guards against ("Same Weights, Different Robot"). We reattach the
+    statistics manually from the checkpoint's own safetensors.
+    """
+    import torch
+    from huggingface_hub import hf_hub_download
     from lerobot.policies.act.modeling_act import ACTPolicy
+    from safetensors.torch import load_file
     policy = ACTPolicy.from_pretrained("lerobot/act_aloha_sim_transfer_cube_human")
     policy.to(device)
     policy.eval()
-    return policy
+    sd = load_file(hf_hub_download("lerobot/act_aloha_sim_transfer_cube_human", "model.safetensors"))
+    stats = {
+        "img_mean": sd["normalize_inputs.buffer_observation_images_top.mean"].to(device),
+        "img_std": sd["normalize_inputs.buffer_observation_images_top.std"].to(device),
+        "state_mean": sd["normalize_inputs.buffer_observation_state.mean"].to(device),
+        "state_std": sd["normalize_inputs.buffer_observation_state.std"].to(device),
+        "act_mean": sd["unnormalize_outputs.buffer_action.mean"].to(device),
+        "act_std": sd["unnormalize_outputs.buffer_action.std"].to(device),
+    }
+    return policy, stats
 
 
 def obs_to_batch(obs, device, torch, gain: float = 1.0, state_bias: float = 0.0):
@@ -52,8 +72,9 @@ def obs_to_batch(obs, device, torch, gain: float = 1.0, state_bias: float = 0.0)
     }
 
 
-def run_episode(env, policy, device, torch, perturb_at: int | None = None, chunk_k: int = 10):
+def run_episode(env, policy_and_stats, device, torch, perturb_at: int | None = None, chunk_k: int = 10):
     """Run one live episode. Returns dict with per-step features, actions, success, timing."""
+    policy, stats = policy_and_stats
     obs, _ = env.reset()
     policy.reset()
     feats, acts, t_infer = [], [], []
@@ -62,10 +83,13 @@ def run_episode(env, policy, device, torch, perturb_at: int | None = None, chunk
     for t in range(400):
         gain, bias = (1.35, 0.06) if (perturb_at is not None and t >= perturb_at) else (1.0, 0.0)
         batch = obs_to_batch(obs, device, torch, gain, bias)
+        batch["observation.images.top"] = (batch["observation.images.top"] - stats["img_mean"]) / (stats["img_std"] + 1e-8)
+        batch["observation.state"] = (batch["observation.state"] - stats["state_mean"]) / (stats["state_std"] + 1e-8)
         t0 = time.time()
         with torch.no_grad():
             action = policy.select_action(batch)
         t_infer.append(time.time() - t0)
+        action = action * (stats["act_std"] + 1e-8) + stats["act_mean"]
         a = action.squeeze(0).cpu().numpy()
         state = obs["agent_pos"].astype(np.float32)
         feats.append(np.concatenate([state, a]).astype(np.float32))
@@ -99,7 +123,7 @@ def main() -> int:
     device = "cuda" if torch.cuda.is_available() else "cpu"
     print(f"device={device}")
     env = make_env()
-    policy = load_policy(device)
+    policy = load_policy(device)  # (policy, stats) tuple
 
     from robotruth.guard import GuardMetrics, OfflineReplay, calibrate_guard
     from robotruth.judge import EpisodeSignals, HybridJudge, evaluate, fit_calibrator, fit_fusion

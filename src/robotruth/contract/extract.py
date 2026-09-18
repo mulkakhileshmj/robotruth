@@ -354,6 +354,10 @@ def _openpi(src: Source, spec: ExecSpec) -> ExecSpec:
     if stats:
         spec.action.normalization.stats_sha256 = src.combined_hash(stats)
         spec.action.normalization.stats_source = ",".join(stats)
+        if len(stats) > 1:
+            assets = sorted({Path(n).parent.name for n in stats})
+            spec.notes.append(f"checkpoint ships norm_stats for {len(stats)} robot assets ({', '.join(assets)}); "
+                              "the asset selected at runtime is part of the executable policy. Record it in the overlay as action.normalization.stats_source.")
         st = src.read_json(stats[0]) or {}
         norm = st.get("norm_stats") or st
         act = norm.get("actions") or norm.get("action") or {}

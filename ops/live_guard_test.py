@@ -182,17 +182,26 @@ def main() -> int:
     test = [(sig(e, i), "success" if e["success"] else "failure") for i, e in enumerate(live_nominal[half:])]
     judge_md = "Judge skipped: not enough of both classes in live episodes."
     jm_dict = {}
-    n_fail_total = sum(1 for _, l in train + calib + test if l == "failure")
-    if n_fail_total >= 4 and any(l == "failure" for _, l in train):
-        fusion = fit_fusion(None, train)
-        judge = HybridJudge(None, fusion=fusion)
-        if sum(1 for _, l in calib if l == "failure") >= 3:
-            fit_calibrator(judge, calib, target_error=0.10)
-        else:
-            test = calib + test
-        jm = evaluate(judge, test)
-        judge_md = jm.to_markdown("Judge on live ACT rollouts (action stream only, env success as truth)")
-        jm_dict = jm.to_dict()
+    try:
+        n_fail_total = sum(1 for _, l in train + calib + test if l == "failure")
+        if n_fail_total >= 4 and any(l == "failure" for _, l in train):
+            fusion = fit_fusion(None, train)
+            judge = HybridJudge(None, fusion=fusion)
+            calibrated = False
+            if sum(1 for _, l in calib if l == "failure") >= 5 and sum(1 for _, l in calib if l == "success") >= 5:
+                fit_calibrator(judge, calib, target_error=0.10)
+                calibrated = True
+            else:
+                test = calib + test
+            jm = evaluate(judge, test)
+            judge_md = jm.to_markdown("Judge on live ACT rollouts (action stream only, env success as truth)")
+            note = ("Conformal calibration on a held-out live split." if calibrated else
+                    "Too few live failures for conformal calibration; judge evaluated uncalibrated (threshold 0.5, no abstain). "
+                    "This is the honest small-sample mode: the policy succeeds too often to collect 5 failures per split.")
+            judge_md = judge_md + chr(10) + chr(10) + note
+            jm_dict = jm.to_dict()
+    except Exception as e:  # noqa: BLE001
+        judge_md = f"Judge phase failed non-fatally: {e}"
     (out_dir / "judge_metrics.md").write_text(judge_md, encoding="utf-8")
 
     report = {

@@ -1,0 +1,63 @@
+33 objects, 12.01 GB under checkpoints/pi0_base/
+  [1/33] norm_stats.json                                                    0.0 MB   0.1s
+  [2/33] norm_stats.json                                                    0.0 MB   0.1s
+  [3/33] norm_stats.json                                                    0.0 MB   0.1s
+  [4/33] norm_stats.json                                                    0.0 MB   0.1s
+  [5/33] norm_stats.json                                                    0.0 MB   0.1s
+  [6/33] norm_stats.json                                                    0.0 MB   0.0s
+  [7/33] norm_stats.json                                                    0.0 MB   0.1s
+  [8/33] norm_stats.json                                                    0.0 MB   0.1s
+  [9/33] norm_stats.json                                                    0.0 MB   0.1s
+  [10/33] _CHECKPOINT_METADATA                                               0.0 MB   0.1s
+  [11/33] _METADATA                                                          0.0 MB   0.1s
+  [12/33] _sharding                                                          0.0 MB   0.1s
+  [13/33] 85a4b908b188b86024ebb92e85065acd                                   0.0 MB   0.1s
+  [14/33] manifest.ocdbt                                                     0.0 MB   0.1s
+  [15/33] 085d261a6434a2182b9cf8204a14f929                                 203.1 MB   1.3s
+  [16/33] 148068583a1e9abda7c46b410e91850f                                2240.2 MB  11.2s
+  [17/33] 2f72ae7e4e549700e9d7da10816ed9a4                                  25.2 MB   0.4s
+  [18/33] 309555f68bee51df688c4564b4d66fa5                                   1.0 MB   0.1s
+  [19/33] 450c3d3cb6793dc644c1faf981296eb3                                  35.0 MB   0.2s
+  [20/33] 45c6cbcc04a07d5f963bcf46cba903c4                                3077.8 MB  15.7s
+  [21/33] 4e5aa230b6c768224fb6b77d78d6a1be                                   0.0 MB   0.1s
+  [22/33] 5e775a3f399b6add8c3c8330df655e1b                                   0.0 MB   0.1s
+  [23/33] 5f605020f3dadefc18287f67f369e264                                 132.8 MB   1.0s
+  [24/33] 6629f15468f4d0cc39fb27518b7034a8                                   0.0 MB   0.3s
+  [25/33] 808abec8853273a1e0076b0e42d19910                                   0.0 MB   0.1s
+  [26/33] 8dd6f7ae99ab482b841a1eefa796bb41                                   0.0 MB   0.1s
+  [27/33] 93fcf358bb740a5f61526a13e9a2c769                                 839.5 MB   4.6s
+  [28/33] 99debaeabd76bd2cc1600905278c454b                                 559.7 MB   3.4s
+  [29/33] c5e0b7744afd7fde8b33a80d7f0329bc                                2240.2 MB  11.5s
+  [30/33] d5e67a46c20fea80fd9ccf63a434178c                                 993.8 MB   6.2s
+  [31/33] fc0caaf15ec5a8930e6d0a269722cbe6                                 545.8 MB   4.8s
+  [32/33] fec2923fef877d6b2a636a44d72670b8                                1120.1 MB   8.0s
+  [33/33] manifest.ocdbt                                                     0.0 MB   0.0s
+downloaded or present: 12.01 GB
+{
+  "checkpoint": "pi0_base",
+  "family": "openpi",
+  "detected_family_correct": true,
+  "n_files": 33,
+  "bytes": 12014440489,
+  "weights_sha256": "16dcda06202b29a70ecf54836419483de7cb1916b0c2d6185eb3cebe7d70d0ea",
+  "weights_bytes": 12014416199,
+  "weights_files_counted": 24,
+  "norm_type": "quantile",
+  "stats_sha256": "9a6de6e452e739c3145283184fd747aa250348044b72b99240458671693db994",
+  "stats_source": "assets/arx/norm_stats.json,assets/arx_mobile/norm_stats.json,assets/droid/norm_stats.json,assets/fibocom_mobile/norm_stats.json,assets/franka/norm_stats.json,assets/trossen/norm_stats.json,assets/trossen_mobile/norm_stats.json,assets/ur5e/norm_stats.json,assets/ur5e_dual/norm_stats.json",
+  "action_dim": 32,
+  "unverified": [
+    "action.chunk_size",
+    "action.control_hz",
+    "action.gripper_convention",
+    "action.mode",
+    "action.space",
+    "embodiment.robot",
+    "observation.preprocessing_sha256",
+    "observation.state_dim"
+  ],
+  "notes": [
+    "openpi: action horizon, control rate and cameras are defined in code (config.py); supply them via an overlay."
+  ],
+  "self_check": "FAIL: 9 fatal, 0 warn, 27 checks"
+}

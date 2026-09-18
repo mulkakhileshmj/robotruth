@@ -1,0 +1,69 @@
+device=cuda
+Traceback (most recent call last):
+  File "/home/ubuntu/rt_main/ops/live_guard_test.py", line 193, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/home/ubuntu/rt_main/ops/live_guard_test.py", line 101, in main
+    env = make_env()
+          ^^^^^^^^^^
+  File "/home/ubuntu/rt_main/ops/live_guard_test.py", line 34, in make_env
+    return gym.make("gym_aloha/AlohaTransferCube-v0", obs_type="pixels_agent_pos", max_episode_steps=400)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/rt_main/.venv/lib/python3.12/site-packages/gymnasium/envs/registration.py", line 697, in make
+    env_creator = load_env_creator(env_spec.entry_point)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/rt_main/.venv/lib/python3.12/site-packages/gymnasium/envs/registration.py", line 545, in load_env_creator
+    mod = importlib.import_module(mod_name)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/.local/share/uv/python/cpython-3.12.14-linux-x86_64-gnu/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/home/ubuntu/rt_main/.venv/lib/python3.12/site-packages/gym_aloha/env.py", line 3, in <module>
+    from dm_control import mujoco
+  File "/home/ubuntu/rt_main/.venv/lib/python3.12/site-packages/dm_control/mujoco/__init__.py", line 18, in <module>
+    from dm_control.mujoco.engine import action_spec
+  File "/home/ubuntu/rt_main/.venv/lib/python3.12/site-packages/dm_control/mujoco/engine.py", line 41, in <module>
+    from dm_control import _render
+  File "/home/ubuntu/rt_main/.venv/lib/python3.12/site-packages/dm_control/_render/__init__.py", line 90, in <module>
+    Renderer = import_func()
+               ^^^^^^^^^^^^^
+  File "/home/ubuntu/rt_main/.venv/lib/python3.12/site-packages/dm_control/_render/__init__.py", line 36, in _import_egl
+    from dm_control._render.pyopengl.egl_renderer import EGLContext
+  File "/home/ubuntu/rt_main/.venv/lib/python3.12/site-packages/dm_control/_render/pyopengl/egl_renderer.py", line 39, in <module>
+    from dm_control._render.pyopengl import egl_ext as EGL
+  File "/home/ubuntu/rt_main/.venv/lib/python3.12/site-packages/dm_control/_render/pyopengl/egl_ext.py", line 29, in <module>
+    from OpenGL import EGL
+  File "/home/ubuntu/rt_main/.venv/lib/python3.12/site-packages/OpenGL/EGL/__init__.py", line 2, in <module>
+    from OpenGL.raw.EGL._types import *
+  File "/home/ubuntu/rt_main/.venv/lib/python3.12/site-packages/OpenGL/raw/EGL/_types.py", line 87, in <module>
+    raw_eglQueryString = _p.PLATFORM.EGL.eglQueryString
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'eglQueryString'
+libEGL warning: failed to open /dev/dri/renderD129: Permission denied
+
+libEGL warning: failed to open /dev/dri/card1: Permission denied
+
+libEGL warning: failed to open /dev/dri/renderD128: Permission denied
+
+libEGL warning: failed to open /dev/dri/card0: Permission denied
+
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+WARNING:huggingface_hub.utils._http:Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+device=cuda
+Downloading: "https://download.pytorch.org/models/resnet18-f37072fd.pth" to /home/ubuntu/.cache/torch/hub/checkpoints/resnet18-f37072fd.pth
+  0%|          | 0.00/44.7M [00:00<?, ?B/s] 88%|████████▊ | 39.4M/44.7M [00:00<00:00, 413MB/s]100%|██████████| 44.7M/44.7M [00:00<00:00, 415MB/s]
+WARNING:root:Unexpected key(s) when loading model: ['normalize_inputs.buffer_observation_images_top.mean', 'normalize_inputs.buffer_observation_images_top.std', 'normalize_inputs.buffer_observation_state.mean', 'normalize_inputs.buffer_observation_state.std', 'normalize_targets.buffer_action.mean', 'normalize_targets.buffer_action.std', 'unnormalize_outputs.buffer_action.mean', 'unnormalize_outputs.buffer_action.std']
+cal 1/24: success=False steps=400 infer=1ms
+cal 2/24: success=False steps=400 infer=1ms
+cal 3/24: success=False steps=400 infer=1ms
+cal 4/24: success=False steps=400 infer=1ms
+cal 5/24: success=False steps=400 infer=1ms
+cal 6/24: success=False steps=400 infer=1ms
+cal 7/24: success=False steps=400 infer=1ms
+cal 8/24: success=False steps=400 infer=1ms

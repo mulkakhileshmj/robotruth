@@ -1,0 +1,153 @@
+{
+  "policy": "lerobot/act_aloha_sim_transfer_cube_human",
+  "env": "gym_aloha/AlohaTransferCube-v0",
+  "device": "cuda",
+  "n_cal": 24,
+  "n_live": 24,
+  "n_pert": 10,
+  "cal_success_rate": 0.875,
+  "live_success_rate": 0.7083333333333334,
+  "infer_ms_mean": 0.6208611990459539,
+  "infer_ms_p95": 0.5589835784014534,
+  "guard_calibration": {
+    "n_nominal": 21,
+    "n_fit": 10,
+    "n_calibration": 11,
+    "alpha": 0.05,
+    "method": "max",
+    "split": 0.5,
+    "inputs": [
+      "features",
+      "actions"
+    ],
+    "calibrator": {
+      "alpha": 0.05,
+      "method": "max",
+      "n_bins": 4,
+      "horizon": 326,
+      "thresholds": [
+        12.817932025661191
+      ],
+      "bin_edges": [
+        0,
+        326
+      ],
+      "saturated": true,
+      "achievable_alpha": 0.08333333333333333,
+      "n_calibration": 11,
+      "calibration_alarm_fraction": 0.0
+    },
+    "saturated": true,
+    "warning": "too few calibration episodes for alpha=0.05; smallest certifiable alpha is 0.083"
+  },
+  "guard_metrics": {
+    "alpha": 0.05,
+    "n_episodes": 34,
+    "n_unlabelled": 10,
+    "n_failures": 7,
+    "n_detected": 0,
+    "detection_rate": {
+      "estimate": 0.0,
+      "lower": 0.0,
+      "upper": 0.35433043506668743,
+      "n": 7
+    },
+    "lead_time_mean_s": null,
+    "lead_time_median_s": null,
+    "n_hard_stops_on_failures": 0,
+    "n_nominal": 17,
+    "nominal_hours": 0.027049999999999998,
+    "n_false_alarms": 0,
+    "false_alarms_per_hour": 0.0,
+    "false_alarms_per_hour_ci": [
+      0.0,
+      136.37262307260391
+    ],
+    "n_nominal_with_alarm": 0,
+    "nominal_episode_alarm_rate": {
+      "estimate": 0.0,
+      "lower": 0.0,
+      "upper": 0.1843181350088518,
+      "n": 17
+    },
+    "n_hard_stops_on_nominal": 0,
+    "notes": [
+      "10 episodes without a truth label were ignored."
+    ]
+  },
+  "pert_detected_after_onset": 0,
+  "pert_total": 10,
+  "pert_alert_before_onset": 0,
+  "alerts_on_successes": 0,
+  "success_hours": 0.027049999999999998,
+  "judge": {
+    "n": 24,
+    "n_decided": 24,
+    "n_abstain": 0,
+    "hours": 0.04247222222222222,
+    "abstain_rate": {
+      "estimate": 0.0,
+      "lower": 0.0,
+      "upper": 0.13797620467498017,
+      "n": 24
+    },
+    "coverage": {
+      "estimate": 1.0,
+      "lower": 0.8620237953250198,
+      "upper": 1.0,
+      "n": 24
+    },
+    "accuracy": {
+      "estimate": 0.9583333333333334,
+      "lower": 0.7975819352134406,
+      "upper": 0.9926065438344942,
+      "n": 24
+    },
+    "success_recall": {
+      "estimate": 1.0,
+      "lower": 0.8156818649911483,
+      "upper": 1.0,
+      "n": 17
+    },
+    "failure_recall": {
+      "estimate": 0.8571428571428571,
+      "lower": 0.4868721707256811,
+      "upper": 0.9743203756552565,
+      "n": 7
+    },
+    "failure_precision": {
+      "estimate": 1.0,
+      "lower": 0.6096657120978346,
+      "upper": 1.0,
+      "n": 6
+    },
+    "balanced_accuracy": 0.9285714285714286,
+    "balanced_accuracy_bounds": [
+      0.6512770178584146,
+      0.9871601878276283
+    ],
+    "success_bias": 0.04166666666666663,
+    "false_alarms": 0,
+    "false_alarm_rate": {
+      "estimate": 0.0,
+      "lower": 0.0,
+      "upper": 0.1843181350088518,
+      "n": 17
+    },
+    "false_alarms_per_hour": 0.0,
+    "false_alarms_per_hour_bounds": [
+      0.0,
+      73.77547326711401
+    ],
+    "per_task": {
+      "aloha_transfer_cube": {
+        "n": 24,
+        "n_abstain": 0,
+        "balanced_accuracy": 0.9285714285714286,
+        "false_alarms": 0,
+        "success_bias": 0.04166666666666663
+      }
+    },
+    "alpha": 0.05
+  }
+}

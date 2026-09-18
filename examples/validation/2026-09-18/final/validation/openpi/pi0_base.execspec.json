@@ -1,0 +1,95 @@
+{
+  "spec_version": "0.1",
+  "created_at": "2026-09-18T14:53:54.018053+00:00",
+  "role": "evaluated",
+  "policy": {
+    "name": "pi0_base",
+    "family": "openpi",
+    "weights_sha256": "16dcda06202b29a70ecf54836419483de7cb1916b0c2d6185eb3cebe7d70d0ea",
+    "weights_files": [
+      "params/_CHECKPOINT_METADATA",
+      "params/_METADATA",
+      "params/_sharding",
+      "params/d/85a4b908b188b86024ebb92e85065acd",
+      "params/manifest.ocdbt",
+      "params/ocdbt.process_0/d/085d261a6434a2182b9cf8204a14f929",
+      "params/ocdbt.process_0/d/148068583a1e9abda7c46b410e91850f",
+      "params/ocdbt.process_0/d/2f72ae7e4e549700e9d7da10816ed9a4",
+      "params/ocdbt.process_0/d/309555f68bee51df688c4564b4d66fa5",
+      "params/ocdbt.process_0/d/450c3d3cb6793dc644c1faf981296eb3",
+      "params/ocdbt.process_0/d/45c6cbcc04a07d5f963bcf46cba903c4",
+      "params/ocdbt.process_0/d/4e5aa230b6c768224fb6b77d78d6a1be",
+      "params/ocdbt.process_0/d/5e775a3f399b6add8c3c8330df655e1b",
+      "params/ocdbt.process_0/d/5f605020f3dadefc18287f67f369e264",
+      "params/ocdbt.process_0/d/6629f15468f4d0cc39fb27518b7034a8",
+      "params/ocdbt.process_0/d/808abec8853273a1e0076b0e42d19910",
+      "params/ocdbt.process_0/d/8dd6f7ae99ab482b841a1eefa796bb41",
+      "params/ocdbt.process_0/d/93fcf358bb740a5f61526a13e9a2c769",
+      "params/ocdbt.process_0/d/99debaeabd76bd2cc1600905278c454b",
+      "params/ocdbt.process_0/d/c5e0b7744afd7fde8b33a80d7f0329bc",
+      "params/ocdbt.process_0/d/d5e67a46c20fea80fd9ccf63a434178c",
+      "params/ocdbt.process_0/d/fc0caaf15ec5a8930e6d0a269722cbe6",
+      "params/ocdbt.process_0/d/fec2923fef877d6b2a636a44d72670b8",
+      "params/ocdbt.process_0/manifest.ocdbt"
+    ],
+    "weights_bytes": 12014416199,
+    "config_sha256": null,
+    "source_path": "/home/ubuntu/openpi_ckpts/checkpoints/pi0_base"
+  },
+  "action": {
+    "space": "unknown",
+    "mode": "unknown",
+    "dim": 32,
+    "units": null,
+    "chunk_size": null,
+    "n_action_steps": null,
+    "control_hz": null,
+    "gripper_convention": null,
+    "normalization": {
+      "type": "quantile",
+      "stats_sha256": "9a6de6e452e739c3145283184fd747aa250348044b72b99240458671693db994",
+      "stats_source": "assets/arx/norm_stats.json,assets/arx_mobile/norm_stats.json,assets/droid/norm_stats.json,assets/fibocom_mobile/norm_stats.json,assets/franka/norm_stats.json,assets/trossen/norm_stats.json,assets/trossen_mobile/norm_stats.json,assets/ur5e/norm_stats.json,assets/ur5e_dual/norm_stats.json",
+      "action_dim": 32
+    }
+  },
+  "observation": {
+    "cameras": [],
+    "state_dim": null,
+    "state_keys": [],
+    "preprocessing_sha256": null,
+    "image_resize": null,
+    "normalization": {
+      "type": "quantile",
+      "stats_sha256": "9a6de6e452e739c3145283184fd747aa250348044b72b99240458671693db994",
+      "stats_source": null,
+      "action_dim": null
+    }
+  },
+  "embodiment": {
+    "robot": "unknown",
+    "unit_id": null,
+    "controller": null,
+    "controller_hz": null
+  },
+  "runtime": {
+    "dtype": null,
+    "device": null,
+    "framework": "openpi",
+    "framework_version": null,
+    "export_format": null,
+    "inference_hz": null
+  },
+  "notes": [
+    "openpi: action horizon, control rate and cameras are defined in code (config.py); supply them via an overlay."
+  ],
+  "unverified": [
+    "action.chunk_size",
+    "action.control_hz",
+    "action.gripper_convention",
+    "action.mode",
+    "action.space",
+    "embodiment.robot",
+    "observation.preprocessing_sha256",
+    "observation.state_dim"
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "checkpoint": "pi0_base",
+  "family": "openpi",
+  "detected_family_correct": true,
+  "n_files": 33,
+  "bytes": 12014440489,
+  "weights_sha256": "16dcda06202b29a70ecf54836419483de7cb1916b0c2d6185eb3cebe7d70d0ea",
+  "weights_bytes": 12014416199,
+  "weights_files_counted": 24,
+  "norm_type": "quantile",
+  "stats_sha256": "9a6de6e452e739c3145283184fd747aa250348044b72b99240458671693db994",
+  "stats_source": "assets/arx/norm_stats.json,assets/arx_mobile/norm_stats.json,assets/droid/norm_stats.json,assets/fibocom_mobile/norm_stats.json,assets/franka/norm_stats.json,assets/trossen/norm_stats.json,assets/trossen_mobile/norm_stats.json,assets/ur5e/norm_stats.json,assets/ur5e_dual/norm_stats.json",
+  "action_dim": 32,
+  "unverified": [
+    "action.chunk_size",
+    "action.control_hz",
+    "action.gripper_convention",
+    "action.mode",
+    "action.space",
+    "embodiment.robot",
+    "observation.preprocessing_sha256",
+    "observation.state_dim"
+  ],
+  "notes": [
+    "openpi: action horizon, control rate and cameras are defined in code (config.py); supply them via an overlay."
+  ],
+  "self_check": "FAIL: 9 fatal, 0 warn, 27 checks"
+}

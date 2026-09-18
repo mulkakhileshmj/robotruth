@@ -1,0 +1,83 @@
+libEGL warning: failed to open /dev/dri/renderD129: Permission denied
+
+libEGL warning: failed to open /dev/dri/card1: Permission denied
+
+libEGL warning: failed to open /dev/dri/renderD128: Permission denied
+
+libEGL warning: failed to open /dev/dri/card0: Permission denied
+
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+WARNING:huggingface_hub.utils._http:Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+WARNING:root:Unexpected key(s) when loading model: ['normalize_inputs.buffer_observation_images_top.mean', 'normalize_inputs.buffer_observation_images_top.std', 'normalize_inputs.buffer_observation_state.mean', 'normalize_inputs.buffer_observation_state.std', 'normalize_targets.buffer_action.mean', 'normalize_targets.buffer_action.std', 'unnormalize_outputs.buffer_action.mean', 'unnormalize_outputs.buffer_action.std']
+device=cuda
+cal 1/24: success=True steps=270 infer=2ms
+cal 2/24: success=True steps=315 infer=1ms
+cal 3/24: success=False steps=400 infer=1ms
+cal 4/24: success=True steps=313 infer=1ms
+cal 5/24: success=True steps=283 infer=1ms
+cal 6/24: success=True steps=277 infer=1ms
+cal 7/24: success=True steps=304 infer=1ms
+cal 8/24: success=True steps=339 infer=1ms
+cal 9/24: success=True steps=288 infer=1ms
+cal 10/24: success=True steps=297 infer=1ms
+cal 11/24: success=True steps=285 infer=1ms
+cal 12/24: success=True steps=248 infer=1ms
+cal 13/24: success=True steps=286 infer=1ms
+cal 14/24: success=True steps=275 infer=1ms
+cal 15/24: success=True steps=288 infer=1ms
+cal 16/24: success=True steps=336 infer=1ms
+cal 17/24: success=True steps=298 infer=1ms
+cal 18/24: success=True steps=304 infer=1ms
+cal 19/24: success=False steps=400 infer=1ms
+cal 20/24: success=True steps=320 infer=1ms
+cal 21/24: success=True steps=271 infer=1ms
+cal 22/24: success=True steps=268 infer=1ms
+cal 23/24: success=True steps=292 infer=1ms
+cal 24/24: success=True steps=305 infer=1ms
+calibration: 22/24 successes used as nominal
+live 1/34: success=True alert=None level=ok
+live 2/34: success=False alert=2.68 level=handover
+live 3/34: success=True alert=None level=ok
+live 4/34: success=False alert=None level=ok
+live 5/34: success=True alert=None level=ok
+live 6/34: success=True alert=None level=ok
+live 7/34: success=True alert=None level=ok
+live 8/34: success=True alert=None level=ok
+live 9/34: success=True alert=None level=ok
+live 10/34: success=True alert=None level=ok
+live 11/34: success=True alert=None level=ok
+live 12/34: success=False alert=None level=ok
+live 13/34: success=True alert=None level=ok
+live 14/34: success=True alert=None level=ok
+live 15/34: success=True alert=None level=ok
+live 16/34: success=True alert=None level=ok
+live 17/34: success=False alert=2.84 level=handover
+live 18/34: success=True alert=None level=ok
+live 19/34: success=True alert=None level=ok
+live 20/34: success=True alert=None level=ok
+live 21/34: success=True alert=None level=ok
+live 22/34: success=True alert=None level=ok
+live 23/34: success=True alert=None level=ok
+live 24/34: success=True alert=None level=ok
+pert 25/34: success=True alert=None level=ok
+pert 26/34: success=False alert=6.04 level=handover
+pert 27/34: success=True alert=None level=ok
+pert 28/34: success=False alert=5.78 level=handover
+pert 29/34: success=True alert=None level=ok
+pert 30/34: success=True alert=None level=ok
+pert 31/34: success=False alert=5.96 level=handover
+pert 32/34: success=False alert=5.92 level=handover
+pert 33/34: success=False alert=5.74 level=handover
+pert 34/34: success=True alert=None level=ok
+Traceback (most recent call last):
+  File "/home/ubuntu/rt_main/ops/live_guard_test.py", line 217, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/home/ubuntu/rt_main/ops/live_guard_test.py", line 190, in main
+    fit_calibrator(judge, calib, target_error=0.10)
+  File "/home/ubuntu/rt_main/src/robotruth/judge/judge.py", line 206, in fit_calibrator
+    cal = Calibrator().fit(scores, labels, target_error=target_error, **kw)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/rt_main/src/robotruth/judge/calibrate.py", line 128, in fit
+    raise ValueError(f"need at least {min_per_class} calibration episodes per class, got {n_s} successes and {n_f} failures")
+ValueError: need at least 5 calibration episodes per class, got 9 successes and 3 failures

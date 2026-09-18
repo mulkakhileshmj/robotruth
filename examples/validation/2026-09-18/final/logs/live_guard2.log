@@ -1,0 +1,89 @@
+libEGL warning: failed to open /dev/dri/renderD129: Permission denied
+
+libEGL warning: failed to open /dev/dri/card1: Permission denied
+
+libEGL warning: failed to open /dev/dri/renderD128: Permission denied
+
+libEGL warning: failed to open /dev/dri/card0: Permission denied
+
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+WARNING:huggingface_hub.utils._http:Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+WARNING:root:Unexpected key(s) when loading model: ['normalize_inputs.buffer_observation_images_top.mean', 'normalize_inputs.buffer_observation_images_top.std', 'normalize_inputs.buffer_observation_state.mean', 'normalize_inputs.buffer_observation_state.std', 'normalize_targets.buffer_action.mean', 'normalize_targets.buffer_action.std', 'unnormalize_outputs.buffer_action.mean', 'unnormalize_outputs.buffer_action.std']
+device=cuda
+cal 1/24: success=True steps=285 infer=2ms
+cal 2/24: success=True steps=304 infer=1ms
+cal 3/24: success=True steps=269 infer=1ms
+cal 4/24: success=True steps=343 infer=1ms
+cal 5/24: success=True steps=254 infer=1ms
+cal 6/24: success=True steps=303 infer=1ms
+cal 7/24: success=False steps=400 infer=1ms
+cal 8/24: success=True steps=264 infer=1ms
+cal 9/24: success=True steps=321 infer=1ms
+cal 10/24: success=True steps=288 infer=1ms
+cal 11/24: success=True steps=280 infer=1ms
+cal 12/24: success=True steps=282 infer=1ms
+cal 13/24: success=True steps=229 infer=1ms
+cal 14/24: success=True steps=283 infer=1ms
+cal 15/24: success=False steps=400 infer=1ms
+cal 16/24: success=True steps=281 infer=1ms
+cal 17/24: success=True steps=326 infer=1ms
+cal 18/24: success=True steps=292 infer=1ms
+cal 19/24: success=True steps=299 infer=1ms
+cal 20/24: success=True steps=240 infer=1ms
+cal 21/24: success=False steps=400 infer=1ms
+cal 22/24: success=True steps=282 infer=1ms
+cal 23/24: success=True steps=281 infer=1ms
+cal 24/24: success=True steps=289 infer=1ms
+calibration: 21/24 successes used as nominal
+live 1/34: success=True alert=None level=ok
+live 2/34: success=True alert=None level=ok
+live 3/34: success=True alert=None level=ok
+live 4/34: success=False alert=None level=ok
+live 5/34: success=True alert=None level=ok
+live 6/34: success=True alert=None level=ok
+live 7/34: success=False alert=None level=ok
+live 8/34: success=False alert=None level=ok
+live 9/34: success=True alert=None level=ok
+live 10/34: success=True alert=None level=ok
+live 11/34: success=True alert=None level=ok
+live 12/34: success=False alert=None level=ok
+live 13/34: success=True alert=None level=ok
+live 14/34: success=True alert=None level=ok
+live 15/34: success=True alert=None level=ok
+live 16/34: success=True alert=None level=ok
+live 17/34: success=True alert=None level=ok
+live 18/34: success=False alert=None level=ok
+live 19/34: success=True alert=None level=ok
+live 20/34: success=True alert=None level=ok
+live 21/34: success=True alert=None level=ok
+live 22/34: success=False alert=None level=ok
+live 23/34: success=True alert=None level=ok
+live 24/34: success=False alert=None level=ok
+pert 25/34: success=False alert=None level=ok
+pert 26/34: success=True alert=None level=ok
+pert 27/34: success=True alert=None level=ok
+pert 28/34: success=False alert=None level=ok
+pert 29/34: success=True alert=None level=ok
+pert 30/34: success=True alert=None level=ok
+pert 31/34: success=True alert=None level=ok
+pert 32/34: success=False alert=None level=ok
+pert 33/34: success=True alert=None level=ok
+pert 34/34: success=False alert=None level=ok
+{
+  "policy": "lerobot/act_aloha_sim_transfer_cube_human",
+  "env": "gym_aloha/AlohaTransferCube-v0",
+  "device": "cuda",
+  "n_cal": 24,
+  "n_live": 24,
+  "n_pert": 10,
+  "cal_success_rate": 0.875,
+  "live_success_rate": 0.7083333333333334,
+  "infer_ms_mean": 0.6208611990459539,
+  "infer_ms_p95": 0.5589835784014534,
+  "pert_detected_after_onset": 0,
+  "pert_total": 10,
+  "pert_alert_before_onset": 0,
+  "alerts_on_successes": 0,
+  "success_hours": 0.027049999999999998
+}
+live guard test done

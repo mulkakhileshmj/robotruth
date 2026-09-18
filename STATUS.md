@@ -1,6 +1,6 @@
 # robotruth status
 
-Updated 2026-09-18 (evening).
+Updated 2026-09-18 (night). Published to https://github.com/mulkakhileshmj/robotruth.
 
 ## Rules for this project
 
@@ -40,6 +40,13 @@ Updated 2026-09-18 (evening).
 - LeRobot ingest (v2 and v3, DROID aliases, success and intervention columns); validation runner over any folder of datasets.
 - Real-data validation (2026-09-18, examples/validation/2026-09-18): 33 public datasets, 1,611 episodes, zero errors. Headlines: 129.6 interventions/hour [120.9, 138.7] on a real DAgger log; unit fingerprints separate five physical SO-100/101 arms (backlash 0.107 to 0.478, lag 101 to 135 ms); RoboArena 3,284 sessions re-ranked with Bradley-Terry; SO101 eval audit resolves 2 of 3 comparisons and flags the third as noise; action-only judge honestly abstains on DROID (semantic failures need the VLM channel).
 - v0.1.0 wheel and sdist built on the box, clean-install verified (`robotruth --version` works in a fresh venv).
+
+- Live policy-loop validation (2026-09-18, examples/validation/2026-09-18/final): a real ACT policy ran live in gym-aloha on the box with the guard attached to every step and the judge scoring outcomes against the simulator's truth.
+  - The loop itself surfaced the contract failure class in the wild: lerobot 0.6.1 silently drops this checkpoint's normalization buffers on load, turning an 83 percent policy into 0 percent with only a log warning. Reattaching the statistics restored ~87 percent. This is "Same Weights, Different Robot" reproduced by accident.
+  - Judge on 24 live episodes (action stream only): balanced accuracy 0.929 [0.651, 0.987], failure recall 6/7, zero false alarms. Contrast with DROID, where it abstains: timeouts here are kinematically visible.
+  - Guard: zero false alarms on successes in both runs (the conformal alpha bound held). Detection varied with the calibration draw: run 1 caught 4/4 policy-breaking perturbed episodes at 2.7 to 3.0 s after onset plus 2 natural failures; run 2's draw set a higher threshold and caught 0/7. Honest conclusion: with ~20 calibration episodes the max-method threshold is noisy; more nominal episodes or the Bonferroni method are needed for stable detection.
+  - openpi extractor validated on the real pi0_base orbax checkpoint (12 GB hashed; norm_stats for 9 robot assets found and flagged as part of the executable policy).
+  - Video of the live arm: examples/validation/2026-09-18/live_guard/act_aloha_live_compat.mp4.
 
 ## Next
 

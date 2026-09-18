@@ -24,7 +24,10 @@ def _make_backend(backend: str, model: Optional[str], mock_success_prob: float, 
         return MockBackend(success_prob=mock_success_prob, jitter=0.2)
     if b == "anthropic":
         return AnthropicBackend(model=model or DEFAULT_MODEL, n_frames=n_frames)
-    raise typer.BadParameter("backend must be mock or anthropic")
+    if b == "open":
+        from .open_vlm import DEFAULT_OPEN_MODEL, OpenVLMBackend
+        return OpenVLMBackend(model_id=model or DEFAULT_OPEN_MODEL, n_frames=n_frames)
+    raise typer.BadParameter("backend must be mock, anthropic or open")
 
 
 def _make_judge(backend: str, model: Optional[str], fusion: Optional[Path], calibrator: Optional[Path],
@@ -88,8 +91,8 @@ def judge_calibrate(scores: Path = typer.Argument(..., help="CSV with columns sc
                   f"cal abstain={rep.cal_report.get('abstain_rate', 0):.3f} cal error={rep.cal_report.get('selective_error', 0):.3f}{extra}")
 
 
-_backend_opt = typer.Option("mock", help="mock | anthropic")
-_model_opt = typer.Option(None, help="Model id for the anthropic backend (default claude-opus-5).")
+_backend_opt = typer.Option("mock", help="mock | anthropic | open (open-weight VLM on your GPU, no API key)")
+_model_opt = typer.Option(None, help="Model id: anthropic backend default claude-opus-5; open backend default Qwen/Qwen2.5-VL-7B-Instruct.")
 _fusion_opt = typer.Option(None, help="FusionModel JSON (from robotruth.judge.fit_fusion).")
 _cal_opt = typer.Option(None, help="Calibrator JSON (from `judge calibrate`).")
 _mock_opt = typer.Option(0.5, help="Constant success probability for the mock backend.")

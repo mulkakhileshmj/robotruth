@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="430" viewBox="0 0 960 430" role="img" aria-label="robotruth pipeline: inputs on the left, five modules in the middle, decisions on the right">
+  <defs>
+    <linearGradient id="mod" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1e293b"/>
+      <stop offset="1" stop-color="#0f172a"/>
+    </linearGradient>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <style>
+    .lane { font: 600 13px -apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; fill: #64748b; letter-spacing: 2px; }
+    .box  { fill: url(#mod); stroke: #334155; stroke-width: 1.5; rx: 10; }
+    .in   { fill: #f1f5f9; stroke: #cbd5e1; stroke-width: 1.5; rx: 8; }
+    .t    { font: 600 15px -apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; fill: #f8fafc; }
+    .s    { font: 12px -apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; fill: #94a3b8; }
+    .ti   { font: 600 14px -apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; fill: #0f172a; }
+    .si   { font: 11.5px -apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; fill: #475569; }
+    .cmd  { font: 12px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; fill: #38bdf8; }
+    .edge { stroke: #64748b; stroke-width: 1.6; fill: none; marker-end: url(#arr); }
+    .out  { fill: #0c4a6e; stroke: #0ea5e9; stroke-width: 1.5; rx: 10; }
+  </style>
+
+  <text class="lane" x="60" y="28">WHAT YOU HAVE</text>
+  <text class="lane" x="400" y="28">WHAT ROBOTRUTH DOES</text>
+  <text class="lane" x="790" y="28">WHAT YOU DECIDE</text>
+
+  <!-- inputs -->
+  <rect class="in" x="40" y="46"  width="220" height="52" rx="8"/>
+  <text class="ti" x="56" y="68">Checkpoints</text><text class="si" x="56" y="86">LeRobot, openpi, GR00T, custom</text>
+  <rect class="in" x="40" y="118" width="220" height="52" rx="8"/>
+  <text class="ti" x="56" y="140">Episode logs</text><text class="si" x="56" y="158">LeRobot datasets, JSONL, MCAP</text>
+  <rect class="in" x="40" y="190" width="220" height="52" rx="8"/>
+  <text class="ti" x="56" y="212">Camera frames + joint logs</text><text class="si" x="56" y="230">one photo, one excitation run</text>
+  <rect class="in" x="40" y="262" width="220" height="52" rx="8"/>
+  <text class="ti" x="56" y="284">A live policy loop</text><text class="si" x="56" y="302">features + action chunks per step</text>
+  <rect class="in" x="40" y="334" width="220" height="52" rx="8"/>
+  <text class="ti" x="56" y="356">Reported numbers</text><text class="si" x="56" y="374">successes / trials per policy</text>
+
+  <!-- modules -->
+  <rect class="box" x="330" y="46" width="330" height="52" rx="10"/>
+  <text class="t" x="346" y="66">Contract</text><text class="cmd" x="346" y="86">robotruth contract extract | check</text>
+  <text class="s" x="470" y="66">fails closed on config drift</text>
+
+  <rect class="box" x="330" y="118" width="330" height="52" rx="10"/>
+  <text class="t" x="346" y="138">Episodes + Judge</text><text class="cmd" x="346" y="158">robotruth episodes | judge</text>
+  <text class="s" x="490" y="138">outcomes, interventions</text>
+
+  <rect class="box" x="330" y="190" width="330" height="52" rx="10"/>
+  <text class="t" x="346" y="210">Fingerprint</text><text class="cmd" x="346" y="230">robotruth fingerprint unit | cell | diff</text>
+  <text class="s" x="450" y="210">catches cell and unit drift</text>
+
+  <rect class="box" x="330" y="262" width="330" height="52" rx="10"/>
+  <text class="t" x="346" y="282">Guard</text><text class="cmd" x="346" y="302">robotruth guard calibrate | replay</text>
+  <text class="s" x="410" y="282">conformal runtime monitor</text>
+
+  <rect class="box" x="330" y="334" width="330" height="52" rx="10"/>
+  <text class="t" x="346" y="354">Statistics</text><text class="cmd" x="346" y="374">robotruth stats compare | audit | plan</text>
+  <text class="s" x="430" y="354">intervals, sequential tests</text>
+
+  <!-- outputs -->
+  <rect class="out" x="730" y="118" width="190" height="66" rx="10"/>
+  <text class="t" x="746" y="143">Ship it or not</text>
+  <text class="s" x="746" y="163" fill="#bae6fd">PASS / WARN / FAIL,</text>
+  <text class="s" x="746" y="178" fill="#bae6fd">Markdown + HTML reports</text>
+
+  <rect class="out" x="730" y="238" width="190" height="66" rx="10"/>
+  <text class="t" x="746" y="263">Stop, retry, handover</text>
+  <text class="s" x="746" y="283" fill="#bae6fd">live events with a bounded</text>
+  <text class="s" x="746" y="298" fill="#bae6fd">false-alarm rate</text>
+
+  <!-- edges -->
+  <path class="edge" d="M260 72 H330"/>
+  <path class="edge" d="M260 144 H330"/>
+  <path class="edge" d="M260 216 H330"/>
+  <path class="edge" d="M260 288 H330"/>
+  <path class="edge" d="M260 360 H330"/>
+  <path class="edge" d="M660 72 C700 72 700 140 730 146"/>
+  <path class="edge" d="M660 144 H730"/>
+  <path class="edge" d="M660 216 C700 216 700 165 730 160"/>
+  <path class="edge" d="M660 360 C700 360 700 180 730 172"/>
+  <path class="edge" d="M660 288 H730 M660 288 C700 288 700 271 730 271"/>
+</svg>

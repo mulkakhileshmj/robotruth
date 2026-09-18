@@ -1,113 +1,205 @@
-# robotruth
+<div align="center">
 
-Robot CI for learned robot policies. It tells a lab whether a policy change is real.
+<img src="docs/assets/banner.svg" alt="robotruth: Robot CI for learned robot policies" width="100%"/>
 
-The problem it attacks: physical AI cannot cheaply and trustworthily tell whether a change made a robot better or worse. Zero of 13 audited real-robot VLA papers report a confidence interval. A 50-trial success rate carries a 20 to 30 point interval. Moving a camera shifts results by 22 points. The same weights with different normalization metadata go from 28/28 to 2/28. A second identical arm drops a policy from 98 to 18 percent. See `../physical_ai_research/ROOT_PROBLEM_MEMO.md` for the evidence.
+<br/>
 
-robotruth is a Python library and a command-line tool. It is not a website and not a model.
+[![CI](https://github.com/mulkakhileshmj/robotruth/actions/workflows/ci.yml/badge.svg)](https://github.com/mulkakhileshmj/robotruth/actions/workflows/ci.yml)
+[![Release](https://img.shields.io/github/v/release/mulkakhileshmj/robotruth?color=38bdf8)](https://github.com/mulkakhileshmj/robotruth/releases)
+[![License](https://img.shields.io/badge/license-Apache%202.0-818cf8.svg)](LICENSE)
+[![Python](https://img.shields.io/badge/python-3.11%20%7C%203.12-3776ab.svg)](pyproject.toml)
+[![Tests](https://img.shields.io/badge/tests-72%20passing-22c55e.svg)](tests)
 
-## Four truths
+**Robot CI for learned robot policies.**
+It tells a lab whether a policy change is real — before the robot, the eval, or the launch demo tells them the hard way.
 
-| Truth | Question | Command | Status |
-|---|---|---|---|
-| Configuration | Is the policy you evaluated the policy you deployed? | `robotruth contract` | built, validated on 5 public checkpoints |
-| Statistical | Is checkpoint B really better than A? | `robotruth stats` | built |
-| Outcome | Did the episode succeed, when did it fail, and why? | `robotruth episodes`, `robotruth judge` | built; judge BA 0.93 on live rollouts |
-| Drift | Did the cell or the robot unit change under you? | `robotruth fingerprint` | built |
-| Runtime | Is the policy failing right now? | `robotruth guard` | built; validated in a live policy loop |
+[Why](#why-this-exists) · [What's inside](#whats-inside) · [Install](#install) · [Quickstart](#quickstart) · [Command reference](#command-reference) · [Python API](#python-api) · [Validation](#validated-on-real-data) · [License](#license)
+
+</div>
+
+---
+
+## Why this exists
+
+Robot learning has a measurement problem. These are published findings, not opinions:
+
+| The field today | Source |
+|---|---|
+| 0 of 13 audited real-robot VLA papers report a confidence interval | PhAIL, arXiv 2605.29710 |
+| A 50-trial success rate carries a 20–30 point wide 95% interval | Toyota Research Institute, LBM study |
+| Moving a camera or a tote shifts task completion by 22 points — more than the gap between models | PhAIL |
+| The same weights with different action-normalization metadata: 28/28 → 2/28 | "Same Weights, Different Robot", arXiv 2606.03724 |
+| The same policy on a second, identical robot arm: 98% → 18% | SPACE, arXiv 2606.24049 |
+| Video-only VLM success judges cap at 0.77 balanced accuracy, 0.52 on contact-rich tasks | FailBench, arXiv 2609.03611 |
+
+robotruth is the layer that makes robot numbers mean something: **a number without an interval is not a result, and an evaluation of one configuration does not certify another.**
+
+It is a Python library and CLI. It is not a benchmark, not a leaderboard, not a simulator, and not a model. It runs next to your own stack — LeRobot, openpi, GR00T, or anything else — and reads files.
+
+## What's inside
+
+<div align="center">
+<img src="docs/assets/pipeline.svg" alt="robotruth pipeline: checkpoints, logs, frames and live loops go in; fail-closed checks, calibrated judgments and honest statistics come out" width="100%"/>
+</div>
+
+| Module | Question it answers | Command |
+|---|---|---|
+| **Contract** | Is the policy you evaluated the policy you deployed? Weights, normalizer statistics, action semantics, control rate, cameras, embodiment — hashed into a manifest, compared fail-closed. | `robotruth contract` |
+| **Statistics** | Is checkpoint B really better than A? Intervals on every rate, paired designs, anytime-valid sequential tests, censored time-to-success, Bradley-Terry rankings, claims audits. | `robotruth stats` |
+| **Episodes** | What actually happened in each rollout? One record per episode with outcome, interventions, failure class and provenance; fleet metrics nobody publishes (interventions/hour, MTBI, autonomous fraction); MCAP bridge for Foxglove. | `robotruth episodes` |
+| **Fingerprint** | Did the cell or the robot unit change under you? Camera/lighting fingerprints from one frame; per-joint lag, backlash, offset and gain from one excitation run. | `robotruth fingerprint` |
+| **Judge** | Did the episode succeed? Action-stream features fused with a vision-language model, split-conformal calibration with abstention, false alarms per hour reported. Open-weight VLM backend — **no API key required**. | `robotruth judge` |
+| **Guard** | Is the policy failing *right now*? Mahalanobis + chunk-consistency scores with time-uniform conformal thresholds calibrated on your own successful rollouts. Emits ok / slow / handover / stop. | `robotruth guard` |
+
+Every report is written as **Markdown and styled HTML**, and every rate in it carries a confidence interval — the report layer refuses to print one without it.
 
 ## Install
 
 ```bash
+pip install robotruth            # from a release wheel (see Releases) or PyPI when published
+```
+
+From source:
+
+```bash
+git clone https://github.com/mulkakhileshmj/robotruth.git
+cd robotruth
 uv venv .venv && uv pip install -e ".[dev]"
+.venv/bin/python -m pytest -q    # 72 tests
 ```
 
-## Use
-
-**Contract.** Extract a manifest from a checkpoint directory (LeRobot, openpi, GR00T or anything with weight files), or from a probe folder produced on a GPU box by `ops/remote_checkpoint_probe.sh` so weights never move:
+Optional extras:
 
 ```bash
-robotruth contract extract runs/ckpt_0400/pretrained_model -o eval.json --role evaluated
-robotruth contract extract /robot/deployed_policy -o deploy.json --role deployed --overlay deploy_overlay.json
-robotruth contract check eval.json deploy.json
+pip install "robotruth[open-vlm]"   # judge vision channel on your own GPU (Qwen-VL via transformers)
+pip install "robotruth[vlm]"        # judge vision channel via the Claude API
+pip install "robotruth[mcap]"       # MCAP bridge for Foxglove / Rerun
 ```
 
-The check fails closed. If it cannot prove the deployed tuple matches the evaluated one, the evaluation does not certify the deployment. Fields the extractor cannot read (gripper convention always; control rate and robot on base VLAs; which of several shipped normalizer statistics is selected) are listed as unverified and supplied with an overlay JSON or a `robotruth.spec.json` next to the checkpoint. See `examples/manifests/2026-09-18_lambda_a10/SUMMARY.md` for what five real checkpoints do and do not carry.
+## Quickstart
 
-**Statistics.** Plan, schedule blind, run, compare:
+**1. Certify that what you evaluated is what you deploy.**
 
 ```bash
-robotruth stats plan --p-a 0.80 --p-b 0.90
-robotruth stats schedule --policies base,cand --conditions pose1,pose2,pose3,pose4 --repeats 5
-robotruth stats compare results.csv --a base --b cand
-robotruth stats audit claims.csv
+robotruth contract extract runs/ckpt_0400/pretrained_model -o evaluated.json --role evaluated
+robotruth contract extract /robot/current_policy -o deployed.json --role deployed
+robotruth contract check evaluated.json deployed.json     # exit 1 on any fatal mismatch
 ```
 
-The comparison report carries a Wilson interval on every rate, a paired difference when `pair_id` is present, an anytime-valid sequential verdict (stop the moment it decides), a censored time-to-success comparison, and how many trials you would need if the result is inconclusive. Exit code 1 if the candidate is worse. `audit` takes reported success counts (policy, task, successes, trials) and says which pairwise comparisons survive an interval.
+The check fails closed: if it cannot *prove* the deployed tuple matches the evaluated one, the evaluation does not certify the deployment. Fields no checkpoint carries on disk (the gripper convention, which of several shipped normalizer statistics is live) are listed as `unverified` and supplied via a JSON overlay.
 
-Results CSV columns: `episode_id, policy, task, success, time_to_success, timeout, pair_id, unit_id, session_id, score`.
-
-**Episodes.** One record per rollout, with outcome, interventions, failure class and provenance hashes:
+**2. Compare two policies like you mean it.**
 
 ```bash
-robotruth episodes validate episodes.jsonl
-robotruth episodes metrics episodes.jsonl        # success, autonomous fraction, interventions/hour, MTBI, failure Pareto
-robotruth episodes to-results episodes.jsonl -o results.csv
-robotruth episodes to-mcap episodes.jsonl -o episodes.mcap   # topic /robotruth/episode for Foxglove or Rerun
-robotruth episodes taxonomy
+robotruth stats plan --p-a 0.80 --p-b 0.90                # how many trials you need, before you start
+robotruth stats schedule --policies base,cand --conditions pose1,pose2,pose3 --repeats 5
+# ... run the schedule, record outcomes ...
+robotruth stats compare results.csv --a base --b cand     # exit 1 if the candidate is worse
 ```
 
-**Fingerprints.** Before a session, fingerprint the cell and the unit; diff against the reference:
+The report: Wilson intervals on every rate, a paired difference over matched trials, an **anytime-valid sequential verdict** (stop the moment it decides — peeking is allowed by construction), censored time-to-success, and the number of trials you would need if the comparison is still noise.
+
+**3. Turn your logs into the fleet metrics nobody publishes.**
+
+```bash
+robotruth episodes from-lerobot /data/my_dataset -o episodes.jsonl
+robotruth episodes metrics episodes.jsonl --out-dir reports/   # HTML + Markdown
+```
+
+**4. Catch drift before it eats your eval.**
 
 ```bash
 robotruth fingerprint cell top_cam.png --camera top -o cell_ref.json
-robotruth fingerprint unit excitation.csv --unit-id fr3_a -o unit_ref.json
-robotruth fingerprint diff cell_ref.json cell_today.json
+robotruth fingerprint unit excitation.csv --unit-id arm_a -o unit_ref.json
+robotruth fingerprint diff cell_ref.json cell_today.json       # exit 1 on drift beyond tolerance
 ```
 
-Unit fingerprints come from a fixed excitation trajectory (`t, cmd_<joint>, meas_<joint>` columns): tracking error, lag, backlash, offset, gain per joint. Cell fingerprints come from one camera frame with printed ArUco markers: marker positions and poses, exposure, sharpness, colour balance.
+**5. Judge outcomes and monitor live runs.**
 
-## Measured on real public data (2026-09-18)
+```bash
+robotruth judge run episodes.jsonl --backend open              # open-weight VLM, your GPU, no key
+robotruth guard calibrate nominal_episodes/ -o guard.json      # thresholds from YOUR successful rollouts
+robotruth guard replay guard.json episode.npz                  # ok / slow / handover / stop, exit 1 on alert
+```
 
-- 33 public datasets, 1,611 real episodes ingested with zero errors; full bundles under `examples/validation/2026-09-18`.
-- Real DAgger deployment log: 129.6 interventions per hour [120.9, 138.7], autonomous fraction 0.000 [0.000, 0.029].
-- Unit fingerprints separate five different physical SO-100/101 arms: backlash 0.107 to 0.478, lag 101 to 135 ms.
-- RoboArena re-analysed: 3,284 pairwise sessions, 15 policies, Bradley-Terry ranking with bootstrap errors.
-- A real 150-trial eval log audited: 2 of 3 comparisons resolved at 95 percent; the third is inside the noise.
-- Live policy loop (ACT in gym-aloha on one A10): judge balanced accuracy 0.929 [0.651, 0.987], zero false alarms; guard conformal false-alarm bound held; video in `examples/validation/2026-09-18/live_guard/`.
-- Found in the wild: lerobot 0.6.1 silently drops an older checkpoint's normalization buffers, taking an 83 percent policy to 0 percent. The contract checker fails closed on exactly this.
-- Judge vision channel without any API key: `pip install "robotruth[open-vlm]"` runs `OpenVLMBackend` (Qwen-VL class) on your own GPU. First real benchmark, 140 labeled UR5 episodes (Guardian ur5fail): balanced accuracy 0.555 [0.442, 0.663] zero-shot at 3.5 s per episode on one A10, against the 0.77 frontier-model ceiling reported by FailBench. Honest reading: the free channel needs the action-stream fusion and calibration on top; frontier APIs remain optional behind `[vlm]`.
+## Command reference
+
+| Command | What it does |
+|---|---|
+| `robotruth contract extract PATH` | Build an ExecSpec manifest from a checkpoint dir or a probe dir (`--family`, `--role`, `--overlay`) |
+| `robotruth contract check EVAL DEPLOY` | Fail-closed comparison of two manifests (`--allow-unknown`, `--out`) |
+| `robotruth stats plan` | Required trials for a target comparison (`--p-a`, `--p-b`, `--power`, paired vs independent) |
+| `robotruth stats schedule` | Blinded, interleaved A/B/n schedule with pair ids and a separate blinding key |
+| `robotruth stats compare CSV` | Full comparison report, Markdown + HTML (`--a`, `--b`, `--margin`, `--alpha`) |
+| `robotruth stats audit CSV` | Which reported success counts survive an interval (Newcombe + Fisher per task) |
+| `robotruth stats interval K N` | Wilson and Clopper-Pearson interval for k successes of n |
+| `robotruth episodes from-lerobot DIR` | Ingest a LeRobot dataset (v2/v3, DROID aliases, success + intervention columns) |
+| `robotruth episodes validate LOG` | Schema-check a JSONL episode log |
+| `robotruth episodes metrics LOG` | Fleet metrics with intervals; `--out-dir` writes the HTML report |
+| `robotruth episodes to-results LOG` | Export to the results CSV `stats compare` consumes |
+| `robotruth episodes to-mcap / from-mcap` | Round-trip episodes through MCAP (`/robotruth/episode`) for Foxglove |
+| `robotruth episodes taxonomy` | Print the failure taxonomy (12 classes, 60 subclasses) |
+| `robotruth fingerprint unit CSV` | Per-joint lag, backlash, RMSE, offset, gain from an excitation log |
+| `robotruth fingerprint cell IMAGE` | Marker positions/poses, exposure, sharpness, colour balance from one frame |
+| `robotruth fingerprint diff REF CUR` | Drift verdict against evidence-based tolerances, exit 1 on FAIL |
+| `robotruth judge features / calibrate / run / evaluate` | Action-stream features; conformal calibration with abstain; judge a dataset; score against labels (balanced accuracy, false alarms/hour) |
+| `robotruth guard calibrate / replay / metrics` | Fit scorers + time-uniform thresholds on nominal episodes; replay any episode step-by-step; detection and false-alarm accounting |
+
+Every command that produces a verdict uses its **exit code** (0 pass, 1 fail), so all of it drops straight into CI.
+
+## Python API
+
+```python
+from robotruth.contract import extract_spec, check_contract
+from robotruth.stats import wilson, sequential_paired_test
+from robotruth.schema import EpisodeLog, fleet_metrics
+from robotruth.judge import HybridJudge, fit_fusion, fit_calibrator
+from robotruth.judge.open_vlm import OpenVLMBackend          # no API key
+from robotruth.guard import calibrate_guard, OfflineReplay
+
+spec = extract_spec("runs/ckpt_0400/pretrained_model", role="evaluated")
+result = check_contract(spec, extract_spec("/robot/policy", role="deployed"))
+print(result.summary())                                       # PASS / FAIL with findings
+
+verdict = sequential_paired_test(a_outcomes, b_outcomes, alpha=0.05)
+print(verdict)   # e.g. "B_better after n=212: diff(B-A)=+0.101 [+0.012, +0.190]"
+```
+
+## Validated on real data
+
+Everything below was measured by robotruth itself on public data (2026-09-18); the raw bundles live in [`examples/validation/2026-09-18`](examples/validation/2026-09-18).
+
+- **33 public datasets, 1,611 real robot episodes** ingested with zero errors.
+- **A real DAgger deployment log**: 129.6 interventions/hour [120.9, 138.7], autonomous fraction 0.000 [0.000, 0.029] — what "assisted autonomy" looks like in numbers.
+- **Five different physical SO-100/101 arms separated by fingerprint alone**: backlash 0.107–0.478, lag 101–135 ms.
+- **RoboArena re-analysed**: 3,284 real pairwise sessions, 15 policies, Bradley-Terry ranking with bootstrap errors.
+- **A 150-trial eval log audited**: 2 of 3 comparisons resolved at 95%; the third — a 10-point gap over 50 trials — is inside the noise.
+- **A live policy loop** (ACT in gym-aloha, guard attached to every inference): judge balanced accuracy **0.929** [0.651, 0.987] with zero false alarms; the guard's conformal false-alarm bound held in every run. [Video](examples/validation/2026-09-18/live_guard/act_aloha_live_compat.mp4).
+- **Open-weight vision judge, no API key** (Qwen2.5-VL-7B, one A10, 3.5 s/episode): balanced accuracy **0.555** [0.442, 0.663] zero-shot on 140 labeled real UR5 episodes, against the 0.77 frontier-API ceiling — stated plainly, because that gap is exactly what the fusion and calibration layers are for.
+- **Found in the wild during our own live test**: lerobot 0.6.1 silently drops an older checkpoint's normalization buffers, taking an 83% policy to 0% with only a log warning. The contract checker fails closed on precisely this.
 
 ## Methods and their sources
 
-- Wilson and Clopper-Pearson intervals; paired Wald, bootstrap and Newcombe differences; Fisher exact test.
-- Empirical Bernstein confidence sequences (Waudby-Smith and Ramdas, JRSS-B 2023), the idea behind TRI's STEP sequential policy comparison (RSS 2025, arXiv 2503.10966).
-- Kaplan-Meier and log-rank for censored time to success, motivated by PhAIL (arXiv 2605.29710).
-- Bradley-Terry with task buckets, motivated by RoboArena (CoRL 2025, arXiv 2506.18123).
-- Contract fields follow "Same Weights, Different Robot" (arXiv 2606.03724), ROEP (Sensors 2026), SPACE (arXiv 2606.24049) and the camera-conditioning result (arXiv 2510.02268).
-- Episode schema follows the gap named in "Data Standards for Humanoid Robotics" (arXiv 2606.19769); failure taxonomy draws on RoboFAC and "How VLAs (Really) Work".
-- Judge design answers FailBench (arXiv 2609.03611), ActProbe (arXiv 2606.08508), VLAConf (arXiv 2605.29605). Guard design follows FAIL-Detect (RSS 2025), VLA-FAIL (arXiv 2606.21386), SAFECAST (arXiv 2608.04246).
+Wilson / Clopper-Pearson / Newcombe intervals and Fisher tests · empirical-Bernstein confidence sequences (Waudby-Smith & Ramdas, JRSS-B 2023; the idea behind TRI's STEP, RSS 2025) · Kaplan-Meier and log-rank on censored time-to-success (motivated by PhAIL) · Bradley-Terry with task buckets (RoboArena, CoRL 2025) · contract fields per "Same Weights, Different Robot", ROEP, SPACE and camera-conditioning results · episode schema per the ISO/TC 299 WG 16 gap statement · judge per FailBench, ActProbe, VLAConf · guard per FAIL-Detect (RSS 2025), VLA-FAIL, SAFECAST.
 
-## Layout
+## Project layout
 
 ```
-src/robotruth/contract/     module 1: ExecSpec manifest, probe or directory source, extractors, fail-closed checker
-src/robotruth/stats/        module 2: intervals, sequential, planning, timing, pairwise, schedule
-src/robotruth/schema/       module 3: episode record, taxonomy, JSONL log, MCAP bridge, fleet metrics
-src/robotruth/fingerprint/  module 4: unit and cell fingerprints, drift report
-src/robotruth/judge/        module 5: hybrid outcome judge with abstain
-src/robotruth/guard/        runtime failure monitor
-src/robotruth/audit.py      claims audit
-src/robotruth/compare.py    the comparison report
-src/robotruth/report.py     Markdown and HTML rendering
-src/robotruth/cli.py        typer CLI
-ops/                        GPU box scripts: checkpoint probe, sync and test, probe extraction
-examples/                   demo results, real-checkpoint probes and manifests, reports
-tests/                      pytest, including simulation checks of interval coverage
+src/robotruth/contract/      ExecSpec manifests, extractors (LeRobot, openpi, GR00T, custom), fail-closed checker
+src/robotruth/stats/         intervals, sequential tests, planning, censored timing, Bradley-Terry, blinded schedules
+src/robotruth/schema/        episode records, failure taxonomy, LeRobot ingest, MCAP bridge, fleet metrics
+src/robotruth/fingerprint/   robot-unit and workspace-cell fingerprints, drift reports
+src/robotruth/judge/         hybrid outcome judge: features, fusion, conformal calibration, open + API VLM backends
+src/robotruth/guard/         runtime monitor: scorers, conformal thresholds, hard limits, replay, metrics
+ops/                         GPU-box scripts used for the validation runs
+examples/                    real-checkpoint probes, manifests, and the full validation bundles
+tests/                       72 tests, including simulation checks of interval coverage and false-alarm rates
 ```
 
-## Working rules
+## Contributing & citation
 
-All compute runs on a rented GPU box, never on the local CPU: `bash ops/sync_and_test.sh rt_main` syncs the tree and runs pytest there. Model weights never come to the local machine. Results are pulled back before the box is terminated. See STATUS.md for the box log.
+See [CONTRIBUTING.md](CONTRIBUTING.md). The ground rules are short: a rate without an interval is not a result, checks fail closed, adapters read files and never import policy frameworks, and design choices cite their evidence. Cite via [CITATION.cff](CITATION.cff).
 
-Licence: Apache 2.0.
+## License
+
+[Apache License 2.0](LICENSE).

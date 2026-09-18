@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="220" viewBox="0 0 960 220" role="img" aria-label="robotruth: Robot CI for learned robot policies">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f172a"/>
+      <stop offset="1" stop-color="#1e293b"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#38bdf8"/>
+      <stop offset="1" stop-color="#818cf8"/>
+    </linearGradient>
+  </defs>
+  <rect width="960" height="220" rx="14" fill="url(#bg)"/>
+  <!-- confidence-interval motif -->
+  <g stroke="#334155" stroke-width="2">
+    <line x1="60" y1="170" x2="900" y2="170"/>
+  </g>
+  <g stroke="url(#accent)" stroke-width="4" stroke-linecap="round">
+    <line x1="330" y1="170" x2="640" y2="170"/>
+    <line x1="330" y1="158" x2="330" y2="182"/>
+    <line x1="640" y1="158" x2="640" y2="182"/>
+  </g>
+  <circle cx="485" cy="170" r="8" fill="#38bdf8"/>
+  <g fill="#475569" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">
+    <text x="300" y="200">0.79</text>
+    <text x="466" y="200" fill="#94a3b8">0.87</text>
+    <text x="616" y="200">0.93</text>
+  </g>
+  <!-- checkmark seal -->
+  <g transform="translate(84,58)">
+    <circle cx="28" cy="28" r="30" fill="none" stroke="url(#accent)" stroke-width="4"/>
+    <path d="M14 29 l10 10 l19 -21" fill="none" stroke="#38bdf8" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <text x="160" y="88" font-family="-apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="52" font-weight="700" fill="#f8fafc">robotruth</text>
+  <text x="162" y="122" font-family="-apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="20" fill="#94a3b8">Robot CI for learned robot policies. A number without an interval is not a result.</text>
+</svg>

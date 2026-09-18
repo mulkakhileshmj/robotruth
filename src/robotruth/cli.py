@@ -15,7 +15,7 @@ from robotruth import __version__
 from robotruth.contract import ExecSpec, Severity, check_contract, extract_spec
 from robotruth.results import Results
 
-app = typer.Typer(help="Robot CI: contract checks, honest statistics and drift fingerprints for learned robot policies.", no_args_is_help=True)
+app = typer.Typer(help="Robot CI: contract checks, honest statistics, episode records, drift fingerprints, outcome judging and runtime monitoring for learned robot policies.", no_args_is_help=True)
 contract_app = typer.Typer(help="Module 1: executable-policy contract manifests.", no_args_is_help=True)
 stats_app = typer.Typer(help="Module 2: honest evaluation statistics.", no_args_is_help=True)
 episodes_app = typer.Typer(help="Module 3: episode records, fleet metrics, MCAP bridge.", no_args_is_help=True)
@@ -24,6 +24,10 @@ app.add_typer(contract_app, name="contract")
 app.add_typer(stats_app, name="stats")
 app.add_typer(episodes_app, name="episodes")
 app.add_typer(fingerprint_app, name="fingerprint")
+from robotruth.judge.cli import judge_app  # noqa: E402
+from robotruth.guard.cli import guard_app  # noqa: E402
+app.add_typer(judge_app, name="judge")
+app.add_typer(guard_app, name="guard")
 console = Console()
 
 

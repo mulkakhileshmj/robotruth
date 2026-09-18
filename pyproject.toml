@@ -21,6 +21,8 @@ dependencies = [
 [project.optional-dependencies]
 dev = ["pytest>=8.0", "pytest-cov>=5.0", "ruff>=0.5", "mcap>=1.1"]
 mcap = ["mcap>=1.1"]
+vlm = ["anthropic>=0.40"]
+gpu = ["torch>=2.4"]
 
 [project.scripts]
 robotruth = "robotruth.cli:app"

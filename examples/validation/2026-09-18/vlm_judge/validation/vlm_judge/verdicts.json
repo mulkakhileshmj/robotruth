@@ -1,0 +1,1262 @@
+[
+ {
+  "id": "173817592039",
+  "failure_mode": "wrong object manipulated",
+  "truth": "failure",
+  "success_prob": 0.1,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "The gripper is empty and the banana is still on the table. The gripper is not holding the banana, indicating that the task of picking up the fruit has not been completed."
+ },
+ {
+  "id": "0",
+  "failure_mode": "wrong object state or placement",
+  "truth": "failure",
+  "success_prob": 0.1,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "The tuna can is not in the box, and the corn is also not in the box. The robot has not successfully placed the tuna can in the box as intended."
+ },
+ {
+  "id": "173817611377",
+  "failure_mode": "wrong_object",
+  "truth": "failure",
+  "success_prob": 0.1,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "The gripper is not holding the ball. The gripper is positioned above the ball but does not appear to be gripping it."
+ },
+ {
+  "id": "173817611377",
+  "failure_mode": "wrong_object",
+  "truth": "failure",
+  "success_prob": 0.9,
+  "predicted_class": null,
+  "parse_error": false,
+  "rationale": "The robot is holding the lightest object, which appears to be the white ball. The robot's gripper is closed around the white ball, indicating it has successfully grasped the lightest object."
+ },
+ {
+  "id": "173817611377",
+  "failure_mode": "ground_truth",
+  "truth": "success",
+  "success_prob": 0.9,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "The robot is holding the white ball, which appears to be the heaviest object among the three. The robot is holding the white ball, which is likely the heaviest object based on its size and appearance."
+ },
+ {
+  "id": "173817592039",
+  "failure_mode": "ground_truth",
+  "truth": "success",
+  "success_prob": 0.9,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "The gripper is open and there is no ball in sight. The gripper is open and there is no ball in sight, indicating that the robot did not successfully grasp the ball."
+ },
+ {
+  "id": "173817592039",
+  "failure_mode": "wrong object manipulated",
+  "truth": "failure",
+  "success_prob": 0.1,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "The gripper is open and the banana is still on the table. The gripper is not closed around the banana, indicating that the task of picking it up has not been completed."
+ },
+ {
+  "id": "0",
+  "failure_mode": "no_close",
+  "truth": "failure",
+  "success_prob": 0.9,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "The tuna can is inside the box, but the corn is not in the box. The tuna can is successfully placed inside the box, indicating successful grasping and placement. However, the corn is not present in th"
+ },
+ {
+  "id": "0",
+  "failure_mode": "ground_truth",
+  "truth": "success",
+  "success_prob": 0.9,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "The robot's gripper is empty and there is no visible tuna can or corn in the box. The robot's gripper is empty, indicating that the tuna can has not been placed in the box. Additionally, there is no c"
+ },
+ {
+  "id": "0",
+  "failure_mode": "wrong object state or placement",
+  "truth": "failure",
+  "success_prob": 0.9,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "The robot's gripper is empty and there is no visible tuna can or corn in the box. The robot's gripper is empty, indicating that the tuna can has not been placed in the box. Additionally, there is no c"
+ },
+ {
+  "id": "0",
+  "failure_mode": "ground_truth",
+  "truth": "success",
+  "success_prob": 0.9,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "The tuna can is placed next to the box but not inside it, and the corn is inside the box. The tuna can is correctly positioned next to the box without being inside it, and the corn is successfully pla"
+ },
+ {
+  "id": "0",
+  "failure_mode": "wrong object state or placement",
+  "truth": "failure",
+  "success_prob": 0.1,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "The robot is positioned above the pizza slice but there is no visible tuna can. The robot's arm is not in contact with the pizza slice, indicating that the task has not been completed."
+ },
+ {
+  "id": "0",
+  "failure_mode": "wrong object state or placement",
+  "truth": "failure",
+  "success_prob": 0.1,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "The strawberry is not in the box. The strawberry is not in the box, indicating the task has not been completed."
+ },
+ {
+  "id": "0",
+  "failure_mode": "ground_truth",
+  "truth": "success",
+  "success_prob": 0.9,
+  "predicted_class": null,
+  "parse_error": false,
+  "rationale": "The object has been removed from the box and placed on the table. The object is clearly visible outside the box on the table, indicating successful removal."
+ },
+ {
+  "id": "0",
+  "failure_mode": "wrong object manipulated",
+  "truth": "failure",
+  "success_prob": 0.1,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "The gripper is empty and there are no fruits inside the box. The gripper is empty and there are no fruits inside the box, indicating that the task has not been completed."
+ },
+ {
+  "id": "0",
+  "failure_mode": "wrong object manipulated",
+  "truth": "failure",
+  "success_prob": 0.1,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "The pizza slice is still on the table, not in the box. The robot has not placed the pizza slice into the box as instructed."
+ },
+ {
+  "id": "0",
+  "failure_mode": "wrong object state or placement",
+  "truth": "failure",
+  "success_prob": 0.1,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "The pizza slice is still on the table, not in the box. The robot has not placed the pizza slice into the box as instructed."
+ },
+ {
+  "id": "0",
+  "failure_mode": "wrong object state or placement",
+  "truth": "failure",
+  "success_prob": 0.9,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "The corn cob is not placed between the strawberry and the donut. The corn cob is not positioned as instructed, indicating a grasp issue."
+ },
+ {
+  "id": "0",
+  "failure_mode": "no_close",
+  "truth": "failure",
+  "success_prob": 0.9,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "The robot's gripper is empty and there is no visible tuna can or corn in the box. The robot's gripper is empty, indicating that the tuna can has not been placed in the box. There is also no corn prese"
+ },
+ {
+  "id": "0",
+  "failure_mode": "no_close",
+  "truth": "failure",
+  "success_prob": 0.9,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "The grapes are still on the table, not in the box. The grapes are not in the box, indicating the task has not been completed."
+ },
+ {
+  "id": "0",
+  "failure_mode": "ground_truth",
+  "truth": "success",
+  "success_prob": 0.1,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "The corn cob is not in the box and the gripper is not closed around it. The corn cob is not in the box, indicating the task has not been completed. The gripper is not closed around the corn cob, sugge"
+ },
+ {
+  "id": "0",
+  "failure_mode": "wrong object state or placement",
+  "truth": "failure",
+  "success_prob": 0.1,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "The corn cob is still on the table, not lifted or placed in the box. The corn cob remains on the table, indicating that the robot did not successfully grasp or lift it."
+ },
+ {
+  "id": "0",
+  "failure_mode": "ground_truth",
+  "truth": "success",
+  "success_prob": 0.1,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "The robot's gripper is empty and there is no visible tuna can or corn cob in the box. The robot has not successfully grasped either the tuna can or the corn cob, as indicated by the empty gripper and "
+ },
+ {
+  "id": "0",
+  "failure_mode": "ground_truth",
+  "truth": "success",
+  "success_prob": 0.9,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "The tuna can is in the box, but the corn cob is not visible. The tuna can is successfully placed in the box, indicating successful grasping and lifting. However, the corn cob is not present in the box"
+ },
+ {
+  "id": "0",
+  "failure_mode": "wrong object state or placement",
+  "truth": "failure",
+  "success_prob": 0.1,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "The tuna can is in the box, but the corn cob is not in the box. The tuna can is successfully placed in the box, indicating successful grasping and lifting. However, the corn cob is not in the box, sug"
+ },
+ {
+  "id": "0",
+  "failure_mode": "ground_truth",
+  "truth": "success",
+  "success_prob": 0.1,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "The tuna can is in the box, but the corn cob is missing. The tuna can is correctly placed in the box, indicating successful grasping and lifting. However, the corn cob is not present in the box, sugge"
+ },
+ {
+  "id": "0",
+  "failure_mode": "no progress",
+  "truth": "failure",
+  "success_prob": 0.1,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "The tuna can is not in the box, and the corn cob is not in the box. The robot has not placed either the tuna can or the corn cob into the box, indicating that the task has not been completed."
+ },
+ {
+  "id": "0",
+  "failure_mode": "wrong object manipulated",
+  "truth": "failure",
+  "success_prob": 0.1,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "The donut is not in the box, and the corn cob is not lifted. The donut is not in the box, indicating a grasp failure. The corn cob is not lifted, suggesting another grasp issue."
+ },
+ {
+  "id": "1",
+  "failure_mode": "wrong_object",
+  "truth": "failure",
+  "success_prob": 0.1,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "The robot's gripper is empty and there is no visible tuna can or donut in the box. The robot has not placed any objects into the box, as indicated by the empty gripper and the absence of the specified"
+ },
+ {
+  "id": "0",
+  "failure_mode": "ground_truth",
+  "truth": "success",
+  "success_prob": 0.1,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "The banana is not in the box, and the grapes are not present. The banana is not in the box, indicating a grasp failure. The grapes are also missing, suggesting they were not grasped."
+ },
+ {
+  "id": "0",
+  "failure_mode": "ground_truth",
+  "truth": "success",
+  "success_prob": 0.1,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "The banana is in the box but the grapes are not. The banana is in the box, indicating a successful grasp, but the grapes are not present, suggesting they were not grasped."
+ },
+ {
+  "id": "0",
+  "failure_mode": "ground_truth",
+  "truth": "success",
+  "success_prob": 0.1,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "The banana is not in the box and is not on the table. The banana is floating above the box, indicating it has not been placed in the box. There is no indication that the banana has been moved to the t"
+ },
+ {
+  "id": "0",
+  "failure_mode": "ground_truth",
+  "truth": "success",
+  "success_prob": 0.1,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "The banana is not in the box and is not on the table. The banana is hanging in mid-air, indicating it was not placed in the box or on the table."
+ },
+ {
+  "id": "0",
+  "failure_mode": "wrong_object",
+  "truth": "failure",
+  "success_prob": 0.1,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "The grapes are not in the box, and the banana is not placed. The grapes are not in the box, indicating a grasp failure. The banana is also not in the box, suggesting the task has not been completed."
+ },
+ {
+  "id": "0",
+  "failure_mode": "wrong_object",
+  "truth": "failure",
+  "success_prob": 0.1,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "The strawberry is not in the box, and the pear is not being held by the gripper. The strawberry is not in the box, indicating a grasp failure. The pear is not being held by the gripper, suggesting the"
+ },
+ {
+  "id": "0",
+  "failure_mode": "ground_truth",
+  "truth": "success",
+  "success_prob": 0.8,
+  "predicted_class": null,
+  "parse_error": false,
+  "rationale": "The banana is in the box, but the grapes are not. The banana is successfully placed in the box, indicating partial success. However, the grapes are not present in the box, indicating incomplete fulfil"
+ },
+ {
+  "id": "0",
+  "failure_mode": "ground_truth",
+  "truth": "success",
+  "success_prob": 0.9,
+  "predicted_class": null,
+  "parse_error": false,
+  "rationale": "The banana is in the box, but the grapes are not. The banana is successfully placed in the box, but the grapes are not present in the box."
+ },
+ {
+  "id": "0",
+  "failure_mode": "ground_truth",
+  "truth": "success",
+  "success_prob": 0.1,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "The banana is in the box but the grapes are not. The banana is successfully placed in the box, but the grapes are not present in the box, indicating a grasp failure."
+ },
+ {
+  "id": "0",
+  "failure_mode": "wrong object state or placement",
+  "truth": "failure",
+  "success_prob": 0.1,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "The banana is not placed between the yellow peach and strawberry, and the grapes are not in the box. The banana is not positioned as instructed, indicating a grasp issue."
+ },
+ {
+  "id": "0",
+  "failure_mode": "ground_truth",
+  "truth": "success",
+  "success_prob": 0.9,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "The banana is in the box, but the grapes are not. The banana is successfully placed in the box, but the grapes remain outside, indicating a grasp failure."
+ },
+ {
+  "id": "0",
+  "failure_mode": "ground_truth",
+  "truth": "success",
+  "success_prob": 0.9,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "The lemon is in the box but the peach is not. The lemon is successfully placed in the box, indicating a successful grasp. However, the peach is not in the box, suggesting a failure in grasping or plac"
+ },
+ {
+  "id": "0",
+  "failure_mode": "ground_truth",
+  "truth": "success",
+  "success_prob": 0.9,
+  "predicted_class": null,
+  "parse_error": false,
+  "rationale": "The lemon is in the box, but the peach is not. The lemon is successfully placed in the box, indicating the first part of the task was completed. However, the peach remains outside the box, suggesting "
+ },
+ {
+  "id": "0",
+  "failure_mode": "no_close",
+  "truth": "failure",
+  "success_prob": 0.1,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "The gripper is empty and the lemon and peach are not in the box. The gripper is empty and the lemon and peach are not in the box, indicating that the task has not been completed."
+ },
+ {
+  "id": "0",
+  "failure_mode": "ground_truth",
+  "truth": "success",
+  "success_prob": 0.1,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "The gripper is empty and there is no indication that the lemon or peach has been placed in the box. The gripper is empty and there is no indication that the lemon or peach has been placed in the box."
+ },
+ {
+  "id": "0",
+  "failure_mode": "ground_truth",
+  "truth": "success",
+  "success_prob": 0.1,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "The robot has picked up the lemon but not yet placed it in the box. The robot has successfully picked up the lemon, but the final state does not show the lemon being placed in the box."
+ },
+ {
+  "id": "0",
+  "failure_mode": "wrong object state or placement",
+  "truth": "failure",
+  "success_prob": 0.8,
+  "predicted_class": null,
+  "parse_error": false,
+  "rationale": "The lemon is in the box, but the peach is still on the table. The lemon is successfully placed in the box, indicating partial success. However, the peach remains on the table, which means the task has"
+ },
+ {
+  "id": "0",
+  "failure_mode": "ground_truth",
+  "truth": "success",
+  "success_prob": 0.1,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "The lemon is not in the box, and the peach is not in the box. The lemon is not in the box, and the peach is not in the box."
+ },
+ {
+  "id": "0",
+  "failure_mode": "wrong object state or placement",
+  "truth": "failure",
+  "success_prob": 0.1,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "The lemon and peach are not stacked on the strawberry. The lemon and peach are not on top of the strawberry, indicating they were not successfully grasped and placed."
+ },
+ {
+  "id": "0",
+  "failure_mode": "no_close",
+  "truth": "failure",
+  "success_prob": 0.1,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "The pink cube is still on the table, not inside the drawer. The pink cube is clearly visible on the table, indicating it has not been placed inside the drawer as instructed."
+ },
+ {
+  "id": "0",
+  "failure_mode": "wrong object state or placement",
+  "truth": "failure",
+  "success_prob": 0.1,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "The pink cube is still on the table, not inside the drawer. The pink cube is clearly visible on the table, indicating it has not been placed inside the drawer as instructed."
+ },
+ {
+  "id": "0",
+  "failure_mode": "ground_truth",
+  "truth": "success",
+  "success_prob": 0.1,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "The robot's gripper is empty and the drawer is open. The robot has not placed any objects into the top part of the drawer as indicated by the empty gripper."
+ },
+ {
+  "id": "0",
+  "failure_mode": "ground_truth",
+  "truth": "success",
+  "success_prob": 0.1,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "The robot's gripper is empty and there are no objects inside the top part of the drawer. The robot's gripper is empty, indicating that it did not successfully grasp any of the objects. Additionally, t"
+ },
+ {
+  "id": "0",
+  "failure_mode": "ground_truth",
+  "truth": "success",
+  "success_prob": 0.1,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "The drawer is open but there is no visible ball, frog toy, can, or ball inside. The drawer is open, indicating the robot has successfully opened it, but there is no evidence of the specified items bei"
+ },
+ {
+  "id": "0",
+  "failure_mode": "ground_truth",
+  "truth": "success",
+  "success_prob": 0.9,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "The drawer is open, but there is no visible ball, frog toy, can, or ball inside. The drawer is open, indicating the robot has attempted to remove items, but none of the specified objects are present."
+ },
+ {
+  "id": "0",
+  "failure_mode": "wrong object state or placement",
+  "truth": "failure",
+  "success_prob": 0.1,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "The robot's gripper is empty and there is no indication that any of the objects have been placed in the top part of the drawer. The robot's gripper is empty, indicating that none of the objects were s"
+ },
+ {
+  "id": "0",
+  "failure_mode": "wrong object state or placement",
+  "truth": "failure",
+  "success_prob": 0.1,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "The robot is holding an object but it's not clear if it's the ball, the frog toy, the can, or the ball. The robot appears to be holding something, but there's no clear indication of which object it is"
+ },
+ {
+  "id": "0",
+  "failure_mode": "wrong object state or placement",
+  "truth": "failure",
+  "success_prob": 0.1,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "The robot is holding the frog toy but the other objects are not in the drawer. The robot has successfully picked up the frog toy, but the other objects (ball, can, and another ball) are not present in"
+ },
+ {
+  "id": "0",
+  "failure_mode": "ground_truth",
+  "truth": "success",
+  "success_prob": 0.1,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "The robot has placed the yellow object into the top part of the drawer, but the other objects remain outside. The yellow object appears to be successfully placed in the top part of the drawer, indicat"
+ },
+ {
+  "id": "0",
+  "failure_mode": "ground_truth",
+  "truth": "success",
+  "success_prob": 0.9,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "The robot has successfully removed the yellow object from the top part of the drawer. The yellow object, which appears to be the frog toy, is no longer in the top part of the drawer, indicating succes"
+ },
+ {
+  "id": "0",
+  "failure_mode": "ground_truth",
+  "truth": "success",
+  "success_prob": 0.9,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "The ball is on the table, but the frog toy and can are still in the drawer. The ball is removed, indicating some success, but the frog toy and can remain in the drawer, suggesting incomplete removal."
+ },
+ {
+  "id": "0",
+  "failure_mode": "ground_truth",
+  "truth": "success",
+  "success_prob": 0.1,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "The ball is inside the top part of the drawer, but the frog toy and the can are not visible. The ball is inside the top part of the drawer, indicating some level of success. However, the frog toy and "
+ },
+ {
+  "id": "0",
+  "failure_mode": "wrong object state or placement",
+  "truth": "failure",
+  "success_prob": 0.9,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "The ball and the pink cube are inside the top part of the drawer. The ball and the pink cube are both inside the top part of the drawer, indicating successful placement."
+ },
+ {
+  "id": "0",
+  "failure_mode": "wrong object manipulated",
+  "truth": "failure",
+  "success_prob": 0.1,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "The ball and the pink cube are not inside the top part of the drawer. The ball and the pink cube are visible on the table outside the drawer, indicating they have not been placed inside."
+ },
+ {
+  "id": "0",
+  "failure_mode": "wrong object state or placement",
+  "truth": "failure",
+  "success_prob": 0.1,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "The robot's gripper is empty and there is no visible pink cube or frog toy in the top part of the drawer. The robot's gripper is empty, indicating that it did not successfully grasp either the pink cu"
+ },
+ {
+  "id": "0",
+  "failure_mode": "wrong object manipulated",
+  "truth": "failure",
+  "success_prob": 0.1,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "The robot is holding an object but it's not clear if it's the pink cube or the frog toy. The robot appears to be holding something, but there's no clear indication of which object it's holding or if i"
+ },
+ {
+  "id": "0",
+  "failure_mode": "ground_truth",
+  "truth": "success",
+  "success_prob": 0.1,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "The robot is holding an object but it's not clear if it's the pink cube or the frog toy. The robot appears to be holding something, but there's no clear indication of which object it's holding or if i"
+ },
+ {
+  "id": "0",
+  "failure_mode": "ground_truth",
+  "truth": "success",
+  "success_prob": 0.1,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "The ball, pink cube, and frog toy are not inside the top drawer. The ball, pink cube, and frog toy are not inside the top drawer, indicating that the task was not completed."
+ },
+ {
+  "id": "0",
+  "failure_mode": "ground_truth",
+  "truth": "success",
+  "success_prob": 0.1,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "The drawer is open but there is no visible frog toy, ball, or pink cube inside. The drawer is open, indicating an attempt to place items inside, but none of the specified objects are present."
+ },
+ {
+  "id": "0",
+  "failure_mode": "wrong object manipulated",
+  "truth": "failure",
+  "success_prob": 0.1,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "The drawer is open but there is no visible frog toy, ball, or pink cube inside. The drawer is open, indicating an attempt to place items inside, but none of the specified objects are present."
+ },
+ {
+  "id": "0",
+  "failure_mode": "wrong object state or placement",
+  "truth": "failure",
+  "success_prob": 0.1,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "The drawer is open but there's no visible frog toy, ball, or pink cube inside. The drawer is open, indicating an attempt to place items inside, but none of the specified objects are present."
+ },
+ {
+  "id": "0",
+  "failure_mode": "wrong object state or placement",
+  "truth": "failure",
+  "success_prob": 0.1,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "The drawer is open but there is no indication that the frog toy, ball, or pink cube have been placed inside. The drawer is open, suggesting an attempt to place items inside, but none of the specified "
+ },
+ {
+  "id": "0",
+  "failure_mode": "no_close",
+  "truth": "failure",
+  "success_prob": 0.1,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "The ball is not inside the top part of the drawer. The ball is visible outside the drawer, indicating it has not been placed inside."
+ },
+ {
+  "id": "0",
+  "failure_mode": "ground_truth",
+  "truth": "success",
+  "success_prob": 0.9,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "The ball is not inside the top part of the drawer. The ball is visible outside the top part of the drawer, indicating it has not been placed inside."
+ },
+ {
+  "id": "0",
+  "failure_mode": "translation_object",
+  "truth": "failure",
+  "success_prob": 0.9,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "The gripper is holding the yellow sphere, but it's not clear if it's fully grasped. The gripper appears to be holding the yellow sphere, but there's no clear indication that it's fully grasped. The ta"
+ },
+ {
+  "id": "173817412316",
+  "failure_mode": "no_close",
+  "truth": "failure",
+  "success_prob": 0.9,
+  "predicted_class": null,
+  "parse_error": false,
+  "rationale": "The vegetable is on the table. The vegetable is still on the table, indicating that the task was not completed."
+ },
+ {
+  "id": "0",
+  "failure_mode": "ground_truth",
+  "truth": "success",
+  "success_prob": 0.1,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "The gripper is open and there is no visible tuna can. The gripper is open and there is no visible tuna can, indicating that the task has not been completed."
+ },
+ {
+  "id": "173816477261",
+  "failure_mode": "translation_object",
+  "truth": "failure",
+  "success_prob": 0.1,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "The gripper is empty and there is no visible pizza. The gripper is empty and there is no visible pizza, indicating that the task did not complete successfully."
+ },
+ {
+  "id": "173816484059",
+  "failure_mode": "wrong_object",
+  "truth": "failure",
+  "success_prob": 0.9,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "The strawberry is not in the blue plate. The strawberry is not in the blue plate, indicating the task was not completed."
+ },
+ {
+  "id": "173816492337",
+  "failure_mode": "ground_truth",
+  "truth": "success",
+  "success_prob": 0.9,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "The strawberry is not in the blue plate. The strawberry is not in the blue plate, indicating the task was not completed."
+ },
+ {
+  "id": "173816518206",
+  "failure_mode": "ground_truth",
+  "truth": "success",
+  "success_prob": 0.1,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "The robot is holding the pear but it is not in the container. The robot has picked up the pear but it is not yet placed in the container."
+ },
+ {
+  "id": "173816542675",
+  "failure_mode": "wrong_object",
+  "truth": "failure",
+  "success_prob": 0.1,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "The robot's gripper is empty and the pear is still on the table. The robot did not successfully grasp the pear, as indicated by the empty gripper and the pear remaining on the table."
+ },
+ {
+  "id": "173816546187",
+  "failure_mode": "translation_object",
+  "truth": "failure",
+  "success_prob": 0.1,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "The ball is not in the box, and the gripper is empty. The ball is not in the box, and the gripper is empty."
+ },
+ {
+  "id": "173816550049",
+  "failure_mode": "ground_truth",
+  "truth": "success",
+  "success_prob": 0.1,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "The robot's gripper is empty and the pear is outside the box. The robot has not placed the pear into the box, as the gripper is empty and the pear remains outside."
+ },
+ {
+  "id": "173816553691",
+  "failure_mode": "ground_truth",
+  "truth": "success",
+  "success_prob": 0.1,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "The robot is holding a green apple, but the apple is not inside the box. The robot is holding an apple, which is the healthiest food mentioned in the instruction, but the apple is not placed inside th"
+ },
+ {
+  "id": "173816563503",
+  "failure_mode": "ground_truth",
+  "truth": "success",
+  "success_prob": 0.9,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "The gripper is holding a fruit. The gripper is closed around a fruit, indicating a successful grasp."
+ },
+ {
+  "id": "173816572150",
+  "failure_mode": "wrong_object",
+  "truth": "failure",
+  "success_prob": 0.1,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "The donut is not inside the box. The donut is outside the box, indicating that the robot did not successfully place it inside."
+ },
+ {
+  "id": "173816578860",
+  "failure_mode": "ground_truth",
+  "truth": "success",
+  "success_prob": 0.9,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "The chocolate is not inside the box. The chocolate is visible outside the box, indicating it has not been placed inside."
+ },
+ {
+  "id": "173817342016",
+  "failure_mode": "ground_truth",
+  "truth": "success",
+  "success_prob": 0.9,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "The robot is holding the carrot, which is considered the healthiest food among the items present. The robot has successfully grabbed the carrot, which is generally recognized as the healthiest food op"
+ },
+ {
+  "id": "173817351532",
+  "failure_mode": "ground_truth",
+  "truth": "success",
+  "success_prob": 0.9,
+  "predicted_class": null,
+  "parse_error": false,
+  "rationale": "The vegetable is being held by the gripper. The gripper is in contact with the vegetable, indicating a successful grasp."
+ },
+ {
+  "id": "173817368328",
+  "failure_mode": "wrong_object",
+  "truth": "failure",
+  "success_prob": 0.9,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "The gripper is closed around the bread. The gripper is in contact with the bread, indicating a grasp attempt."
+ },
+ {
+  "id": "173817680775",
+  "failure_mode": "ground_truth",
+  "truth": "success",
+  "success_prob": 0.9,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "The ball is placed next to the carrot but not touching it. The ball is close to the carrot but not in contact with it, indicating a possible grasp issue."
+ },
+ {
+  "id": "173817680775",
+  "failure_mode": "no_close",
+  "truth": "failure",
+  "success_prob": 0.9,
+  "predicted_class": null,
+  "parse_error": false,
+  "rationale": "The ball is placed next to the carrot. The ball is positioned close to the carrot, indicating successful placement."
+ },
+ {
+  "id": "173817657492",
+  "failure_mode": "ground_truth",
+  "truth": "success",
+  "success_prob": 0.9,
+  "predicted_class": null,
+  "parse_error": false,
+  "rationale": "The robot has successfully picked up the banana. The banana is being held by the gripper, indicating successful grasping."
+ },
+ {
+  "id": "0",
+  "failure_mode": "translation_object",
+  "truth": "failure",
+  "success_prob": 0.1,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "The black cup is not stacked on top of the red cup; instead, they are placed side by side. The black cup is not on top of the red cup, indicating a grasp failure."
+ },
+ {
+  "id": "0",
+  "failure_mode": "ground_truth",
+  "truth": "success",
+  "success_prob": 0.1,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "The red cup is not stacked on top of the black cup; instead, they are placed side by side. The red cup is not on top of the black cup, indicating a failure in grasping or positioning."
+ },
+ {
+  "id": "0",
+  "failure_mode": "ground_truth",
+  "truth": "success",
+  "success_prob": 0.1,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "The robot's gripper is empty and the cups are not stacked. The gripper is empty, indicating that the robot did not successfully grasp any cup. The cups are not stacked, as they are all separate."
+ },
+ {
+  "id": "0",
+  "failure_mode": "ground_truth",
+  "truth": "success",
+  "success_prob": 0.9,
+  "predicted_class": null,
+  "parse_error": false,
+  "rationale": "The red cup is placed on top of the yellow cup. The red cup is clearly on the yellow cup, indicating successful placement."
+ },
+ {
+  "id": "0",
+  "failure_mode": "ground_truth",
+  "truth": "success",
+  "success_prob": 0.9,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "The black cup is placed on top of the orange cup, but the gripper is still holding onto the black cup. The black cup is stacked on the orange cup, indicating some level of success, but the gripper is "
+ },
+ {
+  "id": "0",
+  "failure_mode": "ground_truth",
+  "truth": "success",
+  "success_prob": 0.9,
+  "predicted_class": null,
+  "parse_error": false,
+  "rationale": "The cups are separated but not stacked. The cups are not stacked, indicating they have been unstacked."
+ },
+ {
+  "id": "0",
+  "failure_mode": "translation_object",
+  "truth": "failure",
+  "success_prob": 0.9,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "The black cup is not stacked on the orange cup; instead, they are placed side by side. The black cup is not on top of the orange cup, indicating that the task has not been completed."
+ },
+ {
+  "id": "0",
+  "failure_mode": "ground_truth",
+  "truth": "success",
+  "success_prob": 0.1,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "The black cup is not stacked on the orange cup; instead, they are placed side by side. The black cup is not on top of the orange cup, indicating that the task of stacking has not been completed."
+ },
+ {
+  "id": "0",
+  "failure_mode": "ground_truth",
+  "truth": "success",
+  "success_prob": 0.1,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "The orange cup is not stacked on any other cup. The orange cup is not on top of another cup, indicating it has not been successfully stacked."
+ },
+ {
+  "id": "0",
+  "failure_mode": "ground_truth",
+  "truth": "success",
+  "success_prob": 0.1,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "The gripper is holding an object but it's not clear if it's the intended cup due to lack of clear alignment. The gripper appears to be holding something, but the object being held does not align with "
+ },
+ {
+  "id": "2",
+  "failure_mode": "ground_truth",
+  "truth": "success",
+  "success_prob": 0.9,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "the can is in the tray but the corn is not. The can is in the tray but the corn is not."
+ },
+ {
+  "id": "2",
+  "failure_mode": "translation_object",
+  "truth": "failure",
+  "success_prob": 0.9,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "the yellow corn is in the tray the yellow corn is in the tray but the red corn is not in the tray."
+ },
+ {
+  "id": "2",
+  "failure_mode": "translation_object",
+  "truth": "failure",
+  "success_prob": 0.9,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "the can is in the box the can is in the box but the corn is not."
+ },
+ {
+  "id": "3",
+  "failure_mode": "ground_truth",
+  "truth": "success",
+  "success_prob": 0.9,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "the gripper is empty the gripper is empty but the strawberry is still on the table."
+ },
+ {
+  "id": "3",
+  "failure_mode": "translation_object",
+  "truth": "failure",
+  "success_prob": 0.9,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "the banana is on the table. The robot has placed the strawberry in the box but failed to place the banana in the box."
+ },
+ {
+  "id": "3",
+  "failure_mode": "translation_object",
+  "truth": "failure",
+  "success_prob": 0.1,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "the gripper is empty the gripper is empty and there is no indication that the strawberry was placed in the box."
+ },
+ {
+  "id": "4",
+  "failure_mode": "ground_truth",
+  "truth": "success",
+  "success_prob": 0.9,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "The banana is on the table. The gripper is empty and the banana is not in the tray."
+ },
+ {
+  "id": "5",
+  "failure_mode": "ground_truth",
+  "truth": "success",
+  "success_prob": 0.1,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "the banana is on the table and the gripper is empty The gripper is empty and the banana is not in the box."
+ },
+ {
+  "id": "10",
+  "failure_mode": "no_close",
+  "truth": "failure",
+  "success_prob": 0.9,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "the pink cup is on top of the cyan cup. The pink cup is on top of the cyan cup."
+ },
+ {
+  "id": "11",
+  "failure_mode": "ground_truth",
+  "truth": "success",
+  "success_prob": 0.9,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "the can is in the box but the corn is not. The can is in the box but the corn is not."
+ },
+ {
+  "id": "11",
+  "failure_mode": "wrong_object",
+  "truth": "failure",
+  "success_prob": 0.1,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "the gripper is empty. The gripper is empty."
+ },
+ {
+  "id": "12",
+  "failure_mode": "ground_truth",
+  "truth": "success",
+  "success_prob": 0.9,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "the gripper is empty. The gripper is empty."
+ },
+ {
+  "id": "12",
+  "failure_mode": "translation_target",
+  "truth": "failure",
+  "success_prob": 0.1,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "The robot is holding an apple but the apple is not in the tray. The robot is holding an apple but the apple is not in the tray."
+ },
+ {
+  "id": "12",
+  "failure_mode": "ground_truth",
+  "truth": "success",
+  "success_prob": 0.1,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "The robot is holding an apple but the apple is not in the tray. The robot is holding an apple but the apple is not in the tray."
+ },
+ {
+  "id": "12",
+  "failure_mode": "translation_object",
+  "truth": "failure",
+  "success_prob": 0.9,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "the tuna can is in the tray with the strawberry the tuna can is in the tray with the strawberry."
+ },
+ {
+  "id": "12",
+  "failure_mode": "translation_object",
+  "truth": "failure",
+  "success_prob": 0.9,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "the tuna can is on the table. The robot did not grasp the tuna can."
+ },
+ {
+  "id": "13",
+  "failure_mode": "translation_object",
+  "truth": "failure",
+  "success_prob": 0.9,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "the yellow corn is on the table. The yellow corn is on the table."
+ },
+ {
+  "id": "0",
+  "failure_mode": "no_close",
+  "truth": "failure",
+  "success_prob": 0.1,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "the gripper is empty. The gripper is empty at the end of the episode."
+ },
+ {
+  "id": "1",
+  "failure_mode": "ground_truth",
+  "truth": "success",
+  "success_prob": 0.1,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "the banana is still on the table. The robot has not grasped the banana."
+ },
+ {
+  "id": "1",
+  "failure_mode": "ground_truth",
+  "truth": "success",
+  "success_prob": 0.1,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "the banana is still on the table. The robot failed to grasp the banana."
+ },
+ {
+  "id": "2",
+  "failure_mode": "slip",
+  "truth": "failure",
+  "success_prob": 0.1,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "the robot has not put anything in the small box. The robot has not put anything in the small box."
+ },
+ {
+  "id": "1",
+  "failure_mode": "translation_object",
+  "truth": "failure",
+  "success_prob": 0.1,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "The banana is not in the box. The robot has picked up the banana but did not place it in the box."
+ },
+ {
+  "id": "2",
+  "failure_mode": "no_close",
+  "truth": "failure",
+  "success_prob": 0.1,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "the banana is still on the table. The robot has not grasped the banana."
+ },
+ {
+  "id": "2",
+  "failure_mode": "ground_truth",
+  "truth": "success",
+  "success_prob": 0.1,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "the banana is on the table. The robot did not pick up the banana."
+ },
+ {
+  "id": "0",
+  "failure_mode": "translation_object",
+  "truth": "failure",
+  "success_prob": 0.9,
+  "predicted_class": "unknown",
+  "parse_error": false,
+  "rationale": "the plate is on the mat the plate is on the mat, but the other objects are still on the table."
+ },
+ {
+  "id": "5",
+  "failure_mode": "no_close",
+  "truth": "failure",
+  "success_prob": 0.1,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "The gripper is empty and the cups are not stacked. The gripper is empty and the cups are not stacked."
+ },
+ {
+  "id": "2",
+  "failure_mode": "translation_object",
+  "truth": "failure",
+  "success_prob": 0.1,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "the gripper is empty. The gripper is empty, but the banana is still on the table."
+ },
+ {
+  "id": "3",
+  "failure_mode": "wrong_object",
+  "truth": "failure",
+  "success_prob": 0.1,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "the gripper is holding the crescent moon cookie. The gripper is holding the crescent moon cookie."
+ },
+ {
+  "id": "7",
+  "failure_mode": "translation_object",
+  "truth": "failure",
+  "success_prob": 0.9,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "the pink plate is on top of the navy plate. The pink plate is on top of the navy plate."
+ },
+ {
+  "id": "8",
+  "failure_mode": "ground_truth",
+  "truth": "success",
+  "success_prob": 0.1,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "the banana is on the table but not in the plate. The robot has picked up the banana but did not place it in the pink plate."
+ },
+ {
+  "id": "0",
+  "failure_mode": "wrong_object",
+  "truth": "failure",
+  "success_prob": 0.1,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "the carrot is on the table. The robot did not pick up the carrot."
+ },
+ {
+  "id": "2",
+  "failure_mode": "ground_truth",
+  "truth": "success",
+  "success_prob": 0.1,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "the banana is on the table. The robot failed to grasp the banana."
+ },
+ {
+  "id": "3",
+  "failure_mode": "ground_truth",
+  "truth": "success",
+  "success_prob": 0.1,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "the banana is on the table. The robot did not pick up the banana."
+ },
+ {
+  "id": "5",
+  "failure_mode": "ground_truth",
+  "truth": "success",
+  "success_prob": 0.1,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "the gripper is empty. The gripper is empty at the end."
+ },
+ {
+  "id": "2",
+  "failure_mode": "ground_truth",
+  "truth": "success",
+  "success_prob": 0.1,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "The banana is on the table. The banana is not in the plate."
+ },
+ {
+  "id": "4",
+  "failure_mode": "ground_truth",
+  "truth": "success",
+  "success_prob": 0.1,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "The banana is on the table. The banana is not in the plate."
+ },
+ {
+  "id": "2",
+  "failure_mode": "no_close",
+  "truth": "failure",
+  "success_prob": 0.1,
+  "predicted_class": "grasp",
+  "parse_error": false,
+  "rationale": "the scissors and the carrot are not in the container. The scissors and the carrot are not in the container."
+ }
+]

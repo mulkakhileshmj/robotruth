@@ -76,7 +76,7 @@ Unit fingerprints come from a fixed excitation trajectory (`t, cmd_<joint>, meas
 - A real 150-trial eval log audited: 2 of 3 comparisons resolved at 95 percent; the third is inside the noise.
 - Live policy loop (ACT in gym-aloha on one A10): judge balanced accuracy 0.929 [0.651, 0.987], zero false alarms; guard conformal false-alarm bound held; video in `examples/validation/2026-09-18/live_guard/`.
 - Found in the wild: lerobot 0.6.1 silently drops an older checkpoint's normalization buffers, taking an 83 percent policy to 0 percent. The contract checker fails closed on exactly this.
-- Judge vision channel without any API key: `pip install "robotruth[open-vlm]"` and use `OpenVLMBackend` on your own GPU. The Claude backend stays optional behind `[vlm]`.
+- Judge vision channel without any API key: `pip install "robotruth[open-vlm]"` runs `OpenVLMBackend` (Qwen-VL class) on your own GPU. First real benchmark, 140 labeled UR5 episodes (Guardian ur5fail): balanced accuracy 0.555 [0.442, 0.663] zero-shot at 3.5 s per episode on one A10, against the 0.77 frontier-model ceiling reported by FailBench. Honest reading: the free channel needs the action-stream fusion and calibration on top; frontier APIs remain optional behind `[vlm]`.
 
 ## Methods and their sources
 

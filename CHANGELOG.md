@@ -2,7 +2,7 @@
 
 ## 0.1.1 (2026-09-18)
 
-- Open-weight VLM backend for the judge (`robotruth.judge.open_vlm.OpenVLMBackend`, Qwen-VL class via transformers): the vision channel now runs on your own GPU with no API key. The Claude backend remains available behind the `vlm` extra.
+- Open-weight VLM backend for the judge (`robotruth.judge.open_vlm.OpenVLMBackend`, Qwen-VL class via transformers): the vision channel runs on your own GPU with no API key. Benchmarked zero-shot on 140 labeled real UR5 episodes: balanced accuracy 0.555 [0.442, 0.663] at 3.5 s per episode on one A10 (frontier ceiling on FailBench: 0.77). The Claude backend remains available behind the `vlm` extra.
 - Live policy-loop validation: a real ACT policy in gym-aloha with the guard attached to every step and the judge scored against simulator truth. Judge balanced accuracy 0.929 [0.651, 0.987] over 24 live episodes with zero false alarms; guard false-alarm bound held in both runs; run-to-run threshold variance at small calibration sizes documented.
 - openpi extractor validated against the real pi0_base orbax checkpoint (12 GB hashed; norm_stats for nine robot assets detected and flagged as part of the executable policy).
 - The live test reproduced the contract failure class in the wild: lerobot 0.6.1 silently drops this checkpoint's normalization buffers, taking an 83 percent policy to 0 percent with only a log warning.

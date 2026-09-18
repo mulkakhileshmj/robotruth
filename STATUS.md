@@ -48,6 +48,8 @@ Updated 2026-09-18 (night). Published to https://github.com/mulkakhileshmj/robot
   - openpi extractor validated on the real pi0_base orbax checkpoint (12 GB hashed; norm_stats for 9 robot assets found and flagged as part of the executable policy).
   - Video of the live arm: examples/validation/2026-09-18/live_guard/act_aloha_live_compat.mp4.
 
+- Open VLM judge benchmarked on real labeled failures (2026-09-18, examples/validation/2026-09-18/vlm_judge): Qwen2.5-VL-7B zero-shot on 140 Guardian ur5fail episodes (69 success, 71 failure): balanced accuracy 0.555 [0.442, 0.663], failure recall 0.676, success recall 0.435, 0 parse errors, 3.5 s per episode on an A10. No API key involved. Next lift: fuse with action features and calibrate, and try larger open models.
+
 ## Next
 
 1. GitHub repo (user creates it, we push) and PyPI upload; publish LAUNCH_NOTE.md.

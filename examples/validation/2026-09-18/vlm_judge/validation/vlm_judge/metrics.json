@@ -1,0 +1,62 @@
+{
+ "n": 140,
+ "n_decided": 140,
+ "n_abstain": 0,
+ "hours": 1.1666666666666667,
+ "abstain_rate": {
+  "estimate": 0.0,
+  "lower": 0.0,
+  "upper": 0.026706200369412993,
+  "n": 140
+ },
+ "coverage": {
+  "estimate": 1.0,
+  "lower": 0.9732937996305869,
+  "upper": 1.0,
+  "n": 140
+ },
+ "accuracy": {
+  "estimate": 0.5571428571428572,
+  "lower": 0.4744276571463636,
+  "upper": 0.6368059199542749,
+  "n": 140
+ },
+ "success_recall": {
+  "estimate": 0.43478260869565216,
+  "lower": 0.32432802635131497,
+  "upper": 0.5521159638472569,
+  "n": 69
+ },
+ "failure_recall": {
+  "estimate": 0.676056338028169,
+  "lower": 0.5606115705582948,
+  "upper": 0.7734278828935044,
+  "n": 71
+ },
+ "failure_precision": {
+  "estimate": 0.5517241379310345,
+  "lower": 0.4472454774597166,
+  "upper": 0.6518282287184777,
+  "n": 87
+ },
+ "balanced_accuracy": 0.5554194733619106,
+ "balanced_accuracy_bounds": [
+  0.4424697984548049,
+  0.6627719233703806
+ ],
+ "success_bias": -0.11428571428571432,
+ "false_alarms": 39,
+ "false_alarm_rate": {
+  "estimate": 0.5652173913043478,
+  "lower": 0.44788403615274297,
+  "upper": 0.6756719736486849,
+  "n": 69
+ },
+ "false_alarms_per_hour": 33.42857142857142,
+ "false_alarms_per_hour_bounds": [
+  26.48914156674794,
+  39.961171012936504
+ ],
+ "per_task": {},
+ "alpha": 0.05
+}

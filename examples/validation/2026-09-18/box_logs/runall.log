@@ -1,0 +1,28 @@
+Elvinky__pi05-piperx-7h-demo-dagger-full-episodes-20260914
+Elvinky__so101-fold-clothes-dagger-20260909
+TheMuz__rollout_kirby_dagger_v2_iter1_20260507_143451
+jccj__so100_block_in_cup
+jpizarrom__hilserl_so100_grocery_so100_2025112223_20
+k-chan-l__rollout_dice_color_sort_dagger
+lerobot__aloha_static_screw_driver
+lerobot__droid_1.0.1
+lerobot__example_hil_serl_dataset
+lerobot__svla_so100_pickplace
+lerobot__svla_so101_pickplace
+recast-robotics__rollout_dagger_r1_s2_b0_20260915_121327
+sixpigs1__so100_pick_cube_in_box
+=== validate.log tail ===
+Elvinky__so101-fold-clothes-dagger-20260909: 22 episodes in 24s
+TheMuz__rollout_kirby_dagger_v2_iter1_20260507_143451: 10 episodes in 0s
+jccj__so100_block_in_cup: 50 episodes in 1s
+jpizarrom__hilserl_so100_grocery_so100_2025112223_20: 381 episodes in 15s
+k-chan-l__rollout_dice_color_sort_dagger: 20 episodes in 0s
+lerobot__aloha_static_screw_driver: 50 episodes in 1s
+lerobot__droid_1.0.1: 400 episodes in 56s
+lerobot__example_hil_serl_dataset: 15 episodes in 5s
+lerobot__svla_so100_pickplace: 50 episodes in 1s
+lerobot__svla_so101_pickplace: 50 episodes in 1s
+recast-robotics__rollout_dagger_r1_s2_b0_20260915_121327: 10 episodes in 0s
+sixpigs1__so100_pick_cube_in_box: 100 episodes in 2s
+/home/ubuntu/rt_main/ops/run_all_validation.sh: line 29: syntax error near unexpected token `)'
+/home/ubuntu/rt_main/ops/run_all_validation.sh: line 29: `101-Eval-Videos $OUT/so101_eval     && $PY -m robotruth.cli stats audit $OUT/so101_eval/claims.csv --out-dir $OUT/so101_eval > ~/logs/so101.log 2>&1) &'

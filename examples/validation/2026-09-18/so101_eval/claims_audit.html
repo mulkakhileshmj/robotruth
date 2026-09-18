@@ -1,0 +1,29 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>robotruth claims audit</title>
+<style>
+body{font-family:system-ui,Segoe UI,Roboto,sans-serif;max-width:960px;margin:2rem auto;padding:0 1rem;color:#1b1b1f;background:#fafafa}
+h1{font-size:1.6rem} h2{font-size:1.15rem;margin-top:2rem;border-bottom:1px solid #ddd;padding-bottom:.25rem}
+.verdict{display:inline-block;padding:.2rem .6rem;border-radius:.4rem;font-weight:600}
+.PASS{background:#d8f3dc;color:#1b4332}.FAIL{background:#ffd6d6;color:#7a1f1f}.WARN{background:#fff3cd;color:#664d03}.INFO{background:#e2e3e5;color:#41464b}
+table{border-collapse:collapse;width:100%;font-size:.9rem;margin:.5rem 0 1rem}
+th,td{border:1px solid #ddd;padding:.35rem .5rem;text-align:left;vertical-align:top}
+th{background:#f0f0f0} td.fatal{color:#7a1f1f;font-weight:600} td.warn{color:#664d03}
+pre{background:#f0f0f0;padding:.6rem;overflow-x:auto} .meta{color:#666;font-size:.85rem}
+</style></head><body>
+<h1>robotruth claims audit</h1>
+<p class="meta">robotruth 0.1.0, generated 2026-09-18 14:37 UTC</p>
+<p><span class="verdict WARN">WARN</span></p>
+
+<h2>Reported rates with intervals </h2>
+<pre style="white-space:pre-wrap;background:transparent;padding:0">What each number actually says once the interval is attached.</pre>
+<table><thead><tr><th>task</th><th>policy</th><th>trials</th><th>rate</th><th>interval width</th></tr></thead><tbody>
+<tr><td class="">so101_eval</td><td class="">1cam@20000</td><td class="">50</td><td class="">0.20 [0.11, 0.33]</td><td class="">0.218</td></tr><tr><td class="">so101_eval</td><td class="">2cam@50000</td><td class="">50</td><td class="">0.02 [0.00, 0.10]</td><td class="">0.101</td></tr><tr><td class="">so101_eval</td><td class="">side_claw@20000</td><td class="">50</td><td class="">0.30 [0.19, 0.44]</td><td class="">0.246</td></tr>
+</tbody></table>
+
+<h2>Pairwise comparisons <span class="verdict INFO">INFO</span></h2>
+<pre style="white-space:pre-wrap;background:transparent;padding:0">3 pairwise comparisons within tasks; 2 resolved at 95% confidence, 1 are inside the noise.</pre>
+<table><thead><tr><th>task</th><th>A</th><th>B</th><th>diff (B-A)</th><th>interval</th><th>Fisher p</th><th>resolved</th></tr></thead><tbody>
+<tr><td class="">so101_eval</td><td class="">1cam@20000</td><td class="">2cam@50000</td><td class="">-0.180</td><td class="">[-0.31, -0.06]</td><td class="">0.008</td><td class="">yes</td></tr><tr><td class="">so101_eval</td><td class="">1cam@20000</td><td class="">side_claw@20000</td><td class="">0.100</td><td class="">[-0.07, +0.26]</td><td class="">0.356</td><td class="">no</td></tr><tr><td class="">so101_eval</td><td class="">2cam@50000</td><td class="">side_claw@20000</td><td class="">0.280</td><td class="">[+0.14, +0.42]</td><td class="">0.000</td><td class="">yes</td></tr>
+</tbody></table>
+
+</body></html>

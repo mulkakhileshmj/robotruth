@@ -14,7 +14,8 @@ Updated 2026-09-18 (evening).
 
 | when | box | cost | what ran | results pulled to |
 |---|---|---|---|---|
-| 2026-09-18 ~13:40 IST start | Lambda 1x A10 24 GB, us-east-1, 132.145.160.192 | $1.29/h | checkpoint probe (5 repos, 33 GB downloaded, hashed); full test suite; extractor validation; claims audit; parallel builders for judge and guard | examples/probe/2026-09-18_lambda_a10, examples/manifests/2026-09-18_lambda_a10, examples/reports |
+| 2026-09-18 ~13:40 IST | Lambda 1x A10 24 GB, us-east-1, 132.145.160.192 (terminated) | $1.29/h | checkpoint probe (5 repos, 33 GB, hashed); full test suite; extractor validation; claims audit; judge and guard builds | examples/probe/2026-09-18_lambda_a10, examples/manifests/2026-09-18_lambda_a10, examples/reports |
+| 2026-09-18 ~19:45 IST | Lambda 1x A10 24 GB, us-east-1, 129.80.77.108 | $1.29/h | 16 public datasets fetched (parquet and metadata only, no video); full suite 72 passed; wheel and sdist built and clean-install verified; end-to-end validation over 13+ LeRobot datasets, BotFails nested sets, SO101 eval logs, RoboArena pairwise sessions | examples/validation/2026-09-18 (33 datasets, 1,611 episodes, RoboArena BT ranking, SO101 audit, box logs); dist/ wheel and sdist |
 
 ## Done
 
@@ -35,14 +36,14 @@ Updated 2026-09-18 (evening).
 - Module 4, fingerprints: unit fingerprint from an excitation log (joint lag and backlash estimator by regression, tracking RMSE, offset, gain) and cell fingerprint from a camera frame (ArUco marker positions and poses, exposure, sharpness, colour balance, clipping) with drift tolerances tied to the evidence (22-point camera shift, SPACE unit variance). CLI `fingerprint unit | cell | diff`.
 - 43 tests green on the box.
 
-## In progress (parallel builders on the box)
-
-- Module 5, `judge`: calibrated hybrid outcome judge with abstain (action-stream features plus VLM backend, conformal calibration, false alarms per hour, FailBench loader). Anthropic backend needs a key to be validated.
-- `guard`: runtime failure monitor (Mahalanobis plus chunk consistency, time-uniform conformal thresholds, contrast-set calibration, hysteresis, hard limits, offline replay, metrics).
+- Module 5, `judge` (hybrid outcome judge with abstain) and `guard` (runtime monitor): built, 71 tests total at merge; wired into the CLI.
+- LeRobot ingest (v2 and v3, DROID aliases, success and intervention columns); validation runner over any folder of datasets.
+- Real-data validation (2026-09-18, examples/validation/2026-09-18): 33 public datasets, 1,611 episodes, zero errors. Headlines: 129.6 interventions/hour [120.9, 138.7] on a real DAgger log; unit fingerprints separate five physical SO-100/101 arms (backlash 0.107 to 0.478, lag 101 to 135 ms); RoboArena 3,284 sessions re-ranked with Bradley-Terry; SO101 eval audit resolves 2 of 3 comparisons and flags the third as noise; action-only judge honestly abstains on DROID (semantic failures need the VLM channel).
+- v0.1.0 wheel and sdist built on the box, clean-install verified (`robotruth --version` works in a fresh venv).
 
 ## Next
 
-1. Wire `judge_app` and `guard_app` into the main CLI; full suite on the box; commit.
-2. Anthropic API key from the user, then validate the judge on a FailBench-style set.
-3. Two identical cheap arms or partner logs to validate the unit fingerprint on real hardware.
-4. Terminate the Lambda box once results are local.
+1. GitHub repo (user creates it, we push) and PyPI upload; publish LAUNCH_NOTE.md.
+2. Anthropic API key, then validate the judge VLM channel on BotFails and the Guardian failure sets (frames are on the box paths in examples/validation).
+3. Guard replay against the HIL-SERL failure episodes with reward signals as truth.
+4. Keep the box only while iterating; results are already pulled.

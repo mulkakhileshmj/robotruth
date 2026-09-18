@@ -1,0 +1,61 @@
+{
+  "calibration": {
+    "n_nominal": 228,
+    "n_fit": 114,
+    "n_calibration": 114,
+    "alpha": 0.05,
+    "method": "max",
+    "split": 0.5,
+    "inputs": [
+      "actions"
+    ],
+    "calibrator": {
+      "alpha": 0.05,
+      "method": "max",
+      "n_bins": 4,
+      "horizon": 731,
+      "thresholds": [
+        6.201178654966115
+      ],
+      "bin_edges": [
+        0,
+        731
+      ],
+      "saturated": false,
+      "achievable_alpha": 0.05,
+      "n_calibration": 114,
+      "calibration_alarm_fraction": 0.03508771929824561
+    },
+    "saturated": false
+  },
+  "metrics": {
+    "alpha": 0.05,
+    "n_episodes": 153,
+    "n_unlabelled": 0,
+    "n_failures": 0,
+    "n_detected": 0,
+    "detection_rate": null,
+    "lead_time_mean_s": null,
+    "lead_time_median_s": null,
+    "n_hard_stops_on_failures": 0,
+    "n_nominal": 153,
+    "nominal_hours": 1.1431388898444725,
+    "n_false_alarms": 1,
+    "false_alarms_per_hour": 0.8747843406290315,
+    "false_alarms_per_hour_ci": [
+      0.02214762196370945,
+      4.873986389962585
+    ],
+    "n_nominal_with_alarm": 1,
+    "nominal_episode_alarm_rate": {
+      "estimate": 0.006535947712418301,
+      "lower": 0.0011546884951885508,
+      "upper": 0.03608966554625311,
+      "n": 153
+    },
+    "n_hard_stops_on_nominal": 0,
+    "notes": [
+      "No labelled failures: detection rate not estimable."
+    ]
+  }
+}

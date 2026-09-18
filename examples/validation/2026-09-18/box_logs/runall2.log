@@ -1,0 +1,4 @@
+/home/ubuntu/rt_main/ops/run_all_validation.sh: line 4: set: pipefail: invalid option name
+/home/ubuntu/rt_main/ops/run_all_validation.sh: line 6: cd: $'/home/ubuntu/rt_main\r': No such file or directory
+/home/ubuntu/rt_main/ops/run_all_validation.sh: line 12: syntax error near unexpected token `$'do\r''
+/home/ubuntu/rt_main/ops/run_all_validation.sh: line 12: `for info in $(find ~/datasets -name info.json -path "*/meta/*" | grep -v ".cache"); do'

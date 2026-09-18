@@ -28,7 +28,9 @@ def main() -> int:
                 cfg = r.get("model_config") or log.parent.name
                 policy = f"{cfg}@{r.get('checkpoint_step', '')}"
                 outcome = (r.get("outcome") or "").strip().lower()
-                success = int(outcome == "success")
+                # Pre-registered taxonomy: full_success is the success class; timeout_success_slow
+                # completed the task but past the time limit, counted as failure at the timeout.
+                success = int(outcome in ("success", "full_success"))
                 dur = r.get("time_to_completion_sec") or ""
                 rows.append({
                     "episode_id": f"{cfg}-{r.get('trial_id')}", "policy": policy, "task": "so101_eval",

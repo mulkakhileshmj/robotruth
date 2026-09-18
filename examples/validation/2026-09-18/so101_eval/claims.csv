@@ -1,0 +1,4 @@
+policy,task,successes,trials
+1cam@20000,so101_eval,10,50
+2cam@50000,so101_eval,1,50
+side_claw@20000,so101_eval,15,50

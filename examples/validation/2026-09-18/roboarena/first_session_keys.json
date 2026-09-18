@@ -1,0 +1,11 @@
+[
+ "_session",
+ "evaluation_location",
+ "evaluator_name",
+ "language_instruction",
+ "longform_feedback",
+ "policies",
+ "preference",
+ "session_completion_timestamp",
+ "session_creation_timestamp"
+]

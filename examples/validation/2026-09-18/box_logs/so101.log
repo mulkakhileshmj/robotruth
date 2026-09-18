@@ -1,0 +1,31 @@
+# robotruth claims audit
+
+robotruth 0.1.0, generated 2026-09-18 14:31 UTC
+
+**Verdict: WARN**
+
+## Reported rates with intervals
+
+What each number actually says once the interval is attached.
+
+| task | policy | trials | rate | interval width |
+|---|---|---|---|---|
+| so101_eval | 1cam@20000 | 50 | 0.00 [0.00, 0.07] | 0.071 |
+| so101_eval | 2cam@50000 | 50 | 0.00 [0.00, 0.07] | 0.071 |
+| so101_eval | side_claw@20000 | 50 | 0.00 [0.00, 0.07] | 0.071 |
+
+## Pairwise comparisons [INFO]
+
+3 pairwise comparisons within tasks; 0 resolved at 95% confidence, 3 are inside 
+the noise.
+
+| task | A | B | diff (B-A) | interval | Fisher p | resolved |
+|---|---|---|---|---|---|---|
+| so101_eval | 1cam@20000 | 2cam@50000 | 0.000 | [-0.07, +0.07] | 1.000 | no |
+| so101_eval | 1cam@20000 | side_claw@20000 | 0.000 | [-0.07, +0.07] | 1.000 | 
+no |
+| so101_eval | 2cam@50000 | side_claw@20000 | 0.000 | [-0.07, +0.07] | 1.000 | 
+no |
+
+wrote /home/ubuntu/validation/so101_eval/claims_audit.md and 
+/home/ubuntu/validation/so101_eval/claims_audit.html

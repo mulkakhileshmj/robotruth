@@ -1,0 +1,64 @@
+{
+  "calibration": {
+    "n_nominal": 204,
+    "n_fit": 102,
+    "n_calibration": 102,
+    "alpha": 0.05,
+    "method": "max",
+    "split": 0.5,
+    "inputs": [
+      "actions"
+    ],
+    "calibrator": {
+      "alpha": 0.05,
+      "method": "max",
+      "n_bins": 4,
+      "horizon": 1032,
+      "thresholds": [
+        3.403322945594292
+      ],
+      "bin_edges": [
+        0,
+        1032
+      ],
+      "saturated": false,
+      "achievable_alpha": 0.05,
+      "n_calibration": 102,
+      "calibration_alarm_fraction": 0.0392156862745098
+    },
+    "saturated": false
+  },
+  "metrics": {
+    "alpha": 0.05,
+    "n_episodes": 195,
+    "n_unlabelled": 0,
+    "n_failures": 58,
+    "n_detected": 0,
+    "detection_rate": {
+      "estimate": 0.0,
+      "lower": 0.0,
+      "upper": 0.062117855787202914,
+      "n": 58
+    },
+    "lead_time_mean_s": null,
+    "lead_time_median_s": null,
+    "n_hard_stops_on_failures": 0,
+    "n_nominal": 137,
+    "nominal_hours": 0.7811296291184732,
+    "n_false_alarms": 5,
+    "false_alarms_per_hour": 6.40098623021462,
+    "false_alarms_per_hour_ci": [
+      2.0783828056177702,
+      14.937766593863188
+    ],
+    "n_nominal_with_alarm": 5,
+    "nominal_episode_alarm_rate": {
+      "estimate": 0.0364963503649635,
+      "lower": 0.01568799026258154,
+      "upper": 0.08258888741670851,
+      "n": 137
+    },
+    "n_hard_stops_on_nominal": 0,
+    "notes": []
+  }
+}

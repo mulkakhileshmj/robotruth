@@ -1,0 +1,16 @@
+policy,task,successes,trials
+dam,ALL,3,60
+dreaming_zebra,ALL,15,58
+floppy_bagel_195k_temp1p0,ALL,1,8
+floppy_bagel_285k_temp1p0,ALL,2,12
+floppy_bagel_420k,ALL,2,29
+floppy_bagel_525k_temp1p0,ALL,4,33
+floppy_bagel_90k_temp1p0,ALL,0,10
+paligemma_binning_droid,ALL,2,629
+paligemma_diffusion_droid,ALL,73,751
+paligemma_fast_droid,ALL,115,951
+paligemma_fast_specialist_droid,ALL,110,953
+paligemma_vq_droid,ALL,84,762
+pi05_droid,ALL,89,564
+pi0_droid,ALL,75,1009
+pi0_fast_droid,ALL,93,739

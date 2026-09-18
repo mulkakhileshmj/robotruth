@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/home/ubuntu/rt_main/ops/roboarena_pairs.py", line 134, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/home/ubuntu/rt_main/ops/roboarena_pairs.py", line 113, in main
+    w = csv.DictWriter(f, fieldnames=list(results[0].keys())); w.writeheader(); w.writerows(results)
+                                          ~~~~~~~^^^
+IndexError: list index out of range

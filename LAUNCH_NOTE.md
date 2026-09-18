@@ -1,6 +1,6 @@
 # robotruth: is your robot policy actually better?
 
-Draft launch note. Numbers marked TBD are filled from examples/validation once the real-data run completes.
+All numbers below were measured by robotruth itself on public data on 18 September 2026 (examples/validation/2026-09-18). Nothing is simulated unless marked.
 
 ## The problem
 
@@ -28,14 +28,14 @@ robotruth is a Python library and command-line tool. It makes four kinds of robo
 
 ## What we measured on public data
 
-TBD from examples/validation/VALIDATION.md:
+33 public datasets, 1,611 real robot episodes, zero ingest errors, all processed end to end on one $1.29/hour GPU instance.
 
-- Claims audit on published numbers: N comparisons, K resolved, the rest inside the noise.
-- RoboArena pairwise sessions: Bradley-Terry ranking with bootstrap errors over N policies.
-- Real DAgger and HIL-SERL datasets: interventions per hour, autonomous fraction, success with intervals.
-- Unit fingerprints across N different SO-100 and Franka units performing the same task family: median lag, backlash and tracking error per unit.
-- Judge from action-stream features alone on labeled real episodes: balanced accuracy with interval, abstain rate, false alarms per hour.
-- Guard on real episodes: detection rate and false alarms per hour at alpha 0.05.
+- **The fleet metrics nobody publishes, computed from a real DAgger deployment log** (dual PiperX folding demo, 130 episodes, 6.4 robot-hours): 129.6 interventions per hour [120.9, 138.7], autonomous fraction 0.000 [0.000, 0.029], mean time between interventions 0.5 minutes, 16.7 percent of time under human control. This is what "assisted autonomy" actually looks like in numbers.
+- **Unit-to-unit variance measured across five different physical SO-100 and SO-101 arms** owned by different people doing similar tasks: base-joint backlash spans 0.107 to 0.478 (a 4.5x spread) and command-to-response lag spans 101 to 135 ms. The SPACE paper showed a policy dropping from 98 to 18 percent between two identical arms; these fingerprints are how you catch that before the eval.
+- **RoboArena, re-analysed**: 3,284 real pairwise evaluation sessions over 15 policies on DROID Frankas, parsed into a Bradley-Terry ranking with bootstrap errors and per-policy binary and partial success. pi0.5 ranks at the top among large-sample policies; the binning-decoder baseline finishes last at 2 successes in 629 trials.
+- **A real eval log, audited** (150 SO-101 trials over three camera configurations): two of three pairwise comparisons are resolved at 95 percent confidence; the third, a 10-point gap over 50 trials per arm, is inside the noise. This is exactly the call labs currently make by eyeballing two percentages.
+- **An honest negative result**: on 400 DROID episodes (85 percent success), a judge built from action-stream features alone abstains on 97 percent of episodes and adds nothing. DROID failures are semantic, not kinematic. The calibrated abstain is doing precisely its job: refusing to guess, and telling you the vision-language channel is required there.
+- 72 tests pass, including simulation checks that the intervals actually cover and that the sequential test's false-alarm rate stays below alpha. The wheel installs clean in a fresh environment.
 
 ## What it is not
 

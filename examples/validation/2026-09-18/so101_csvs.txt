@@ -1,0 +1,3 @@
+/home/ubuntu/datasets/cons909__V1-LeRobot-SO101-Eval-Videos/2cam/trial_log.csv
+/home/ubuntu/datasets/cons909__V1-LeRobot-SO101-Eval-Videos/side_claw/trial_log.csv
+/home/ubuntu/datasets/cons909__V1-LeRobot-SO101-Eval-Videos/1cam/trial_log.csv

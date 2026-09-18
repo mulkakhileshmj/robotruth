@@ -1,0 +1,15 @@
+cff-version: 1.2.0
+message: "If you use robotruth, please cite it."
+title: "robotruth: Robot CI for learned robot policies"
+version: 0.1.0
+date-released: 2026-09-18
+license: Apache-2.0
+abstract: >
+  robotruth tells a robot lab whether a policy change is real. It checks that the evaluated
+  policy is the deployed policy (weights, normalizer statistics, action semantics, control
+  rate, cameras, embodiment), compares policies with intervals and anytime-valid sequential
+  tests, records episodes with interventions and failure classes, fingerprints the cell and
+  the robot unit to catch drift, judges outcomes with calibrated abstention, and monitors
+  policies at runtime with conformal thresholds.
+authors:
+  - name: "robotruth contributors"

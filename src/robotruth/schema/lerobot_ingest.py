@@ -153,15 +153,28 @@ class LeRobotDataset:
 
     # ---- episodes ---------------------------------------------------------------
     def episodes(self, max_episodes: Optional[int] = None) -> Iterator[LeRobotEpisode]:
-        wanted = ["episode_index", "frame_index", "timestamp", "action", "observation.state", "task_index", "task",
-                  "next.success", "next.reward", "next.done"]
-        tbl = _read_parquet_dir(self.data_files())
+        import pyarrow.parquet as pq
+        files = self.data_files()
+        if not files:
+            return iter(())
+        names = pq.read_schema(files[0]).names
+        # Column aliases seen in the wild (DROID v3 splits action and state into named parts).
+        action_col = "action" if "action" in names else next((c for c in ("action.joint_position", "action.cartesian_position") if c in names), None)
+        state_col = "observation.state" if "observation.state" in names else next((c for c in ("observation.state.joint_position", "observation.state.cartesian_position") if c in names), None)
+        success_col = next((c for c in ("next.success", "is_episode_successful", "success", "episode_success") if c in names), None)
+        wanted = ["episode_index", "frame_index", "timestamp", "task_index", "task", "next.reward", "next.done"]
+        inter_cols = [c for c in names if ("intervention" in c.lower() or "is_human" in c.lower() or "human" == c.lower())]
+        cols = [c for c in wanted if c in names] + inter_cols + [c for c in (action_col, state_col, success_col) if c]
+        tbl = _read_parquet_dir(files, columns=cols)
         if tbl is None:
             return iter(())
-        names = tbl.column_names
-        inter_cols = [c for c in names if ("intervention" in c.lower() or "is_human" in c.lower() or "human" == c.lower())]
-        cols = [c for c in wanted if c in names] + inter_cols
-        d = tbl.select(cols).to_pydict()
+        d = tbl.to_pydict()
+        if action_col and action_col != "action":
+            d["action"] = d.pop(action_col)
+        if state_col and state_col != "observation.state":
+            d["observation.state"] = d.pop(state_col)
+        if success_col and success_col != "next.success":
+            d["next.success"] = d.pop(success_col)
         ep_idx = np.asarray(d["episode_index"])
         order = np.argsort(ep_idx, kind="stable")
         uniq = np.unique(ep_idx)

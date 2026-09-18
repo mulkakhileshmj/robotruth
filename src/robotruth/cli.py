@@ -183,6 +183,23 @@ def episodes_from_mcap(mcap_file: Path, out: Path = typer.Option(Path("episodes.
     console.print(f"[green]wrote[/] {log.path} ({len(log.records())} records)")
 
 
+@episodes_app.command("from-lerobot")
+def episodes_from_lerobot(dataset_dir: Path, out: Path = typer.Option(Path("episodes.jsonl"), "--out", "-o"),
+                          policy: Optional[str] = typer.Option(None, help="Policy label; defaults to dataset:<repo_id>."),
+                          max_episodes: Optional[int] = None):
+    """Convert a LeRobot dataset directory into an episode log (success from next.success or next.reward, interventions from flag columns)."""
+    from robotruth.schema import EpisodeLog
+    from robotruth.schema.lerobot_ingest import LeRobotDataset
+    ds = LeRobotDataset(dataset_dir)
+    recs = ds.to_records(policy, max_episodes)
+    if out.exists():
+        out.unlink()
+    log = EpisodeLog(out)
+    log.extend(recs)
+    labelled = sum(r.outcome.success is not None for r in recs)
+    console.print(f"[green]wrote[/] {out}: {len(recs)} episodes from {ds.repo_id} ({ds.robot}, {ds.fps:.0f} fps, {len(ds.camera_keys())} cameras); {labelled} with success labels")
+
+
 @episodes_app.command("taxonomy")
 def episodes_taxonomy():
     """Print the failure taxonomy."""

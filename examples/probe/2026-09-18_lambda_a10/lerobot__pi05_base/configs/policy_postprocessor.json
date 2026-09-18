@@ -1,0 +1,30 @@
+{
+  "name": "policy_postprocessor",
+  "steps": [
+    {
+      "registry_name": "unnormalizer_processor",
+      "config": {
+        "eps": 1e-08,
+        "features": {},
+        "norm_map": {
+          "VISUAL": "IDENTITY",
+          "STATE": "QUANTILES",
+          "ACTION": "QUANTILES"
+        }
+      }
+    },
+    {
+      "registry_name": "absolute_actions_processor",
+      "config": {
+        "enabled": false
+      }
+    },
+    {
+      "registry_name": "device_processor",
+      "config": {
+        "device": "cpu",
+        "float_dtype": null
+      }
+    }
+  ]
+}

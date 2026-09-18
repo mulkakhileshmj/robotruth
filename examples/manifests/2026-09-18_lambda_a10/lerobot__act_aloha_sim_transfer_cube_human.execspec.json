@@ -1,0 +1,76 @@
+{
+  "spec_version": "0.1",
+  "created_at": "2026-09-18T09:12:52.269295+00:00",
+  "role": "evaluated",
+  "policy": {
+    "name": "act",
+    "family": "lerobot",
+    "weights_sha256": "251d894b0caf6767ee3f70ca3758fffc916e5b117f4e2d904c7e47e6543ac5ff",
+    "weights_files": [
+      "model.safetensors"
+    ],
+    "weights_bytes": 206766560,
+    "config_sha256": "45cf9e3e5974582996b7c47a133a2db93b9f6c94a961b691cdb45e59e3fd75ec",
+    "source_path": "examples/probe/2026-09-18_lambda_a10/lerobot__act_aloha_sim_transfer_cube_human"
+  },
+  "action": {
+    "space": "joint_position",
+    "mode": "absolute",
+    "dim": 14,
+    "units": null,
+    "chunk_size": 100,
+    "n_action_steps": 100,
+    "control_hz": 50.0,
+    "gripper_convention": null,
+    "normalization": {
+      "type": "mean_std",
+      "stats_sha256": "23acadf402662120321de583b36dd2e13027d6a7c0d32762a9cdf2119a56ca29",
+      "stats_source": "weights:normalize_* buffers (metadata hash; values are inside weights hash)",
+      "action_dim": 14
+    }
+  },
+  "observation": {
+    "cameras": [
+      {
+        "name": "observation.images.top",
+        "width": 640,
+        "height": 480,
+        "channels": 3,
+        "intrinsics_sha256": null,
+        "extrinsics_sha256": null
+      }
+    ],
+    "state_dim": 14,
+    "state_keys": [
+      "observation.state"
+    ],
+    "preprocessing_sha256": "56ea6e52715eba910a969c3940a1d4771a1724bbe23fa7b750dbc05704e3ceb5",
+    "image_resize": null,
+    "normalization": {
+      "type": "mean_std",
+      "stats_sha256": "23acadf402662120321de583b36dd2e13027d6a7c0d32762a9cdf2119a56ca29",
+      "stats_source": "weights:normalize_* buffers (metadata hash; values are inside weights hash)",
+      "action_dim": null
+    }
+  },
+  "embodiment": {
+    "robot": "aloha",
+    "unit_id": null,
+    "controller": null,
+    "controller_hz": null
+  },
+  "runtime": {
+    "dtype": null,
+    "device": "cuda",
+    "framework": "lerobot",
+    "framework_version": null,
+    "export_format": null,
+    "inference_hz": null
+  },
+  "notes": [
+    "built from a probe directory (hashes and configs); weights were hashed on the machine that holds them."
+  ],
+  "unverified": [
+    "action.gripper_convention"
+  ]
+}

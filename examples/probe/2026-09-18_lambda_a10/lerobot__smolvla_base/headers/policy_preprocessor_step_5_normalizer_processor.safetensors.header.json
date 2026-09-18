@@ -1,0 +1,62 @@
+{
+ "so100-blue.buffer.action.mean": {
+  "dtype": "F32",
+  "shape": [
+   6
+  ],
+  "data_offsets": [
+   0,
+   24
+  ]
+ },
+ "so100-blue.buffer.action.std": {
+  "dtype": "F32",
+  "shape": [
+   6
+  ],
+  "data_offsets": [
+   24,
+   48
+  ]
+ },
+ "so100-red.buffer.action.mean": {
+  "dtype": "F32",
+  "shape": [
+   6
+  ],
+  "data_offsets": [
+   48,
+   72
+  ]
+ },
+ "so100-red.buffer.action.std": {
+  "dtype": "F32",
+  "shape": [
+   6
+  ],
+  "data_offsets": [
+   72,
+   96
+  ]
+ },
+ "so100.buffer.action.mean": {
+  "dtype": "F32",
+  "shape": [
+   6
+  ],
+  "data_offsets": [
+   96,
+   120
+  ]
+ },
+ "so100.buffer.action.std": {
+  "dtype": "F32",
+  "shape": [
+   6
+  ],
+  "data_offsets": [
+   120,
+   144
+  ]
+ }
+}

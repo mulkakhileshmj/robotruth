@@ -1,0 +1,11 @@
+policy,task,successes,trials
+pi0.5-finetuned,RoboChallenge-30tasks,131,300
+pi0.5-generalist,RoboChallenge-30tasks,53,300
+policy-A-typical-paper,typical-real-eval,9,10
+policy-B-typical-paper,typical-real-eval,7,10
+policy-A-typical-paper,typical-real-eval-20,18,20
+policy-B-typical-paper,typical-real-eval-20,15,20
+ckpt-old,TRI-style-50-rollouts,45,50
+ckpt-new,TRI-style-50-rollouts,48,50
+Dyna-1,unseen-site-passrate,46,100
+Dyna-2,unseen-site-passrate,87,100

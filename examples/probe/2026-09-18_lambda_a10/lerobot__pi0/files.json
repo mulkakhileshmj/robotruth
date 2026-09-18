@@ -1,0 +1,30 @@
+{
+ "source": "/home/ubuntu/hf-cache/hub/models--lerobot--pi0/snapshots/e4ed526af508e58f6008b29e9e48f1098278fdb5",
+ "files": [
+  {
+   "name": "README.md",
+   "size": 1111,
+   "sha256": "15a0ba95c2bb167f97daf7a752501b19c448281896c5b04abcfeec73202f0b75"
+  },
+  {
+   "name": "config.json",
+   "size": 1917,
+   "sha256": "3bc1e4e7a9dd80b3ac97143a81957d456baf6ab9e011dacae2ee87916952b1df"
+  },
+  {
+   "name": "model.safetensors",
+   "size": 14005623256,
+   "sha256": "e1bbcefd55bab3ddff07ead42f4773505f07c68c9694ae44d636d86733dfebc1"
+  },
+  {
+   "name": "policy_postprocessor.json",
+   "size": 574,
+   "sha256": "a681a9837016e111ed79000166508b3380a7219dde4ac04c4bbda5b9f7507f8c"
+  },
+  {
+   "name": "policy_preprocessor.json",
+   "size": 1793,
+   "sha256": "b108f4c0e6abd25c2647bfc83dccd61bcb82890ab27c6891c2dc78738c261049"
+  }
+ ]
+}

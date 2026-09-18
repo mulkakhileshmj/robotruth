@@ -1,0 +1,5286 @@
+{
+ "__metadata__": {
+  "format": "pt"
+ },
+ "backbone.eagle_model.language_model.model.embed_tokens.weight": {
+  "dtype": "BF16",
+  "shape": [
+   151680,
+   2048
+  ],
+  "data_offsets": [
+   0,
+   621281280
+  ]
+ },
+ "backbone.eagle_model.language_model.model.layers.0.input_layernorm.weight": {
+  "dtype": "BF16",
+  "shape": [
+   2048
+  ],
+  "data_offsets": [
+   621281280,
+   621285376
+  ]
+ },
+ "backbone.eagle_model.language_model.model.layers.0.mlp.down_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   2048,
+   6144
+  ],
+  "data_offsets": [
+   621285376,
+   646451200
+  ]
+ },
+ "backbone.eagle_model.language_model.model.layers.0.mlp.gate_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   6144,
+   2048
+  ],
+  "data_offsets": [
+   646451200,
+   671617024
+  ]
+ },
+ "backbone.eagle_model.language_model.model.layers.0.mlp.up_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   6144,
+   2048
+  ],
+  "data_offsets": [
+   671617024,
+   696782848
+  ]
+ },
+ "backbone.eagle_model.language_model.model.layers.0.post_attention_layernorm.weight": {
+  "dtype": "BF16",
+  "shape": [
+   2048
+  ],
+  "data_offsets": [
+   696782848,
+   696786944
+  ]
+ },
+ "backbone.eagle_model.language_model.model.layers.0.self_attn.k_norm.weight": {
+  "dtype": "BF16",
+  "shape": [
+   128
+  ],
+  "data_offsets": [
+   696786944,
+   696787200
+  ]
+ },
+ "backbone.eagle_model.language_model.model.layers.0.self_attn.k_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1024,
+   2048
+  ],
+  "data_offsets": [
+   696787200,
+   700981504
+  ]
+ },
+ "backbone.eagle_model.language_model.model.layers.0.self_attn.o_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   2048,
+   2048
+  ],
+  "data_offsets": [
+   700981504,
+   709370112
+  ]
+ },
+ "backbone.eagle_model.language_model.model.layers.0.self_attn.q_norm.weight": {
+  "dtype": "BF16",
+  "shape": [
+   128
+  ],
+  "data_offsets": [
+   709370112,
+   709370368
+  ]
+ },
+ "backbone.eagle_model.language_model.model.layers.0.self_attn.q_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   2048,
+   2048
+  ],
+  "data_offsets": [
+   709370368,
+   717758976
+  ]
+ },
+ "backbone.eagle_model.language_model.model.layers.0.self_attn.v_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1024,
+   2048
+  ],
+  "data_offsets": [
+   717758976,
+   721953280
+  ]
+ },
+ "backbone.eagle_model.language_model.model.layers.1.input_layernorm.weight": {
+  "dtype": "BF16",
+  "shape": [
+   2048
+  ],
+  "data_offsets": [
+   721953280,
+   721957376
+  ]
+ },
+ "backbone.eagle_model.language_model.model.layers.1.mlp.down_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   2048,
+   6144
+  ],
+  "data_offsets": [
+   721957376,
+   747123200
+  ]
+ },
+ "backbone.eagle_model.language_model.model.layers.1.mlp.gate_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   6144,
+   2048
+  ],
+  "data_offsets": [
+   747123200,
+   772289024
+  ]
+ },
+ "backbone.eagle_model.language_model.model.layers.1.mlp.up_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   6144,
+   2048
+  ],
+  "data_offsets": [
+   772289024,
+   797454848
+  ]
+ },
+ "backbone.eagle_model.language_model.model.layers.1.post_attention_layernorm.weight": {
+  "dtype": "BF16",
+  "shape": [
+   2048
+  ],
+  "data_offsets": [
+   797454848,
+   797458944
+  ]
+ },
+ "backbone.eagle_model.language_model.model.layers.1.self_attn.k_norm.weight": {
+  "dtype": "BF16",
+  "shape": [
+   128
+  ],
+  "data_offsets": [
+   797458944,
+   797459200
+  ]
+ },
+ "backbone.eagle_model.language_model.model.layers.1.self_attn.k_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1024,
+   2048
+  ],
+  "data_offsets": [
+   797459200,
+   801653504
+  ]
+ },
+ "backbone.eagle_model.language_model.model.layers.1.self_attn.o_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   2048,
+   2048
+  ],
+  "data_offsets": [
+   801653504,
+   810042112
+  ]
+ },
+ "backbone.eagle_model.language_model.model.layers.1.self_attn.q_norm.weight": {
+  "dtype": "BF16",
+  "shape": [
+   128
+  ],
+  "data_offsets": [
+   810042112,
+   810042368
+  ]
+ },
+ "backbone.eagle_model.language_model.model.layers.1.self_attn.q_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   2048,
+   2048
+  ],
+  "data_offsets": [
+   810042368,
+   818430976
+  ]
+ },
+ "backbone.eagle_model.language_model.model.layers.1.self_attn.v_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1024,
+   2048
+  ],
+  "data_offsets": [
+   818430976,
+   822625280
+  ]
+ },
+ "backbone.eagle_model.language_model.model.layers.2.input_layernorm.weight": {
+  "dtype": "BF16",
+  "shape": [
+   2048
+  ],
+  "data_offsets": [
+   822625280,
+   822629376
+  ]
+ },
+ "backbone.eagle_model.language_model.model.layers.2.mlp.down_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   2048,
+   6144
+  ],
+  "data_offsets": [
+   822629376,
+   847795200
+  ]
+ },
+ "backbone.eagle_model.language_model.model.layers.2.mlp.gate_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   6144,
+   2048
+  ],
+  "data_offsets": [
+   847795200,
+   872961024
+  ]
+ },
+ "backbone.eagle_model.language_model.model.layers.2.mlp.up_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   6144,
+   2048
+  ],
+  "data_offsets": [
+   872961024,
+   898126848
+  ]
+ },
+ "backbone.eagle_model.language_model.model.layers.2.post_attention_layernorm.weight": {
+  "dtype": "BF16",
+  "shape": [
+   2048
+  ],
+  "data_offsets": [
+   898126848,
+   898130944
+  ]
+ },
+ "backbone.eagle_model.language_model.model.layers.2.self_attn.k_norm.weight": {
+  "dtype": "BF16",
+  "shape": [
+   128
+  ],
+  "data_offsets": [
+   898130944,
+   898131200
+  ]
+ },
+ "backbone.eagle_model.language_model.model.layers.2.self_attn.k_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1024,
+   2048
+  ],
+  "data_offsets": [
+   898131200,
+   902325504
+  ]
+ },
+ "backbone.eagle_model.language_model.model.layers.2.self_attn.o_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   2048,
+   2048
+  ],
+  "data_offsets": [
+   902325504,
+   910714112
+  ]
+ },
+ "backbone.eagle_model.language_model.model.layers.2.self_attn.q_norm.weight": {
+  "dtype": "BF16",
+  "shape": [
+   128
+  ],
+  "data_offsets": [
+   910714112,
+   910714368
+  ]
+ },
+ "backbone.eagle_model.language_model.model.layers.2.self_attn.q_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   2048,
+   2048
+  ],
+  "data_offsets": [
+   910714368,
+   919102976
+  ]
+ },
+ "backbone.eagle_model.language_model.model.layers.2.self_attn.v_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1024,
+   2048
+  ],
+  "data_offsets": [
+   919102976,
+   923297280
+  ]
+ },
+ "backbone.eagle_model.language_model.model.layers.3.input_layernorm.weight": {
+  "dtype": "BF16",
+  "shape": [
+   2048
+  ],
+  "data_offsets": [
+   923297280,
+   923301376
+  ]
+ },
+ "backbone.eagle_model.language_model.model.layers.3.mlp.down_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   2048,
+   6144
+  ],
+  "data_offsets": [
+   923301376,
+   948467200
+  ]
+ },
+ "backbone.eagle_model.language_model.model.layers.3.mlp.gate_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   6144,
+   2048
+  ],
+  "data_offsets": [
+   948467200,
+   973633024
+  ]
+ },
+ "backbone.eagle_model.language_model.model.layers.3.mlp.up_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   6144,
+   2048
+  ],
+  "data_offsets": [
+   973633024,
+   998798848
+  ]
+ },
+ "backbone.eagle_model.language_model.model.layers.3.post_attention_layernorm.weight": {
+  "dtype": "BF16",
+  "shape": [
+   2048
+  ],
+  "data_offsets": [
+   998798848,
+   998802944
+  ]
+ },
+ "backbone.eagle_model.language_model.model.layers.3.self_attn.k_norm.weight": {
+  "dtype": "BF16",
+  "shape": [
+   128
+  ],
+  "data_offsets": [
+   998802944,
+   998803200
+  ]
+ },
+ "backbone.eagle_model.language_model.model.layers.3.self_attn.k_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1024,
+   2048
+  ],
+  "data_offsets": [
+   998803200,
+   1002997504
+  ]
+ },
+ "backbone.eagle_model.language_model.model.layers.3.self_attn.o_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   2048,
+   2048
+  ],
+  "data_offsets": [
+   1002997504,
+   1011386112
+  ]
+ },
+ "backbone.eagle_model.language_model.model.layers.3.self_attn.q_norm.weight": {
+  "dtype": "BF16",
+  "shape": [
+   128
+  ],
+  "data_offsets": [
+   1011386112,
+   1011386368
+  ]
+ },
+ "backbone.eagle_model.language_model.model.layers.3.self_attn.q_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   2048,
+   2048
+  ],
+  "data_offsets": [
+   1011386368,
+   1019774976
+  ]
+ },
+ "backbone.eagle_model.language_model.model.layers.3.self_attn.v_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1024,
+   2048
+  ],
+  "data_offsets": [
+   1019774976,
+   1023969280
+  ]
+ },
+ "backbone.eagle_model.language_model.model.layers.4.input_layernorm.weight": {
+  "dtype": "BF16",
+  "shape": [
+   2048
+  ],
+  "data_offsets": [
+   1023969280,
+   1023973376
+  ]
+ },
+ "backbone.eagle_model.language_model.model.layers.4.mlp.down_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   2048,
+   6144
+  ],
+  "data_offsets": [
+   1023973376,
+   1049139200
+  ]
+ },
+ "backbone.eagle_model.language_model.model.layers.4.mlp.gate_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   6144,
+   2048
+  ],
+  "data_offsets": [
+   1049139200,
+   1074305024
+  ]
+ },
+ "backbone.eagle_model.language_model.model.layers.4.mlp.up_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   6144,
+   2048
+  ],
+  "data_offsets": [
+   1074305024,
+   1099470848
+  ]
+ },
+ "backbone.eagle_model.language_model.model.layers.4.post_attention_layernorm.weight": {
+  "dtype": "BF16",
+  "shape": [
+   2048
+  ],
+  "data_offsets": [
+   1099470848,
+   1099474944
+  ]
+ },
+ "backbone.eagle_model.language_model.model.layers.4.self_attn.k_norm.weight": {
+  "dtype": "BF16",
+  "shape": [
+   128
+  ],
+  "data_offsets": [
+   1099474944,
+   1099475200
+  ]
+ },
+ "backbone.eagle_model.language_model.model.layers.4.self_attn.k_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1024,
+   2048
+  ],
+  "data_offsets": [
+   1099475200,
+   1103669504
+  ]
+ },
+ "backbone.eagle_model.language_model.model.layers.4.self_attn.o_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   2048,
+   2048
+  ],
+  "data_offsets": [
+   1103669504,
+   1112058112
+  ]
+ },
+ "backbone.eagle_model.language_model.model.layers.4.self_attn.q_norm.weight": {
+  "dtype": "BF16",
+  "shape": [
+   128
+  ],
+  "data_offsets": [
+   1112058112,
+   1112058368
+  ]
+ },
+ "backbone.eagle_model.language_model.model.layers.4.self_attn.q_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   2048,
+   2048
+  ],
+  "data_offsets": [
+   1112058368,
+   1120446976
+  ]
+ },
+ "backbone.eagle_model.language_model.model.layers.4.self_attn.v_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1024,
+   2048
+  ],
+  "data_offsets": [
+   1120446976,
+   1124641280
+  ]
+ },
+ "backbone.eagle_model.language_model.model.layers.5.self_attn.k_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1024,
+   2048
+  ],
+  "data_offsets": [
+   1124641280,
+   1128835584
+  ]
+ },
+ "backbone.eagle_model.language_model.model.layers.5.self_attn.q_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   2048,
+   2048
+  ],
+  "data_offsets": [
+   1128835584,
+   1137224192
+  ]
+ },
+ "backbone.eagle_model.language_model.model.layers.5.self_attn.v_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1024,
+   2048
+  ],
+  "data_offsets": [
+   1137224192,
+   1141418496
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.embeddings.patch_embedding.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1141418496,
+   1141420800
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.embeddings.patch_embedding.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   3,
+   14,
+   14
+  ],
+  "data_offsets": [
+   1141420800,
+   1142775552
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.embeddings.position_embedding.weight": {
+  "dtype": "BF16",
+  "shape": [
+   256,
+   1152
+  ],
+  "data_offsets": [
+   1142775552,
+   1143365376
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.0.layer_norm1.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1143365376,
+   1143367680
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.0.layer_norm1.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1143367680,
+   1143369984
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.0.layer_norm2.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1143369984,
+   1143372288
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.0.layer_norm2.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1143372288,
+   1143374592
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.0.mlp.fc1.bias": {
+  "dtype": "BF16",
+  "shape": [
+   4304
+  ],
+  "data_offsets": [
+   1143374592,
+   1143383200
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.0.mlp.fc1.weight": {
+  "dtype": "BF16",
+  "shape": [
+   4304,
+   1152
+  ],
+  "data_offsets": [
+   1143383200,
+   1153299616
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.0.mlp.fc2.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1153299616,
+   1153301920
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.0.mlp.fc2.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   4304
+  ],
+  "data_offsets": [
+   1153301920,
+   1163218336
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.0.self_attn.k_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1163218336,
+   1163220640
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.0.self_attn.k_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1163220640,
+   1165874848
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.0.self_attn.out_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1165874848,
+   1165877152
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.0.self_attn.out_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1165877152,
+   1168531360
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.0.self_attn.q_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1168531360,
+   1168533664
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.0.self_attn.q_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1168533664,
+   1171187872
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.0.self_attn.v_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1171187872,
+   1171190176
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.0.self_attn.v_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1171190176,
+   1173844384
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.1.layer_norm1.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1173844384,
+   1173846688
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.1.layer_norm1.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1173846688,
+   1173848992
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.1.layer_norm2.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1173848992,
+   1173851296
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.1.layer_norm2.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1173851296,
+   1173853600
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.1.mlp.fc1.bias": {
+  "dtype": "BF16",
+  "shape": [
+   4304
+  ],
+  "data_offsets": [
+   1173853600,
+   1173862208
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.1.mlp.fc1.weight": {
+  "dtype": "BF16",
+  "shape": [
+   4304,
+   1152
+  ],
+  "data_offsets": [
+   1173862208,
+   1183778624
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.1.mlp.fc2.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1183778624,
+   1183780928
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.1.mlp.fc2.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   4304
+  ],
+  "data_offsets": [
+   1183780928,
+   1193697344
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.1.self_attn.k_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1193697344,
+   1193699648
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.1.self_attn.k_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1193699648,
+   1196353856
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.1.self_attn.out_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1196353856,
+   1196356160
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.1.self_attn.out_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1196356160,
+   1199010368
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.1.self_attn.q_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1199010368,
+   1199012672
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.1.self_attn.q_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1199012672,
+   1201666880
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.1.self_attn.v_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1201666880,
+   1201669184
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.1.self_attn.v_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1201669184,
+   1204323392
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.10.layer_norm1.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1204323392,
+   1204325696
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.10.layer_norm1.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1204325696,
+   1204328000
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.10.layer_norm2.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1204328000,
+   1204330304
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.10.layer_norm2.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1204330304,
+   1204332608
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.10.mlp.fc1.bias": {
+  "dtype": "BF16",
+  "shape": [
+   4304
+  ],
+  "data_offsets": [
+   1204332608,
+   1204341216
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.10.mlp.fc1.weight": {
+  "dtype": "BF16",
+  "shape": [
+   4304,
+   1152
+  ],
+  "data_offsets": [
+   1204341216,
+   1214257632
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.10.mlp.fc2.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1214257632,
+   1214259936
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.10.mlp.fc2.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   4304
+  ],
+  "data_offsets": [
+   1214259936,
+   1224176352
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.10.self_attn.k_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1224176352,
+   1224178656
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.10.self_attn.k_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1224178656,
+   1226832864
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.10.self_attn.out_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1226832864,
+   1226835168
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.10.self_attn.out_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1226835168,
+   1229489376
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.10.self_attn.q_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1229489376,
+   1229491680
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.10.self_attn.q_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1229491680,
+   1232145888
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.10.self_attn.v_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1232145888,
+   1232148192
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.10.self_attn.v_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1232148192,
+   1234802400
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.11.layer_norm1.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1234802400,
+   1234804704
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.11.layer_norm1.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1234804704,
+   1234807008
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.11.layer_norm2.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1234807008,
+   1234809312
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.11.layer_norm2.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1234809312,
+   1234811616
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.11.mlp.fc1.bias": {
+  "dtype": "BF16",
+  "shape": [
+   4304
+  ],
+  "data_offsets": [
+   1234811616,
+   1234820224
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.11.mlp.fc1.weight": {
+  "dtype": "BF16",
+  "shape": [
+   4304,
+   1152
+  ],
+  "data_offsets": [
+   1234820224,
+   1244736640
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.11.mlp.fc2.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1244736640,
+   1244738944
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.11.mlp.fc2.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   4304
+  ],
+  "data_offsets": [
+   1244738944,
+   1254655360
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.11.self_attn.k_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1254655360,
+   1254657664
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.11.self_attn.k_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1254657664,
+   1257311872
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.11.self_attn.out_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1257311872,
+   1257314176
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.11.self_attn.out_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1257314176,
+   1259968384
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.11.self_attn.q_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1259968384,
+   1259970688
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.11.self_attn.q_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1259970688,
+   1262624896
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.11.self_attn.v_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1262624896,
+   1262627200
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.11.self_attn.v_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1262627200,
+   1265281408
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.12.layer_norm1.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1265281408,
+   1265283712
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.12.layer_norm1.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1265283712,
+   1265286016
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.12.layer_norm2.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1265286016,
+   1265288320
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.12.layer_norm2.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1265288320,
+   1265290624
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.12.mlp.fc1.bias": {
+  "dtype": "BF16",
+  "shape": [
+   4304
+  ],
+  "data_offsets": [
+   1265290624,
+   1265299232
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.12.mlp.fc1.weight": {
+  "dtype": "BF16",
+  "shape": [
+   4304,
+   1152
+  ],
+  "data_offsets": [
+   1265299232,
+   1275215648
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.12.mlp.fc2.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1275215648,
+   1275217952
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.12.mlp.fc2.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   4304
+  ],
+  "data_offsets": [
+   1275217952,
+   1285134368
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.12.self_attn.k_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1285134368,
+   1285136672
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.12.self_attn.k_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1285136672,
+   1287790880
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.12.self_attn.out_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1287790880,
+   1287793184
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.12.self_attn.out_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1287793184,
+   1290447392
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.12.self_attn.q_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1290447392,
+   1290449696
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.12.self_attn.q_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1290449696,
+   1293103904
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.12.self_attn.v_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1293103904,
+   1293106208
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.12.self_attn.v_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1293106208,
+   1295760416
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.13.layer_norm1.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1295760416,
+   1295762720
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.13.layer_norm1.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1295762720,
+   1295765024
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.13.layer_norm2.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1295765024,
+   1295767328
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.13.layer_norm2.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1295767328,
+   1295769632
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.13.mlp.fc1.bias": {
+  "dtype": "BF16",
+  "shape": [
+   4304
+  ],
+  "data_offsets": [
+   1295769632,
+   1295778240
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.13.mlp.fc1.weight": {
+  "dtype": "BF16",
+  "shape": [
+   4304,
+   1152
+  ],
+  "data_offsets": [
+   1295778240,
+   1305694656
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.13.mlp.fc2.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1305694656,
+   1305696960
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.13.mlp.fc2.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   4304
+  ],
+  "data_offsets": [
+   1305696960,
+   1315613376
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.13.self_attn.k_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1315613376,
+   1315615680
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.13.self_attn.k_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1315615680,
+   1318269888
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.13.self_attn.out_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1318269888,
+   1318272192
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.13.self_attn.out_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1318272192,
+   1320926400
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.13.self_attn.q_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1320926400,
+   1320928704
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.13.self_attn.q_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1320928704,
+   1323582912
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.13.self_attn.v_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1323582912,
+   1323585216
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.13.self_attn.v_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1323585216,
+   1326239424
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.14.layer_norm1.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1326239424,
+   1326241728
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.14.layer_norm1.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1326241728,
+   1326244032
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.14.layer_norm2.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1326244032,
+   1326246336
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.14.layer_norm2.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1326246336,
+   1326248640
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.14.mlp.fc1.bias": {
+  "dtype": "BF16",
+  "shape": [
+   4304
+  ],
+  "data_offsets": [
+   1326248640,
+   1326257248
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.14.mlp.fc1.weight": {
+  "dtype": "BF16",
+  "shape": [
+   4304,
+   1152
+  ],
+  "data_offsets": [
+   1326257248,
+   1336173664
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.14.mlp.fc2.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1336173664,
+   1336175968
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.14.mlp.fc2.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   4304
+  ],
+  "data_offsets": [
+   1336175968,
+   1346092384
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.14.self_attn.k_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1346092384,
+   1346094688
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.14.self_attn.k_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1346094688,
+   1348748896
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.14.self_attn.out_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1348748896,
+   1348751200
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.14.self_attn.out_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1348751200,
+   1351405408
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.14.self_attn.q_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1351405408,
+   1351407712
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.14.self_attn.q_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1351407712,
+   1354061920
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.14.self_attn.v_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1354061920,
+   1354064224
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.14.self_attn.v_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1354064224,
+   1356718432
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.15.layer_norm1.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1356718432,
+   1356720736
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.15.layer_norm1.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1356720736,
+   1356723040
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.15.layer_norm2.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1356723040,
+   1356725344
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.15.layer_norm2.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1356725344,
+   1356727648
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.15.mlp.fc1.bias": {
+  "dtype": "BF16",
+  "shape": [
+   4304
+  ],
+  "data_offsets": [
+   1356727648,
+   1356736256
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.15.mlp.fc1.weight": {
+  "dtype": "BF16",
+  "shape": [
+   4304,
+   1152
+  ],
+  "data_offsets": [
+   1356736256,
+   1366652672
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.15.mlp.fc2.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1366652672,
+   1366654976
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.15.mlp.fc2.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   4304
+  ],
+  "data_offsets": [
+   1366654976,
+   1376571392
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.15.self_attn.k_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1376571392,
+   1376573696
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.15.self_attn.k_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1376573696,
+   1379227904
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.15.self_attn.out_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1379227904,
+   1379230208
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.15.self_attn.out_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1379230208,
+   1381884416
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.15.self_attn.q_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1381884416,
+   1381886720
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.15.self_attn.q_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1381886720,
+   1384540928
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.15.self_attn.v_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1384540928,
+   1384543232
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.15.self_attn.v_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1384543232,
+   1387197440
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.16.layer_norm1.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1387197440,
+   1387199744
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.16.layer_norm1.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1387199744,
+   1387202048
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.16.layer_norm2.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1387202048,
+   1387204352
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.16.layer_norm2.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1387204352,
+   1387206656
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.16.mlp.fc1.bias": {
+  "dtype": "BF16",
+  "shape": [
+   4304
+  ],
+  "data_offsets": [
+   1387206656,
+   1387215264
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.16.mlp.fc1.weight": {
+  "dtype": "BF16",
+  "shape": [
+   4304,
+   1152
+  ],
+  "data_offsets": [
+   1387215264,
+   1397131680
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.16.mlp.fc2.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1397131680,
+   1397133984
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.16.mlp.fc2.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   4304
+  ],
+  "data_offsets": [
+   1397133984,
+   1407050400
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.16.self_attn.k_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1407050400,
+   1407052704
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.16.self_attn.k_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1407052704,
+   1409706912
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.16.self_attn.out_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1409706912,
+   1409709216
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.16.self_attn.out_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1409709216,
+   1412363424
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.16.self_attn.q_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1412363424,
+   1412365728
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.16.self_attn.q_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1412365728,
+   1415019936
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.16.self_attn.v_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1415019936,
+   1415022240
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.16.self_attn.v_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1415022240,
+   1417676448
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.17.layer_norm1.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1417676448,
+   1417678752
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.17.layer_norm1.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1417678752,
+   1417681056
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.17.layer_norm2.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1417681056,
+   1417683360
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.17.layer_norm2.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1417683360,
+   1417685664
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.17.mlp.fc1.bias": {
+  "dtype": "BF16",
+  "shape": [
+   4304
+  ],
+  "data_offsets": [
+   1417685664,
+   1417694272
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.17.mlp.fc1.weight": {
+  "dtype": "BF16",
+  "shape": [
+   4304,
+   1152
+  ],
+  "data_offsets": [
+   1417694272,
+   1427610688
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.17.mlp.fc2.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1427610688,
+   1427612992
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.17.mlp.fc2.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   4304
+  ],
+  "data_offsets": [
+   1427612992,
+   1437529408
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.17.self_attn.k_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1437529408,
+   1437531712
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.17.self_attn.k_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1437531712,
+   1440185920
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.17.self_attn.out_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1440185920,
+   1440188224
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.17.self_attn.out_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1440188224,
+   1442842432
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.17.self_attn.q_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1442842432,
+   1442844736
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.17.self_attn.q_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1442844736,
+   1445498944
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.17.self_attn.v_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1445498944,
+   1445501248
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.17.self_attn.v_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1445501248,
+   1448155456
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.18.layer_norm1.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1448155456,
+   1448157760
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.18.layer_norm1.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1448157760,
+   1448160064
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.18.layer_norm2.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1448160064,
+   1448162368
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.18.layer_norm2.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1448162368,
+   1448164672
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.18.mlp.fc1.bias": {
+  "dtype": "BF16",
+  "shape": [
+   4304
+  ],
+  "data_offsets": [
+   1448164672,
+   1448173280
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.18.mlp.fc1.weight": {
+  "dtype": "BF16",
+  "shape": [
+   4304,
+   1152
+  ],
+  "data_offsets": [
+   1448173280,
+   1458089696
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.18.mlp.fc2.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1458089696,
+   1458092000
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.18.mlp.fc2.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   4304
+  ],
+  "data_offsets": [
+   1458092000,
+   1468008416
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.18.self_attn.k_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1468008416,
+   1468010720
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.18.self_attn.k_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1468010720,
+   1470664928
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.18.self_attn.out_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1470664928,
+   1470667232
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.18.self_attn.out_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1470667232,
+   1473321440
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.18.self_attn.q_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1473321440,
+   1473323744
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.18.self_attn.q_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1473323744,
+   1475977952
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.18.self_attn.v_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1475977952,
+   1475980256
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.18.self_attn.v_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1475980256,
+   1478634464
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.19.layer_norm1.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1478634464,
+   1478636768
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.19.layer_norm1.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1478636768,
+   1478639072
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.19.layer_norm2.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1478639072,
+   1478641376
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.19.layer_norm2.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1478641376,
+   1478643680
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.19.mlp.fc1.bias": {
+  "dtype": "BF16",
+  "shape": [
+   4304
+  ],
+  "data_offsets": [
+   1478643680,
+   1478652288
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.19.mlp.fc1.weight": {
+  "dtype": "BF16",
+  "shape": [
+   4304,
+   1152
+  ],
+  "data_offsets": [
+   1478652288,
+   1488568704
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.19.mlp.fc2.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1488568704,
+   1488571008
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.19.mlp.fc2.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   4304
+  ],
+  "data_offsets": [
+   1488571008,
+   1498487424
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.19.self_attn.k_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1498487424,
+   1498489728
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.19.self_attn.k_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1498489728,
+   1501143936
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.19.self_attn.out_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1501143936,
+   1501146240
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.19.self_attn.out_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1501146240,
+   1503800448
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.19.self_attn.q_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1503800448,
+   1503802752
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.19.self_attn.q_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1503802752,
+   1506456960
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.19.self_attn.v_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1506456960,
+   1506459264
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.19.self_attn.v_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1506459264,
+   1509113472
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.2.layer_norm1.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1509113472,
+   1509115776
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.2.layer_norm1.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1509115776,
+   1509118080
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.2.layer_norm2.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1509118080,
+   1509120384
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.2.layer_norm2.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1509120384,
+   1509122688
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.2.mlp.fc1.bias": {
+  "dtype": "BF16",
+  "shape": [
+   4304
+  ],
+  "data_offsets": [
+   1509122688,
+   1509131296
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.2.mlp.fc1.weight": {
+  "dtype": "BF16",
+  "shape": [
+   4304,
+   1152
+  ],
+  "data_offsets": [
+   1509131296,
+   1519047712
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.2.mlp.fc2.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1519047712,
+   1519050016
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.2.mlp.fc2.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   4304
+  ],
+  "data_offsets": [
+   1519050016,
+   1528966432
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.2.self_attn.k_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1528966432,
+   1528968736
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.2.self_attn.k_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1528968736,
+   1531622944
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.2.self_attn.out_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1531622944,
+   1531625248
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.2.self_attn.out_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1531625248,
+   1534279456
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.2.self_attn.q_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1534279456,
+   1534281760
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.2.self_attn.q_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1534281760,
+   1536935968
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.2.self_attn.v_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1536935968,
+   1536938272
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.2.self_attn.v_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1536938272,
+   1539592480
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.20.layer_norm1.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1539592480,
+   1539594784
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.20.layer_norm1.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1539594784,
+   1539597088
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.20.layer_norm2.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1539597088,
+   1539599392
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.20.layer_norm2.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1539599392,
+   1539601696
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.20.mlp.fc1.bias": {
+  "dtype": "BF16",
+  "shape": [
+   4304
+  ],
+  "data_offsets": [
+   1539601696,
+   1539610304
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.20.mlp.fc1.weight": {
+  "dtype": "BF16",
+  "shape": [
+   4304,
+   1152
+  ],
+  "data_offsets": [
+   1539610304,
+   1549526720
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.20.mlp.fc2.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1549526720,
+   1549529024
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.20.mlp.fc2.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   4304
+  ],
+  "data_offsets": [
+   1549529024,
+   1559445440
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.20.self_attn.k_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1559445440,
+   1559447744
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.20.self_attn.k_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1559447744,
+   1562101952
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.20.self_attn.out_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1562101952,
+   1562104256
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.20.self_attn.out_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1562104256,
+   1564758464
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.20.self_attn.q_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1564758464,
+   1564760768
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.20.self_attn.q_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1564760768,
+   1567414976
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.20.self_attn.v_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1567414976,
+   1567417280
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.20.self_attn.v_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1567417280,
+   1570071488
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.21.layer_norm1.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1570071488,
+   1570073792
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.21.layer_norm1.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1570073792,
+   1570076096
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.21.layer_norm2.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1570076096,
+   1570078400
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.21.layer_norm2.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1570078400,
+   1570080704
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.21.mlp.fc1.bias": {
+  "dtype": "BF16",
+  "shape": [
+   4304
+  ],
+  "data_offsets": [
+   1570080704,
+   1570089312
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.21.mlp.fc1.weight": {
+  "dtype": "BF16",
+  "shape": [
+   4304,
+   1152
+  ],
+  "data_offsets": [
+   1570089312,
+   1580005728
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.21.mlp.fc2.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1580005728,
+   1580008032
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.21.mlp.fc2.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   4304
+  ],
+  "data_offsets": [
+   1580008032,
+   1589924448
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.21.self_attn.k_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1589924448,
+   1589926752
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.21.self_attn.k_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1589926752,
+   1592580960
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.21.self_attn.out_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1592580960,
+   1592583264
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.21.self_attn.out_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1592583264,
+   1595237472
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.21.self_attn.q_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1595237472,
+   1595239776
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.21.self_attn.q_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1595239776,
+   1597893984
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.21.self_attn.v_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1597893984,
+   1597896288
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.21.self_attn.v_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1597896288,
+   1600550496
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.22.layer_norm1.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1600550496,
+   1600552800
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.22.layer_norm1.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1600552800,
+   1600555104
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.22.layer_norm2.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1600555104,
+   1600557408
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.22.layer_norm2.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1600557408,
+   1600559712
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.22.mlp.fc1.bias": {
+  "dtype": "BF16",
+  "shape": [
+   4304
+  ],
+  "data_offsets": [
+   1600559712,
+   1600568320
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.22.mlp.fc1.weight": {
+  "dtype": "BF16",
+  "shape": [
+   4304,
+   1152
+  ],
+  "data_offsets": [
+   1600568320,
+   1610484736
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.22.mlp.fc2.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1610484736,
+   1610487040
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.22.mlp.fc2.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   4304
+  ],
+  "data_offsets": [
+   1610487040,
+   1620403456
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.22.self_attn.k_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1620403456,
+   1620405760
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.22.self_attn.k_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1620405760,
+   1623059968
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.22.self_attn.out_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1623059968,
+   1623062272
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.22.self_attn.out_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1623062272,
+   1625716480
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.22.self_attn.q_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1625716480,
+   1625718784
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.22.self_attn.q_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1625718784,
+   1628372992
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.22.self_attn.v_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1628372992,
+   1628375296
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.22.self_attn.v_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1628375296,
+   1631029504
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.23.layer_norm1.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1631029504,
+   1631031808
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.23.layer_norm1.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1631031808,
+   1631034112
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.23.layer_norm2.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1631034112,
+   1631036416
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.23.layer_norm2.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1631036416,
+   1631038720
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.23.mlp.fc1.bias": {
+  "dtype": "BF16",
+  "shape": [
+   4304
+  ],
+  "data_offsets": [
+   1631038720,
+   1631047328
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.23.mlp.fc1.weight": {
+  "dtype": "BF16",
+  "shape": [
+   4304,
+   1152
+  ],
+  "data_offsets": [
+   1631047328,
+   1640963744
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.23.mlp.fc2.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1640963744,
+   1640966048
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.23.mlp.fc2.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   4304
+  ],
+  "data_offsets": [
+   1640966048,
+   1650882464
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.23.self_attn.k_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1650882464,
+   1650884768
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.23.self_attn.k_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1650884768,
+   1653538976
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.23.self_attn.out_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1653538976,
+   1653541280
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.23.self_attn.out_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1653541280,
+   1656195488
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.23.self_attn.q_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1656195488,
+   1656197792
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.23.self_attn.q_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1656197792,
+   1658852000
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.23.self_attn.v_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1658852000,
+   1658854304
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.23.self_attn.v_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1658854304,
+   1661508512
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.24.layer_norm1.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1661508512,
+   1661510816
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.24.layer_norm1.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1661510816,
+   1661513120
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.24.layer_norm2.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1661513120,
+   1661515424
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.24.layer_norm2.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1661515424,
+   1661517728
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.24.mlp.fc1.bias": {
+  "dtype": "BF16",
+  "shape": [
+   4304
+  ],
+  "data_offsets": [
+   1661517728,
+   1661526336
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.24.mlp.fc1.weight": {
+  "dtype": "BF16",
+  "shape": [
+   4304,
+   1152
+  ],
+  "data_offsets": [
+   1661526336,
+   1671442752
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.24.mlp.fc2.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1671442752,
+   1671445056
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.24.mlp.fc2.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   4304
+  ],
+  "data_offsets": [
+   1671445056,
+   1681361472
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.24.self_attn.k_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1681361472,
+   1681363776
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.24.self_attn.k_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1681363776,
+   1684017984
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.24.self_attn.out_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1684017984,
+   1684020288
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.24.self_attn.out_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1684020288,
+   1686674496
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.24.self_attn.q_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1686674496,
+   1686676800
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.24.self_attn.q_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1686676800,
+   1689331008
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.24.self_attn.v_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1689331008,
+   1689333312
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.24.self_attn.v_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1689333312,
+   1691987520
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.25.layer_norm1.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1691987520,
+   1691989824
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.25.layer_norm1.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1691989824,
+   1691992128
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.25.layer_norm2.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1691992128,
+   1691994432
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.25.layer_norm2.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1691994432,
+   1691996736
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.25.mlp.fc1.bias": {
+  "dtype": "BF16",
+  "shape": [
+   4304
+  ],
+  "data_offsets": [
+   1691996736,
+   1692005344
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.25.mlp.fc1.weight": {
+  "dtype": "BF16",
+  "shape": [
+   4304,
+   1152
+  ],
+  "data_offsets": [
+   1692005344,
+   1701921760
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.25.mlp.fc2.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1701921760,
+   1701924064
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.25.mlp.fc2.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   4304
+  ],
+  "data_offsets": [
+   1701924064,
+   1711840480
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.25.self_attn.k_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1711840480,
+   1711842784
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.25.self_attn.k_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1711842784,
+   1714496992
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.25.self_attn.out_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1714496992,
+   1714499296
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.25.self_attn.out_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1714499296,
+   1717153504
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.25.self_attn.q_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1717153504,
+   1717155808
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.25.self_attn.q_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1717155808,
+   1719810016
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.25.self_attn.v_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1719810016,
+   1719812320
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.25.self_attn.v_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1719812320,
+   1722466528
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.26.layer_norm1.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1722466528,
+   1722468832
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.26.layer_norm1.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1722468832,
+   1722471136
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.26.layer_norm2.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1722471136,
+   1722473440
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.26.layer_norm2.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1722473440,
+   1722475744
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.26.mlp.fc1.bias": {
+  "dtype": "BF16",
+  "shape": [
+   4304
+  ],
+  "data_offsets": [
+   1722475744,
+   1722484352
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.26.mlp.fc1.weight": {
+  "dtype": "BF16",
+  "shape": [
+   4304,
+   1152
+  ],
+  "data_offsets": [
+   1722484352,
+   1732400768
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.26.mlp.fc2.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1732400768,
+   1732403072
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.26.mlp.fc2.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   4304
+  ],
+  "data_offsets": [
+   1732403072,
+   1742319488
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.26.self_attn.k_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1742319488,
+   1742321792
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.26.self_attn.k_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1742321792,
+   1744976000
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.26.self_attn.out_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1744976000,
+   1744978304
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.26.self_attn.out_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1744978304,
+   1747632512
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.26.self_attn.q_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1747632512,
+   1747634816
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.26.self_attn.q_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1747634816,
+   1750289024
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.26.self_attn.v_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1750289024,
+   1750291328
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.26.self_attn.v_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1750291328,
+   1752945536
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.3.layer_norm1.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1752945536,
+   1752947840
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.3.layer_norm1.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1752947840,
+   1752950144
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.3.layer_norm2.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1752950144,
+   1752952448
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.3.layer_norm2.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1752952448,
+   1752954752
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.3.mlp.fc1.bias": {
+  "dtype": "BF16",
+  "shape": [
+   4304
+  ],
+  "data_offsets": [
+   1752954752,
+   1752963360
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.3.mlp.fc1.weight": {
+  "dtype": "BF16",
+  "shape": [
+   4304,
+   1152
+  ],
+  "data_offsets": [
+   1752963360,
+   1762879776
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.3.mlp.fc2.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1762879776,
+   1762882080
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.3.mlp.fc2.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   4304
+  ],
+  "data_offsets": [
+   1762882080,
+   1772798496
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.3.self_attn.k_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1772798496,
+   1772800800
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.3.self_attn.k_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1772800800,
+   1775455008
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.3.self_attn.out_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1775455008,
+   1775457312
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.3.self_attn.out_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1775457312,
+   1778111520
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.3.self_attn.q_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1778111520,
+   1778113824
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.3.self_attn.q_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1778113824,
+   1780768032
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.3.self_attn.v_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1780768032,
+   1780770336
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.3.self_attn.v_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1780770336,
+   1783424544
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.4.layer_norm1.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1783424544,
+   1783426848
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.4.layer_norm1.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1783426848,
+   1783429152
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.4.layer_norm2.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1783429152,
+   1783431456
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.4.layer_norm2.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1783431456,
+   1783433760
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.4.mlp.fc1.bias": {
+  "dtype": "BF16",
+  "shape": [
+   4304
+  ],
+  "data_offsets": [
+   1783433760,
+   1783442368
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.4.mlp.fc1.weight": {
+  "dtype": "BF16",
+  "shape": [
+   4304,
+   1152
+  ],
+  "data_offsets": [
+   1783442368,
+   1793358784
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.4.mlp.fc2.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1793358784,
+   1793361088
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.4.mlp.fc2.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   4304
+  ],
+  "data_offsets": [
+   1793361088,
+   1803277504
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.4.self_attn.k_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1803277504,
+   1803279808
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.4.self_attn.k_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1803279808,
+   1805934016
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.4.self_attn.out_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1805934016,
+   1805936320
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.4.self_attn.out_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1805936320,
+   1808590528
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.4.self_attn.q_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1808590528,
+   1808592832
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.4.self_attn.q_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1808592832,
+   1811247040
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.4.self_attn.v_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1811247040,
+   1811249344
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.4.self_attn.v_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1811249344,
+   1813903552
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.5.layer_norm1.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1813903552,
+   1813905856
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.5.layer_norm1.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1813905856,
+   1813908160
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.5.layer_norm2.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1813908160,
+   1813910464
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.5.layer_norm2.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1813910464,
+   1813912768
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.5.mlp.fc1.bias": {
+  "dtype": "BF16",
+  "shape": [
+   4304
+  ],
+  "data_offsets": [
+   1813912768,
+   1813921376
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.5.mlp.fc1.weight": {
+  "dtype": "BF16",
+  "shape": [
+   4304,
+   1152
+  ],
+  "data_offsets": [
+   1813921376,
+   1823837792
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.5.mlp.fc2.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1823837792,
+   1823840096
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.5.mlp.fc2.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   4304
+  ],
+  "data_offsets": [
+   1823840096,
+   1833756512
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.5.self_attn.k_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1833756512,
+   1833758816
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.5.self_attn.k_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1833758816,
+   1836413024
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.5.self_attn.out_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1836413024,
+   1836415328
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.5.self_attn.out_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1836415328,
+   1839069536
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.5.self_attn.q_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1839069536,
+   1839071840
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.5.self_attn.q_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1839071840,
+   1841726048
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.5.self_attn.v_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1841726048,
+   1841728352
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.5.self_attn.v_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1841728352,
+   1844382560
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.6.layer_norm1.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1844382560,
+   1844384864
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.6.layer_norm1.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1844384864,
+   1844387168
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.6.layer_norm2.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1844387168,
+   1844389472
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.6.layer_norm2.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1844389472,
+   1844391776
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.6.mlp.fc1.bias": {
+  "dtype": "BF16",
+  "shape": [
+   4304
+  ],
+  "data_offsets": [
+   1844391776,
+   1844400384
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.6.mlp.fc1.weight": {
+  "dtype": "BF16",
+  "shape": [
+   4304,
+   1152
+  ],
+  "data_offsets": [
+   1844400384,
+   1854316800
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.6.mlp.fc2.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1854316800,
+   1854319104
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.6.mlp.fc2.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   4304
+  ],
+  "data_offsets": [
+   1854319104,
+   1864235520
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.6.self_attn.k_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1864235520,
+   1864237824
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.6.self_attn.k_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1864237824,
+   1866892032
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.6.self_attn.out_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1866892032,
+   1866894336
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.6.self_attn.out_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1866894336,
+   1869548544
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.6.self_attn.q_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1869548544,
+   1869550848
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.6.self_attn.q_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1869550848,
+   1872205056
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.6.self_attn.v_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1872205056,
+   1872207360
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.6.self_attn.v_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1872207360,
+   1874861568
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.7.layer_norm1.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1874861568,
+   1874863872
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.7.layer_norm1.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1874863872,
+   1874866176
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.7.layer_norm2.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1874866176,
+   1874868480
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.7.layer_norm2.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1874868480,
+   1874870784
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.7.mlp.fc1.bias": {
+  "dtype": "BF16",
+  "shape": [
+   4304
+  ],
+  "data_offsets": [
+   1874870784,
+   1874879392
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.7.mlp.fc1.weight": {
+  "dtype": "BF16",
+  "shape": [
+   4304,
+   1152
+  ],
+  "data_offsets": [
+   1874879392,
+   1884795808
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.7.mlp.fc2.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1884795808,
+   1884798112
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.7.mlp.fc2.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   4304
+  ],
+  "data_offsets": [
+   1884798112,
+   1894714528
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.7.self_attn.k_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1894714528,
+   1894716832
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.7.self_attn.k_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1894716832,
+   1897371040
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.7.self_attn.out_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1897371040,
+   1897373344
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.7.self_attn.out_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1897373344,
+   1900027552
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.7.self_attn.q_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1900027552,
+   1900029856
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.7.self_attn.q_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1900029856,
+   1902684064
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.7.self_attn.v_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1902684064,
+   1902686368
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.7.self_attn.v_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1902686368,
+   1905340576
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.8.layer_norm1.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1905340576,
+   1905342880
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.8.layer_norm1.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1905342880,
+   1905345184
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.8.layer_norm2.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1905345184,
+   1905347488
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.8.layer_norm2.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1905347488,
+   1905349792
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.8.mlp.fc1.bias": {
+  "dtype": "BF16",
+  "shape": [
+   4304
+  ],
+  "data_offsets": [
+   1905349792,
+   1905358400
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.8.mlp.fc1.weight": {
+  "dtype": "BF16",
+  "shape": [
+   4304,
+   1152
+  ],
+  "data_offsets": [
+   1905358400,
+   1915274816
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.8.mlp.fc2.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1915274816,
+   1915277120
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.8.mlp.fc2.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   4304
+  ],
+  "data_offsets": [
+   1915277120,
+   1925193536
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.8.self_attn.k_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1925193536,
+   1925195840
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.8.self_attn.k_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1925195840,
+   1927850048
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.8.self_attn.out_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1927850048,
+   1927852352
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.8.self_attn.out_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1927852352,
+   1930506560
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.8.self_attn.q_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1930506560,
+   1930508864
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.8.self_attn.q_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1930508864,
+   1933163072
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.8.self_attn.v_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1933163072,
+   1933165376
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.8.self_attn.v_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1933165376,
+   1935819584
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.9.layer_norm1.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1935819584,
+   1935821888
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.9.layer_norm1.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1935821888,
+   1935824192
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.9.layer_norm2.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1935824192,
+   1935826496
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.9.layer_norm2.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1935826496,
+   1935828800
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.9.mlp.fc1.bias": {
+  "dtype": "BF16",
+  "shape": [
+   4304
+  ],
+  "data_offsets": [
+   1935828800,
+   1935837408
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.9.mlp.fc1.weight": {
+  "dtype": "BF16",
+  "shape": [
+   4304,
+   1152
+  ],
+  "data_offsets": [
+   1935837408,
+   1945753824
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.9.mlp.fc2.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1945753824,
+   1945756128
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.9.mlp.fc2.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   4304
+  ],
+  "data_offsets": [
+   1945756128,
+   1955672544
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.9.self_attn.k_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1955672544,
+   1955674848
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.9.self_attn.k_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1955674848,
+   1958329056
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.9.self_attn.out_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1958329056,
+   1958331360
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.9.self_attn.out_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1958331360,
+   1960985568
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.9.self_attn.q_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1960985568,
+   1960987872
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.9.self_attn.q_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1960987872,
+   1963642080
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.9.self_attn.v_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1963642080,
+   1963644384
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.encoder.layers.9.self_attn.v_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1963644384,
+   1966298592
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.head.attention.in_proj_bias": {
+  "dtype": "BF16",
+  "shape": [
+   3456
+  ],
+  "data_offsets": [
+   1966298592,
+   1966305504
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.head.attention.in_proj_weight": {
+  "dtype": "BF16",
+  "shape": [
+   3456,
+   1152
+  ],
+  "data_offsets": [
+   1966305504,
+   1974268128
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.head.attention.out_proj.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1974268128,
+   1974270432
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.head.attention.out_proj.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   1974270432,
+   1976924640
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.head.layernorm.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1976924640,
+   1976926944
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.head.layernorm.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1976926944,
+   1976929248
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.head.mlp.fc1.bias": {
+  "dtype": "BF16",
+  "shape": [
+   4304
+  ],
+  "data_offsets": [
+   1976929248,
+   1976937856
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.head.mlp.fc1.weight": {
+  "dtype": "BF16",
+  "shape": [
+   4304,
+   1152
+  ],
+  "data_offsets": [
+   1976937856,
+   1986854272
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.head.mlp.fc2.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1986854272,
+   1986856576
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.head.mlp.fc2.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152,
+   4304
+  ],
+  "data_offsets": [
+   1986856576,
+   1996772992
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.head.probe": {
+  "dtype": "BF16",
+  "shape": [
+   1,
+   1,
+   1152
+  ],
+  "data_offsets": [
+   1996772992,
+   1996775296
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.post_layernorm.bias": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1996775296,
+   1996777600
+  ]
+ },
+ "backbone.eagle_model.vision_model.vision_model.post_layernorm.weight": {
+  "dtype": "BF16",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   1996777600,
+   1996779904
+  ]
+ }
+}

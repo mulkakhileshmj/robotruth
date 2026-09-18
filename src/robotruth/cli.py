@@ -19,9 +19,11 @@ app = typer.Typer(help="Robot CI: contract checks, honest statistics and drift f
 contract_app = typer.Typer(help="Module 1: executable-policy contract manifests.", no_args_is_help=True)
 stats_app = typer.Typer(help="Module 2: honest evaluation statistics.", no_args_is_help=True)
 episodes_app = typer.Typer(help="Module 3: episode records, fleet metrics, MCAP bridge.", no_args_is_help=True)
+fingerprint_app = typer.Typer(help="Module 4: cell and robot-unit fingerprints and drift.", no_args_is_help=True)
 app.add_typer(contract_app, name="contract")
 app.add_typer(stats_app, name="stats")
 app.add_typer(episodes_app, name="episodes")
+app.add_typer(fingerprint_app, name="fingerprint")
 console = Console()
 
 
@@ -118,6 +120,17 @@ def stats_compare(results: Path = typer.Argument(..., help="Results CSV (see rob
     raise typer.Exit(code=1 if rep.verdict == "FAIL" else 0)
 
 
+@stats_app.command("audit")
+def stats_audit(claims_csv: Path = typer.Argument(..., help="CSV: policy, task, successes, trials"),
+                alpha: float = 0.05, out_dir: Path = typer.Option(Path("reports"))):
+    """Which reported comparisons survive an interval? Pairwise Newcombe intervals and Fisher tests within each task."""
+    from robotruth.audit import audit_claims, read_claims
+    rep = audit_claims(read_claims(claims_csv), alpha)
+    md, html = rep.write(out_dir, stem="claims_audit")
+    console.print(rep.to_markdown())
+    console.print(f"[green]wrote[/] {md} and {html}")
+
+
 @stats_app.command("interval")
 def stats_interval(k: int, n: int, alpha: float = 0.05):
     """Interval for k successes out of n. Because a rate without an interval is not a result."""
@@ -176,6 +189,50 @@ def episodes_taxonomy():
     from robotruth.schema import FAILURE_SUBCLASSES
     for cls, subs in FAILURE_SUBCLASSES.items():
         console.print(f"[bold]{cls}[/]: " + ", ".join(subs))
+
+
+@fingerprint_app.command("unit")
+def fingerprint_unit(excitation_csv: Path, unit_id: str = typer.Option("unknown"), out: Path = typer.Option(Path("unit_fingerprint.json"), "--out", "-o")):
+    """Fingerprint a robot unit from a fixed excitation trajectory log (t, cmd_<j>, meas_<j> columns)."""
+    from robotruth.fingerprint.unit import read_excitation_csv, unit_fingerprint
+    t, cmd, meas = read_excitation_csv(excitation_csv)
+    fp = unit_fingerprint(t, cmd, meas, unit_id)
+    fp.to_json(out)
+    for j, st in fp.joints.items():
+        console.print(f"{j}: rmse={st.rmse:.4f} lag={1000*st.lag_s:.0f}ms backlash={st.backlash:.4f} offset={st.steady_error:+.4f} gain={st.gain:.3f}")
+    console.print(f"[green]wrote[/] {out} fingerprint={fp.fingerprint[:16]}")
+
+
+@fingerprint_app.command("cell")
+def fingerprint_cell(image: Path, camera: str = typer.Option("cam"), aruco_dict: str = typer.Option("4x4_50"),
+                     out: Path = typer.Option(Path("cell_fingerprint.json"), "--out", "-o")):
+    """Fingerprint a workspace camera view: ArUco marker positions, exposure, sharpness, colour balance."""
+    from robotruth.fingerprint import cell_fingerprint
+    fp = cell_fingerprint(image, camera, aruco_dict)
+    fp.to_json(out)
+    console.print(f"{len(fp.markers)} markers, luma={fp.photometrics.mean_luma:.0f}, sharpness={fp.photometrics.sharpness:.0f}")
+    console.print(f"[green]wrote[/] {out} fingerprint={fp.fingerprint[:16]}")
+
+
+@fingerprint_app.command("diff")
+def fingerprint_diff(reference: Path, current: Path, out: Optional[Path] = typer.Option(None, "--out", "-o")):
+    """Compare two fingerprints (unit or cell) against drift tolerances. Exit 1 on FAIL."""
+    from robotruth.fingerprint import CellFingerprint, UnitFingerprint, diff_cell, diff_unit
+    ref_d = json.loads(reference.read_text(encoding="utf-8"))
+    if "joints" in ref_d:
+        rep = diff_unit(UnitFingerprint.from_json(reference), UnitFingerprint.from_json(current))
+    else:
+        rep = diff_cell(CellFingerprint.from_json(reference), CellFingerprint.from_json(current))
+    table = Table(title=rep.summary())
+    for col in ("severity", "metric", "reference", "current", "delta", "why"):
+        table.add_column(col, overflow="fold")
+    colours = {"fail": "red", "warn": "yellow", "ok": "green"}
+    for f in sorted(rep.findings, key=lambda f: ["fail", "warn", "ok"].index(f.severity)):
+        table.add_row(f"[{colours[f.severity]}]{f.severity}[/]", f.metric, _short(f.reference), _short(f.current), f"{f.delta:.4g}", f.message)
+    console.print(table)
+    if out:
+        out.write_text(json.dumps(rep.to_dict(), indent=2, default=str), encoding="utf-8")
+    raise typer.Exit(code=0 if rep.passed else 1)
 
 
 if __name__ == "__main__":

@@ -1,0 +1,40 @@
+{
+ "source": "/home/ubuntu/hf-cache/hub/models--lerobot--smolvla_base/snapshots/d9f33c94a60fb382c90dea2164c96845bd955e28",
+ "files": [
+  {
+   "name": "README.md",
+   "size": 4625,
+   "sha256": "a484071b8d7d0591452f795813fb54af9199fc1c48ef1ee995358d5ba07ee070"
+  },
+  {
+   "name": "config.json",
+   "size": 2299,
+   "sha256": "650584b56c104720f7a3c91d1ec6bec9e8de8ac11e60c92ba2fa82d93eda147d"
+  },
+  {
+   "name": "model.safetensors",
+   "size": 906712520,
+   "sha256": "7cd549ac2351fb069c0ddb3c34ad2d09cfc92b56a15dccdfc2e41467aaca01eb"
+  },
+  {
+   "name": "policy_postprocessor.json",
+   "size": 660,
+   "sha256": "2b78bb742065288df2ec63b0ee35f97a1f6950171cf2272f7e34b1fe3873b17b"
+  },
+  {
+   "name": "policy_postprocessor_step_0_unnormalizer_processor.safetensors",
+   "size": 640,
+   "sha256": "490ab239d96e263687c0b2e386a0afbc235a2eceb9857c36ed32f2f162a3e7c8"
+  },
+  {
+   "name": "policy_preprocessor.json",
+   "size": 1872,
+   "sha256": "7683d648280a72f0d51e869fb8dd1596beed90b7f84849330cf1bc26634a4bd6"
+  },
+  {
+   "name": "policy_preprocessor_step_5_normalizer_processor.safetensors",
+   "size": 640,
+   "sha256": "490ab239d96e263687c0b2e386a0afbc235a2eceb9857c36ed32f2f162a3e7c8"
+  }
+ ]
+}

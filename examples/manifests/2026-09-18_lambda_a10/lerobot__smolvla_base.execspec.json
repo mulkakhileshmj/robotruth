@@ -1,0 +1,96 @@
+{
+  "spec_version": "0.1",
+  "created_at": "2026-09-18T09:12:52.274955+00:00",
+  "role": "evaluated",
+  "policy": {
+    "name": "smolvla",
+    "family": "lerobot",
+    "weights_sha256": "6e0cd7dfab30e08cc66a5c9a3bba538fed46f724a184bc53086c4e388c873dd4",
+    "weights_files": [
+      "model.safetensors"
+    ],
+    "weights_bytes": 906712520,
+    "config_sha256": "684ddd30da5d366405143671d0ee53a3f77b47606ba8fa46ab79b9893209bd66",
+    "source_path": "examples/probe/2026-09-18_lambda_a10/lerobot__smolvla_base"
+  },
+  "action": {
+    "space": "joint_position",
+    "mode": "absolute",
+    "dim": 6,
+    "units": null,
+    "chunk_size": 50,
+    "n_action_steps": 50,
+    "control_hz": null,
+    "gripper_convention": null,
+    "normalization": {
+      "type": "mean_std",
+      "stats_sha256": "7e907998247cacb4df095074c84031d78c216726c1a55a0e7b5cf533ba41af58",
+      "stats_source": "policy_postprocessor_step_0_unnormalizer_processor.safetensors,policy_preprocessor_step_5_normalizer_processor.safetensors",
+      "action_dim": 6
+    }
+  },
+  "observation": {
+    "cameras": [
+      {
+        "name": "observation.images.camera1",
+        "width": 256,
+        "height": 256,
+        "channels": 3,
+        "intrinsics_sha256": null,
+        "extrinsics_sha256": null
+      },
+      {
+        "name": "observation.images.camera2",
+        "width": 256,
+        "height": 256,
+        "channels": 3,
+        "intrinsics_sha256": null,
+        "extrinsics_sha256": null
+      },
+      {
+        "name": "observation.images.camera3",
+        "width": 256,
+        "height": 256,
+        "channels": 3,
+        "intrinsics_sha256": null,
+        "extrinsics_sha256": null
+      }
+    ],
+    "state_dim": 6,
+    "state_keys": [
+      "observation.state"
+    ],
+    "preprocessing_sha256": "c5614352093e3e1d0112bbd9e49b54005e34c5410e85c2d26698318725913c91",
+    "image_resize": "[512, 512]",
+    "normalization": {
+      "type": "mean_std",
+      "stats_sha256": "7e907998247cacb4df095074c84031d78c216726c1a55a0e7b5cf533ba41af58",
+      "stats_source": "policy_postprocessor_step_0_unnormalizer_processor.safetensors,policy_preprocessor_step_5_normalizer_processor.safetensors",
+      "action_dim": null
+    }
+  },
+  "embodiment": {
+    "robot": "unknown",
+    "unit_id": null,
+    "controller": null,
+    "controller_hz": null
+  },
+  "runtime": {
+    "dtype": null,
+    "device": "cuda",
+    "framework": "lerobot",
+    "framework_version": null,
+    "export_format": null,
+    "inference_hz": null
+  },
+  "notes": [
+    "built from a probe directory (hashes and configs); weights were hashed on the machine that holds them.",
+    "normalizer file holds statistics for 3 datasets (so100, so100-blue, so100-red); the one selected at runtime is part of the executable policy. Record it in the overlay as action.normalization.stats_source.",
+    "denoising steps: 10 (drives latency; VLA-Perf)"
+  ],
+  "unverified": [
+    "action.control_hz",
+    "action.gripper_convention",
+    "embodiment.robot"
+  ]
+}

@@ -1,0 +1,30 @@
+{
+ "source": "/home/ubuntu/hf-cache/hub/models--lerobot--act_aloha_sim_transfer_cube_human/snapshots/ba73b2766f1371cdc133ca4efb97eb090d744625",
+ "files": [
+  {
+   "name": "README.md",
+   "size": 3530,
+   "sha256": "139cd5949227d2b81a9a1b6c0dfb6db3a83034137a0bd91dd759282ea5758e91"
+  },
+  {
+   "name": "config.json",
+   "size": 1334,
+   "sha256": "f8bc4fa4ba67255cf7edfef9a20bc5374a53d6abeaad4cbe6201cf3b4889a9aa"
+  },
+  {
+   "name": "eval_info.json",
+   "size": 66834,
+   "sha256": "566d1661791f6e939efef28826a5cd7f674795d9c94575496d9ce252a11705ba"
+  },
+  {
+   "name": "model.safetensors",
+   "size": 206766560,
+   "sha256": "42772891cb6eba1e7bc36ad8e12c0fa0723c61f036fa235c725ce6026e6e81df"
+  },
+  {
+   "name": "train_config.json",
+   "size": 5290,
+   "sha256": "aa328da79a2896e29bbed5f57de94151438f3afb76079f17d362b4d47b1a334e"
+  }
+ ]
+}

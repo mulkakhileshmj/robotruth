@@ -1,0 +1,97 @@
+{
+  "spec_version": "0.1",
+  "created_at": "2026-09-18T09:12:52.272986+00:00",
+  "role": "evaluated",
+  "policy": {
+    "name": "pi05",
+    "family": "lerobot",
+    "weights_sha256": "9a9f5734a8af973c8284fe432e8e1f7453b17b97230f4383ea00a4f0bfc9404c",
+    "weights_files": [
+      "model.safetensors"
+    ],
+    "weights_bytes": 14467165872,
+    "config_sha256": "bcefe99fce2e05f4d1cda4b4354e2353b309ef71ebf060412a5db8253388dc02",
+    "source_path": "examples/probe/2026-09-18_lambda_a10/lerobot__pi05_base"
+  },
+  "action": {
+    "space": "joint_position",
+    "mode": "absolute",
+    "dim": 32,
+    "units": null,
+    "chunk_size": 50,
+    "n_action_steps": 50,
+    "control_hz": null,
+    "gripper_convention": null,
+    "normalization": {
+      "type": "quantile",
+      "stats_sha256": null,
+      "stats_source": null,
+      "action_dim": 32
+    }
+  },
+  "observation": {
+    "cameras": [
+      {
+        "name": "observation.images.base_0_rgb",
+        "width": 224,
+        "height": 224,
+        "channels": 3,
+        "intrinsics_sha256": null,
+        "extrinsics_sha256": null
+      },
+      {
+        "name": "observation.images.left_wrist_0_rgb",
+        "width": 224,
+        "height": 224,
+        "channels": 3,
+        "intrinsics_sha256": null,
+        "extrinsics_sha256": null
+      },
+      {
+        "name": "observation.images.right_wrist_0_rgb",
+        "width": 224,
+        "height": 224,
+        "channels": 3,
+        "intrinsics_sha256": null,
+        "extrinsics_sha256": null
+      }
+    ],
+    "state_dim": 32,
+    "state_keys": [
+      "observation.state"
+    ],
+    "preprocessing_sha256": "09d342252825db32c94c6efe7c1fab95641813b1a46b87869aaeea1a923dc6cf",
+    "image_resize": "[224, 224]",
+    "normalization": {
+      "type": "quantile",
+      "stats_sha256": null,
+      "stats_source": null,
+      "action_dim": null
+    }
+  },
+  "embodiment": {
+    "robot": "unknown",
+    "unit_id": null,
+    "controller": null,
+    "controller_hz": null
+  },
+  "runtime": {
+    "dtype": "float32",
+    "device": "mps",
+    "framework": "lerobot",
+    "framework_version": null,
+    "export_format": null,
+    "inference_hz": null
+  },
+  "notes": [
+    "built from a probe directory (hashes and configs); weights were hashed on the machine that holds them.",
+    "no normalization statistics shipped with this checkpoint (base model); stats are set at fine-tune time and must be recorded then.",
+    "denoising steps: 10 (drives latency; VLA-Perf)"
+  ],
+  "unverified": [
+    "action.control_hz",
+    "action.gripper_convention",
+    "action.normalization.stats_sha256",
+    "embodiment.robot"
+  ]
+}

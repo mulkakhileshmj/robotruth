@@ -1,0 +1,8201 @@
+{
+ "__metadata__": {
+  "model.paligemma_with_expert.paligemma.model.language_model.embed_tokens.weight": "model.paligemma_with_expert.paligemma.lm_head.weight"
+ },
+ "model.action_in_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1024
+  ],
+  "data_offsets": [
+   0,
+   4096
+  ]
+ },
+ "model.action_in_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1024,
+   32
+  ],
+  "data_offsets": [
+   4096,
+   135168
+  ]
+ },
+ "model.action_out_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   32
+  ],
+  "data_offsets": [
+   135168,
+   135296
+  ]
+ },
+ "model.action_out_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   32,
+   1024
+  ],
+  "data_offsets": [
+   135296,
+   266368
+  ]
+ },
+ "model.action_time_mlp_in.bias": {
+  "dtype": "F32",
+  "shape": [
+   1024
+  ],
+  "data_offsets": [
+   266368,
+   270464
+  ]
+ },
+ "model.action_time_mlp_in.weight": {
+  "dtype": "F32",
+  "shape": [
+   1024,
+   2048
+  ],
+  "data_offsets": [
+   270464,
+   8659072
+  ]
+ },
+ "model.action_time_mlp_out.bias": {
+  "dtype": "F32",
+  "shape": [
+   1024
+  ],
+  "data_offsets": [
+   8659072,
+   8663168
+  ]
+ },
+ "model.action_time_mlp_out.weight": {
+  "dtype": "F32",
+  "shape": [
+   1024,
+   1024
+  ],
+  "data_offsets": [
+   8663168,
+   12857472
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.lm_head.weight": {
+  "dtype": "F32",
+  "shape": [
+   257152,
+   1024
+  ],
+  "data_offsets": [
+   12857472,
+   1066152064
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.0.input_layernorm.weight": {
+  "dtype": "F32",
+  "shape": [
+   1024
+  ],
+  "data_offsets": [
+   1066152064,
+   1066156160
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.0.mlp.down_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1024,
+   4096
+  ],
+  "data_offsets": [
+   1066156160,
+   1082933376
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.0.mlp.gate_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   4096,
+   1024
+  ],
+  "data_offsets": [
+   1082933376,
+   1099710592
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.0.mlp.up_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   4096,
+   1024
+  ],
+  "data_offsets": [
+   1099710592,
+   1116487808
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.0.post_attention_layernorm.weight": {
+  "dtype": "F32",
+  "shape": [
+   1024
+  ],
+  "data_offsets": [
+   1116487808,
+   1116491904
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.0.self_attn.k_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   256,
+   1024
+  ],
+  "data_offsets": [
+   1116491904,
+   1117540480
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.0.self_attn.o_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1024,
+   2048
+  ],
+  "data_offsets": [
+   1117540480,
+   1125929088
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.0.self_attn.q_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048,
+   1024
+  ],
+  "data_offsets": [
+   1125929088,
+   1134317696
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.0.self_attn.v_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   256,
+   1024
+  ],
+  "data_offsets": [
+   1134317696,
+   1135366272
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.1.input_layernorm.weight": {
+  "dtype": "F32",
+  "shape": [
+   1024
+  ],
+  "data_offsets": [
+   1135366272,
+   1135370368
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.1.mlp.down_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1024,
+   4096
+  ],
+  "data_offsets": [
+   1135370368,
+   1152147584
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.1.mlp.gate_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   4096,
+   1024
+  ],
+  "data_offsets": [
+   1152147584,
+   1168924800
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.1.mlp.up_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   4096,
+   1024
+  ],
+  "data_offsets": [
+   1168924800,
+   1185702016
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.1.post_attention_layernorm.weight": {
+  "dtype": "F32",
+  "shape": [
+   1024
+  ],
+  "data_offsets": [
+   1185702016,
+   1185706112
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.1.self_attn.k_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   256,
+   1024
+  ],
+  "data_offsets": [
+   1185706112,
+   1186754688
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.1.self_attn.o_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1024,
+   2048
+  ],
+  "data_offsets": [
+   1186754688,
+   1195143296
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.1.self_attn.q_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048,
+   1024
+  ],
+  "data_offsets": [
+   1195143296,
+   1203531904
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.1.self_attn.v_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   256,
+   1024
+  ],
+  "data_offsets": [
+   1203531904,
+   1204580480
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.10.input_layernorm.weight": {
+  "dtype": "F32",
+  "shape": [
+   1024
+  ],
+  "data_offsets": [
+   1204580480,
+   1204584576
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.10.mlp.down_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1024,
+   4096
+  ],
+  "data_offsets": [
+   1204584576,
+   1221361792
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.10.mlp.gate_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   4096,
+   1024
+  ],
+  "data_offsets": [
+   1221361792,
+   1238139008
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.10.mlp.up_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   4096,
+   1024
+  ],
+  "data_offsets": [
+   1238139008,
+   1254916224
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.10.post_attention_layernorm.weight": {
+  "dtype": "F32",
+  "shape": [
+   1024
+  ],
+  "data_offsets": [
+   1254916224,
+   1254920320
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.10.self_attn.k_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   256,
+   1024
+  ],
+  "data_offsets": [
+   1254920320,
+   1255968896
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.10.self_attn.o_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1024,
+   2048
+  ],
+  "data_offsets": [
+   1255968896,
+   1264357504
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.10.self_attn.q_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048,
+   1024
+  ],
+  "data_offsets": [
+   1264357504,
+   1272746112
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.10.self_attn.v_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   256,
+   1024
+  ],
+  "data_offsets": [
+   1272746112,
+   1273794688
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.11.input_layernorm.weight": {
+  "dtype": "F32",
+  "shape": [
+   1024
+  ],
+  "data_offsets": [
+   1273794688,
+   1273798784
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.11.mlp.down_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1024,
+   4096
+  ],
+  "data_offsets": [
+   1273798784,
+   1290576000
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.11.mlp.gate_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   4096,
+   1024
+  ],
+  "data_offsets": [
+   1290576000,
+   1307353216
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.11.mlp.up_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   4096,
+   1024
+  ],
+  "data_offsets": [
+   1307353216,
+   1324130432
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.11.post_attention_layernorm.weight": {
+  "dtype": "F32",
+  "shape": [
+   1024
+  ],
+  "data_offsets": [
+   1324130432,
+   1324134528
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.11.self_attn.k_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   256,
+   1024
+  ],
+  "data_offsets": [
+   1324134528,
+   1325183104
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.11.self_attn.o_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1024,
+   2048
+  ],
+  "data_offsets": [
+   1325183104,
+   1333571712
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.11.self_attn.q_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048,
+   1024
+  ],
+  "data_offsets": [
+   1333571712,
+   1341960320
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.11.self_attn.v_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   256,
+   1024
+  ],
+  "data_offsets": [
+   1341960320,
+   1343008896
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.12.input_layernorm.weight": {
+  "dtype": "F32",
+  "shape": [
+   1024
+  ],
+  "data_offsets": [
+   1343008896,
+   1343012992
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.12.mlp.down_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1024,
+   4096
+  ],
+  "data_offsets": [
+   1343012992,
+   1359790208
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.12.mlp.gate_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   4096,
+   1024
+  ],
+  "data_offsets": [
+   1359790208,
+   1376567424
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.12.mlp.up_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   4096,
+   1024
+  ],
+  "data_offsets": [
+   1376567424,
+   1393344640
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.12.post_attention_layernorm.weight": {
+  "dtype": "F32",
+  "shape": [
+   1024
+  ],
+  "data_offsets": [
+   1393344640,
+   1393348736
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.12.self_attn.k_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   256,
+   1024
+  ],
+  "data_offsets": [
+   1393348736,
+   1394397312
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.12.self_attn.o_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1024,
+   2048
+  ],
+  "data_offsets": [
+   1394397312,
+   1402785920
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.12.self_attn.q_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048,
+   1024
+  ],
+  "data_offsets": [
+   1402785920,
+   1411174528
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.12.self_attn.v_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   256,
+   1024
+  ],
+  "data_offsets": [
+   1411174528,
+   1412223104
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.13.input_layernorm.weight": {
+  "dtype": "F32",
+  "shape": [
+   1024
+  ],
+  "data_offsets": [
+   1412223104,
+   1412227200
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.13.mlp.down_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1024,
+   4096
+  ],
+  "data_offsets": [
+   1412227200,
+   1429004416
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.13.mlp.gate_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   4096,
+   1024
+  ],
+  "data_offsets": [
+   1429004416,
+   1445781632
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.13.mlp.up_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   4096,
+   1024
+  ],
+  "data_offsets": [
+   1445781632,
+   1462558848
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.13.post_attention_layernorm.weight": {
+  "dtype": "F32",
+  "shape": [
+   1024
+  ],
+  "data_offsets": [
+   1462558848,
+   1462562944
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.13.self_attn.k_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   256,
+   1024
+  ],
+  "data_offsets": [
+   1462562944,
+   1463611520
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.13.self_attn.o_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1024,
+   2048
+  ],
+  "data_offsets": [
+   1463611520,
+   1472000128
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.13.self_attn.q_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048,
+   1024
+  ],
+  "data_offsets": [
+   1472000128,
+   1480388736
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.13.self_attn.v_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   256,
+   1024
+  ],
+  "data_offsets": [
+   1480388736,
+   1481437312
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.14.input_layernorm.weight": {
+  "dtype": "F32",
+  "shape": [
+   1024
+  ],
+  "data_offsets": [
+   1481437312,
+   1481441408
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.14.mlp.down_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1024,
+   4096
+  ],
+  "data_offsets": [
+   1481441408,
+   1498218624
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.14.mlp.gate_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   4096,
+   1024
+  ],
+  "data_offsets": [
+   1498218624,
+   1514995840
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.14.mlp.up_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   4096,
+   1024
+  ],
+  "data_offsets": [
+   1514995840,
+   1531773056
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.14.post_attention_layernorm.weight": {
+  "dtype": "F32",
+  "shape": [
+   1024
+  ],
+  "data_offsets": [
+   1531773056,
+   1531777152
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.14.self_attn.k_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   256,
+   1024
+  ],
+  "data_offsets": [
+   1531777152,
+   1532825728
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.14.self_attn.o_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1024,
+   2048
+  ],
+  "data_offsets": [
+   1532825728,
+   1541214336
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.14.self_attn.q_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048,
+   1024
+  ],
+  "data_offsets": [
+   1541214336,
+   1549602944
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.14.self_attn.v_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   256,
+   1024
+  ],
+  "data_offsets": [
+   1549602944,
+   1550651520
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.15.input_layernorm.weight": {
+  "dtype": "F32",
+  "shape": [
+   1024
+  ],
+  "data_offsets": [
+   1550651520,
+   1550655616
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.15.mlp.down_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1024,
+   4096
+  ],
+  "data_offsets": [
+   1550655616,
+   1567432832
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.15.mlp.gate_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   4096,
+   1024
+  ],
+  "data_offsets": [
+   1567432832,
+   1584210048
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.15.mlp.up_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   4096,
+   1024
+  ],
+  "data_offsets": [
+   1584210048,
+   1600987264
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.15.post_attention_layernorm.weight": {
+  "dtype": "F32",
+  "shape": [
+   1024
+  ],
+  "data_offsets": [
+   1600987264,
+   1600991360
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.15.self_attn.k_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   256,
+   1024
+  ],
+  "data_offsets": [
+   1600991360,
+   1602039936
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.15.self_attn.o_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1024,
+   2048
+  ],
+  "data_offsets": [
+   1602039936,
+   1610428544
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.15.self_attn.q_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048,
+   1024
+  ],
+  "data_offsets": [
+   1610428544,
+   1618817152
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.15.self_attn.v_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   256,
+   1024
+  ],
+  "data_offsets": [
+   1618817152,
+   1619865728
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.16.input_layernorm.weight": {
+  "dtype": "F32",
+  "shape": [
+   1024
+  ],
+  "data_offsets": [
+   1619865728,
+   1619869824
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.16.mlp.down_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1024,
+   4096
+  ],
+  "data_offsets": [
+   1619869824,
+   1636647040
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.16.mlp.gate_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   4096,
+   1024
+  ],
+  "data_offsets": [
+   1636647040,
+   1653424256
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.16.mlp.up_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   4096,
+   1024
+  ],
+  "data_offsets": [
+   1653424256,
+   1670201472
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.16.post_attention_layernorm.weight": {
+  "dtype": "F32",
+  "shape": [
+   1024
+  ],
+  "data_offsets": [
+   1670201472,
+   1670205568
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.16.self_attn.k_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   256,
+   1024
+  ],
+  "data_offsets": [
+   1670205568,
+   1671254144
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.16.self_attn.o_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1024,
+   2048
+  ],
+  "data_offsets": [
+   1671254144,
+   1679642752
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.16.self_attn.q_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048,
+   1024
+  ],
+  "data_offsets": [
+   1679642752,
+   1688031360
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.16.self_attn.v_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   256,
+   1024
+  ],
+  "data_offsets": [
+   1688031360,
+   1689079936
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.17.input_layernorm.weight": {
+  "dtype": "F32",
+  "shape": [
+   1024
+  ],
+  "data_offsets": [
+   1689079936,
+   1689084032
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.17.mlp.down_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1024,
+   4096
+  ],
+  "data_offsets": [
+   1689084032,
+   1705861248
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.17.mlp.gate_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   4096,
+   1024
+  ],
+  "data_offsets": [
+   1705861248,
+   1722638464
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.17.mlp.up_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   4096,
+   1024
+  ],
+  "data_offsets": [
+   1722638464,
+   1739415680
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.17.post_attention_layernorm.weight": {
+  "dtype": "F32",
+  "shape": [
+   1024
+  ],
+  "data_offsets": [
+   1739415680,
+   1739419776
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.17.self_attn.k_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   256,
+   1024
+  ],
+  "data_offsets": [
+   1739419776,
+   1740468352
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.17.self_attn.o_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1024,
+   2048
+  ],
+  "data_offsets": [
+   1740468352,
+   1748856960
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.17.self_attn.q_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048,
+   1024
+  ],
+  "data_offsets": [
+   1748856960,
+   1757245568
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.17.self_attn.v_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   256,
+   1024
+  ],
+  "data_offsets": [
+   1757245568,
+   1758294144
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.2.input_layernorm.weight": {
+  "dtype": "F32",
+  "shape": [
+   1024
+  ],
+  "data_offsets": [
+   1758294144,
+   1758298240
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.2.mlp.down_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1024,
+   4096
+  ],
+  "data_offsets": [
+   1758298240,
+   1775075456
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.2.mlp.gate_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   4096,
+   1024
+  ],
+  "data_offsets": [
+   1775075456,
+   1791852672
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.2.mlp.up_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   4096,
+   1024
+  ],
+  "data_offsets": [
+   1791852672,
+   1808629888
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.2.post_attention_layernorm.weight": {
+  "dtype": "F32",
+  "shape": [
+   1024
+  ],
+  "data_offsets": [
+   1808629888,
+   1808633984
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.2.self_attn.k_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   256,
+   1024
+  ],
+  "data_offsets": [
+   1808633984,
+   1809682560
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.2.self_attn.o_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1024,
+   2048
+  ],
+  "data_offsets": [
+   1809682560,
+   1818071168
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.2.self_attn.q_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048,
+   1024
+  ],
+  "data_offsets": [
+   1818071168,
+   1826459776
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.2.self_attn.v_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   256,
+   1024
+  ],
+  "data_offsets": [
+   1826459776,
+   1827508352
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.3.input_layernorm.weight": {
+  "dtype": "F32",
+  "shape": [
+   1024
+  ],
+  "data_offsets": [
+   1827508352,
+   1827512448
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.3.mlp.down_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1024,
+   4096
+  ],
+  "data_offsets": [
+   1827512448,
+   1844289664
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.3.mlp.gate_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   4096,
+   1024
+  ],
+  "data_offsets": [
+   1844289664,
+   1861066880
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.3.mlp.up_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   4096,
+   1024
+  ],
+  "data_offsets": [
+   1861066880,
+   1877844096
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.3.post_attention_layernorm.weight": {
+  "dtype": "F32",
+  "shape": [
+   1024
+  ],
+  "data_offsets": [
+   1877844096,
+   1877848192
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.3.self_attn.k_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   256,
+   1024
+  ],
+  "data_offsets": [
+   1877848192,
+   1878896768
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.3.self_attn.o_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1024,
+   2048
+  ],
+  "data_offsets": [
+   1878896768,
+   1887285376
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.3.self_attn.q_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048,
+   1024
+  ],
+  "data_offsets": [
+   1887285376,
+   1895673984
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.3.self_attn.v_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   256,
+   1024
+  ],
+  "data_offsets": [
+   1895673984,
+   1896722560
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.4.input_layernorm.weight": {
+  "dtype": "F32",
+  "shape": [
+   1024
+  ],
+  "data_offsets": [
+   1896722560,
+   1896726656
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.4.mlp.down_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1024,
+   4096
+  ],
+  "data_offsets": [
+   1896726656,
+   1913503872
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.4.mlp.gate_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   4096,
+   1024
+  ],
+  "data_offsets": [
+   1913503872,
+   1930281088
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.4.mlp.up_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   4096,
+   1024
+  ],
+  "data_offsets": [
+   1930281088,
+   1947058304
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.4.post_attention_layernorm.weight": {
+  "dtype": "F32",
+  "shape": [
+   1024
+  ],
+  "data_offsets": [
+   1947058304,
+   1947062400
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.4.self_attn.k_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   256,
+   1024
+  ],
+  "data_offsets": [
+   1947062400,
+   1948110976
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.4.self_attn.o_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1024,
+   2048
+  ],
+  "data_offsets": [
+   1948110976,
+   1956499584
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.4.self_attn.q_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048,
+   1024
+  ],
+  "data_offsets": [
+   1956499584,
+   1964888192
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.4.self_attn.v_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   256,
+   1024
+  ],
+  "data_offsets": [
+   1964888192,
+   1965936768
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.5.input_layernorm.weight": {
+  "dtype": "F32",
+  "shape": [
+   1024
+  ],
+  "data_offsets": [
+   1965936768,
+   1965940864
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.5.mlp.down_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1024,
+   4096
+  ],
+  "data_offsets": [
+   1965940864,
+   1982718080
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.5.mlp.gate_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   4096,
+   1024
+  ],
+  "data_offsets": [
+   1982718080,
+   1999495296
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.5.mlp.up_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   4096,
+   1024
+  ],
+  "data_offsets": [
+   1999495296,
+   2016272512
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.5.post_attention_layernorm.weight": {
+  "dtype": "F32",
+  "shape": [
+   1024
+  ],
+  "data_offsets": [
+   2016272512,
+   2016276608
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.5.self_attn.k_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   256,
+   1024
+  ],
+  "data_offsets": [
+   2016276608,
+   2017325184
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.5.self_attn.o_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1024,
+   2048
+  ],
+  "data_offsets": [
+   2017325184,
+   2025713792
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.5.self_attn.q_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048,
+   1024
+  ],
+  "data_offsets": [
+   2025713792,
+   2034102400
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.5.self_attn.v_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   256,
+   1024
+  ],
+  "data_offsets": [
+   2034102400,
+   2035150976
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.6.input_layernorm.weight": {
+  "dtype": "F32",
+  "shape": [
+   1024
+  ],
+  "data_offsets": [
+   2035150976,
+   2035155072
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.6.mlp.down_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1024,
+   4096
+  ],
+  "data_offsets": [
+   2035155072,
+   2051932288
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.6.mlp.gate_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   4096,
+   1024
+  ],
+  "data_offsets": [
+   2051932288,
+   2068709504
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.6.mlp.up_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   4096,
+   1024
+  ],
+  "data_offsets": [
+   2068709504,
+   2085486720
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.6.post_attention_layernorm.weight": {
+  "dtype": "F32",
+  "shape": [
+   1024
+  ],
+  "data_offsets": [
+   2085486720,
+   2085490816
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.6.self_attn.k_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   256,
+   1024
+  ],
+  "data_offsets": [
+   2085490816,
+   2086539392
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.6.self_attn.o_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1024,
+   2048
+  ],
+  "data_offsets": [
+   2086539392,
+   2094928000
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.6.self_attn.q_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048,
+   1024
+  ],
+  "data_offsets": [
+   2094928000,
+   2103316608
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.6.self_attn.v_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   256,
+   1024
+  ],
+  "data_offsets": [
+   2103316608,
+   2104365184
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.7.input_layernorm.weight": {
+  "dtype": "F32",
+  "shape": [
+   1024
+  ],
+  "data_offsets": [
+   2104365184,
+   2104369280
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.7.mlp.down_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1024,
+   4096
+  ],
+  "data_offsets": [
+   2104369280,
+   2121146496
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.7.mlp.gate_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   4096,
+   1024
+  ],
+  "data_offsets": [
+   2121146496,
+   2137923712
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.7.mlp.up_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   4096,
+   1024
+  ],
+  "data_offsets": [
+   2137923712,
+   2154700928
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.7.post_attention_layernorm.weight": {
+  "dtype": "F32",
+  "shape": [
+   1024
+  ],
+  "data_offsets": [
+   2154700928,
+   2154705024
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.7.self_attn.k_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   256,
+   1024
+  ],
+  "data_offsets": [
+   2154705024,
+   2155753600
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.7.self_attn.o_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1024,
+   2048
+  ],
+  "data_offsets": [
+   2155753600,
+   2164142208
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.7.self_attn.q_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048,
+   1024
+  ],
+  "data_offsets": [
+   2164142208,
+   2172530816
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.7.self_attn.v_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   256,
+   1024
+  ],
+  "data_offsets": [
+   2172530816,
+   2173579392
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.8.input_layernorm.weight": {
+  "dtype": "F32",
+  "shape": [
+   1024
+  ],
+  "data_offsets": [
+   2173579392,
+   2173583488
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.8.mlp.down_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1024,
+   4096
+  ],
+  "data_offsets": [
+   2173583488,
+   2190360704
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.8.mlp.gate_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   4096,
+   1024
+  ],
+  "data_offsets": [
+   2190360704,
+   2207137920
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.8.mlp.up_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   4096,
+   1024
+  ],
+  "data_offsets": [
+   2207137920,
+   2223915136
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.8.post_attention_layernorm.weight": {
+  "dtype": "F32",
+  "shape": [
+   1024
+  ],
+  "data_offsets": [
+   2223915136,
+   2223919232
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.8.self_attn.k_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   256,
+   1024
+  ],
+  "data_offsets": [
+   2223919232,
+   2224967808
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.8.self_attn.o_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1024,
+   2048
+  ],
+  "data_offsets": [
+   2224967808,
+   2233356416
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.8.self_attn.q_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048,
+   1024
+  ],
+  "data_offsets": [
+   2233356416,
+   2241745024
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.8.self_attn.v_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   256,
+   1024
+  ],
+  "data_offsets": [
+   2241745024,
+   2242793600
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.9.input_layernorm.weight": {
+  "dtype": "F32",
+  "shape": [
+   1024
+  ],
+  "data_offsets": [
+   2242793600,
+   2242797696
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.9.mlp.down_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1024,
+   4096
+  ],
+  "data_offsets": [
+   2242797696,
+   2259574912
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.9.mlp.gate_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   4096,
+   1024
+  ],
+  "data_offsets": [
+   2259574912,
+   2276352128
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.9.mlp.up_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   4096,
+   1024
+  ],
+  "data_offsets": [
+   2276352128,
+   2293129344
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.9.post_attention_layernorm.weight": {
+  "dtype": "F32",
+  "shape": [
+   1024
+  ],
+  "data_offsets": [
+   2293129344,
+   2293133440
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.9.self_attn.k_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   256,
+   1024
+  ],
+  "data_offsets": [
+   2293133440,
+   2294182016
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.9.self_attn.o_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1024,
+   2048
+  ],
+  "data_offsets": [
+   2294182016,
+   2302570624
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.9.self_attn.q_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048,
+   1024
+  ],
+  "data_offsets": [
+   2302570624,
+   2310959232
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.layers.9.self_attn.v_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   256,
+   1024
+  ],
+  "data_offsets": [
+   2310959232,
+   2312007808
+  ]
+ },
+ "model.paligemma_with_expert.gemma_expert.model.norm.weight": {
+  "dtype": "F32",
+  "shape": [
+   1024
+  ],
+  "data_offsets": [
+   2312007808,
+   2312011904
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.lm_head.weight": {
+  "dtype": "F32",
+  "shape": [
+   257152,
+   2048
+  ],
+  "data_offsets": [
+   2312011904,
+   4418601088
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.0.input_layernorm.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048
+  ],
+  "data_offsets": [
+   4418601088,
+   4418609280
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.0.mlp.down_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048,
+   16384
+  ],
+  "data_offsets": [
+   4418609280,
+   4552827008
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.0.mlp.gate_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   16384,
+   2048
+  ],
+  "data_offsets": [
+   4552827008,
+   4687044736
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.0.mlp.up_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   16384,
+   2048
+  ],
+  "data_offsets": [
+   4687044736,
+   4821262464
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.0.post_attention_layernorm.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048
+  ],
+  "data_offsets": [
+   4821262464,
+   4821270656
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.0.self_attn.k_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   256,
+   2048
+  ],
+  "data_offsets": [
+   4821270656,
+   4823367808
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.0.self_attn.o_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048,
+   2048
+  ],
+  "data_offsets": [
+   4823367808,
+   4840145024
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.0.self_attn.q_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048,
+   2048
+  ],
+  "data_offsets": [
+   4840145024,
+   4856922240
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.0.self_attn.v_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   256,
+   2048
+  ],
+  "data_offsets": [
+   4856922240,
+   4859019392
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.1.input_layernorm.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048
+  ],
+  "data_offsets": [
+   4859019392,
+   4859027584
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.1.mlp.down_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048,
+   16384
+  ],
+  "data_offsets": [
+   4859027584,
+   4993245312
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.1.mlp.gate_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   16384,
+   2048
+  ],
+  "data_offsets": [
+   4993245312,
+   5127463040
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.1.mlp.up_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   16384,
+   2048
+  ],
+  "data_offsets": [
+   5127463040,
+   5261680768
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.1.post_attention_layernorm.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048
+  ],
+  "data_offsets": [
+   5261680768,
+   5261688960
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.1.self_attn.k_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   256,
+   2048
+  ],
+  "data_offsets": [
+   5261688960,
+   5263786112
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.1.self_attn.o_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048,
+   2048
+  ],
+  "data_offsets": [
+   5263786112,
+   5280563328
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.1.self_attn.q_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048,
+   2048
+  ],
+  "data_offsets": [
+   5280563328,
+   5297340544
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.1.self_attn.v_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   256,
+   2048
+  ],
+  "data_offsets": [
+   5297340544,
+   5299437696
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.10.input_layernorm.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048
+  ],
+  "data_offsets": [
+   5299437696,
+   5299445888
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.10.mlp.down_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048,
+   16384
+  ],
+  "data_offsets": [
+   5299445888,
+   5433663616
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.10.mlp.gate_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   16384,
+   2048
+  ],
+  "data_offsets": [
+   5433663616,
+   5567881344
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.10.mlp.up_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   16384,
+   2048
+  ],
+  "data_offsets": [
+   5567881344,
+   5702099072
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.10.post_attention_layernorm.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048
+  ],
+  "data_offsets": [
+   5702099072,
+   5702107264
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.10.self_attn.k_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   256,
+   2048
+  ],
+  "data_offsets": [
+   5702107264,
+   5704204416
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.10.self_attn.o_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048,
+   2048
+  ],
+  "data_offsets": [
+   5704204416,
+   5720981632
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.10.self_attn.q_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048,
+   2048
+  ],
+  "data_offsets": [
+   5720981632,
+   5737758848
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.10.self_attn.v_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   256,
+   2048
+  ],
+  "data_offsets": [
+   5737758848,
+   5739856000
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.11.input_layernorm.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048
+  ],
+  "data_offsets": [
+   5739856000,
+   5739864192
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.11.mlp.down_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048,
+   16384
+  ],
+  "data_offsets": [
+   5739864192,
+   5874081920
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.11.mlp.gate_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   16384,
+   2048
+  ],
+  "data_offsets": [
+   5874081920,
+   6008299648
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.11.mlp.up_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   16384,
+   2048
+  ],
+  "data_offsets": [
+   6008299648,
+   6142517376
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.11.post_attention_layernorm.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048
+  ],
+  "data_offsets": [
+   6142517376,
+   6142525568
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.11.self_attn.k_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   256,
+   2048
+  ],
+  "data_offsets": [
+   6142525568,
+   6144622720
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.11.self_attn.o_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048,
+   2048
+  ],
+  "data_offsets": [
+   6144622720,
+   6161399936
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.11.self_attn.q_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048,
+   2048
+  ],
+  "data_offsets": [
+   6161399936,
+   6178177152
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.11.self_attn.v_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   256,
+   2048
+  ],
+  "data_offsets": [
+   6178177152,
+   6180274304
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.12.input_layernorm.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048
+  ],
+  "data_offsets": [
+   6180274304,
+   6180282496
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.12.mlp.down_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048,
+   16384
+  ],
+  "data_offsets": [
+   6180282496,
+   6314500224
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.12.mlp.gate_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   16384,
+   2048
+  ],
+  "data_offsets": [
+   6314500224,
+   6448717952
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.12.mlp.up_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   16384,
+   2048
+  ],
+  "data_offsets": [
+   6448717952,
+   6582935680
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.12.post_attention_layernorm.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048
+  ],
+  "data_offsets": [
+   6582935680,
+   6582943872
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.12.self_attn.k_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   256,
+   2048
+  ],
+  "data_offsets": [
+   6582943872,
+   6585041024
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.12.self_attn.o_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048,
+   2048
+  ],
+  "data_offsets": [
+   6585041024,
+   6601818240
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.12.self_attn.q_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048,
+   2048
+  ],
+  "data_offsets": [
+   6601818240,
+   6618595456
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.12.self_attn.v_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   256,
+   2048
+  ],
+  "data_offsets": [
+   6618595456,
+   6620692608
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.13.input_layernorm.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048
+  ],
+  "data_offsets": [
+   6620692608,
+   6620700800
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.13.mlp.down_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048,
+   16384
+  ],
+  "data_offsets": [
+   6620700800,
+   6754918528
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.13.mlp.gate_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   16384,
+   2048
+  ],
+  "data_offsets": [
+   6754918528,
+   6889136256
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.13.mlp.up_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   16384,
+   2048
+  ],
+  "data_offsets": [
+   6889136256,
+   7023353984
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.13.post_attention_layernorm.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048
+  ],
+  "data_offsets": [
+   7023353984,
+   7023362176
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.13.self_attn.k_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   256,
+   2048
+  ],
+  "data_offsets": [
+   7023362176,
+   7025459328
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.13.self_attn.o_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048,
+   2048
+  ],
+  "data_offsets": [
+   7025459328,
+   7042236544
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.13.self_attn.q_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048,
+   2048
+  ],
+  "data_offsets": [
+   7042236544,
+   7059013760
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.13.self_attn.v_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   256,
+   2048
+  ],
+  "data_offsets": [
+   7059013760,
+   7061110912
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.14.input_layernorm.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048
+  ],
+  "data_offsets": [
+   7061110912,
+   7061119104
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.14.mlp.down_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048,
+   16384
+  ],
+  "data_offsets": [
+   7061119104,
+   7195336832
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.14.mlp.gate_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   16384,
+   2048
+  ],
+  "data_offsets": [
+   7195336832,
+   7329554560
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.14.mlp.up_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   16384,
+   2048
+  ],
+  "data_offsets": [
+   7329554560,
+   7463772288
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.14.post_attention_layernorm.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048
+  ],
+  "data_offsets": [
+   7463772288,
+   7463780480
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.14.self_attn.k_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   256,
+   2048
+  ],
+  "data_offsets": [
+   7463780480,
+   7465877632
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.14.self_attn.o_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048,
+   2048
+  ],
+  "data_offsets": [
+   7465877632,
+   7482654848
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.14.self_attn.q_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048,
+   2048
+  ],
+  "data_offsets": [
+   7482654848,
+   7499432064
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.14.self_attn.v_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   256,
+   2048
+  ],
+  "data_offsets": [
+   7499432064,
+   7501529216
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.15.input_layernorm.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048
+  ],
+  "data_offsets": [
+   7501529216,
+   7501537408
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.15.mlp.down_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048,
+   16384
+  ],
+  "data_offsets": [
+   7501537408,
+   7635755136
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.15.mlp.gate_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   16384,
+   2048
+  ],
+  "data_offsets": [
+   7635755136,
+   7769972864
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.15.mlp.up_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   16384,
+   2048
+  ],
+  "data_offsets": [
+   7769972864,
+   7904190592
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.15.post_attention_layernorm.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048
+  ],
+  "data_offsets": [
+   7904190592,
+   7904198784
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.15.self_attn.k_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   256,
+   2048
+  ],
+  "data_offsets": [
+   7904198784,
+   7906295936
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.15.self_attn.o_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048,
+   2048
+  ],
+  "data_offsets": [
+   7906295936,
+   7923073152
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.15.self_attn.q_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048,
+   2048
+  ],
+  "data_offsets": [
+   7923073152,
+   7939850368
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.15.self_attn.v_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   256,
+   2048
+  ],
+  "data_offsets": [
+   7939850368,
+   7941947520
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.16.input_layernorm.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048
+  ],
+  "data_offsets": [
+   7941947520,
+   7941955712
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.16.mlp.down_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048,
+   16384
+  ],
+  "data_offsets": [
+   7941955712,
+   8076173440
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.16.mlp.gate_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   16384,
+   2048
+  ],
+  "data_offsets": [
+   8076173440,
+   8210391168
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.16.mlp.up_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   16384,
+   2048
+  ],
+  "data_offsets": [
+   8210391168,
+   8344608896
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.16.post_attention_layernorm.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048
+  ],
+  "data_offsets": [
+   8344608896,
+   8344617088
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.16.self_attn.k_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   256,
+   2048
+  ],
+  "data_offsets": [
+   8344617088,
+   8346714240
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.16.self_attn.o_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048,
+   2048
+  ],
+  "data_offsets": [
+   8346714240,
+   8363491456
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.16.self_attn.q_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048,
+   2048
+  ],
+  "data_offsets": [
+   8363491456,
+   8380268672
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.16.self_attn.v_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   256,
+   2048
+  ],
+  "data_offsets": [
+   8380268672,
+   8382365824
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.17.input_layernorm.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048
+  ],
+  "data_offsets": [
+   8382365824,
+   8382374016
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.17.mlp.down_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048,
+   16384
+  ],
+  "data_offsets": [
+   8382374016,
+   8516591744
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.17.mlp.gate_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   16384,
+   2048
+  ],
+  "data_offsets": [
+   8516591744,
+   8650809472
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.17.mlp.up_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   16384,
+   2048
+  ],
+  "data_offsets": [
+   8650809472,
+   8785027200
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.17.post_attention_layernorm.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048
+  ],
+  "data_offsets": [
+   8785027200,
+   8785035392
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.17.self_attn.k_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   256,
+   2048
+  ],
+  "data_offsets": [
+   8785035392,
+   8787132544
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.17.self_attn.o_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048,
+   2048
+  ],
+  "data_offsets": [
+   8787132544,
+   8803909760
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.17.self_attn.q_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048,
+   2048
+  ],
+  "data_offsets": [
+   8803909760,
+   8820686976
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.17.self_attn.v_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   256,
+   2048
+  ],
+  "data_offsets": [
+   8820686976,
+   8822784128
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.2.input_layernorm.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048
+  ],
+  "data_offsets": [
+   8822784128,
+   8822792320
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.2.mlp.down_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048,
+   16384
+  ],
+  "data_offsets": [
+   8822792320,
+   8957010048
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.2.mlp.gate_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   16384,
+   2048
+  ],
+  "data_offsets": [
+   8957010048,
+   9091227776
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.2.mlp.up_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   16384,
+   2048
+  ],
+  "data_offsets": [
+   9091227776,
+   9225445504
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.2.post_attention_layernorm.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048
+  ],
+  "data_offsets": [
+   9225445504,
+   9225453696
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.2.self_attn.k_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   256,
+   2048
+  ],
+  "data_offsets": [
+   9225453696,
+   9227550848
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.2.self_attn.o_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048,
+   2048
+  ],
+  "data_offsets": [
+   9227550848,
+   9244328064
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.2.self_attn.q_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048,
+   2048
+  ],
+  "data_offsets": [
+   9244328064,
+   9261105280
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.2.self_attn.v_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   256,
+   2048
+  ],
+  "data_offsets": [
+   9261105280,
+   9263202432
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.3.input_layernorm.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048
+  ],
+  "data_offsets": [
+   9263202432,
+   9263210624
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.3.mlp.down_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048,
+   16384
+  ],
+  "data_offsets": [
+   9263210624,
+   9397428352
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.3.mlp.gate_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   16384,
+   2048
+  ],
+  "data_offsets": [
+   9397428352,
+   9531646080
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.3.mlp.up_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   16384,
+   2048
+  ],
+  "data_offsets": [
+   9531646080,
+   9665863808
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.3.post_attention_layernorm.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048
+  ],
+  "data_offsets": [
+   9665863808,
+   9665872000
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.3.self_attn.k_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   256,
+   2048
+  ],
+  "data_offsets": [
+   9665872000,
+   9667969152
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.3.self_attn.o_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048,
+   2048
+  ],
+  "data_offsets": [
+   9667969152,
+   9684746368
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.3.self_attn.q_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048,
+   2048
+  ],
+  "data_offsets": [
+   9684746368,
+   9701523584
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.3.self_attn.v_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   256,
+   2048
+  ],
+  "data_offsets": [
+   9701523584,
+   9703620736
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.4.input_layernorm.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048
+  ],
+  "data_offsets": [
+   9703620736,
+   9703628928
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.4.mlp.down_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048,
+   16384
+  ],
+  "data_offsets": [
+   9703628928,
+   9837846656
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.4.mlp.gate_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   16384,
+   2048
+  ],
+  "data_offsets": [
+   9837846656,
+   9972064384
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.4.mlp.up_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   16384,
+   2048
+  ],
+  "data_offsets": [
+   9972064384,
+   10106282112
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.4.post_attention_layernorm.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048
+  ],
+  "data_offsets": [
+   10106282112,
+   10106290304
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.4.self_attn.k_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   256,
+   2048
+  ],
+  "data_offsets": [
+   10106290304,
+   10108387456
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.4.self_attn.o_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048,
+   2048
+  ],
+  "data_offsets": [
+   10108387456,
+   10125164672
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.4.self_attn.q_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048,
+   2048
+  ],
+  "data_offsets": [
+   10125164672,
+   10141941888
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.4.self_attn.v_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   256,
+   2048
+  ],
+  "data_offsets": [
+   10141941888,
+   10144039040
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.5.input_layernorm.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048
+  ],
+  "data_offsets": [
+   10144039040,
+   10144047232
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.5.mlp.down_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048,
+   16384
+  ],
+  "data_offsets": [
+   10144047232,
+   10278264960
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.5.mlp.gate_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   16384,
+   2048
+  ],
+  "data_offsets": [
+   10278264960,
+   10412482688
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.5.mlp.up_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   16384,
+   2048
+  ],
+  "data_offsets": [
+   10412482688,
+   10546700416
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.5.post_attention_layernorm.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048
+  ],
+  "data_offsets": [
+   10546700416,
+   10546708608
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.5.self_attn.k_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   256,
+   2048
+  ],
+  "data_offsets": [
+   10546708608,
+   10548805760
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.5.self_attn.o_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048,
+   2048
+  ],
+  "data_offsets": [
+   10548805760,
+   10565582976
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.5.self_attn.q_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048,
+   2048
+  ],
+  "data_offsets": [
+   10565582976,
+   10582360192
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.5.self_attn.v_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   256,
+   2048
+  ],
+  "data_offsets": [
+   10582360192,
+   10584457344
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.6.input_layernorm.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048
+  ],
+  "data_offsets": [
+   10584457344,
+   10584465536
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.6.mlp.down_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048,
+   16384
+  ],
+  "data_offsets": [
+   10584465536,
+   10718683264
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.6.mlp.gate_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   16384,
+   2048
+  ],
+  "data_offsets": [
+   10718683264,
+   10852900992
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.6.mlp.up_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   16384,
+   2048
+  ],
+  "data_offsets": [
+   10852900992,
+   10987118720
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.6.post_attention_layernorm.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048
+  ],
+  "data_offsets": [
+   10987118720,
+   10987126912
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.6.self_attn.k_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   256,
+   2048
+  ],
+  "data_offsets": [
+   10987126912,
+   10989224064
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.6.self_attn.o_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048,
+   2048
+  ],
+  "data_offsets": [
+   10989224064,
+   11006001280
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.6.self_attn.q_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048,
+   2048
+  ],
+  "data_offsets": [
+   11006001280,
+   11022778496
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.6.self_attn.v_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   256,
+   2048
+  ],
+  "data_offsets": [
+   11022778496,
+   11024875648
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.7.input_layernorm.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048
+  ],
+  "data_offsets": [
+   11024875648,
+   11024883840
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.7.mlp.down_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048,
+   16384
+  ],
+  "data_offsets": [
+   11024883840,
+   11159101568
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.7.mlp.gate_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   16384,
+   2048
+  ],
+  "data_offsets": [
+   11159101568,
+   11293319296
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.7.mlp.up_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   16384,
+   2048
+  ],
+  "data_offsets": [
+   11293319296,
+   11427537024
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.7.post_attention_layernorm.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048
+  ],
+  "data_offsets": [
+   11427537024,
+   11427545216
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.7.self_attn.k_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   256,
+   2048
+  ],
+  "data_offsets": [
+   11427545216,
+   11429642368
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.7.self_attn.o_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048,
+   2048
+  ],
+  "data_offsets": [
+   11429642368,
+   11446419584
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.7.self_attn.q_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048,
+   2048
+  ],
+  "data_offsets": [
+   11446419584,
+   11463196800
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.7.self_attn.v_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   256,
+   2048
+  ],
+  "data_offsets": [
+   11463196800,
+   11465293952
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.8.input_layernorm.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048
+  ],
+  "data_offsets": [
+   11465293952,
+   11465302144
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.8.mlp.down_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048,
+   16384
+  ],
+  "data_offsets": [
+   11465302144,
+   11599519872
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.8.mlp.gate_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   16384,
+   2048
+  ],
+  "data_offsets": [
+   11599519872,
+   11733737600
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.8.mlp.up_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   16384,
+   2048
+  ],
+  "data_offsets": [
+   11733737600,
+   11867955328
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.8.post_attention_layernorm.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048
+  ],
+  "data_offsets": [
+   11867955328,
+   11867963520
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.8.self_attn.k_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   256,
+   2048
+  ],
+  "data_offsets": [
+   11867963520,
+   11870060672
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.8.self_attn.o_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048,
+   2048
+  ],
+  "data_offsets": [
+   11870060672,
+   11886837888
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.8.self_attn.q_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048,
+   2048
+  ],
+  "data_offsets": [
+   11886837888,
+   11903615104
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.8.self_attn.v_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   256,
+   2048
+  ],
+  "data_offsets": [
+   11903615104,
+   11905712256
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.9.input_layernorm.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048
+  ],
+  "data_offsets": [
+   11905712256,
+   11905720448
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.9.mlp.down_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048,
+   16384
+  ],
+  "data_offsets": [
+   11905720448,
+   12039938176
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.9.mlp.gate_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   16384,
+   2048
+  ],
+  "data_offsets": [
+   12039938176,
+   12174155904
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.9.mlp.up_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   16384,
+   2048
+  ],
+  "data_offsets": [
+   12174155904,
+   12308373632
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.9.post_attention_layernorm.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048
+  ],
+  "data_offsets": [
+   12308373632,
+   12308381824
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.9.self_attn.k_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   256,
+   2048
+  ],
+  "data_offsets": [
+   12308381824,
+   12310478976
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.9.self_attn.o_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048,
+   2048
+  ],
+  "data_offsets": [
+   12310478976,
+   12327256192
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.9.self_attn.q_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048,
+   2048
+  ],
+  "data_offsets": [
+   12327256192,
+   12344033408
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.layers.9.self_attn.v_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   256,
+   2048
+  ],
+  "data_offsets": [
+   12344033408,
+   12346130560
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.language_model.norm.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048
+  ],
+  "data_offsets": [
+   12346130560,
+   12346138752
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.multi_modal_projector.linear.bias": {
+  "dtype": "F32",
+  "shape": [
+   2048
+  ],
+  "data_offsets": [
+   12346138752,
+   12346146944
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.multi_modal_projector.linear.weight": {
+  "dtype": "F32",
+  "shape": [
+   2048,
+   1152
+  ],
+  "data_offsets": [
+   12346146944,
+   12355584128
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.embeddings.patch_embedding.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   12355584128,
+   12355588736
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.embeddings.patch_embedding.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   3,
+   14,
+   14
+  ],
+  "data_offsets": [
+   12355588736,
+   12358298240
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.embeddings.position_embedding.weight": {
+  "dtype": "F32",
+  "shape": [
+   256,
+   1152
+  ],
+  "data_offsets": [
+   12358298240,
+   12359477888
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.0.layer_norm1.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   12359477888,
+   12359482496
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.0.layer_norm1.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   12359482496,
+   12359487104
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.0.layer_norm2.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   12359487104,
+   12359491712
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.0.layer_norm2.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   12359491712,
+   12359496320
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.0.mlp.fc1.bias": {
+  "dtype": "F32",
+  "shape": [
+   4304
+  ],
+  "data_offsets": [
+   12359496320,
+   12359513536
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.0.mlp.fc1.weight": {
+  "dtype": "F32",
+  "shape": [
+   4304,
+   1152
+  ],
+  "data_offsets": [
+   12359513536,
+   12379346368
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.0.mlp.fc2.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   12379346368,
+   12379350976
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.0.mlp.fc2.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   4304
+  ],
+  "data_offsets": [
+   12379350976,
+   12399183808
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.0.self_attn.k_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   12399183808,
+   12399188416
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.0.self_attn.k_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   12399188416,
+   12404496832
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.0.self_attn.out_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   12404496832,
+   12404501440
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.0.self_attn.out_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   12404501440,
+   12409809856
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.0.self_attn.q_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   12409809856,
+   12409814464
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.0.self_attn.q_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   12409814464,
+   12415122880
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.0.self_attn.v_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   12415122880,
+   12415127488
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.0.self_attn.v_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   12415127488,
+   12420435904
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.1.layer_norm1.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   12420435904,
+   12420440512
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.1.layer_norm1.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   12420440512,
+   12420445120
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.1.layer_norm2.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   12420445120,
+   12420449728
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.1.layer_norm2.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   12420449728,
+   12420454336
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.1.mlp.fc1.bias": {
+  "dtype": "F32",
+  "shape": [
+   4304
+  ],
+  "data_offsets": [
+   12420454336,
+   12420471552
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.1.mlp.fc1.weight": {
+  "dtype": "F32",
+  "shape": [
+   4304,
+   1152
+  ],
+  "data_offsets": [
+   12420471552,
+   12440304384
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.1.mlp.fc2.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   12440304384,
+   12440308992
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.1.mlp.fc2.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   4304
+  ],
+  "data_offsets": [
+   12440308992,
+   12460141824
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.1.self_attn.k_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   12460141824,
+   12460146432
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.1.self_attn.k_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   12460146432,
+   12465454848
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.1.self_attn.out_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   12465454848,
+   12465459456
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.1.self_attn.out_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   12465459456,
+   12470767872
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.1.self_attn.q_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   12470767872,
+   12470772480
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.1.self_attn.q_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   12470772480,
+   12476080896
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.1.self_attn.v_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   12476080896,
+   12476085504
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.1.self_attn.v_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   12476085504,
+   12481393920
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.10.layer_norm1.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   12481393920,
+   12481398528
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.10.layer_norm1.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   12481398528,
+   12481403136
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.10.layer_norm2.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   12481403136,
+   12481407744
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.10.layer_norm2.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   12481407744,
+   12481412352
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.10.mlp.fc1.bias": {
+  "dtype": "F32",
+  "shape": [
+   4304
+  ],
+  "data_offsets": [
+   12481412352,
+   12481429568
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.10.mlp.fc1.weight": {
+  "dtype": "F32",
+  "shape": [
+   4304,
+   1152
+  ],
+  "data_offsets": [
+   12481429568,
+   12501262400
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.10.mlp.fc2.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   12501262400,
+   12501267008
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.10.mlp.fc2.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   4304
+  ],
+  "data_offsets": [
+   12501267008,
+   12521099840
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.10.self_attn.k_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   12521099840,
+   12521104448
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.10.self_attn.k_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   12521104448,
+   12526412864
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.10.self_attn.out_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   12526412864,
+   12526417472
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.10.self_attn.out_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   12526417472,
+   12531725888
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.10.self_attn.q_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   12531725888,
+   12531730496
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.10.self_attn.q_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   12531730496,
+   12537038912
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.10.self_attn.v_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   12537038912,
+   12537043520
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.10.self_attn.v_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   12537043520,
+   12542351936
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.11.layer_norm1.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   12542351936,
+   12542356544
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.11.layer_norm1.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   12542356544,
+   12542361152
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.11.layer_norm2.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   12542361152,
+   12542365760
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.11.layer_norm2.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   12542365760,
+   12542370368
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.11.mlp.fc1.bias": {
+  "dtype": "F32",
+  "shape": [
+   4304
+  ],
+  "data_offsets": [
+   12542370368,
+   12542387584
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.11.mlp.fc1.weight": {
+  "dtype": "F32",
+  "shape": [
+   4304,
+   1152
+  ],
+  "data_offsets": [
+   12542387584,
+   12562220416
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.11.mlp.fc2.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   12562220416,
+   12562225024
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.11.mlp.fc2.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   4304
+  ],
+  "data_offsets": [
+   12562225024,
+   12582057856
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.11.self_attn.k_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   12582057856,
+   12582062464
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.11.self_attn.k_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   12582062464,
+   12587370880
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.11.self_attn.out_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   12587370880,
+   12587375488
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.11.self_attn.out_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   12587375488,
+   12592683904
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.11.self_attn.q_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   12592683904,
+   12592688512
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.11.self_attn.q_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   12592688512,
+   12597996928
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.11.self_attn.v_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   12597996928,
+   12598001536
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.11.self_attn.v_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   12598001536,
+   12603309952
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.12.layer_norm1.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   12603309952,
+   12603314560
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.12.layer_norm1.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   12603314560,
+   12603319168
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.12.layer_norm2.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   12603319168,
+   12603323776
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.12.layer_norm2.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   12603323776,
+   12603328384
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.12.mlp.fc1.bias": {
+  "dtype": "F32",
+  "shape": [
+   4304
+  ],
+  "data_offsets": [
+   12603328384,
+   12603345600
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.12.mlp.fc1.weight": {
+  "dtype": "F32",
+  "shape": [
+   4304,
+   1152
+  ],
+  "data_offsets": [
+   12603345600,
+   12623178432
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.12.mlp.fc2.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   12623178432,
+   12623183040
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.12.mlp.fc2.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   4304
+  ],
+  "data_offsets": [
+   12623183040,
+   12643015872
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.12.self_attn.k_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   12643015872,
+   12643020480
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.12.self_attn.k_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   12643020480,
+   12648328896
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.12.self_attn.out_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   12648328896,
+   12648333504
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.12.self_attn.out_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   12648333504,
+   12653641920
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.12.self_attn.q_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   12653641920,
+   12653646528
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.12.self_attn.q_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   12653646528,
+   12658954944
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.12.self_attn.v_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   12658954944,
+   12658959552
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.12.self_attn.v_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   12658959552,
+   12664267968
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.13.layer_norm1.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   12664267968,
+   12664272576
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.13.layer_norm1.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   12664272576,
+   12664277184
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.13.layer_norm2.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   12664277184,
+   12664281792
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.13.layer_norm2.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   12664281792,
+   12664286400
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.13.mlp.fc1.bias": {
+  "dtype": "F32",
+  "shape": [
+   4304
+  ],
+  "data_offsets": [
+   12664286400,
+   12664303616
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.13.mlp.fc1.weight": {
+  "dtype": "F32",
+  "shape": [
+   4304,
+   1152
+  ],
+  "data_offsets": [
+   12664303616,
+   12684136448
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.13.mlp.fc2.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   12684136448,
+   12684141056
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.13.mlp.fc2.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   4304
+  ],
+  "data_offsets": [
+   12684141056,
+   12703973888
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.13.self_attn.k_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   12703973888,
+   12703978496
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.13.self_attn.k_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   12703978496,
+   12709286912
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.13.self_attn.out_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   12709286912,
+   12709291520
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.13.self_attn.out_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   12709291520,
+   12714599936
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.13.self_attn.q_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   12714599936,
+   12714604544
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.13.self_attn.q_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   12714604544,
+   12719912960
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.13.self_attn.v_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   12719912960,
+   12719917568
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.13.self_attn.v_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   12719917568,
+   12725225984
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.14.layer_norm1.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   12725225984,
+   12725230592
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.14.layer_norm1.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   12725230592,
+   12725235200
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.14.layer_norm2.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   12725235200,
+   12725239808
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.14.layer_norm2.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   12725239808,
+   12725244416
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.14.mlp.fc1.bias": {
+  "dtype": "F32",
+  "shape": [
+   4304
+  ],
+  "data_offsets": [
+   12725244416,
+   12725261632
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.14.mlp.fc1.weight": {
+  "dtype": "F32",
+  "shape": [
+   4304,
+   1152
+  ],
+  "data_offsets": [
+   12725261632,
+   12745094464
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.14.mlp.fc2.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   12745094464,
+   12745099072
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.14.mlp.fc2.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   4304
+  ],
+  "data_offsets": [
+   12745099072,
+   12764931904
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.14.self_attn.k_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   12764931904,
+   12764936512
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.14.self_attn.k_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   12764936512,
+   12770244928
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.14.self_attn.out_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   12770244928,
+   12770249536
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.14.self_attn.out_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   12770249536,
+   12775557952
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.14.self_attn.q_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   12775557952,
+   12775562560
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.14.self_attn.q_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   12775562560,
+   12780870976
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.14.self_attn.v_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   12780870976,
+   12780875584
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.14.self_attn.v_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   12780875584,
+   12786184000
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.15.layer_norm1.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   12786184000,
+   12786188608
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.15.layer_norm1.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   12786188608,
+   12786193216
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.15.layer_norm2.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   12786193216,
+   12786197824
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.15.layer_norm2.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   12786197824,
+   12786202432
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.15.mlp.fc1.bias": {
+  "dtype": "F32",
+  "shape": [
+   4304
+  ],
+  "data_offsets": [
+   12786202432,
+   12786219648
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.15.mlp.fc1.weight": {
+  "dtype": "F32",
+  "shape": [
+   4304,
+   1152
+  ],
+  "data_offsets": [
+   12786219648,
+   12806052480
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.15.mlp.fc2.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   12806052480,
+   12806057088
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.15.mlp.fc2.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   4304
+  ],
+  "data_offsets": [
+   12806057088,
+   12825889920
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.15.self_attn.k_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   12825889920,
+   12825894528
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.15.self_attn.k_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   12825894528,
+   12831202944
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.15.self_attn.out_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   12831202944,
+   12831207552
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.15.self_attn.out_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   12831207552,
+   12836515968
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.15.self_attn.q_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   12836515968,
+   12836520576
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.15.self_attn.q_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   12836520576,
+   12841828992
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.15.self_attn.v_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   12841828992,
+   12841833600
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.15.self_attn.v_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   12841833600,
+   12847142016
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.16.layer_norm1.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   12847142016,
+   12847146624
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.16.layer_norm1.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   12847146624,
+   12847151232
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.16.layer_norm2.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   12847151232,
+   12847155840
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.16.layer_norm2.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   12847155840,
+   12847160448
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.16.mlp.fc1.bias": {
+  "dtype": "F32",
+  "shape": [
+   4304
+  ],
+  "data_offsets": [
+   12847160448,
+   12847177664
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.16.mlp.fc1.weight": {
+  "dtype": "F32",
+  "shape": [
+   4304,
+   1152
+  ],
+  "data_offsets": [
+   12847177664,
+   12867010496
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.16.mlp.fc2.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   12867010496,
+   12867015104
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.16.mlp.fc2.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   4304
+  ],
+  "data_offsets": [
+   12867015104,
+   12886847936
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.16.self_attn.k_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   12886847936,
+   12886852544
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.16.self_attn.k_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   12886852544,
+   12892160960
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.16.self_attn.out_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   12892160960,
+   12892165568
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.16.self_attn.out_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   12892165568,
+   12897473984
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.16.self_attn.q_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   12897473984,
+   12897478592
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.16.self_attn.q_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   12897478592,
+   12902787008
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.16.self_attn.v_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   12902787008,
+   12902791616
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.16.self_attn.v_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   12902791616,
+   12908100032
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.17.layer_norm1.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   12908100032,
+   12908104640
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.17.layer_norm1.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   12908104640,
+   12908109248
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.17.layer_norm2.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   12908109248,
+   12908113856
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.17.layer_norm2.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   12908113856,
+   12908118464
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.17.mlp.fc1.bias": {
+  "dtype": "F32",
+  "shape": [
+   4304
+  ],
+  "data_offsets": [
+   12908118464,
+   12908135680
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.17.mlp.fc1.weight": {
+  "dtype": "F32",
+  "shape": [
+   4304,
+   1152
+  ],
+  "data_offsets": [
+   12908135680,
+   12927968512
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.17.mlp.fc2.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   12927968512,
+   12927973120
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.17.mlp.fc2.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   4304
+  ],
+  "data_offsets": [
+   12927973120,
+   12947805952
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.17.self_attn.k_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   12947805952,
+   12947810560
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.17.self_attn.k_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   12947810560,
+   12953118976
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.17.self_attn.out_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   12953118976,
+   12953123584
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.17.self_attn.out_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   12953123584,
+   12958432000
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.17.self_attn.q_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   12958432000,
+   12958436608
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.17.self_attn.q_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   12958436608,
+   12963745024
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.17.self_attn.v_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   12963745024,
+   12963749632
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.17.self_attn.v_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   12963749632,
+   12969058048
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.18.layer_norm1.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   12969058048,
+   12969062656
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.18.layer_norm1.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   12969062656,
+   12969067264
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.18.layer_norm2.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   12969067264,
+   12969071872
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.18.layer_norm2.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   12969071872,
+   12969076480
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.18.mlp.fc1.bias": {
+  "dtype": "F32",
+  "shape": [
+   4304
+  ],
+  "data_offsets": [
+   12969076480,
+   12969093696
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.18.mlp.fc1.weight": {
+  "dtype": "F32",
+  "shape": [
+   4304,
+   1152
+  ],
+  "data_offsets": [
+   12969093696,
+   12988926528
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.18.mlp.fc2.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   12988926528,
+   12988931136
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.18.mlp.fc2.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   4304
+  ],
+  "data_offsets": [
+   12988931136,
+   13008763968
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.18.self_attn.k_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13008763968,
+   13008768576
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.18.self_attn.k_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   13008768576,
+   13014076992
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.18.self_attn.out_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13014076992,
+   13014081600
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.18.self_attn.out_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   13014081600,
+   13019390016
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.18.self_attn.q_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13019390016,
+   13019394624
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.18.self_attn.q_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   13019394624,
+   13024703040
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.18.self_attn.v_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13024703040,
+   13024707648
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.18.self_attn.v_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   13024707648,
+   13030016064
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.19.layer_norm1.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13030016064,
+   13030020672
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.19.layer_norm1.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13030020672,
+   13030025280
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.19.layer_norm2.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13030025280,
+   13030029888
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.19.layer_norm2.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13030029888,
+   13030034496
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.19.mlp.fc1.bias": {
+  "dtype": "F32",
+  "shape": [
+   4304
+  ],
+  "data_offsets": [
+   13030034496,
+   13030051712
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.19.mlp.fc1.weight": {
+  "dtype": "F32",
+  "shape": [
+   4304,
+   1152
+  ],
+  "data_offsets": [
+   13030051712,
+   13049884544
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.19.mlp.fc2.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13049884544,
+   13049889152
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.19.mlp.fc2.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   4304
+  ],
+  "data_offsets": [
+   13049889152,
+   13069721984
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.19.self_attn.k_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13069721984,
+   13069726592
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.19.self_attn.k_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   13069726592,
+   13075035008
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.19.self_attn.out_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13075035008,
+   13075039616
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.19.self_attn.out_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   13075039616,
+   13080348032
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.19.self_attn.q_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13080348032,
+   13080352640
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.19.self_attn.q_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   13080352640,
+   13085661056
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.19.self_attn.v_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13085661056,
+   13085665664
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.19.self_attn.v_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   13085665664,
+   13090974080
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.2.layer_norm1.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13090974080,
+   13090978688
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.2.layer_norm1.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13090978688,
+   13090983296
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.2.layer_norm2.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13090983296,
+   13090987904
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.2.layer_norm2.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13090987904,
+   13090992512
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.2.mlp.fc1.bias": {
+  "dtype": "F32",
+  "shape": [
+   4304
+  ],
+  "data_offsets": [
+   13090992512,
+   13091009728
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.2.mlp.fc1.weight": {
+  "dtype": "F32",
+  "shape": [
+   4304,
+   1152
+  ],
+  "data_offsets": [
+   13091009728,
+   13110842560
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.2.mlp.fc2.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13110842560,
+   13110847168
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.2.mlp.fc2.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   4304
+  ],
+  "data_offsets": [
+   13110847168,
+   13130680000
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.2.self_attn.k_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13130680000,
+   13130684608
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.2.self_attn.k_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   13130684608,
+   13135993024
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.2.self_attn.out_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13135993024,
+   13135997632
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.2.self_attn.out_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   13135997632,
+   13141306048
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.2.self_attn.q_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13141306048,
+   13141310656
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.2.self_attn.q_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   13141310656,
+   13146619072
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.2.self_attn.v_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13146619072,
+   13146623680
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.2.self_attn.v_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   13146623680,
+   13151932096
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.20.layer_norm1.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13151932096,
+   13151936704
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.20.layer_norm1.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13151936704,
+   13151941312
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.20.layer_norm2.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13151941312,
+   13151945920
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.20.layer_norm2.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13151945920,
+   13151950528
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.20.mlp.fc1.bias": {
+  "dtype": "F32",
+  "shape": [
+   4304
+  ],
+  "data_offsets": [
+   13151950528,
+   13151967744
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.20.mlp.fc1.weight": {
+  "dtype": "F32",
+  "shape": [
+   4304,
+   1152
+  ],
+  "data_offsets": [
+   13151967744,
+   13171800576
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.20.mlp.fc2.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13171800576,
+   13171805184
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.20.mlp.fc2.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   4304
+  ],
+  "data_offsets": [
+   13171805184,
+   13191638016
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.20.self_attn.k_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13191638016,
+   13191642624
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.20.self_attn.k_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   13191642624,
+   13196951040
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.20.self_attn.out_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13196951040,
+   13196955648
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.20.self_attn.out_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   13196955648,
+   13202264064
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.20.self_attn.q_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13202264064,
+   13202268672
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.20.self_attn.q_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   13202268672,
+   13207577088
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.20.self_attn.v_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13207577088,
+   13207581696
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.20.self_attn.v_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   13207581696,
+   13212890112
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.21.layer_norm1.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13212890112,
+   13212894720
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.21.layer_norm1.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13212894720,
+   13212899328
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.21.layer_norm2.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13212899328,
+   13212903936
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.21.layer_norm2.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13212903936,
+   13212908544
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.21.mlp.fc1.bias": {
+  "dtype": "F32",
+  "shape": [
+   4304
+  ],
+  "data_offsets": [
+   13212908544,
+   13212925760
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.21.mlp.fc1.weight": {
+  "dtype": "F32",
+  "shape": [
+   4304,
+   1152
+  ],
+  "data_offsets": [
+   13212925760,
+   13232758592
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.21.mlp.fc2.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13232758592,
+   13232763200
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.21.mlp.fc2.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   4304
+  ],
+  "data_offsets": [
+   13232763200,
+   13252596032
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.21.self_attn.k_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13252596032,
+   13252600640
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.21.self_attn.k_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   13252600640,
+   13257909056
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.21.self_attn.out_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13257909056,
+   13257913664
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.21.self_attn.out_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   13257913664,
+   13263222080
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.21.self_attn.q_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13263222080,
+   13263226688
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.21.self_attn.q_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   13263226688,
+   13268535104
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.21.self_attn.v_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13268535104,
+   13268539712
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.21.self_attn.v_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   13268539712,
+   13273848128
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.22.layer_norm1.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13273848128,
+   13273852736
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.22.layer_norm1.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13273852736,
+   13273857344
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.22.layer_norm2.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13273857344,
+   13273861952
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.22.layer_norm2.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13273861952,
+   13273866560
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.22.mlp.fc1.bias": {
+  "dtype": "F32",
+  "shape": [
+   4304
+  ],
+  "data_offsets": [
+   13273866560,
+   13273883776
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.22.mlp.fc1.weight": {
+  "dtype": "F32",
+  "shape": [
+   4304,
+   1152
+  ],
+  "data_offsets": [
+   13273883776,
+   13293716608
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.22.mlp.fc2.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13293716608,
+   13293721216
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.22.mlp.fc2.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   4304
+  ],
+  "data_offsets": [
+   13293721216,
+   13313554048
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.22.self_attn.k_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13313554048,
+   13313558656
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.22.self_attn.k_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   13313558656,
+   13318867072
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.22.self_attn.out_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13318867072,
+   13318871680
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.22.self_attn.out_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   13318871680,
+   13324180096
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.22.self_attn.q_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13324180096,
+   13324184704
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.22.self_attn.q_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   13324184704,
+   13329493120
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.22.self_attn.v_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13329493120,
+   13329497728
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.22.self_attn.v_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   13329497728,
+   13334806144
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.23.layer_norm1.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13334806144,
+   13334810752
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.23.layer_norm1.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13334810752,
+   13334815360
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.23.layer_norm2.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13334815360,
+   13334819968
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.23.layer_norm2.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13334819968,
+   13334824576
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.23.mlp.fc1.bias": {
+  "dtype": "F32",
+  "shape": [
+   4304
+  ],
+  "data_offsets": [
+   13334824576,
+   13334841792
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.23.mlp.fc1.weight": {
+  "dtype": "F32",
+  "shape": [
+   4304,
+   1152
+  ],
+  "data_offsets": [
+   13334841792,
+   13354674624
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.23.mlp.fc2.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13354674624,
+   13354679232
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.23.mlp.fc2.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   4304
+  ],
+  "data_offsets": [
+   13354679232,
+   13374512064
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.23.self_attn.k_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13374512064,
+   13374516672
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.23.self_attn.k_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   13374516672,
+   13379825088
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.23.self_attn.out_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13379825088,
+   13379829696
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.23.self_attn.out_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   13379829696,
+   13385138112
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.23.self_attn.q_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13385138112,
+   13385142720
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.23.self_attn.q_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   13385142720,
+   13390451136
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.23.self_attn.v_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13390451136,
+   13390455744
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.23.self_attn.v_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   13390455744,
+   13395764160
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.24.layer_norm1.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13395764160,
+   13395768768
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.24.layer_norm1.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13395768768,
+   13395773376
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.24.layer_norm2.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13395773376,
+   13395777984
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.24.layer_norm2.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13395777984,
+   13395782592
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.24.mlp.fc1.bias": {
+  "dtype": "F32",
+  "shape": [
+   4304
+  ],
+  "data_offsets": [
+   13395782592,
+   13395799808
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.24.mlp.fc1.weight": {
+  "dtype": "F32",
+  "shape": [
+   4304,
+   1152
+  ],
+  "data_offsets": [
+   13395799808,
+   13415632640
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.24.mlp.fc2.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13415632640,
+   13415637248
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.24.mlp.fc2.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   4304
+  ],
+  "data_offsets": [
+   13415637248,
+   13435470080
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.24.self_attn.k_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13435470080,
+   13435474688
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.24.self_attn.k_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   13435474688,
+   13440783104
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.24.self_attn.out_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13440783104,
+   13440787712
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.24.self_attn.out_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   13440787712,
+   13446096128
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.24.self_attn.q_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13446096128,
+   13446100736
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.24.self_attn.q_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   13446100736,
+   13451409152
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.24.self_attn.v_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13451409152,
+   13451413760
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.24.self_attn.v_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   13451413760,
+   13456722176
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.25.layer_norm1.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13456722176,
+   13456726784
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.25.layer_norm1.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13456726784,
+   13456731392
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.25.layer_norm2.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13456731392,
+   13456736000
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.25.layer_norm2.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13456736000,
+   13456740608
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.25.mlp.fc1.bias": {
+  "dtype": "F32",
+  "shape": [
+   4304
+  ],
+  "data_offsets": [
+   13456740608,
+   13456757824
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.25.mlp.fc1.weight": {
+  "dtype": "F32",
+  "shape": [
+   4304,
+   1152
+  ],
+  "data_offsets": [
+   13456757824,
+   13476590656
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.25.mlp.fc2.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13476590656,
+   13476595264
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.25.mlp.fc2.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   4304
+  ],
+  "data_offsets": [
+   13476595264,
+   13496428096
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.25.self_attn.k_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13496428096,
+   13496432704
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.25.self_attn.k_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   13496432704,
+   13501741120
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.25.self_attn.out_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13501741120,
+   13501745728
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.25.self_attn.out_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   13501745728,
+   13507054144
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.25.self_attn.q_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13507054144,
+   13507058752
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.25.self_attn.q_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   13507058752,
+   13512367168
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.25.self_attn.v_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13512367168,
+   13512371776
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.25.self_attn.v_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   13512371776,
+   13517680192
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.26.layer_norm1.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13517680192,
+   13517684800
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.26.layer_norm1.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13517684800,
+   13517689408
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.26.layer_norm2.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13517689408,
+   13517694016
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.26.layer_norm2.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13517694016,
+   13517698624
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.26.mlp.fc1.bias": {
+  "dtype": "F32",
+  "shape": [
+   4304
+  ],
+  "data_offsets": [
+   13517698624,
+   13517715840
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.26.mlp.fc1.weight": {
+  "dtype": "F32",
+  "shape": [
+   4304,
+   1152
+  ],
+  "data_offsets": [
+   13517715840,
+   13537548672
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.26.mlp.fc2.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13537548672,
+   13537553280
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.26.mlp.fc2.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   4304
+  ],
+  "data_offsets": [
+   13537553280,
+   13557386112
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.26.self_attn.k_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13557386112,
+   13557390720
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.26.self_attn.k_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   13557390720,
+   13562699136
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.26.self_attn.out_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13562699136,
+   13562703744
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.26.self_attn.out_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   13562703744,
+   13568012160
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.26.self_attn.q_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13568012160,
+   13568016768
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.26.self_attn.q_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   13568016768,
+   13573325184
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.26.self_attn.v_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13573325184,
+   13573329792
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.26.self_attn.v_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   13573329792,
+   13578638208
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.3.layer_norm1.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13578638208,
+   13578642816
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.3.layer_norm1.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13578642816,
+   13578647424
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.3.layer_norm2.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13578647424,
+   13578652032
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.3.layer_norm2.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13578652032,
+   13578656640
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.3.mlp.fc1.bias": {
+  "dtype": "F32",
+  "shape": [
+   4304
+  ],
+  "data_offsets": [
+   13578656640,
+   13578673856
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.3.mlp.fc1.weight": {
+  "dtype": "F32",
+  "shape": [
+   4304,
+   1152
+  ],
+  "data_offsets": [
+   13578673856,
+   13598506688
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.3.mlp.fc2.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13598506688,
+   13598511296
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.3.mlp.fc2.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   4304
+  ],
+  "data_offsets": [
+   13598511296,
+   13618344128
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.3.self_attn.k_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13618344128,
+   13618348736
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.3.self_attn.k_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   13618348736,
+   13623657152
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.3.self_attn.out_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13623657152,
+   13623661760
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.3.self_attn.out_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   13623661760,
+   13628970176
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.3.self_attn.q_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13628970176,
+   13628974784
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.3.self_attn.q_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   13628974784,
+   13634283200
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.3.self_attn.v_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13634283200,
+   13634287808
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.3.self_attn.v_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   13634287808,
+   13639596224
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.4.layer_norm1.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13639596224,
+   13639600832
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.4.layer_norm1.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13639600832,
+   13639605440
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.4.layer_norm2.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13639605440,
+   13639610048
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.4.layer_norm2.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13639610048,
+   13639614656
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.4.mlp.fc1.bias": {
+  "dtype": "F32",
+  "shape": [
+   4304
+  ],
+  "data_offsets": [
+   13639614656,
+   13639631872
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.4.mlp.fc1.weight": {
+  "dtype": "F32",
+  "shape": [
+   4304,
+   1152
+  ],
+  "data_offsets": [
+   13639631872,
+   13659464704
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.4.mlp.fc2.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13659464704,
+   13659469312
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.4.mlp.fc2.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   4304
+  ],
+  "data_offsets": [
+   13659469312,
+   13679302144
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.4.self_attn.k_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13679302144,
+   13679306752
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.4.self_attn.k_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   13679306752,
+   13684615168
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.4.self_attn.out_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13684615168,
+   13684619776
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.4.self_attn.out_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   13684619776,
+   13689928192
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.4.self_attn.q_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13689928192,
+   13689932800
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.4.self_attn.q_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   13689932800,
+   13695241216
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.4.self_attn.v_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13695241216,
+   13695245824
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.4.self_attn.v_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   13695245824,
+   13700554240
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.5.layer_norm1.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13700554240,
+   13700558848
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.5.layer_norm1.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13700558848,
+   13700563456
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.5.layer_norm2.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13700563456,
+   13700568064
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.5.layer_norm2.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13700568064,
+   13700572672
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.5.mlp.fc1.bias": {
+  "dtype": "F32",
+  "shape": [
+   4304
+  ],
+  "data_offsets": [
+   13700572672,
+   13700589888
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.5.mlp.fc1.weight": {
+  "dtype": "F32",
+  "shape": [
+   4304,
+   1152
+  ],
+  "data_offsets": [
+   13700589888,
+   13720422720
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.5.mlp.fc2.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13720422720,
+   13720427328
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.5.mlp.fc2.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   4304
+  ],
+  "data_offsets": [
+   13720427328,
+   13740260160
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.5.self_attn.k_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13740260160,
+   13740264768
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.5.self_attn.k_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   13740264768,
+   13745573184
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.5.self_attn.out_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13745573184,
+   13745577792
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.5.self_attn.out_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   13745577792,
+   13750886208
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.5.self_attn.q_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13750886208,
+   13750890816
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.5.self_attn.q_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   13750890816,
+   13756199232
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.5.self_attn.v_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13756199232,
+   13756203840
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.5.self_attn.v_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   13756203840,
+   13761512256
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.6.layer_norm1.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13761512256,
+   13761516864
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.6.layer_norm1.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13761516864,
+   13761521472
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.6.layer_norm2.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13761521472,
+   13761526080
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.6.layer_norm2.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13761526080,
+   13761530688
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.6.mlp.fc1.bias": {
+  "dtype": "F32",
+  "shape": [
+   4304
+  ],
+  "data_offsets": [
+   13761530688,
+   13761547904
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.6.mlp.fc1.weight": {
+  "dtype": "F32",
+  "shape": [
+   4304,
+   1152
+  ],
+  "data_offsets": [
+   13761547904,
+   13781380736
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.6.mlp.fc2.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13781380736,
+   13781385344
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.6.mlp.fc2.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   4304
+  ],
+  "data_offsets": [
+   13781385344,
+   13801218176
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.6.self_attn.k_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13801218176,
+   13801222784
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.6.self_attn.k_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   13801222784,
+   13806531200
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.6.self_attn.out_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13806531200,
+   13806535808
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.6.self_attn.out_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   13806535808,
+   13811844224
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.6.self_attn.q_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13811844224,
+   13811848832
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.6.self_attn.q_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   13811848832,
+   13817157248
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.6.self_attn.v_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13817157248,
+   13817161856
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.6.self_attn.v_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   13817161856,
+   13822470272
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.7.layer_norm1.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13822470272,
+   13822474880
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.7.layer_norm1.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13822474880,
+   13822479488
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.7.layer_norm2.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13822479488,
+   13822484096
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.7.layer_norm2.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13822484096,
+   13822488704
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.7.mlp.fc1.bias": {
+  "dtype": "F32",
+  "shape": [
+   4304
+  ],
+  "data_offsets": [
+   13822488704,
+   13822505920
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.7.mlp.fc1.weight": {
+  "dtype": "F32",
+  "shape": [
+   4304,
+   1152
+  ],
+  "data_offsets": [
+   13822505920,
+   13842338752
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.7.mlp.fc2.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13842338752,
+   13842343360
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.7.mlp.fc2.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   4304
+  ],
+  "data_offsets": [
+   13842343360,
+   13862176192
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.7.self_attn.k_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13862176192,
+   13862180800
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.7.self_attn.k_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   13862180800,
+   13867489216
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.7.self_attn.out_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13867489216,
+   13867493824
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.7.self_attn.out_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   13867493824,
+   13872802240
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.7.self_attn.q_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13872802240,
+   13872806848
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.7.self_attn.q_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   13872806848,
+   13878115264
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.7.self_attn.v_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13878115264,
+   13878119872
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.7.self_attn.v_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   13878119872,
+   13883428288
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.8.layer_norm1.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13883428288,
+   13883432896
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.8.layer_norm1.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13883432896,
+   13883437504
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.8.layer_norm2.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13883437504,
+   13883442112
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.8.layer_norm2.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13883442112,
+   13883446720
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.8.mlp.fc1.bias": {
+  "dtype": "F32",
+  "shape": [
+   4304
+  ],
+  "data_offsets": [
+   13883446720,
+   13883463936
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.8.mlp.fc1.weight": {
+  "dtype": "F32",
+  "shape": [
+   4304,
+   1152
+  ],
+  "data_offsets": [
+   13883463936,
+   13903296768
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.8.mlp.fc2.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13903296768,
+   13903301376
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.8.mlp.fc2.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   4304
+  ],
+  "data_offsets": [
+   13903301376,
+   13923134208
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.8.self_attn.k_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13923134208,
+   13923138816
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.8.self_attn.k_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   13923138816,
+   13928447232
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.8.self_attn.out_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13928447232,
+   13928451840
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.8.self_attn.out_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   13928451840,
+   13933760256
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.8.self_attn.q_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13933760256,
+   13933764864
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.8.self_attn.q_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   13933764864,
+   13939073280
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.8.self_attn.v_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13939073280,
+   13939077888
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.8.self_attn.v_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   13939077888,
+   13944386304
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.9.layer_norm1.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13944386304,
+   13944390912
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.9.layer_norm1.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13944390912,
+   13944395520
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.9.layer_norm2.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13944395520,
+   13944400128
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.9.layer_norm2.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13944400128,
+   13944404736
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.9.mlp.fc1.bias": {
+  "dtype": "F32",
+  "shape": [
+   4304
+  ],
+  "data_offsets": [
+   13944404736,
+   13944421952
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.9.mlp.fc1.weight": {
+  "dtype": "F32",
+  "shape": [
+   4304,
+   1152
+  ],
+  "data_offsets": [
+   13944421952,
+   13964254784
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.9.mlp.fc2.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13964254784,
+   13964259392
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.9.mlp.fc2.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   4304
+  ],
+  "data_offsets": [
+   13964259392,
+   13984092224
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.9.self_attn.k_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13984092224,
+   13984096832
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.9.self_attn.k_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   13984096832,
+   13989405248
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.9.self_attn.out_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13989405248,
+   13989409856
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.9.self_attn.out_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   13989409856,
+   13994718272
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.9.self_attn.q_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   13994718272,
+   13994722880
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.9.self_attn.q_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   13994722880,
+   14000031296
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.9.self_attn.v_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   14000031296,
+   14000035904
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.encoder.layers.9.self_attn.v_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152,
+   1152
+  ],
+  "data_offsets": [
+   14000035904,
+   14005344320
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.post_layernorm.bias": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   14005344320,
+   14005348928
+  ]
+ },
+ "model.paligemma_with_expert.paligemma.model.vision_tower.vision_model.post_layernorm.weight": {
+  "dtype": "F32",
+  "shape": [
+   1152
+  ],
+  "data_offsets": [
+   14005348928,
+   14005353536
+  ]
+ },
+ "model.state_proj.bias": {
+  "dtype": "F32",
+  "shape": [
+   1024
+  ],
+  "data_offsets": [
+   14005353536,
+   14005357632
+  ]
+ },
+ "model.state_proj.weight": {
+  "dtype": "F32",
+  "shape": [
+   1024,
+   32
+  ],
+  "data_offsets": [
+   14005357632,
+   14005488704
+  ]
+ }
+}

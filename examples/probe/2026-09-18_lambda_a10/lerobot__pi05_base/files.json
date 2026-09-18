@@ -1,0 +1,35 @@
+{
+ "source": "/home/ubuntu/hf-cache/hub/models--lerobot--pi05_base/snapshots/b211f3d44c36b6acfcf7ae94a64e8e96f75a64ba",
+ "files": [
+  {
+   "name": ".eval_results/vlabench.yaml",
+   "size": 251,
+   "sha256": "3451887789ecd03e62e18469a1d5c79055b351d4f5bb339a119084b0479652c1"
+  },
+  {
+   "name": "README.md",
+   "size": 5100,
+   "sha256": "6db77899e327947ea9d64778e5680af5bfb1f0b20ead078fca04dfaf95781fb8"
+  },
+  {
+   "name": "config.json",
+   "size": 1896,
+   "sha256": "367869712a2847c27e95c431ecb03f17bec4eee01a63995e2fb2d91940752b53"
+  },
+  {
+   "name": "model.safetensors",
+   "size": 14467165872,
+   "sha256": "0eb11ca9587678c1d2ef8cf32807c29f8ce53a2bfdfc1aa4a4c96f16fca59b0f"
+  },
+  {
+   "name": "policy_postprocessor.json",
+   "size": 567,
+   "sha256": "142c8b622aeac5c14631e057279df058d3005f616d909cfe30a04524de0b0891"
+  },
+  {
+   "name": "policy_preprocessor.json",
+   "size": 1241,
+   "sha256": "be2cd1acc33229d42be0640cb55b5d5a4bb3e8d8e27ddfcdcf3f99f1fe3beaef"
+  }
+ ]
+}

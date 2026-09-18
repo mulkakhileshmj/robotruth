@@ -1,0 +1,87 @@
+{
+  "spec_version": "0.1",
+  "created_at": "2026-09-18T09:12:52.275673+00:00",
+  "role": "evaluated",
+  "policy": {
+    "name": "gr00t_n1_5",
+    "family": "gr00t",
+    "weights_sha256": "e7340d8abc132953675cbfef7afd36a0d603939e719f3667958089d9d51137e1",
+    "weights_files": [
+      "model-00001-of-00003.safetensors",
+      "model-00002-of-00003.safetensors",
+      "model-00003-of-00003.safetensors"
+    ],
+    "weights_bytes": 5448460016,
+    "config_sha256": "bd5d7a1a9630173b6f82fb6323d2fd7552d882cd3573ef29edbe939e4b15ecd1",
+    "source_path": "examples/probe/2026-09-18_lambda_a10/nvidia__GR00T-N1.5-3B"
+  },
+  "action": {
+    "space": "joint_position",
+    "mode": "absolute",
+    "dim": 44,
+    "units": null,
+    "chunk_size": 16,
+    "n_action_steps": null,
+    "control_hz": 20.0,
+    "gripper_convention": null,
+    "normalization": {
+      "type": "quantile",
+      "stats_sha256": "7ada84ab40a615cf7521c39e61540c8783f5c923cb063a2b92466f59d6a8715a",
+      "stats_source": "experiment_cfg/metadata.json[gr1].statistics",
+      "action_dim": null
+    }
+  },
+  "observation": {
+    "cameras": [
+      {
+        "name": "ego_view",
+        "width": 256,
+        "height": 256,
+        "channels": 3,
+        "intrinsics_sha256": null,
+        "extrinsics_sha256": null
+      }
+    ],
+    "state_dim": 44,
+    "state_keys": [
+      "left_arm",
+      "left_hand",
+      "left_leg",
+      "neck",
+      "right_arm",
+      "right_hand",
+      "right_leg",
+      "waist"
+    ],
+    "preprocessing_sha256": "677aa505ac0b2e20f4d4584f62d987f9a4550bb3f45b5c31c8bfcc4f154e5d62",
+    "image_resize": null,
+    "normalization": {
+      "type": "quantile",
+      "stats_sha256": "7ada84ab40a615cf7521c39e61540c8783f5c923cb063a2b92466f59d6a8715a",
+      "stats_source": "experiment_cfg/metadata.json[gr1].statistics",
+      "action_dim": null
+    }
+  },
+  "embodiment": {
+    "robot": "gr1",
+    "unit_id": null,
+    "controller": null,
+    "controller_hz": null
+  },
+  "runtime": {
+    "dtype": "bfloat16",
+    "device": null,
+    "framework": "gr00t",
+    "framework_version": null,
+    "export_format": null,
+    "inference_hz": null
+  },
+  "notes": [
+    "built from a probe directory (hashes and configs); weights were hashed on the machine that holds them.",
+    "denoising steps: 4"
+  ],
+  "unverified": [
+    "action.gripper_convention",
+    "action.n_action_steps"
+  ]
+}

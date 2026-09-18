@@ -1,0 +1,25 @@
+=== lerobot/smolvla_base
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+    at /home/ubuntu/hf-cache/hub/models--lerobot--smolvla_base/snapshots/d9f33c94a60fb382c90dea2164c96845bd955e28
+    7 files hashed
+=== lerobot/act_aloha_sim_transfer_cube_human
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+    at /home/ubuntu/hf-cache/hub/models--lerobot--act_aloha_sim_transfer_cube_human/snapshots/ba73b2766f1371cdc133ca4efb97eb090d744625
+    5 files hashed
+=== lerobot/pi0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+    at /home/ubuntu/hf-cache/hub/models--lerobot--pi0/snapshots/e4ed526af508e58f6008b29e9e48f1098278fdb5
+    5 files hashed
+=== lerobot/pi05_base
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+    at /home/ubuntu/hf-cache/hub/models--lerobot--pi05_base/snapshots/b211f3d44c36b6acfcf7ae94a64e8e96f75a64ba
+    6 files hashed
+=== nvidia/GR00T-N1.5-3B
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+    at /home/ubuntu/hf-cache/hub/models--nvidia--GR00T-N1.5-3B/snapshots/869830fc749c35f34771aa5209f923ac57e4564e
+    12 files hashed
+=== nvidia-smi
+name, memory.total [MiB]
+NVIDIA A10, 23028 MiB
+=== done
+1016K	/home/ubuntu/probe

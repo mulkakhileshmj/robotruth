@@ -1,0 +1,164 @@
+[
+  {
+    "repo": "lerobot/act_aloha_sim_transfer_cube_human",
+    "family": "lerobot",
+    "name": "act",
+    "weights_gb": 0.21,
+    "weights_sha256": "251d894b0caf6767",
+    "action_dim": 14,
+    "chunk": 100,
+    "n_action_steps": 100,
+    "control_hz": 50.0,
+    "mode": "absolute",
+    "norm": "mean_std",
+    "stats": "23acadf40266",
+    "stats_source": "weights:normalize_* buffers (metadata hash; values are inside weights hash)",
+    "cameras": [
+      "observation.images.top"
+    ],
+    "state_dim": 14,
+    "robot": "aloha",
+    "unverified": [
+      "action.gripper_convention"
+    ],
+    "notes": [
+      "built from a probe directory (hashes and configs); weights were hashed on the machine that holds them."
+    ],
+    "self_check": "FAIL: 1 fatal, 2 warn, 28 checks",
+    "fingerprint": "d741ea3cb604a0e2"
+  },
+  {
+    "repo": "lerobot/pi0",
+    "family": "lerobot",
+    "name": "pi0",
+    "weights_gb": 14.01,
+    "weights_sha256": "4134d15b383be048",
+    "action_dim": 6,
+    "chunk": 50,
+    "n_action_steps": 50,
+    "control_hz": null,
+    "mode": "absolute",
+    "norm": "mean_std",
+    "stats": null,
+    "stats_source": null,
+    "cameras": [
+      "observation.images.camera0",
+      "observation.images.camera1",
+      "observation.images.camera2"
+    ],
+    "state_dim": 6,
+    "robot": "unknown",
+    "unverified": [
+      "action.control_hz",
+      "action.gripper_convention",
+      "action.normalization.stats_sha256",
+      "embodiment.robot"
+    ],
+    "notes": [
+      "built from a probe directory (hashes and configs); weights were hashed on the machine that holds them.",
+      "no normalization statistics shipped with this checkpoint (base model); stats are set at fine-tune time and must be recorded then.",
+      "denoising steps: 10 (drives latency; VLA-Perf)"
+    ],
+    "self_check": "FAIL: 5 fatal, 6 warn, 32 checks",
+    "fingerprint": "9ae4ff527a638ad1"
+  },
+  {
+    "repo": "lerobot/pi05_base",
+    "family": "lerobot",
+    "name": "pi05",
+    "weights_gb": 14.47,
+    "weights_sha256": "9a9f5734a8af973c",
+    "action_dim": 32,
+    "chunk": 50,
+    "n_action_steps": 50,
+    "control_hz": null,
+    "mode": "absolute",
+    "norm": "quantile",
+    "stats": null,
+    "stats_source": null,
+    "cameras": [
+      "observation.images.base_0_rgb",
+      "observation.images.left_wrist_0_rgb",
+      "observation.images.right_wrist_0_rgb"
+    ],
+    "state_dim": 32,
+    "robot": "unknown",
+    "unverified": [
+      "action.control_hz",
+      "action.gripper_convention",
+      "action.normalization.stats_sha256",
+      "embodiment.robot"
+    ],
+    "notes": [
+      "built from a probe directory (hashes and configs); weights were hashed on the machine that holds them.",
+      "no normalization statistics shipped with this checkpoint (base model); stats are set at fine-tune time and must be recorded then.",
+      "denoising steps: 10 (drives latency; VLA-Perf)"
+    ],
+    "self_check": "FAIL: 5 fatal, 6 warn, 32 checks",
+    "fingerprint": "997aa1b5734e18d3"
+  },
+  {
+    "repo": "lerobot/smolvla_base",
+    "family": "lerobot",
+    "name": "smolvla",
+    "weights_gb": 0.91,
+    "weights_sha256": "6e0cd7dfab30e08c",
+    "action_dim": 6,
+    "chunk": 50,
+    "n_action_steps": 50,
+    "control_hz": null,
+    "mode": "absolute",
+    "norm": "mean_std",
+    "stats": "7e907998247c",
+    "stats_source": "policy_postprocessor_step_0_unnormalizer_processor.safetensors,policy_preprocessor_step_5_normalizer_processor.safetensors",
+    "cameras": [
+      "observation.images.camera1",
+      "observation.images.camera2",
+      "observation.images.camera3"
+    ],
+    "state_dim": 6,
+    "robot": "unknown",
+    "unverified": [
+      "action.control_hz",
+      "action.gripper_convention",
+      "embodiment.robot"
+    ],
+    "notes": [
+      "built from a probe directory (hashes and configs); weights were hashed on the machine that holds them.",
+      "normalizer file holds statistics for 3 datasets (so100, so100-blue, so100-red); the one selected at runtime is part of the executable policy. Record it in the overlay as action.normalization.stats_source.",
+      "denoising steps: 10 (drives latency; VLA-Perf)"
+    ],
+    "self_check": "FAIL: 3 fatal, 6 warn, 32 checks",
+    "fingerprint": "16e5a4493ac32670"
+  },
+  {
+    "repo": "nvidia/GR00T-N1.5-3B",
+    "family": "gr00t",
+    "name": "gr00t_n1_5",
+    "weights_gb": 5.45,
+    "weights_sha256": "e7340d8abc132953",
+    "action_dim": 44,
+    "chunk": 16,
+    "n_action_steps": null,
+    "control_hz": 20.0,
+    "mode": "absolute",
+    "norm": "quantile",
+    "stats": "7ada84ab40a6",
+    "stats_source": "experiment_cfg/metadata.json[gr1].statistics",
+    "cameras": [
+      "ego_view"
+    ],
+    "state_dim": 44,
+    "robot": "gr1",
+    "unverified": [
+      "action.gripper_convention",
+      "action.n_action_steps"
+    ],
+    "notes": [
+      "built from a probe directory (hashes and configs); weights were hashed on the machine that holds them.",
+      "denoising steps: 4"
+    ],
+    "self_check": "FAIL: 2 fatal, 2 warn, 28 checks",
+    "fingerprint": "95fea662d396d967"
+  }
+]

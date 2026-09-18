@@ -23,7 +23,7 @@ dependencies = [
 dev = ["pytest>=8.0", "pytest-cov>=5.0", "ruff>=0.5", "mcap>=1.1"]
 mcap = ["mcap>=1.1"]
 vlm = ["anthropic>=0.40"]
-open-vlm = ["transformers>=4.49", "torch>=2.4", "pillow>=10.0", "accelerate>=1.0"]
+open-vlm = ["transformers>=4.49", "torch>=2.4", "torchvision>=0.19", "pillow>=10.0", "accelerate>=1.0"]
 gpu = ["torch>=2.4"]
 
 [project.urls]

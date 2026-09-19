@@ -1,0 +1,580 @@
+{
+  "n": 90,
+  "n_decided": 2,
+  "n_abstain": 88,
+  "hours": 0.4899074080255296,
+  "abstain_rate": {
+    "estimate": 0.9777777777777777,
+    "lower": 0.9225547331137463,
+    "upper": 0.9938845580136748,
+    "n": 90
+  },
+  "coverage": {
+    "estimate": 0.022222222222222223,
+    "lower": 0.006115441986325208,
+    "upper": 0.07744526688625372,
+    "n": 90
+  },
+  "accuracy": {
+    "estimate": 1.0,
+    "lower": 0.34238022750665303,
+    "upper": 1.0,
+    "n": 2
+  },
+  "success_recall": null,
+  "failure_recall": {
+    "estimate": 1.0,
+    "lower": 0.34238022750665303,
+    "upper": 1.0,
+    "n": 2
+  },
+  "failure_precision": {
+    "estimate": 1.0,
+    "lower": 0.34238022750665303,
+    "upper": 1.0,
+    "n": 2
+  },
+  "balanced_accuracy": null,
+  "balanced_accuracy_bounds": null,
+  "success_bias": 0.0,
+  "false_alarms": 0,
+  "false_alarm_rate": {
+    "estimate": 0.0,
+    "lower": 0.0,
+    "upper": 0.04751842528243408,
+    "n": 77
+  },
+  "false_alarms_per_hour": 0.0,
+  "false_alarms_per_hour_bounds": [
+    0.0,
+    7.468592405030042
+  ],
+  "per_task": {
+    "Close the bottom drawer of the right cabinet": {
+      "n": 1,
+      "n_abstain": 1,
+      "balanced_accuracy": null,
+      "false_alarms": 0,
+      "success_bias": null
+    },
+    "Close the drawer": {
+      "n": 1,
+      "n_abstain": 1,
+      "balanced_accuracy": null,
+      "false_alarms": 0,
+      "success_bias": null
+    },
+    "Close the lid of the coffee maker": {
+      "n": 1,
+      "n_abstain": 1,
+      "balanced_accuracy": null,
+      "false_alarms": 0,
+      "success_bias": null
+    },
+    "Close the right cabinet door": {
+      "n": 1,
+      "n_abstain": 1,
+      "balanced_accuracy": null,
+      "false_alarms": 0,
+      "success_bias": null
+    },
+    "Cover the cup": {
+      "n": 1,
+      "n_abstain": 1,
+      "balanced_accuracy": null,
+      "false_alarms": 0,
+      "success_bias": null
+    },
+    "Lay the iron on the placemat.": {
+      "n": 1,
+      "n_abstain": 1,
+      "balanced_accuracy": null,
+      "false_alarms": 0,
+      "success_bias": null
+    },
+    "Move the bottom right tip of the duvet to the left": {
+      "n": 1,
+      "n_abstain": 1,
+      "balanced_accuracy": null,
+      "false_alarms": 0,
+      "success_bias": null
+    },
+    "Move the cloth": {
+      "n": 1,
+      "n_abstain": 1,
+      "balanced_accuracy": null,
+      "false_alarms": 0,
+      "success_bias": null
+    },
+    "Move the green object to the right": {
+      "n": 1,
+      "n_abstain": 1,
+      "balanced_accuracy": null,
+      "false_alarms": 0,
+      "success_bias": null
+    },
+    "Move the green rectangular block to the right": {
+      "n": 1,
+      "n_abstain": 1,
+      "balanced_accuracy": null,
+      "false_alarms": 0,
+      "success_bias": null
+    },
+    "Move the lunch box from the sink to the drying rack": {
+      "n": 1,
+      "n_abstain": 1,
+      "balanced_accuracy": null,
+      "false_alarms": 0,
+      "success_bias": null
+    },
+    "Move the pen out of the white cup and place it on top of the cabinet": {
+      "n": 1,
+      "n_abstain": 1,
+      "balanced_accuracy": null,
+      "false_alarms": 0,
+      "success_bias": null
+    },
+    "Move the pillow to the right": {
+      "n": 1,
+      "n_abstain": 1,
+      "balanced_accuracy": null,
+      "false_alarms": 0,
+      "success_bias": null
+    },
+    "Move the pizza slice to the left": {
+      "n": 1,
+      "n_abstain": 1,
+      "balanced_accuracy": null,
+      "false_alarms": 0,
+      "success_bias": null
+    },
+    "Move the tile letter s to the left": {
+      "n": 1,
+      "n_abstain": 1,
+      "balanced_accuracy": null,
+      "false_alarms": 0,
+      "success_bias": null
+    },
+    "Move the yellow can to the right side of the desk": {
+      "n": 1,
+      "n_abstain": 1,
+      "balanced_accuracy": null,
+      "false_alarms": 0,
+      "success_bias": null
+    },
+    "Open the oven door": {
+      "n": 1,
+      "n_abstain": 1,
+      "balanced_accuracy": null,
+      "false_alarms": 0,
+      "success_bias": null
+    },
+    "Open the storage bin, then place the blue bottle inside it": {
+      "n": 1,
+      "n_abstain": 1,
+      "balanced_accuracy": null,
+      "false_alarms": 0,
+      "success_bias": null
+    },
+    "Open the top right drawer": {
+      "n": 1,
+      "n_abstain": 1,
+      "balanced_accuracy": null,
+      "false_alarms": 0,
+      "success_bias": null
+    },
+    "Pick the bottles and a red object and put them on the plate": {
+      "n": 1,
+      "n_abstain": 1,
+      "balanced_accuracy": null,
+      "false_alarms": 0,
+      "success_bias": null
+    },
+    "Pick the marker from the pot and put it on the table": {
+      "n": 1,
+      "n_abstain": 1,
+      "balanced_accuracy": null,
+      "false_alarms": 0,
+      "success_bias": null
+    },
+    "Pick the pen on the table and put it in the bowl": {
+      "n": 1,
+      "n_abstain": 1,
+      "balanced_accuracy": null,
+      "false_alarms": 0,
+      "success_bias": null
+    },
+    "Pick the red bowl from the top cabinet and put it on top of the microwave": {
+      "n": 1,
+      "n_abstain": 1,
+      "balanced_accuracy": null,
+      "false_alarms": 0,
+      "success_bias": null
+    },
+    "Pick the silver object on the table and put it in the blue cup": {
+      "n": 1,
+      "n_abstain": 1,
+      "balanced_accuracy": null,
+      "false_alarms": 0,
+      "success_bias": null
+    },
+    "Pick up the cup and pour its contents into the bowl": {
+      "n": 1,
+      "n_abstain": 1,
+      "balanced_accuracy": null,
+      "false_alarms": 0,
+      "success_bias": null
+    },
+    "Pick up the lid and put it on the pot": {
+      "n": 1,
+      "n_abstain": 1,
+      "balanced_accuracy": null,
+      "false_alarms": 0,
+      "success_bias": null
+    },
+    "Pick up the longer upright white container from the table and put it in the orange plastic bag": {
+      "n": 1,
+      "n_abstain": 1,
+      "balanced_accuracy": null,
+      "false_alarms": 0,
+      "success_bias": null
+    },
+    "Pick up the orange object from the plastic box and put it into the wooden box": {
+      "n": 1,
+      "n_abstain": 1,
+      "balanced_accuracy": null,
+      "false_alarms": 0,
+      "success_bias": null
+    },
+    "Pick up the white medicine bottle from the orange plastic bag and put it on the table": {
+      "n": 1,
+      "n_abstain": 1,
+      "balanced_accuracy": null,
+      "false_alarms": 0,
+      "success_bias": null
+    },
+    "Place the red pair of scissors on the right side and the black pair of scissors on the left side of the drawer": {
+      "n": 1,
+      "n_abstain": 1,
+      "balanced_accuracy": null,
+      "false_alarms": 0,
+      "success_bias": null
+    },
+    "Press the big button on the left side of the dish washing machine": {
+      "n": 1,
+      "n_abstain": 1,
+      "balanced_accuracy": null,
+      "false_alarms": 0,
+      "success_bias": null
+    },
+    "Press the switch on the stove": {
+      "n": 1,
+      "n_abstain": 1,
+      "balanced_accuracy": null,
+      "false_alarms": 0,
+      "success_bias": null
+    },
+    "Pull the curtain up": {
+      "n": 1,
+      "n_abstain": 1,
+      "balanced_accuracy": null,
+      "false_alarms": 0,
+      "success_bias": null
+    },
+    "Pull the orange towel to the left side": {
+      "n": 1,
+      "n_abstain": 1,
+      "balanced_accuracy": null,
+      "false_alarms": 0,
+      "success_bias": null
+    },
+    "Push the light switch on the right upwards": {
+      "n": 1,
+      "n_abstain": 1,
+      "balanced_accuracy": null,
+      "false_alarms": 0,
+      "success_bias": null
+    },
+    "Push the measuring tape back inside the case": {
+      "n": 1,
+      "n_abstain": 1,
+      "balanced_accuracy": null,
+      "false_alarms": 0,
+      "success_bias": null
+    },
+    "Put all the objects in the measuring cup into the red bowl and press the red button on the thing": {
+      "n": 1,
+      "n_abstain": 1,
+      "balanced_accuracy": null,
+      "false_alarms": 0,
+      "success_bias": null
+    },
+    "Put the black knife in the open drawer": {
+      "n": 1,
+      "n_abstain": 1,
+      "balanced_accuracy": null,
+      "false_alarms": 0,
+      "success_bias": null
+    },
+    "Put the blue block in the green bowl": {
+      "n": 1,
+      "n_abstain": 1,
+      "balanced_accuracy": null,
+      "false_alarms": 0,
+      "success_bias": null
+    },
+    "Put the blue cup inside the white cup then put the orange cup inside the blue cup": {
+      "n": 1,
+      "n_abstain": 1,
+      "balanced_accuracy": null,
+      "false_alarms": 0,
+      "success_bias": null
+    },
+    "Put the blue thing on the wooden rack on the table": {
+      "n": 1,
+      "n_abstain": 1,
+      "balanced_accuracy": null,
+      "false_alarms": 0,
+      "success_bias": null
+    },
+    "Put the duster on the whiteboard": {
+      "n": 1,
+      "n_abstain": 1,
+      "balanced_accuracy": null,
+      "false_alarms": 0,
+      "success_bias": null
+    },
+    "Put the green ring on the table": {
+      "n": 1,
+      "n_abstain": 1,
+      "balanced_accuracy": null,
+      "false_alarms": 0,
+      "success_bias": null
+    },
+    "Put the grey block inside the orange cup": {
+      "n": 1,
+      "n_abstain": 1,
+      "balanced_accuracy": null,
+      "false_alarms": 0,
+      "success_bias": null
+    },
+    "Put the lid on the pot": {
+      "n": 1,
+      "n_abstain": 1,
+      "balanced_accuracy": null,
+      "false_alarms": 0,
+      "success_bias": null
+    },
+    "Put the orange object in the bowl": {
+      "n": 1,
+      "n_abstain": 1,
+      "balanced_accuracy": null,
+      "false_alarms": 0,
+      "success_bias": null
+    },
+    "Put the papers in the bin to the right": {
+      "n": 1,
+      "n_abstain": 1,
+      "balanced_accuracy": null,
+      "false_alarms": 0,
+      "success_bias": null
+    },
+    "Put the ropes in the basket": {
+      "n": 1,
+      "n_abstain": 1,
+      "balanced_accuracy": null,
+      "false_alarms": 0,
+      "success_bias": null
+    },
+    "Put the towel in the bowl": {
+      "n": 1,
+      "n_abstain": 1,
+      "balanced_accuracy": null,
+      "false_alarms": 0,
+      "success_bias": null
+    },
+    "Put the used napkin in the orange packet and then the bin": {
+      "n": 1,
+      "n_abstain": 1,
+      "balanced_accuracy": null,
+      "false_alarms": 0,
+      "success_bias": null
+    },
+    "Put the white towel into the paper bag": {
+      "n": 1,
+      "n_abstain": 1,
+      "balanced_accuracy": null,
+      "false_alarms": 0,
+      "success_bias": null
+    },
+    "Put the yellow marker inside the red mug": {
+      "n": 1,
+      "n_abstain": 1,
+      "balanced_accuracy": null,
+      "false_alarms": 0,
+      "success_bias": null
+    },
+    "Remove some rubber bands from the plastic and put them on top of the white storage container.": {
+      "n": 1,
+      "n_abstain": 1,
+      "balanced_accuracy": null,
+      "false_alarms": 0,
+      "success_bias": null
+    },
+    "Remove the blue block from the top of the stack": {
+      "n": 1,
+      "n_abstain": 1,
+      "balanced_accuracy": null,
+      "false_alarms": 0,
+      "success_bias": null
+    },
+    "Remove the circular object from the orange object": {
+      "n": 1,
+      "n_abstain": 1,
+      "balanced_accuracy": null,
+      "false_alarms": 0,
+      "success_bias": null
+    },
+    "Remove the marker from the cup": {
+      "n": 1,
+      "n_abstain": 1,
+      "balanced_accuracy": null,
+      "false_alarms": 0,
+      "success_bias": null
+    },
+    "Remove the marker from the cup and put it on the table": {
+      "n": 1,
+      "n_abstain": 1,
+      "balanced_accuracy": null,
+      "false_alarms": 0,
+      "success_bias": null
+    },
+    "Remove the marker from the mug cup and place it on the table": {
+      "n": 1,
+      "n_abstain": 1,
+      "balanced_accuracy": null,
+      "false_alarms": 0,
+      "success_bias": null
+    },
+    "Remove the orange ring from the wooden platform": {
+      "n": 1,
+      "n_abstain": 1,
+      "balanced_accuracy": null,
+      "false_alarms": 0,
+      "success_bias": null
+    },
+    "Remove the pineapple plush toy from the black pot and put it on the table": {
+      "n": 1,
+      "n_abstain": 1,
+      "balanced_accuracy": null,
+      "false_alarms": 0,
+      "success_bias": null
+    },
+    "Remove the sachets on the fridge bottom shelf and move them in the open fridge drawer": {
+      "n": 1,
+      "n_abstain": 1,
+      "balanced_accuracy": null,
+      "false_alarms": 0,
+      "success_bias": null
+    },
+    "Remove the tissue box from the open upper cabinet": {
+      "n": 1,
+      "n_abstain": 1,
+      "balanced_accuracy": null,
+      "false_alarms": 0,
+      "success_bias": null
+    },
+    "Remove the white plate from the dishwasher and put it on top of the white plate on the counter": {
+      "n": 1,
+      "n_abstain": 1,
+      "balanced_accuracy": null,
+      "false_alarms": 0,
+      "success_bias": null
+    },
+    "Sweep the candy to the left using the white and black brush": {
+      "n": 1,
+      "n_abstain": 1,
+      "balanced_accuracy": null,
+      "false_alarms": 0,
+      "success_bias": null
+    },
+    "Take the blue pan out of the sink and place it on the dishrack": {
+      "n": 1,
+      "n_abstain": 1,
+      "balanced_accuracy": null,
+      "false_alarms": 0,
+      "success_bias": null
+    },
+    "Take the brown toy from the stove and put it in the sink": {
+      "n": 1,
+      "n_abstain": 1,
+      "balanced_accuracy": null,
+      "false_alarms": 0,
+      "success_bias": null
+    },
+    "Take the plastic bag and put it adjacent to the monitor": {
+      "n": 1,
+      "n_abstain": 1,
+      "balanced_accuracy": null,
+      "false_alarms": 0,
+      "success_bias": null
+    },
+    "Take the white plate off of the can and place it on the blue bowl": {
+      "n": 1,
+      "n_abstain": 1,
+      "balanced_accuracy": null,
+      "false_alarms": 0,
+      "success_bias": null
+    },
+    "Turn the coffee machine by pushing the handle to the left": {
+      "n": 1,
+      "n_abstain": 1,
+      "balanced_accuracy": null,
+      "false_alarms": 0,
+      "success_bias": null
+    },
+    "Unhang the blue cloth from the drawer and place it on the right side of the counter": {
+      "n": 1,
+      "n_abstain": 1,
+      "balanced_accuracy": null,
+      "false_alarms": 0,
+      "success_bias": null
+    },
+    "Use the blue towel to wipe the white plate": {
+      "n": 1,
+      "n_abstain": 1,
+      "balanced_accuracy": null,
+      "false_alarms": 0,
+      "success_bias": null
+    },
+    "Use the duster to erase the markings on the whiteboard": {
+      "n": 1,
+      "n_abstain": 1,
+      "balanced_accuracy": null,
+      "false_alarms": 0,
+      "success_bias": null
+    },
+    "Wipe the plate with the blue towel": {
+      "n": 1,
+      "n_abstain": 1,
+      "balanced_accuracy": null,
+      "false_alarms": 0,
+      "success_bias": null
+    },
+    "move one white object from the right heap to the left, then get the blue-white object and fold it on top of the left heap": {
+      "n": 1,
+      "n_abstain": 1,
+      "balanced_accuracy": null,
+      "false_alarms": 0,
+      "success_bias": null
+    },
+    "unknown": {
+      "n": 16,
+      "n_abstain": 14,
+      "balanced_accuracy": null,
+      "false_alarms": 0,
+      "success_bias": 0.0
+    }
+  },
+  "alpha": 0.05
+}

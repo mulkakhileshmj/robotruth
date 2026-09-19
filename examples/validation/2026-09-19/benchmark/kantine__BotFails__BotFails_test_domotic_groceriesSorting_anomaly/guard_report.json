@@ -1,0 +1,56 @@
+{
+  "calibration": {
+    "n_nominal": 6,
+    "n_fit": 3,
+    "n_calibration": 3,
+    "alpha": 0.05,
+    "method": "max",
+    "split": 0.5,
+    "inputs": [
+      "actions"
+    ],
+    "calibrator": {
+      "alpha": 0.05,
+      "method": "max",
+      "n_bins": 4,
+      "horizon": 1783,
+      "thresholds": [
+        4.800440411340668
+      ],
+      "bin_edges": [
+        0,
+        1783
+      ],
+      "saturated": true,
+      "achievable_alpha": 0.25,
+      "n_calibration": 3,
+      "calibration_alarm_fraction": 0.0
+    },
+    "saturated": true,
+    "warning": "too few calibration episodes for alpha=0.05; smallest certifiable alpha is 0.250"
+  },
+  "metrics": {
+    "alpha": 0.05,
+    "n_episodes": 4,
+    "n_unlabelled": 4,
+    "n_failures": 0,
+    "n_detected": 0,
+    "detection_rate": null,
+    "lead_time_mean_s": null,
+    "lead_time_median_s": null,
+    "n_hard_stops_on_failures": 0,
+    "n_nominal": 0,
+    "nominal_hours": 0.0,
+    "n_false_alarms": 0,
+    "false_alarms_per_hour": null,
+    "false_alarms_per_hour_ci": null,
+    "n_nominal_with_alarm": 0,
+    "nominal_episode_alarm_rate": null,
+    "n_hard_stops_on_nominal": 0,
+    "notes": [
+      "No labelled failures: detection rate not estimable.",
+      "No labelled successes: false alarm rate not estimable.",
+      "4 episodes without a truth label were ignored."
+    ]
+  }
+}

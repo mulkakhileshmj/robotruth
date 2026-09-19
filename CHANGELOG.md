@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.1.4 (2026-09-19)
+
+- **The stall blind spot is closed.** A `StagnationScorer` watches windowed motion of the action stream, and `calibrate_guard` now gives it its own conformal threshold in a `MultiHeadScorer` instead of averaging it into the composite, alarming on the union of the two heads with alpha split between them. Measured on the same live policy and fault protocol as 0.1.3, on a 150-episode calibration pool: stall, offset and noise faults all detected 10/10, pooled 30/30 = 1.000 [0.886, 1.000], median latency 0.04 s, 0/18 false alarms on held-out successes.
+- The dedicated head is the reason it works. With the stagnation score averaged into the composite, freeze detection was only 1/10: a frozen action stream is self-consistent and in-distribution, so three of the four component scores report nominal and dilute the one that sees the stall. Both runs are published side by side in `examples/validation/2026-09-19/guard_detection_v2/`.
+- The stall head reports itself as saturated below roughly 40 calibration episodes rather than claiming an uncertifiable guarantee.
+- **Cross-dataset benchmark**: `ops/benchmark_fetch.py`, `ops/benchmark_report.py` and `ops/botfails_bench.py` fetch public LeRobot datasets (metadata and parquet only), run every module over them and render one HTML report. First run covers 54 datasets from RoboMIND and AgiBotWorld task ports, OpenX conversions, DROID, BotFails and DAgger logs, with zero ingest failures.
+- **HTML reports redesigned**: markdown in report sections now renders as HTML instead of being dumped as raw text, with a document header, table of contents, numbered sections, sentence-cased headings and column headers, and print styles.
+- `ops/guard_detection.py` saves every rollout as npz, so threshold changes can be replayed offline instead of costing GPU hours.
+
 ## 0.1.3 (2026-09-19)
 
 - Guard detection measured with policy-breaking faults injected into executed actions on a live policy (all 30 fault episodes failed the task). On a 164-episode calibration pool: offset (miscalibration) faults 10/10 detected, noise (erratic policy) faults 10/10 with max thresholds, median detection latency 0.04 s, 0/17 false alarms on held-out successes. Stall (freeze) faults 0/10: a frozen action stream is self-consistent and in-distribution, so the current scorers cannot see it; a stagnation scorer is the planned fix and the blind spot is documented in Known limits.

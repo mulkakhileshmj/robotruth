@@ -10,7 +10,8 @@ module does.
 
 Pieces:
 
-- scores: MahalanobisScorer, ChunkConsistencyScorer, ActionStatsScorer, CompositeScorer.
+- scores: MahalanobisScorer, ChunkConsistencyScorer, ActionStatsScorer, StagnationScorer,
+  CompositeScorer.
 - conformal: SequentialConformal (time-uniform thresholds, "max" or "bonferroni"),
   ContrastSetCalibration.
 - monitor: Guard (ok, slow, handover, stop with patience and hysteresis), HardLimits,
@@ -47,13 +48,15 @@ from robotruth.guard.conformal import (
     conformal_quantile,
 )
 from robotruth.guard.metrics import GuardEpisode, GuardMetrics, poisson_rate_interval
-from robotruth.guard.monitor import Guard, GuardEvent, HardLimits, calibrate_guard
+from robotruth.guard.monitor import (Guard, GuardEvent, HardLimits, MultiHeadScorer, ZeroThreshold,
+                                     calibrate_guard)
 from robotruth.guard.scores import (
     ActionStatsScorer,
     ChunkConsistencyScorer,
     CompositeScorer,
     MahalanobisScorer,
     Scorer,
+    StagnationScorer,
     ledoit_wolf_covariance,
     scorer_from_dict,
 )
@@ -70,11 +73,14 @@ __all__ = [
     "GuardMetrics",
     "HardLimits",
     "MahalanobisScorer",
+    "MultiHeadScorer",
     "OfflineReplay",
     "PolicyServerHook",
     "ReplayResult",
     "Scorer",
     "SequentialConformal",
+    "StagnationScorer",
+    "ZeroThreshold",
     "attach",
     "calibrate_guard",
     "conformal_quantile",

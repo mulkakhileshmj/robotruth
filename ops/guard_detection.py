@@ -115,6 +115,14 @@ def main() -> int:
         eval_fault += eps
         print(f"fault {fault}: {sum(not e['success'] for e in eps)}/{n_fault} broke the task", flush=True)
 
+    ep_dir = out_dir / "episodes"
+    ep_dir.mkdir(exist_ok=True)
+    for group, eps in (("cal", cal), ("evalnom", eval_nom), ("fault", eval_fault)):
+        for i, e in enumerate(eps):
+            np.savez_compressed(ep_dir / f"{group}_{i:04d}.npz", features=e["features"], actions=e["actions"],
+                                timestamps=e["timestamps"], success=e["success"], fault=str(e.get("fault")))
+    print(f"episodes saved to {ep_dir} for offline recalibration", flush=True)
+
     to_dict = lambda e: {"features": e["features"], "actions": e["actions"], "timestamps": e["timestamps"]}
     pools = [("full", nominal)]
     for s in range(3):

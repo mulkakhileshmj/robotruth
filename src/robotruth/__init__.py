@@ -9,4 +9,4 @@ Three truths, one report:
   (`robotruth.schema`, `robotruth.judge`, later modules)
 """
 
-__version__ = "0.1.3"
+__version__ = "0.1.4"

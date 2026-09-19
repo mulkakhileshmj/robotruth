@@ -33,7 +33,7 @@ import numpy as np
 
 from robotruth.guard.conformal import ContrastReport, ContrastSetCalibration, SequentialConformal
 from robotruth.guard.metrics import LEVELS, GuardEpisode
-from robotruth.guard.scores import CompositeScorer, Scorer, scorer_from_dict
+from robotruth.guard.scores import _REGISTRY, CompositeScorer, Scorer, StagnationScorer, scorer_from_dict
 
 
 @dataclass
@@ -135,6 +135,106 @@ class GuardEvent:
 
     def to_dict(self) -> dict[str, Any]:
         return asdict(self)
+
+
+class ZeroThreshold:
+    """Constant-zero threshold for scores that already subtract their own threshold."""
+
+    saturated_ = False
+
+    def threshold(self, t: int) -> float:  # noqa: ARG002
+        return 0.0
+
+    def thresholds(self, horizon: Optional[int] = None) -> np.ndarray:
+        return np.zeros(int(horizon or 0), dtype=np.float64)
+
+    def alarms(self, trajectory: np.ndarray) -> bool:
+        t = np.asarray(trajectory, dtype=np.float64).ravel()
+        return bool(np.any(t[np.isfinite(t)] > 0))
+
+    def to_dict(self) -> dict[str, Any]:
+        return {"type": "zero"}
+
+    @classmethod
+    def from_dict(cls, d: dict[str, Any]) -> "ZeroThreshold":  # noqa: ARG003
+        return cls()
+
+
+class MultiHeadScorer(Scorer):
+    """Several scorers, each with its own conformal calibrator, alarmed as a union.
+
+    Each head h emits score_h(t) - threshold_h(t); the step score is the maximum excess
+    over the heads, so the Guard alarms as soon as any single head crosses its own
+    threshold (pair it with ZeroThreshold). With head h calibrated at alpha_h, the union
+    bound keeps the overall false-alarm rate at or below the sum of the alpha_h. This
+    exists because averaging a stall detector into a composite dilutes it below threshold:
+    a frozen action stream looks nominal to every distance and consistency scorer, so the
+    stall head must be allowed to alarm alone.
+    """
+
+    kind = "multi_head"
+    needs = "any"
+
+    def __init__(self, heads: dict[str, tuple[Scorer, Any]]) -> None:
+        super().__init__()
+        self.heads = heads
+        self._i = 0
+        self.fitted = all(s.fitted for s, _ in heads.values())
+
+    def reset(self) -> None:
+        self._i = 0
+        for s, _ in self.heads.values():
+            s.reset()
+
+    def score_step(self, features: Optional[np.ndarray] = None,
+                   action_chunk: Optional[np.ndarray] = None) -> tuple[Optional[float], dict[str, float]]:
+        best: Optional[float] = None
+        comps: dict[str, float] = {}
+        for name, (s, cal) in self.heads.items():
+            v, _ = s.score_step(features=features, action_chunk=action_chunk)
+            if v is None:
+                continue
+            excess = float(v) - float(cal.threshold(self._i))
+            comps[name] = float(excess)
+            best = excess if best is None else max(best, excess)
+        self._i += 1
+        return best, comps
+
+    def score(self, x: Any) -> float:
+        s, _ = self.score_step(features=getattr(x, "get", lambda k: None)("features") if isinstance(x, dict) else None,
+                               action_chunk=x.get("action_chunk") if isinstance(x, dict) else x)
+        if s is None:
+            raise ValueError("no usable input")
+        return s
+
+    def score_episode(self, episode: dict[str, Any]) -> np.ndarray:
+        self.reset()
+        feats = episode.get("features")
+        acts = episode.get("actions")
+        n = len(feats) if feats is not None else len(acts)
+        out = np.full(n, np.nan, dtype=np.float64)
+        for t in range(n):
+            s, _ = self.score_step(features=None if feats is None else np.asarray(feats)[t],
+                                   action_chunk=None if acts is None else np.asarray(acts)[t])
+            if s is not None:
+                out[t] = s
+        return out
+
+    def to_dict(self) -> dict[str, Any]:
+        return {"type": self.kind,
+                "heads": {k: {"scorer": s.to_dict(), "calibrator": c.to_dict()} for k, (s, c) in self.heads.items()}}
+
+    @classmethod
+    def from_dict(cls, d: dict[str, Any]) -> "MultiHeadScorer":
+        heads = {}
+        for k, h in d["heads"].items():
+            cal_d = h["calibrator"]
+            cal = ZeroThreshold() if cal_d.get("type") == "zero" else SequentialConformal.from_dict(cal_d)
+            heads[k] = (scorer_from_dict(h["scorer"]), cal)
+        return cls(heads)
+
+
+_REGISTRY[MultiHeadScorer.kind] = MultiHeadScorer
 
 
 class Guard:
@@ -307,7 +407,8 @@ class Guard:
     @classmethod
     def from_dict(cls, d: dict[str, Any]) -> "Guard":
         scorer = scorer_from_dict(d["scorer"])
-        cal = SequentialConformal.from_dict(d["calibrator"])
+        cal_d = d["calibrator"]
+        cal = ZeroThreshold() if cal_d.get("type") == "zero" else SequentialConformal.from_dict(cal_d)
         hl = HardLimits.from_dict(d["hard_limits"]) if d.get("hard_limits") else None
         return cls(scorer, cal, hl, patience=int(d.get("patience", 3)), hysteresis=float(d.get("hysteresis", 0.2)),
                    dt=float(d.get("dt", 1.0)), report=d.get("report") or {})
@@ -356,6 +457,7 @@ def calibrate_guard(nominal: Sequence[dict[str, Any]], benign: Optional[Sequence
                     patience: int = 3, hysteresis: float = 0.2, dt: float = 1.0,
                     hard_limits: Optional[HardLimits] = None, stride: Optional[int] = None,
                     weights: Optional[dict[str, float]] = None, scorer: Optional[Scorer] = None,
+                    stall_head: Optional[bool] = None, stall_alpha_share: float = 0.5,
                     seed: int = 0) -> tuple[Guard, dict[str, Any]]:
     """Fit scorers and conformal thresholds from recorded nominal episodes.
 
@@ -366,6 +468,15 @@ def calibrate_guard(nominal: Sequence[dict[str, Any]], benign: Optional[Sequence
     split: fraction of nominal episodes used to fit the scorers; the rest calibrate the
         thresholds. Fitting and calibrating on the same episodes gives optimistic (too low)
         thresholds and more false alarms than alpha, so the split is on by default.
+    stall_head: give a StagnationScorer its own conformal threshold and alarm on the union
+        of it and the composite. On by default whenever action chunks are present. A frozen
+        action stream is self-consistent and in-distribution, so averaged into the composite
+        the stall signal is diluted below threshold; measured on a live policy, freeze
+        detection was 1/10 inside the composite and needs this dedicated head.
+    stall_alpha_share: fraction of alpha budgeted to the stall head (union bound), the rest
+        goes to the composite. The default 0.5 keeps the stall head certifiable from about
+        40 calibration episodes at alpha 0.05; a stalled stream scores far above any
+        threshold, so giving it half the budget costs the composite little.
 
     Returns the Guard and a plain-dict report (also stored on guard.report).
     """
@@ -380,6 +491,8 @@ def calibrate_guard(nominal: Sequence[dict[str, Any]], benign: Optional[Sequence
     cal_set = [eps[i] for i in order[n_fit:]]
     has_f = all(e.get("features") is not None for e in eps)
     has_a = all(e.get("actions") is not None for e in eps)
+    use_stall = has_a if stall_head is None else (stall_head and has_a)
+    alpha_main = alpha * (1.0 - stall_alpha_share) if use_stall else alpha
     if scorer is None:
         scorer = CompositeScorer.default(has_features=has_f, has_actions=has_a, stride=stride)
         if weights:
@@ -394,17 +507,34 @@ def calibrate_guard(nominal: Sequence[dict[str, Any]], benign: Optional[Sequence
     if benign:
         ben_trajs = [scorer.score_episode(e) for e in benign]
         horizon = max(horizon, max(t.size for t in ben_trajs))
-        csc = ContrastSetCalibration(alpha=alpha, method=method, n_bins=n_bins).fit(cal_trajs, ben_trajs, horizon=horizon)
+        csc = ContrastSetCalibration(alpha=alpha_main, method=method, n_bins=n_bins).fit(cal_trajs, ben_trajs, horizon=horizon)
         calibrator: Any = csc.calibrator
         contrast = csc.report
         report["contrast"] = contrast.to_dict()
         report["n_benign"] = len(benign)
     else:
-        calibrator = SequentialConformal(alpha=alpha, method=method, n_bins=n_bins).fit(cal_trajs, horizon=horizon)
+        calibrator = SequentialConformal(alpha=alpha_main, method=method, n_bins=n_bins).fit(cal_trajs, horizon=horizon)
     report["calibrator"] = calibrator.to_dict()
     report["saturated"] = bool(calibrator.saturated_)
     if calibrator.saturated_:
-        report["warning"] = (f"too few calibration episodes for alpha={alpha:g}; smallest certifiable alpha is "
+        report["warning"] = (f"too few calibration episodes for alpha={alpha_main:g}; smallest certifiable alpha is "
                              f"{calibrator.achievable_alpha_:.3f}")
-    guard = Guard(scorer, calibrator, hard_limits, patience=patience, hysteresis=hysteresis, dt=dt, report=report)
+    final_scorer: Scorer = scorer
+    final_calibrator: Any = calibrator
+    if use_stall:
+        stall = StagnationScorer().fit([np.asarray(e["actions"], dtype=np.float64) for e in fit_set])
+        stall_trajs = [stall.score_episode(e) for e in cal_set]
+        stall_cal = SequentialConformal(alpha=alpha * stall_alpha_share, method=method, n_bins=n_bins).fit(
+            stall_trajs, horizon=horizon)
+        report["stall_head"] = {"alpha": alpha * stall_alpha_share, "calibrator": stall_cal.to_dict(),
+                                "saturated": bool(stall_cal.saturated_)}
+        if stall_cal.saturated_:
+            report["warning"] = report.get("warning", "") + (
+                f" stall head saturated at alpha={alpha * stall_alpha_share:g} "
+                f"(needs at least {int(np.ceil(1 / (alpha * stall_alpha_share))) - 1} calibration episodes);"
+                " stall detection is disabled until more nominal episodes are provided.").strip()
+        final_scorer = MultiHeadScorer({"main": (scorer, calibrator), "stall": (stall, stall_cal)})
+        final_calibrator = ZeroThreshold()
+    guard = Guard(final_scorer, final_calibrator, hard_limits, patience=patience, hysteresis=hysteresis, dt=dt,
+                  report=report)
     return guard, report

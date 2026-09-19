@@ -20,6 +20,7 @@ Updated 2026-09-19. Published to https://github.com/mulkakhileshmj/robotruth.
 | 2026-09-18 ~22:40 IST | Lambda 1x A10 24 GB, us-east-1, 129.80.241.17 (terminated) | $1.29/h | 72 tests, 0.1.1 wheel and sdist, open VLM judge benchmark on 140 real UR5 episodes (Qwen2.5-VL-7B) | examples/validation/2026-09-18/vlm_judge, dist/ |
 | 2026-09-19 ~09:00 IST | Lambda 1x A10 24 GB, us-east-1, 150.136.95.69 (terminated) | $1.29/h | guard stability over 3 calibration draws by 2 methods (212 live episodes); fused judge on 323 BotFails and 103 ur5fail episodes; 72 tests; arm video | examples/validation/2026-09-19 |
 | 2026-09-19 ~17:30 IST | Lambda 1x A10 24 GB, us-east-1, 129.213.48.169 | $1.29/h | guard detection with policy-breaking faults (250 live episodes, 3 fault types, 8 calibrate-replay combinations); 72 tests; 0.1.3 wheel | examples/validation/2026-09-19/guard_detection, dist/ |
+| 2026-09-19 ~18:30 IST | Lambda 1x A10 24 GB, us-east-1, 129.153.172.211 | $1.29/h | stagnation scorer built and measured twice (500 live episodes across two protocols); 54-dataset cross-dataset benchmark and HTML report; pooled BotFails judge and guard; guard stall video; 74 tests; 0.1.4 wheel | examples/validation/2026-09-19/guard_detection_v2, /benchmark, dist/ |
 
 ## Done
 
@@ -87,11 +88,33 @@ The missing measurement. Faults injected into the executed action at t = 3.0 s, 
 | 164 | bonferroni | 0/17 | 0/10 | 10/10 | 9/10 | 0.04 s |
 | 45 (3 draws) | max | 2, 0, 0 of 17 | 0/10 | 10/10 each | 10/10 each | 0.04 s |
 
-Verdict: the guard detects distributional faults essentially instantly with a held false-alarm bound at proper calibration size, and is blind to stalls. The blind spot and the 150-episode calibration guidance are in the README. Next scorer: stagnation (near-zero executed motion over a sliding window), then re-run this experiment.
+Verdict: the guard detects distributional faults essentially instantly with a held false-alarm bound at proper calibration size, and is blind to stalls. Closed in 0.1.4, below.
+
+## 2026-09-19 stall blind spot closed (examples/validation/2026-09-19/guard_detection_v2)
+
+Two runs of the same experiment, same protocol, published side by side.
+
+**Run 1, stagnation scorer inside the composite** (`composite_only/`, 163-episode pool): freeze 1/10, offset 10/10, noise 10/10, 0/16 false alarms. Averaging the stall signal with three scorers that see a frozen stream as perfectly nominal dilutes it below threshold. The scorer was right and the architecture was wrong.
+
+**Run 2, stagnation scorer as its own conformal head** (`multi_head/`, 150-episode pool, alpha split 50/50 across the two heads, alarm on the union):
+
+| pool | n | method | false alarms | freeze | offset | noise | median latency |
+|---|---|---|---|---|---|---|---|
+| full | 150 | max | 0/18 | 10/10 | 10/10 | 10/10 | 0.04 s |
+| full | 150 | bonferroni | 0/18 | 10/10 | 10/10 | 10/10 | 0.04 s |
+| 45 (3 draws) | 45 | max | 0, 0, 0 of 18 | 10/10 each | 10/10 each | 10/10 each | 0.04 s |
+| 45 (3 draws) | 45 | bonferroni | 1, 2, 4 of 18 | 10/10 each | 10/10 each | 10/10 each | 0.04 s |
+
+Pooled detection 30/30 = 1.000 [0.886, 1.000]; false alarms 0.000 [0.000, 0.176] against a 0.05 bound. `max` remains the default: `bonferroni` still leaks at 45 calibration episodes. All 250 rollouts are saved as npz next to the report, so future threshold work replays offline instead of costing GPU hours.
+
+## 2026-09-19 cross-dataset benchmark (examples/validation/2026-09-19/benchmark)
+
+54 public datasets ingested with zero errors: RoboMIND and AgiBotWorld task ports (BAAI-DataCube, LeRobot v3), OpenX conversions (IPEC-COMMUNITY), DROID, BotFails, and the DAgger and HIL-SERL intervention logs. One HTML report (`benchmark.html`) leads with the labelled sets, since that is where identification can be checked against truth, then covers every dataset, guard replay, fingerprints and a per-dataset failure breakdown. Most public sets are demo-only and are reported as unlabelled rather than scored.
 
 ## Next
 
-1. GitHub repo (user creates it, we push) and PyPI upload; publish LAUNCH_NOTE.md.
+1. PyPI upload; publish LAUNCH_NOTE.md.
 2. Anthropic API key, then validate the judge VLM channel on BotFails and the Guardian failure sets (frames are on the box paths in examples/validation).
-3. Guard replay against the HIL-SERL failure episodes with reward signals as truth.
-4. Keep the box only while iterating; results are already pulled.
+3. Guard against a gradual degradation, not only abrupt injected faults: ramp the fault in over seconds and measure latency as a function of ramp rate. The saved npz rollouts make the replay side free; only the new rollouts need GPU.
+4. Guard replay against the HIL-SERL failure episodes with reward signals as truth.
+5. First external user. Everything here has been exercised by its author only.

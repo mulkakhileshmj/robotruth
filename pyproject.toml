@@ -1,6 +1,6 @@
 [project]
 name = "robotruth"
-version = "0.1.3"
+version = "0.1.4"
 description = "Robot CI: tells a robot lab whether a policy change is real. Contract checks, honest statistics, drift fingerprints and calibrated outcome judging for learned robot policies."
 readme = "README.md"
 requires-python = ">=3.11"
@@ -39,6 +39,11 @@ build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/robotruth"]
+
+[tool.hatch.build.targets.sdist]
+# Ship the code and its tests, not the validation bundles: the npz rollouts and videos in
+# examples/ are reproducibility evidence for the repository, not part of the package.
+include = ["src/robotruth", "tests", "README.md", "LICENSE", "CHANGELOG.md", "pyproject.toml"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

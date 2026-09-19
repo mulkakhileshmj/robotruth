@@ -22,6 +22,7 @@ from robotruth.guard import (
     MahalanobisScorer,
     OfflineReplay,
     SequentialConformal,
+    StagnationScorer,
     attach,
     calibrate_guard,
     conformal_quantile,
@@ -29,6 +30,7 @@ from robotruth.guard import (
     ledoit_wolf_covariance,
     load_episode_npz,
     save_episode_npz,
+    scorer_from_dict,
 )
 from robotruth.guard.scores import _torch_cuda
 
@@ -136,6 +138,51 @@ def test_chunk_consistency_and_action_stats_behave():
     st = ActionStatsScorer().fit(np.concatenate([e["actions"] for e in noms]))
     frozen = np.zeros((CHUNK, D))
     assert st.score(frozen) > st.score(noms[0]["actions"][5])
+
+
+def make_frozen(rng, t_steps: int = T) -> dict:
+    """A nominal episode whose policy stalls at the midpoint: every later chunk repeats."""
+    ep = make_episode(rng, "nominal", t_steps)
+    half = t_steps // 2
+    ep["actions"] = ep["actions"].copy()
+    ep["actions"][half:] = ep["actions"][half]
+    ep["truth"] = "failure"
+    return ep
+
+
+def test_stagnation_scorer_sees_a_stall_and_the_others_do_not():
+    rng = np.random.default_rng(5)
+    noms = episodes(rng, "nominal", 8)
+    st = StagnationScorer(window=5).fit([e["actions"] for e in noms])
+    z_nom = st.score_episode(noms[0])
+    frozen = make_frozen(rng)
+    z_frozen = st.score_episode(frozen)
+    assert z_nom.mean() < 1.5 and z_nom.min() >= 0.0
+    assert z_frozen[T // 2 + 5:].min() > 5.0
+    # streaming and episode scoring agree
+    st.reset()
+    stream = np.array([st.score(c) for c in frozen["actions"]])
+    assert np.allclose(stream, z_frozen)
+    d = st.to_dict()
+    st2 = scorer_from_dict(json.loads(json.dumps(d)))
+    assert np.allclose(st2.score_episode(frozen), z_frozen)
+
+
+def test_guard_detects_a_stalled_policy_with_no_extra_false_alarms():
+    rng = np.random.default_rng(12)
+    guard, report = calibrate_guard(episodes(rng, "nominal", 80), alpha=0.05, patience=3, dt=DT, stride=STRIDE)
+    assert "stall" in guard.scorer.heads
+    assert not report["stall_head"]["saturated"]
+    replay = OfflineReplay(guard)
+    frozen = [replay.run(make_frozen(rng)).episode for _ in range(30)]
+    m = GuardMetrics.from_episodes(frozen)
+    assert m.detection_rate.estimate >= 0.9, m.to_markdown()
+    onset = (T // 2) * DT
+    firsts = np.array([r.first_alert_t for r in frozen if r.detected])
+    assert np.median(firsts) >= onset - 1e-9
+    assert np.median(firsts) <= onset + 15 * DT
+    held = [replay.run(e).episode for e in episodes(rng, "nominal", 100)]
+    assert np.mean([r.detected for r in held]) <= 0.10
 
 
 # conformal -------------------------------------------------------------------------
@@ -264,7 +311,9 @@ def test_contrast_set_raises_threshold_and_stops_benign_alarms():
     # the same through calibrate_guard
     guard, report = calibrate_guard(noms, benign=episodes(rng, "benign", 30), alpha=0.1, stride=STRIDE)
     assert report["contrast"]["threshold_shift"] > 0
-    assert guard.calibrator.threshold(0) == pytest.approx(report["contrast"]["union"]["thresholds"][0])
+    # the composite lives in the guard's main head; its calibrator carries the union threshold
+    main_cal = guard.scorer.heads["main"][1]
+    assert main_cal.threshold(0) == pytest.approx(report["contrast"]["union"]["thresholds"][0])
 
 
 # metrics ---------------------------------------------------------------------------

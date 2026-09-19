@@ -1,0 +1,68 @@
+deps ready 2026-09-19T14:43:54Z
+libEGL warning: failed to open /dev/dri/renderD129: Permission denied
+
+libEGL warning: failed to open /dev/dri/card1: Permission denied
+
+libEGL warning: failed to open /dev/dri/renderD128: Permission denied
+
+libEGL warning: failed to open /dev/dri/card0: Permission denied
+
+WARNING:root:Unexpected key(s) when loading model: ['normalize_inputs.buffer_observation_images_top.mean', 'normalize_inputs.buffer_observation_images_top.std', 'normalize_inputs.buffer_observation_state.mean', 'normalize_inputs.buffer_observation_state.std', 'normalize_targets.buffer_action.mean', 'normalize_targets.buffer_action.std', 'unnormalize_outputs.buffer_action.mean', 'unnormalize_outputs.buffer_action.std']
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+WARNING:huggingface_hub.utils._http:Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+cal 10/200 (7 ok, 26s/ep)
+cal 20/200 (16 ok, 26s/ep)
+cal 30/200 (26 ok, 25s/ep)
+cal 40/200 (34 ok, 25s/ep)
+cal 50/200 (40 ok, 26s/ep)
+cal 60/200 (48 ok, 26s/ep)
+cal 70/200 (55 ok, 26s/ep)
+cal 80/200 (64 ok, 26s/ep)
+cal 90/200 (72 ok, 26s/ep)
+cal 100/200 (79 ok, 26s/ep)
+cal 110/200 (88 ok, 26s/ep)
+cal 120/200 (95 ok, 26s/ep)
+cal 130/200 (102 ok, 26s/ep)
+cal 140/200 (109 ok, 26s/ep)
+cal 150/200 (115 ok, 26s/ep)
+cal 160/200 (123 ok, 26s/ep)
+cal 170/200 (130 ok, 26s/ep)
+cal 180/200 (137 ok, 26s/ep)
+cal 190/200 (144 ok, 26s/ep)
+cal 200/200 (150 ok, 26s/ep)
+calibration pool: 150/200 successes
+eval nominal: 18/20 successes
+fault freeze: 10/10 broke the task
+fault offset: 10/10 broke the task
+fault noise: 10/10 broke the task
+episodes saved to /home/ubuntu/validation/guard_detection/episodes for offline recalibration
+full max: fa 0/18, freeze (10, 10), offset (10, 10), noise (10, 10)
+full bonferroni: fa 0/18, freeze (10, 10), offset (10, 10), noise (10, 10)
+sub45-0 max: fa 0/18, freeze (10, 10), offset (10, 10), noise (10, 10)
+sub45-0 bonferroni: fa 1/18, freeze (10, 10), offset (10, 10), noise (10, 10)
+sub45-1 max: fa 0/18, freeze (10, 10), offset (10, 10), noise (10, 10)
+sub45-1 bonferroni: fa 2/18, freeze (10, 10), offset (10, 10), noise (10, 10)
+sub45-2 max: fa 0/18, freeze (10, 10), offset (10, 10), noise (10, 10)
+sub45-2 bonferroni: fa 4/18, freeze (10, 10), offset (10, 10), noise (10, 10)
+# Guard detection with policy-breaking faults
+
+Policy lerobot/act_aloha_sim_transfer_cube_human live in gym-aloha. Calibration pool 150 nominal episodes (from 200 runs). Evaluation: 20 held-out nominal plus 10 episodes per fault, faults injected into the executed action at t = 3.0 s. Alpha 0.05. An episode counts for detection only if the task actually failed.
+
+| pool | n | method | false alarms on successes | freeze det | offset det | noise det | median latency s |
+|---|---|---|---|---|---|---|---|
+| full | 150 | max | 0/18 | 10/10 | 10/10 | 10/10 | 0.04 |
+| full | 150 | bonferroni | 0/18 | 10/10 | 10/10 | 10/10 | 0.04 |
+| sub45-0 | 45 | max | 0/18 | 10/10 | 10/10 | 10/10 | 0.04 |
+| sub45-0 | 45 | bonferroni | 1/18 | 10/10 | 10/10 | 10/10 | 0.04 |
+| sub45-1 | 45 | max | 0/18 | 10/10 | 10/10 | 10/10 | 0.04 |
+| sub45-1 | 45 | bonferroni | 2/18 | 10/10 | 10/10 | 10/10 | 0.04 |
+| sub45-2 | 45 | max | 0/18 | 10/10 | 10/10 | 10/10 | 0.04 |
+| sub45-2 | 45 | bonferroni | 4/18 | 10/10 | 10/10 | 10/10 | 0.04 |
+
+Full-pool max method, all faults pooled: detection 30/30 = 1.000 [0.886, 1.000] (95% Wilson, n=30).
+Full-pool max method false-alarm rate on held-out successes: 0.000 [0.000, 0.176] (95% Wilson, n=18) (bound: 0.05).
+
+Total wall time 6827 s.
+
+GUARD_DETECTION_COMPLETE
+exit 0 2026-09-19T16:37:46Z

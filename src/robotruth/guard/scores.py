@@ -361,6 +361,120 @@ class ActionStatsScorer(Scorer):
         return s
 
 
+class StagnationScorer(Scorer):
+    """Near-zero motion of the action stream over a sliding window (a stalled policy).
+
+    A frozen or stalled policy keeps emitting the same chunk. That stream is perfectly
+    self-consistent and every single chunk is in-distribution, so the consistency, action
+    statistics and Mahalanobis scorers never fire on it. This scorer watches motion instead:
+    the raw motion at step t is the L2 distance between the mean of chunk t and the mean of
+    chunk t-1, averaged over the last `window` steps. Averaging over the window (rather than
+    summing) keeps early steps with a partial window on the same scale.
+
+    After fit() the score is how many nominal standard deviations the log motion sits below
+    the nominal mean log motion, clipped at 0, so a robot moving as much as usual (or more)
+    scores 0 and a robot that has stopped scores high. Logs are used so that a stream frozen
+    to the floor scores far above a slow-but-moving stream. `floor` is set at fit time to a
+    small fraction of the nominal median motion, which is what a truly frozen stream reads.
+    Nominal pauses (a grasp, a wait) live inside the calibrated envelope because the conformal
+    threshold is taken over nominal episodes that contain them. The first step of an episode
+    scores 0 (no evidence).
+    """
+
+    kind = "stagnation"
+    needs = "action_chunk"
+
+    def __init__(self, window: int = 25, floor_fraction: float = 1e-3) -> None:
+        super().__init__()
+        self.window = int(window)
+        self.floor_fraction = float(floor_fraction)
+        self.log_mean: Optional[float] = None
+        self.log_std: Optional[float] = None
+        self.floor: Optional[float] = None
+        self._prev: Optional[np.ndarray] = None
+        self._recent: list[float] = []
+
+    def reset(self) -> None:
+        self._prev = None
+        self._recent = []
+
+    @staticmethod
+    def _summary(chunk: np.ndarray) -> np.ndarray:
+        c = np.asarray(chunk, dtype=np.float64)
+        if c.ndim != 2:
+            raise ValueError("expected a chunk [chunk, D]")
+        return c.mean(axis=0)
+
+    def raw_sequence(self, chunks: np.ndarray) -> np.ndarray:
+        """Windowed mean motion per step for one episode [T, chunk, D]; step 0 is NaN."""
+        chunks = np.asarray(chunks, dtype=np.float64)
+        if chunks.ndim != 3:
+            raise ValueError("expected chunks [T, chunk, D]")
+        means = chunks.mean(axis=1)
+        step = np.linalg.norm(np.diff(means, axis=0), axis=1)
+        out = np.full(chunks.shape[0], np.nan, dtype=np.float64)
+        for i in range(step.size):
+            lo = max(0, i - self.window + 1)
+            out[i + 1] = float(step[lo: i + 1].mean())
+        return out
+
+    def fit(self, nominal) -> "StagnationScorer":
+        """nominal: one array [T, chunk, D] or a list of them (one per episode)."""
+        seqs = [nominal] if isinstance(nominal, np.ndarray) and nominal.ndim == 3 else list(nominal)
+        raws = np.concatenate([self.raw_sequence(np.asarray(s))[1:] for s in seqs if len(s) > 1])
+        raws = raws[np.isfinite(raws)]
+        if raws.size < 2:
+            raise ValueError("need at least two consecutive chunks to fit")
+        self.floor = float(max(np.median(raws) * self.floor_fraction, _EPS))
+        logs = np.log(raws + self.floor)
+        self.log_mean = float(logs.mean())
+        self.log_std = float(max(logs.std(ddof=1), _EPS))
+        self.fitted = True
+        self.reset()
+        return self
+
+    def _score_raw(self, raw: float) -> float:
+        z = (self.log_mean - np.log(raw + self.floor)) / self.log_std
+        return float(max(0.0, z))
+
+    def score(self, x: np.ndarray) -> float:
+        if not self.fitted:
+            raise RuntimeError("StagnationScorer.fit() first")
+        cur = self._summary(x)
+        if self._prev is None:
+            self._prev = cur
+            return 0.0
+        self._recent.append(float(np.linalg.norm(cur - self._prev)))
+        if len(self._recent) > self.window:
+            self._recent = self._recent[-self.window:]
+        self._prev = cur
+        return self._score_raw(float(np.mean(self._recent)))
+
+    def score_episode(self, episode: dict[str, Any]) -> np.ndarray:
+        if not self.fitted:
+            raise RuntimeError("StagnationScorer.fit() first")
+        acts = episode.get("actions")
+        if acts is None:
+            raise ValueError("episode has no 'actions' array, which stagnation needs")
+        raw = self.raw_sequence(np.asarray(acts, dtype=np.float64))
+        out = np.zeros(raw.shape[0], dtype=np.float64)
+        for i in range(1, raw.shape[0]):
+            out[i] = self._score_raw(float(raw[i]))
+        return out
+
+    def to_dict(self) -> dict[str, Any]:
+        return {"type": self.kind, "window": self.window, "floor_fraction": self.floor_fraction,
+                "log_mean": self.log_mean, "log_std": self.log_std, "floor": self.floor}
+
+    @classmethod
+    def from_dict(cls, d: dict[str, Any]) -> "StagnationScorer":
+        s = cls(window=d.get("window", 25), floor_fraction=d.get("floor_fraction", 1e-3))
+        if d.get("log_mean") is not None:
+            s.log_mean, s.log_std = float(d["log_mean"]), float(d["log_std"])
+            s.floor, s.fitted = float(d["floor"]), True
+        return s
+
+
 class CompositeScorer(Scorer):
     """Weighted sum of standardised component scores.
 
@@ -385,13 +499,15 @@ class CompositeScorer(Scorer):
 
     @classmethod
     def default(cls, has_features: bool = True, has_actions: bool = True,
-                stride: Optional[int] = None, device: str = "auto") -> "CompositeScorer":
+                stride: Optional[int] = None, device: str = "auto",
+                stagnation_window: int = 25) -> "CompositeScorer":
         comps: dict[str, Scorer] = {}
         if has_features:
             comps["mahalanobis"] = MahalanobisScorer(device=device)
         if has_actions:
             comps["chunk_consistency"] = ChunkConsistencyScorer(stride=stride)
             comps["action_stats"] = ActionStatsScorer()
+            comps["stagnation"] = StagnationScorer(window=stagnation_window)
         if not comps:
             raise ValueError("a composite needs features or actions")
         return cls(comps)
@@ -414,7 +530,7 @@ class CompositeScorer(Scorer):
                 data = [np.asarray(e["actions"], dtype=np.float64) for e in episodes if e.get("actions") is not None]
                 if not data:
                     raise ValueError(f"component {name} needs 'actions' but no episode has them")
-                if isinstance(comp, ChunkConsistencyScorer):
+                if isinstance(comp, (ChunkConsistencyScorer, StagnationScorer)):
                     comp.fit(data)
                 else:
                     comp.fit(np.concatenate(data, axis=0))
@@ -483,6 +599,7 @@ _REGISTRY: dict[str, type[Scorer]] = {
     MahalanobisScorer.kind: MahalanobisScorer,
     ChunkConsistencyScorer.kind: ChunkConsistencyScorer,
     ActionStatsScorer.kind: ActionStatsScorer,
+    StagnationScorer.kind: StagnationScorer,
     CompositeScorer.kind: CompositeScorer,
 }
 

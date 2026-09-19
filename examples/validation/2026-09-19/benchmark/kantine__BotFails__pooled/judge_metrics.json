@@ -1,0 +1,191 @@
+{
+  "n": 97,
+  "n_decided": 5,
+  "n_abstain": 92,
+  "hours": 1.1268333307902019,
+  "abstain_rate": {
+    "estimate": 0.9484536082474226,
+    "lower": 0.8849564458853718,
+    "upper": 0.9777839489624893,
+    "n": 97
+  },
+  "coverage": {
+    "estimate": 0.05154639175257732,
+    "lower": 0.022216051037510606,
+    "upper": 0.11504355411462804,
+    "n": 97
+  },
+  "accuracy": {
+    "estimate": 0.8,
+    "lower": 0.37553462976252533,
+    "upper": 0.9637758913675698,
+    "n": 5
+  },
+  "success_recall": {
+    "estimate": 1.0,
+    "lower": 0.5101091635454027,
+    "upper": 1.0,
+    "n": 4
+  },
+  "failure_recall": {
+    "estimate": 0.0,
+    "lower": 0.0,
+    "upper": 0.7934506856227626,
+    "n": 1
+  },
+  "failure_precision": null,
+  "balanced_accuracy": 0.5,
+  "balanced_accuracy_bounds": [
+    0.25505458177270135,
+    0.8967253428113813
+  ],
+  "success_bias": 0.19999999999999996,
+  "false_alarms": 0,
+  "false_alarm_rate": {
+    "estimate": 0.0,
+    "lower": 0.0,
+    "upper": 0.0664135880908964,
+    "n": 54
+  },
+  "false_alarms_per_hour": 0.0,
+  "false_alarms_per_hour_bounds": [
+    0.0,
+    3.1826656692817714
+  ],
+  "per_task": {
+    "0:4 Normal test samples, 5:9 place the soldering iron on wood of on its base, 10:14 user places his hand between the soldering iron and the electronic card": {
+      "n": 6,
+      "n_abstain": 5,
+      "balanced_accuracy": null,
+      "false_alarms": 0,
+      "success_bias": 1.0
+    },
+    "0:4 expert test sample, 5:14 items in the wrog box": {
+      "n": 6,
+      "n_abstain": 6,
+      "balanced_accuracy": null,
+      "false_alarms": 0,
+      "success_bias": null
+    },
+    "0:4 expert test sample, 5:9 bad disposition, 10:14 dropping items": {
+      "n": 4,
+      "n_abstain": 4,
+      "balanced_accuracy": null,
+      "false_alarms": 0,
+      "success_bias": null
+    },
+    "0:4 expert test samples, 5:9 storing the dishes the wrong way, 10:14 dropping dishes": {
+      "n": 3,
+      "n_abstain": 3,
+      "balanced_accuracy": null,
+      "false_alarms": 0,
+      "success_bias": null
+    },
+    "0:4 normal test episodes,5:9 pour the coffee on the table, 10:14 there is no container in the machine ": {
+      "n": 6,
+      "n_abstain": 6,
+      "balanced_accuracy": null,
+      "false_alarms": 0,
+      "success_bias": null
+    },
+    "2 kinds of anomalies while sorting screws: 1.bad sorting = screws in the wrong plate, 2.dropping some screws": {
+      "n": 4,
+      "n_abstain": 4,
+      "balanced_accuracy": null,
+      "false_alarms": 0,
+      "success_bias": null
+    },
+    "3 anomalies : forget to close the hatch, measure tension in the wrong hole, put the probe on the red hole instead of the black": {
+      "n": 2,
+      "n_abstain": 2,
+      "balanced_accuracy": null,
+      "false_alarms": 0,
+      "success_bias": null
+    },
+    "Set the table: one glass, one plate, one fork and one knife. Fork on the left of the plate and knife on the right": {
+      "n": 7,
+      "n_abstain": 7,
+      "balanced_accuracy": null,
+      "false_alarms": 0,
+      "success_bias": null
+    },
+    "anomalies while pouring coffe in a cup: 0-4:pour coffee incorrectly and put a lot on the side, 5-9:pour coffee next to the cup, 10-14:spill the cup while full, 15-19:normal samples for test": {
+      "n": 8,
+      "n_abstain": 8,
+      "balanced_accuracy": null,
+      "false_alarms": 0,
+      "success_bias": null
+    },
+    "making coffee: take some coffee powder with the spoon and pour it into the filter of the coffee machine": {
+      "n": 6,
+      "n_abstain": 6,
+      "balanced_accuracy": null,
+      "false_alarms": 0,
+      "success_bias": null
+    },
+    "open the hatch, grab the probe, measure tension, place the probe in the black plug, close the hatch": {
+      "n": 5,
+      "n_abstain": 5,
+      "balanced_accuracy": null,
+      "false_alarms": 0,
+      "success_bias": null
+    },
+    "pouring coffe in a cup": {
+      "n": 8,
+      "n_abstain": 6,
+      "balanced_accuracy": null,
+      "false_alarms": 0,
+      "success_bias": 0.0
+    },
+    "push the red button then move the slider to the top and push the blue button": {
+      "n": 4,
+      "n_abstain": 4,
+      "balanced_accuracy": null,
+      "false_alarms": 0,
+      "success_bias": null
+    },
+    "several anomalies: slider not completely pushed / inverse red and blue": {
+      "n": 4,
+      "n_abstain": 4,
+      "balanced_accuracy": null,
+      "false_alarms": 0,
+      "success_bias": null
+    },
+    "soldering a part on an electronic board": {
+      "n": 2,
+      "n_abstain": 2,
+      "balanced_accuracy": null,
+      "false_alarms": 0,
+      "success_bias": null
+    },
+    "sorting 2 types of screws ": {
+      "n": 3,
+      "n_abstain": 3,
+      "balanced_accuracy": null,
+      "false_alarms": 0,
+      "success_bias": null
+    },
+    "sorting fruits and vegetables, put vegetables in the box with a yellow mark and fruits in the box with a pink mark": {
+      "n": 5,
+      "n_abstain": 4,
+      "balanced_accuracy": null,
+      "false_alarms": 0,
+      "success_bias": 0.0
+    },
+    "sorting groceries, vegetables in the box with a pink sign and sweets in the box with the yellow sign": {
+      "n": 6,
+      "n_abstain": 6,
+      "balanced_accuracy": null,
+      "false_alarms": 0,
+      "success_bias": null
+    },
+    "store dishes in a dish rack": {
+      "n": 8,
+      "n_abstain": 7,
+      "balanced_accuracy": null,
+      "false_alarms": 0,
+      "success_bias": 0.0
+    }
+  },
+  "alpha": 0.05
+}

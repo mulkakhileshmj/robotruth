@@ -170,12 +170,12 @@ print(verdict)   # e.g. "B_better after n=212: diff(B-A)=+0.101 [+0.012, +0.190]
 Everything below was measured by robotruth itself on public data (2026-09-18); the raw bundles live in [`examples/validation/2026-09-18`](examples/validation/2026-09-18).
 
 - **33 public datasets, 1,611 real robot episodes** ingested with zero errors.
-- **A real DAgger deployment log**: 129.6 interventions/hour [120.9, 138.7], autonomous fraction 0.000 [0.000, 0.029] — what "assisted autonomy" looks like in numbers.
+- **A real DAgger deployment log**: 129.6 interventions/hour [120.9, 138.7], autonomous fraction 0.000 [0.000, 0.029] - what "assisted autonomy" looks like in numbers.
 - **Five different physical SO-100/101 arms separated by fingerprint alone**: backlash 0.107–0.478, lag 101–135 ms.
 - **RoboArena re-analysed**: 3,284 real pairwise sessions, 15 policies, Bradley-Terry ranking with bootstrap errors.
-- **A 150-trial eval log audited**: 2 of 3 comparisons resolved at 95%; the third — a 10-point gap over 50 trials — is inside the noise.
+- **A 150-trial eval log audited**: 2 of 3 comparisons resolved at 95%; the third - a 10-point gap over 50 trials - is inside the noise.
 - **A live policy loop** (ACT in gym-aloha, guard attached to every inference): judge balanced accuracy **0.929** [0.651, 0.987] with zero false alarms; the guard's conformal false-alarm bound held in every run. [Video](examples/validation/2026-09-18/live_guard/act_aloha_live_compat.mp4).
-- **Open-weight vision judge, no API key** (Qwen2.5-VL-7B, one A10, 3.5 s/episode): balanced accuracy **0.555** [0.442, 0.663] zero-shot on 140 labeled real UR5 episodes, against the 0.77 frontier-API ceiling — stated plainly, because that gap is exactly what the fusion and calibration layers are for.
+- **Open-weight vision judge, no API key** (Qwen2.5-VL-7B, one A10, 3.5 s/episode): balanced accuracy **0.555** [0.442, 0.663] zero-shot on 140 labeled real UR5 episodes, against the 0.77 frontier-API ceiling - stated plainly, because that gap is exactly what the fusion and calibration layers are for.
 - **Found in the wild during our own live test**: lerobot 0.6.1 silently drops an older checkpoint's normalization buffers, taking an 83% policy to 0% with only a log warning. The contract checker fails closed on precisely this.
 
 ## Methods and their sources

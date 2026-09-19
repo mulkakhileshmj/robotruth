@@ -27,14 +27,14 @@ Robot learning has a measurement problem. These are published findings, not opin
 |---|---|
 | 0 of 13 audited real-robot VLA papers report a confidence interval | PhAIL, arXiv 2605.29710 |
 | A 50-trial success rate carries a 20–30 point wide 95% interval | Toyota Research Institute, LBM study |
-| Moving a camera or a tote shifts task completion by 22 points — more than the gap between models | PhAIL |
+| Moving a camera or a tote shifts task completion by 22 points - more than the gap between models | PhAIL |
 | The same weights with different action-normalization metadata: 28/28 → 2/28 | "Same Weights, Different Robot", arXiv 2606.03724 |
 | The same policy on a second, identical robot arm: 98% → 18% | SPACE, arXiv 2606.24049 |
 | Video-only VLM success judges cap at 0.77 balanced accuracy, 0.52 on contact-rich tasks | FailBench, arXiv 2609.03611 |
 
 robotruth is the layer that makes robot numbers mean something: **a number without an interval is not a result, and an evaluation of one configuration does not certify another.**
 
-It is a Python library and CLI. It is not a benchmark, not a leaderboard, not a simulator, and not a model. It runs next to your own stack — LeRobot, openpi, GR00T, or anything else — and reads files.
+It is a Python library and CLI. It is not a benchmark, not a leaderboard, not a simulator, and not a model. It runs next to your own stack - LeRobot, openpi, GR00T, or anything else - and reads files.
 
 ## What's inside
 
@@ -44,7 +44,7 @@ It is a Python library and CLI. It is not a benchmark, not a leaderboard, not a 
 
 | Module | Question it answers | Command |
 |---|---|---|
-| **Contract** | Is the policy you evaluated the policy you deployed? Weights, normalizer statistics, action semantics, control rate, cameras, embodiment — hashed into a manifest, compared fail-closed. | `robotruth contract` |
+| **Contract** | Is the policy you evaluated the policy you deployed? Weights, normalizer statistics, action semantics, control rate, cameras, embodiment - hashed into a manifest, compared fail-closed. | `robotruth contract` |
 | **Statistics** | Is checkpoint B really better than A? Intervals on every rate, paired designs, anytime-valid sequential tests, censored time-to-success, Bradley-Terry rankings, claims audits. | `robotruth stats` |
 | **Episodes** | What actually happened in each rollout? One record per episode with outcome, interventions, failure class and provenance; fleet metrics nobody publishes (interventions/hour, MTBI, autonomous fraction); MCAP bridge for Foxglove. | `robotruth episodes` |
 | **Fingerprint** | Did the cell or the robot unit change under you? Camera/lighting fingerprints from one frame; per-joint lag, backlash, offset and gain from one excitation run. | `robotruth fingerprint` |

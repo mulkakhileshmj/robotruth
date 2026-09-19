@@ -22,6 +22,14 @@ later, or the other way round). Needs more calibration data: rank ceil((n + 1)(1
 n_bins)) must be at most n, otherwise the bin is "saturated", the largest observed value is
 used and the guarantee no longer holds. The report says so.
 
+Measured caveat (2026-09-19, examples/validation/2026-09-19): on a live ACT policy with
+44 to 49 nominal calibration episodes, "bonferroni" alarmed on 3 to 4 of 17 held-out
+successful episodes in every draw, roughly 20 percent against a nominal alpha of 0.05,
+because every bin was saturated at that sample size. "max" alarmed on 0, 0 and 3 of 17
+across the same three draws. Use "max" unless you have enough calibration episodes to
+clear saturation in every bin, and read the saturation flag in the report before trusting
+a bonferroni threshold.
+
 ContrastSetCalibration is the SAFECAST idea (arXiv 2608.04246): calibrate on the union of
 nominal episodes and benign-shift episodes (new lighting, a distractor on the table, a
 different operator resetting the scene) so that the detector does not fire on harmless

@@ -1,6 +1,6 @@
 # robotruth status
 
-Updated 2026-09-18 (night). Published to https://github.com/mulkakhileshmj/robotruth.
+Updated 2026-09-19. Published to https://github.com/mulkakhileshmj/robotruth.
 
 ## Rules for this project
 
@@ -18,6 +18,7 @@ Updated 2026-09-18 (night). Published to https://github.com/mulkakhileshmj/robot
 | 2026-09-18 ~19:45 IST | Lambda 1x A10 24 GB, us-east-1, 129.80.77.108 (terminated) | $1.29/h | 16 public datasets fetched (parquet and metadata only, no video); full suite 72 passed; wheel and sdist built and clean-install verified; end-to-end validation over 13+ LeRobot datasets, BotFails nested sets, SO101 eval logs, RoboArena pairwise sessions | examples/validation/2026-09-18 (33 datasets, 1,611 episodes, RoboArena BT ranking, SO101 audit, box logs); dist/ wheel and sdist |
 | 2026-09-18 ~20:30 IST | Lambda 1x A10 24 GB, us-east-1, 129.213.17.113 (terminated) | $1.29/h | openpi pi0_base probe (12 GB orbax hashed); live policy-loop test (ACT in gym-aloha, guard in the loop, judge vs sim truth, two runs); arm video | examples/validation/2026-09-18/final and live_guard |
 | 2026-09-18 ~22:40 IST | Lambda 1x A10 24 GB, us-east-1, 129.80.241.17 (terminated) | $1.29/h | 72 tests, 0.1.1 wheel and sdist, open VLM judge benchmark on 140 real UR5 episodes (Qwen2.5-VL-7B) | examples/validation/2026-09-18/vlm_judge, dist/ |
+| 2026-09-19 ~09:00 IST | Lambda 1x A10 24 GB, us-east-1, 150.136.95.69 | $1.29/h | guard stability over 3 calibration draws by 2 methods (212 live episodes); fused judge on 323 BotFails and 103 ur5fail episodes; 72 tests; arm video | examples/validation/2026-09-19 |
 
 ## Done
 
@@ -51,6 +52,29 @@ Updated 2026-09-18 (night). Published to https://github.com/mulkakhileshmj/robot
   - Video of the live arm: examples/validation/2026-09-18/live_guard/act_aloha_live_compat.mp4.
 
 - Open VLM judge benchmarked on real labeled failures (2026-09-18, examples/validation/2026-09-18/vlm_judge): Qwen2.5-VL-7B zero-shot on 140 Guardian ur5fail episodes (69 success, 71 failure): balanced accuracy 0.555 [0.442, 0.663], failure recall 0.676, success recall 0.435, 0 parse errors, 3.5 s per episode on an A10. No API key involved. Next lift: fuse with action features and calibrate, and try larger open models.
+
+## 2026-09-19 experiments (examples/validation/2026-09-19)
+
+Two gaps from the 0.1.1 release were attacked on one A10. One closed, one is now properly characterised and still open.
+
+**Fused judge: closed, and it works.** BotFails, 323 real episodes (178 success, 145 failure) across 20 tasks, stratified 40/30/30 splits, all three variants conformally calibrated at a 0.10 target selective error:
+
+| judge | coverage | balanced accuracy on decided | false alarms per hour |
+|---|---|---|---|
+| action-stream only | 0.000 | n/a (abstains on everything) | 0.00 |
+| VLM only, uncalibrated | 1.000 | 0.614 [0.488, 0.727] | 11.13 [6.03, 19.20] |
+| fused, calibrated | 0.258 [0.181, 0.353] | 0.921 [0.617, 0.972] | 2.73 [0.94, 7.41] |
+
+Fusing the action stream with the open-weight vision channel and calibrating turns a judge that answers everything at 0.61 into one that answers a quarter of episodes at 0.92 and abstains on the rest, with a quarter of the false alarms. On ur5fail (103 episodes, frames only, no action channel) the vision channel alone scores 0.550 [0.364, 0.723] and the calibrator abstains on all of it at the same target, which is the correct refusal.
+
+**Guard stability: better understood, not fixed.** Shared evaluation pool of 20 nominal and 12 perturbed live episodes, three independent calibration pools of 60 live episodes each (44 to 49 successes), both methods at alpha 0.05:
+
+| method | alarms on 17 held-out successes, per draw | verdict |
+|---|---|---|
+| max | 3, 0, 0 | closer to the bound, still not tight |
+| bonferroni | 4, 4, 3 | roughly 20 percent, violates alpha 0.05 at this sample size |
+
+Every bonferroni bin was saturated at 44 to 49 calibration episodes, so its guarantee did not hold. `max` stays the default and the caveat is now documented in `guard/conformal.py`. Detection could not be measured: the observation shift only broke the policy in 1 of 12 perturbed episodes, so there was almost nothing to detect. A perturbation that reliably breaks the policy, and more calibration episodes, are both needed before the guard's detection can be claimed.
 
 ## Next
 

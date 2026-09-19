@@ -1,0 +1,254 @@
+libEGL warning: failed to open /dev/dri/renderD129: Permission denied
+
+libEGL warning: failed to open /dev/dri/card1: Permission denied
+
+libEGL warning: failed to open /dev/dri/renderD128: Permission denied
+
+libEGL warning: failed to open /dev/dri/card0: Permission denied
+
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+WARNING:huggingface_hub.utils._http:Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Downloading: "https://download.pytorch.org/models/resnet18-f37072fd.pth" to /home/ubuntu/.cache/torch/hub/checkpoints/resnet18-f37072fd.pth
+  0%|          | 0.00/44.7M [00:00<?, ?B/s]100%|██████████| 44.7M/44.7M [00:00<00:00, 478MB/s]
+WARNING:root:Unexpected key(s) when loading model: ['normalize_inputs.buffer_observation_images_top.mean', 'normalize_inputs.buffer_observation_images_top.std', 'normalize_inputs.buffer_observation_state.mean', 'normalize_inputs.buffer_observation_state.std', 'normalize_targets.buffer_action.mean', 'normalize_targets.buffer_action.std', 'unnormalize_outputs.buffer_action.mean', 'unnormalize_outputs.buffer_action.std']
+eval-nominal 1/20: success=True
+eval-nominal 2/20: success=True
+eval-nominal 3/20: success=True
+eval-nominal 4/20: success=True
+eval-nominal 5/20: success=True
+eval-nominal 6/20: success=False
+eval-nominal 7/20: success=True
+eval-nominal 8/20: success=True
+eval-nominal 9/20: success=True
+eval-nominal 10/20: success=True
+eval-nominal 11/20: success=True
+eval-nominal 12/20: success=True
+eval-nominal 13/20: success=True
+eval-nominal 14/20: success=True
+eval-nominal 15/20: success=True
+eval-nominal 16/20: success=False
+eval-nominal 17/20: success=False
+eval-nominal 18/20: success=True
+eval-nominal 19/20: success=True
+eval-nominal 20/20: success=True
+eval-perturbed 1/12: success=True
+eval-perturbed 2/12: success=True
+eval-perturbed 3/12: success=True
+eval-perturbed 4/12: success=True
+eval-perturbed 5/12: success=False
+eval-perturbed 6/12: success=True
+eval-perturbed 7/12: success=True
+eval-perturbed 8/12: success=True
+eval-perturbed 9/12: success=True
+eval-perturbed 10/12: success=True
+eval-perturbed 11/12: success=True
+eval-perturbed 12/12: success=True
+cal-seed0 1/60: success=True
+cal-seed0 2/60: success=True
+cal-seed0 3/60: success=True
+cal-seed0 4/60: success=True
+cal-seed0 5/60: success=True
+cal-seed0 6/60: success=True
+cal-seed0 7/60: success=True
+cal-seed0 8/60: success=True
+cal-seed0 9/60: success=True
+cal-seed0 10/60: success=True
+cal-seed0 11/60: success=False
+cal-seed0 12/60: success=True
+cal-seed0 13/60: success=True
+cal-seed0 14/60: success=True
+cal-seed0 15/60: success=True
+cal-seed0 16/60: success=False
+cal-seed0 17/60: success=False
+cal-seed0 18/60: success=False
+cal-seed0 19/60: success=True
+cal-seed0 20/60: success=True
+cal-seed0 21/60: success=False
+cal-seed0 22/60: success=False
+cal-seed0 23/60: success=True
+cal-seed0 24/60: success=False
+cal-seed0 25/60: success=False
+cal-seed0 26/60: success=True
+cal-seed0 27/60: success=True
+cal-seed0 28/60: success=True
+cal-seed0 29/60: success=True
+cal-seed0 30/60: success=False
+cal-seed0 31/60: success=True
+cal-seed0 32/60: success=True
+cal-seed0 33/60: success=True
+cal-seed0 34/60: success=True
+cal-seed0 35/60: success=True
+cal-seed0 36/60: success=False
+cal-seed0 37/60: success=True
+cal-seed0 38/60: success=True
+cal-seed0 39/60: success=True
+cal-seed0 40/60: success=True
+cal-seed0 41/60: success=True
+cal-seed0 42/60: success=True
+cal-seed0 43/60: success=True
+cal-seed0 44/60: success=True
+cal-seed0 45/60: success=True
+cal-seed0 46/60: success=True
+cal-seed0 47/60: success=False
+cal-seed0 48/60: success=False
+cal-seed0 49/60: success=True
+cal-seed0 50/60: success=True
+cal-seed0 51/60: success=True
+cal-seed0 52/60: success=True
+cal-seed0 53/60: success=False
+cal-seed0 54/60: success=True
+cal-seed0 55/60: success=False
+cal-seed0 56/60: success=False
+cal-seed0 57/60: success=False
+cal-seed0 58/60: success=True
+cal-seed0 59/60: success=True
+cal-seed0 60/60: success=True
+seed 0: 44 nominal episodes
+cal-seed1 1/60: success=False
+cal-seed1 2/60: success=True
+cal-seed1 3/60: success=True
+cal-seed1 4/60: success=True
+cal-seed1 5/60: success=True
+cal-seed1 6/60: success=True
+cal-seed1 7/60: success=True
+cal-seed1 8/60: success=True
+cal-seed1 9/60: success=True
+cal-seed1 10/60: success=True
+cal-seed1 11/60: success=True
+cal-seed1 12/60: success=True
+cal-seed1 13/60: success=True
+cal-seed1 14/60: success=True
+cal-seed1 15/60: success=True
+cal-seed1 16/60: success=False
+cal-seed1 17/60: success=True
+cal-seed1 18/60: success=False
+cal-seed1 19/60: success=True
+cal-seed1 20/60: success=True
+cal-seed1 21/60: success=True
+cal-seed1 22/60: success=False
+cal-seed1 23/60: success=True
+cal-seed1 24/60: success=True
+cal-seed1 25/60: success=False
+cal-seed1 26/60: success=True
+cal-seed1 27/60: success=True
+cal-seed1 28/60: success=True
+cal-seed1 29/60: success=False
+cal-seed1 30/60: success=False
+cal-seed1 31/60: success=True
+cal-seed1 32/60: success=True
+cal-seed1 33/60: success=True
+cal-seed1 34/60: success=False
+cal-seed1 35/60: success=True
+cal-seed1 36/60: success=True
+cal-seed1 37/60: success=False
+cal-seed1 38/60: success=True
+cal-seed1 39/60: success=True
+cal-seed1 40/60: success=False
+cal-seed1 41/60: success=True
+cal-seed1 42/60: success=True
+cal-seed1 43/60: success=True
+cal-seed1 44/60: success=True
+cal-seed1 45/60: success=True
+cal-seed1 46/60: success=True
+cal-seed1 47/60: success=True
+cal-seed1 48/60: success=True
+cal-seed1 49/60: success=False
+cal-seed1 50/60: success=False
+cal-seed1 51/60: success=True
+cal-seed1 52/60: success=True
+cal-seed1 53/60: success=True
+cal-seed1 54/60: success=False
+cal-seed1 55/60: success=True
+cal-seed1 56/60: success=True
+cal-seed1 57/60: success=False
+cal-seed1 58/60: success=True
+cal-seed1 59/60: success=True
+cal-seed1 60/60: success=True
+seed 1: 46 nominal episodes
+cal-seed2 1/60: success=True
+cal-seed2 2/60: success=True
+cal-seed2 3/60: success=False
+cal-seed2 4/60: success=True
+cal-seed2 5/60: success=True
+cal-seed2 6/60: success=True
+cal-seed2 7/60: success=True
+cal-seed2 8/60: success=False
+cal-seed2 9/60: success=True
+cal-seed2 10/60: success=True
+cal-seed2 11/60: success=True
+cal-seed2 12/60: success=True
+cal-seed2 13/60: success=True
+cal-seed2 14/60: success=True
+cal-seed2 15/60: success=True
+cal-seed2 16/60: success=True
+cal-seed2 17/60: success=False
+cal-seed2 18/60: success=True
+cal-seed2 19/60: success=True
+cal-seed2 20/60: success=True
+cal-seed2 21/60: success=True
+cal-seed2 22/60: success=True
+cal-seed2 23/60: success=True
+cal-seed2 24/60: success=False
+cal-seed2 25/60: success=True
+cal-seed2 26/60: success=True
+cal-seed2 27/60: success=True
+cal-seed2 28/60: success=True
+cal-seed2 29/60: success=True
+cal-seed2 30/60: success=True
+cal-seed2 31/60: success=False
+cal-seed2 32/60: success=True
+cal-seed2 33/60: success=True
+cal-seed2 34/60: success=True
+cal-seed2 35/60: success=True
+cal-seed2 36/60: success=False
+cal-seed2 37/60: success=True
+cal-seed2 38/60: success=True
+cal-seed2 39/60: success=True
+cal-seed2 40/60: success=True
+cal-seed2 41/60: success=True
+cal-seed2 42/60: success=True
+cal-seed2 43/60: success=False
+cal-seed2 44/60: success=True
+cal-seed2 45/60: success=True
+cal-seed2 46/60: success=True
+cal-seed2 47/60: success=True
+cal-seed2 48/60: success=True
+cal-seed2 49/60: success=True
+cal-seed2 50/60: success=True
+cal-seed2 51/60: success=False
+cal-seed2 52/60: success=True
+cal-seed2 53/60: success=True
+cal-seed2 54/60: success=False
+cal-seed2 55/60: success=False
+cal-seed2 56/60: success=True
+cal-seed2 57/60: success=False
+cal-seed2 58/60: success=True
+cal-seed2 59/60: success=True
+cal-seed2 60/60: success=True
+seed 2: 49 nominal episodes
+seed 0 max: pert 2/12 after onset, alarms on successes 3/17
+seed 0 bonferroni: pert 2/12 after onset, alarms on successes 4/17
+seed 1 max: pert 1/12 after onset, alarms on successes 0/17
+seed 1 bonferroni: pert 1/12 after onset, alarms on successes 4/17
+seed 2 max: pert 1/12 after onset, alarms on successes 0/17
+seed 2 bonferroni: pert 1/12 after onset, alarms on successes 3/17
+# Guard stability across calibration draws
+
+Policy lerobot/act_aloha_sim_transfer_cube_human live in gym-aloha. Shared evaluation pool: 20 nominal + 12 perturbed episodes (observation shift at 3.0 s). 3 independent calibration pools of 60 live episodes; both conformal methods at alpha 0.05.
+
+| seed | method | nominal cal eps | perturbed alerted after onset | early alerts | alarms on successes | false alarms/h |
+|---|---|---|---|---|---|---|
+| 0 | max | 44 | 2/12 | 0 | 3/17 | 106.6 |
+| 0 | bonferroni | 44 | 2/12 | 0 | 4/17 | 142.2 |
+| 1 | max | 46 | 1/12 | 0 | 0/17 | 0.0 |
+| 1 | bonferroni | 46 | 1/12 | 0 | 4/17 | 142.2 |
+| 2 | max | 49 | 1/12 | 0 | 0/17 | 0.0 |
+| 2 | bonferroni | 49 | 1/12 | 0 | 3/17 | 106.6 |
+
+Spread of perturbed-episode detection across seeds:
+- max: min 0.08, max 0.17 over 3 draws
+- bonferroni: min 0.08, max 0.17 over 3 draws
+
+Total wall time 5885 s.
+
+GUARD_STABILITY_COMPLETE

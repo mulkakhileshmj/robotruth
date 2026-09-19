@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.1.2 (2026-09-19)
+
+- Fused judge validated on real labeled data: on 323 BotFails episodes the fused and calibrated judge reaches 0.921 [0.617, 0.972] balanced accuracy at 25.8 percent coverage with 2.73 false alarms per hour, against 0.614 and 11.13 for the uncalibrated vision channel alone. The action channel alone abstains on everything, which is why fusion is the shipped default.
+- Guard conformal methods measured across three independent calibration draws on a live policy. The bonferroni method alarmed on about 20 percent of held-out successes at 44 to 49 calibration episodes because every time bin was saturated, so its alpha did not hold; `max` remains the default and the caveat is documented in `guard/conformal.py`. Detection remains unmeasured because the perturbation broke the policy in only 1 of 12 episodes.
+- Memory-safe frame sampling in the evaluation scripts: sampling frames from a decoded video kept the whole video alive through numpy views, which grew to 140 GB across a dataset. Frames are now streamed and copied.
+- Em dashes removed from all documentation.
+
 ## 0.1.1 (2026-09-18)
 
 - Open-weight VLM backend for the judge (`robotruth.judge.open_vlm.OpenVLMBackend`, Qwen-VL class via transformers): the vision channel runs on your own GPU with no API key. Benchmarked zero-shot on 140 labeled real UR5 episodes: balanced accuracy 0.555 [0.442, 0.663] at 3.5 s per episode on one A10 (frontier ceiling on FailBench: 0.77). The Claude backend remains available behind the `vlm` extra.

@@ -1,0 +1,450 @@
+{
+ "ur5": {},
+ "botfails": {
+  "action-only": {
+   "n": 97,
+   "n_decided": 0,
+   "n_abstain": 97,
+   "hours": 1.1008611090977987,
+   "abstain_rate": {
+    "estimate": 1.0,
+    "lower": 0.9619059574740523,
+    "upper": 1.0,
+    "n": 97
+   },
+   "coverage": {
+    "estimate": 0.0,
+    "lower": 0.0,
+    "upper": 0.03809404252594769,
+    "n": 97
+   },
+   "accuracy": null,
+   "success_recall": null,
+   "failure_recall": null,
+   "failure_precision": null,
+   "balanced_accuracy": null,
+   "balanced_accuracy_bounds": null,
+   "success_bias": null,
+   "false_alarms": 0,
+   "false_alarm_rate": {
+    "estimate": 0.0,
+    "lower": 0.0,
+    "upper": 0.0664135880908964,
+    "n": 54
+   },
+   "false_alarms_per_hour": 0.0,
+   "false_alarms_per_hour_bounds": [
+    0.0,
+    3.257753160021753
+   ],
+   "per_task": {
+    "domotic_dishTidyUp_anomaly": {
+     "n": 8,
+     "n_abstain": 8,
+     "balanced_accuracy": null,
+     "false_alarms": 0,
+     "success_bias": null
+    },
+    "domotic_dishTidyUp_expert": {
+     "n": 3,
+     "n_abstain": 3,
+     "balanced_accuracy": null,
+     "false_alarms": 0,
+     "success_bias": null
+    },
+    "domotic_groceriesSorting_anomaly": {
+     "n": 1,
+     "n_abstain": 1,
+     "balanced_accuracy": null,
+     "false_alarms": 0,
+     "success_bias": null
+    },
+    "domotic_groceriesSorting_expert": {
+     "n": 4,
+     "n_abstain": 4,
+     "balanced_accuracy": null,
+     "false_alarms": 0,
+     "success_bias": null
+    },
+    "domotic_makingCoffee_anomaly": {
+     "n": 3,
+     "n_abstain": 3,
+     "balanced_accuracy": null,
+     "false_alarms": 0,
+     "success_bias": null
+    },
+    "domotic_makingCoffee_expert": {
+     "n": 11,
+     "n_abstain": 11,
+     "balanced_accuracy": null,
+     "false_alarms": 0,
+     "success_bias": null
+    },
+    "domotic_pouringCoffee_anomaly": {
+     "n": 8,
+     "n_abstain": 8,
+     "balanced_accuracy": null,
+     "false_alarms": 0,
+     "success_bias": null
+    },
+    "domotic_pouringCoffee_expert": {
+     "n": 10,
+     "n_abstain": 10,
+     "balanced_accuracy": null,
+     "false_alarms": 0,
+     "success_bias": null
+    },
+    "domotic_setTheTable_anomaly": {
+     "n": 3,
+     "n_abstain": 3,
+     "balanced_accuracy": null,
+     "false_alarms": 0,
+     "success_bias": null
+    },
+    "domotic_setTheTable_expert": {
+     "n": 2,
+     "n_abstain": 2,
+     "balanced_accuracy": null,
+     "false_alarms": 0,
+     "success_bias": null
+    },
+    "domotic_vegetablesAndFruitsSorting_anomaly": {
+     "n": 7,
+     "n_abstain": 7,
+     "balanced_accuracy": null,
+     "false_alarms": 0,
+     "success_bias": null
+    },
+    "domotic_vegetablesAndFruitsSorting_expert": {
+     "n": 5,
+     "n_abstain": 5,
+     "balanced_accuracy": null,
+     "false_alarms": 0,
+     "success_bias": null
+    },
+    "industrial_robothon_buttons_anomaly": {
+     "n": 3,
+     "n_abstain": 3,
+     "balanced_accuracy": null,
+     "false_alarms": 0,
+     "success_bias": null
+    },
+    "industrial_robothon_buttons_expert": {
+     "n": 3,
+     "n_abstain": 3,
+     "balanced_accuracy": null,
+     "false_alarms": 0,
+     "success_bias": null
+    },
+    "industrial_robothon_hatchAndProbe_anomaly": {
+     "n": 3,
+     "n_abstain": 3,
+     "balanced_accuracy": null,
+     "false_alarms": 0,
+     "success_bias": null
+    },
+    "industrial_robothon_hatchAndProbe_expert": {
+     "n": 5,
+     "n_abstain": 5,
+     "balanced_accuracy": null,
+     "false_alarms": 0,
+     "success_bias": null
+    },
+    "industrial_screws_sorting_anomaly": {
+     "n": 1,
+     "n_abstain": 1,
+     "balanced_accuracy": null,
+     "false_alarms": 0,
+     "success_bias": null
+    },
+    "industrial_screws_sorting_expert": {
+     "n": 4,
+     "n_abstain": 4,
+     "balanced_accuracy": null,
+     "false_alarms": 0,
+     "success_bias": null
+    },
+    "industrial_soldering_anomaly": {
+     "n": 6,
+     "n_abstain": 6,
+     "balanced_accuracy": null,
+     "false_alarms": 0,
+     "success_bias": null
+    },
+    "industrial_soldering_expert": {
+     "n": 7,
+     "n_abstain": 7,
+     "balanced_accuracy": null,
+     "false_alarms": 0,
+     "success_bias": null
+    }
+   },
+   "alpha": 0.05
+  },
+  "fused": {
+   "n": 97,
+   "n_decided": 25,
+   "n_abstain": 72,
+   "hours": 1.1008611090977987,
+   "abstain_rate": {
+    "estimate": 0.7422680412371134,
+    "lower": 0.6471740604185197,
+    "upper": 0.8189040839245778,
+    "n": 97
+   },
+   "coverage": {
+    "estimate": 0.25773195876288657,
+    "lower": 0.1810959160754222,
+    "upper": 0.35282593958148023,
+    "n": 97
+   },
+   "accuracy": {
+    "estimate": 0.88,
+    "lower": 0.7004420607907267,
+    "upper": 0.9583318284955964,
+    "n": 25
+   },
+   "success_recall": {
+    "estimate": 0.8421052631578947,
+    "lower": 0.6243452472967093,
+    "upper": 0.9447952836146585,
+    "n": 19
+   },
+   "failure_recall": {
+    "estimate": 1.0,
+    "lower": 0.6096657120978346,
+    "upper": 1.0,
+    "n": 6
+   },
+   "failure_precision": {
+    "estimate": 0.6666666666666666,
+    "lower": 0.3542021355803963,
+    "upper": 0.879416181613089,
+    "n": 9
+   },
+   "balanced_accuracy": 0.9210526315789473,
+   "balanced_accuracy_bounds": [
+    0.6170054796972719,
+    0.9723976418073292
+   ],
+   "success_bias": -0.12,
+   "false_alarms": 3,
+   "false_alarm_rate": {
+    "estimate": 0.05555555555555555,
+    "lower": 0.0190732684546909,
+    "upper": 0.15107214318166143,
+    "n": 54
+   },
+   "false_alarms_per_hour": 2.7251394160509714,
+   "false_alarms_per_hour_bounds": [
+    0.9355916818583959,
+    7.410467736929548
+   ],
+   "per_task": {
+    "domotic_dishTidyUp_anomaly": {
+     "n": 8,
+     "n_abstain": 8,
+     "balanced_accuracy": null,
+     "false_alarms": 0,
+     "success_bias": null
+    },
+    "domotic_dishTidyUp_expert": {
+     "n": 3,
+     "n_abstain": 1,
+     "balanced_accuracy": null,
+     "false_alarms": 0,
+     "success_bias": 0.0
+    },
+    "domotic_groceriesSorting_anomaly": {
+     "n": 1,
+     "n_abstain": 1,
+     "balanced_accuracy": null,
+     "false_alarms": 0,
+     "success_bias": null
+    },
+    "domotic_groceriesSorting_expert": {
+     "n": 4,
+     "n_abstain": 4,
+     "balanced_accuracy": null,
+     "false_alarms": 0,
+     "success_bias": null
+    },
+    "domotic_makingCoffee_anomaly": {
+     "n": 3,
+     "n_abstain": 3,
+     "balanced_accuracy": null,
+     "false_alarms": 0,
+     "success_bias": null
+    },
+    "domotic_makingCoffee_expert": {
+     "n": 11,
+     "n_abstain": 11,
+     "balanced_accuracy": null,
+     "false_alarms": 0,
+     "success_bias": null
+    },
+    "domotic_pouringCoffee_anomaly": {
+     "n": 8,
+     "n_abstain": 7,
+     "balanced_accuracy": null,
+     "false_alarms": 0,
+     "success_bias": 0.0
+    },
+    "domotic_pouringCoffee_expert": {
+     "n": 10,
+     "n_abstain": 0,
+     "balanced_accuracy": null,
+     "false_alarms": 0,
+     "success_bias": 0.0
+    },
+    "domotic_setTheTable_anomaly": {
+     "n": 3,
+     "n_abstain": 1,
+     "balanced_accuracy": null,
+     "false_alarms": 0,
+     "success_bias": 0.0
+    },
+    "domotic_setTheTable_expert": {
+     "n": 2,
+     "n_abstain": 0,
+     "balanced_accuracy": null,
+     "false_alarms": 0,
+     "success_bias": 0.0
+    },
+    "domotic_vegetablesAndFruitsSorting_anomaly": {
+     "n": 7,
+     "n_abstain": 7,
+     "balanced_accuracy": null,
+     "false_alarms": 0,
+     "success_bias": null
+    },
+    "domotic_vegetablesAndFruitsSorting_expert": {
+     "n": 5,
+     "n_abstain": 5,
+     "balanced_accuracy": null,
+     "false_alarms": 0,
+     "success_bias": null
+    },
+    "industrial_robothon_buttons_anomaly": {
+     "n": 3,
+     "n_abstain": 3,
+     "balanced_accuracy": null,
+     "false_alarms": 0,
+     "success_bias": null
+    },
+    "industrial_robothon_buttons_expert": {
+     "n": 3,
+     "n_abstain": 1,
+     "balanced_accuracy": null,
+     "false_alarms": 2,
+     "success_bias": -1.0
+    },
+    "industrial_robothon_hatchAndProbe_anomaly": {
+     "n": 3,
+     "n_abstain": 3,
+     "balanced_accuracy": null,
+     "false_alarms": 0,
+     "success_bias": null
+    },
+    "industrial_robothon_hatchAndProbe_expert": {
+     "n": 5,
+     "n_abstain": 4,
+     "balanced_accuracy": null,
+     "false_alarms": 1,
+     "success_bias": -1.0
+    },
+    "industrial_screws_sorting_anomaly": {
+     "n": 1,
+     "n_abstain": 0,
+     "balanced_accuracy": null,
+     "false_alarms": 0,
+     "success_bias": 0.0
+    },
+    "industrial_screws_sorting_expert": {
+     "n": 4,
+     "n_abstain": 2,
+     "balanced_accuracy": null,
+     "false_alarms": 0,
+     "success_bias": 0.0
+    },
+    "industrial_soldering_anomaly": {
+     "n": 6,
+     "n_abstain": 4,
+     "balanced_accuracy": null,
+     "false_alarms": 0,
+     "success_bias": 0.0
+    },
+    "industrial_soldering_expert": {
+     "n": 7,
+     "n_abstain": 7,
+     "balanced_accuracy": null,
+     "false_alarms": 0,
+     "success_bias": null
+    }
+   },
+   "alpha": 0.05
+  },
+  "vlm-only": {
+   "n": 97,
+   "n_decided": 97,
+   "n_abstain": 0,
+   "hours": 0.8083333333333333,
+   "abstain_rate": {
+    "estimate": 0.0,
+    "lower": 0.0,
+    "upper": 0.03809404252594769,
+    "n": 97
+   },
+   "coverage": {
+    "estimate": 1.0,
+    "lower": 0.9619059574740523,
+    "upper": 1.0,
+    "n": 97
+   },
+   "accuracy": {
+    "estimate": 0.6391752577319587,
+    "lower": 0.5399919512124193,
+    "upper": 0.7277550678782961,
+    "n": 97
+   },
+   "success_recall": {
+    "estimate": 0.8333333333333334,
+    "lower": 0.7126348577027084,
+    "upper": 0.9097560835700274,
+    "n": 54
+   },
+   "failure_recall": {
+    "estimate": 0.3953488372093023,
+    "lower": 0.2636531475829744,
+    "upper": 0.5442093693712609,
+    "n": 43
+   },
+   "failure_precision": {
+    "estimate": 0.6538461538461539,
+    "lower": 0.46220571188810816,
+    "upper": 0.8058776967705947,
+    "n": 26
+   },
+   "balanced_accuracy": 0.6143410852713178,
+   "balanced_accuracy_bounds": [
+    0.4881440026428414,
+    0.7269827264706441
+   ],
+   "success_bias": 0.17525773195876282,
+   "false_alarms": 9,
+   "false_alarm_rate": {
+    "estimate": 0.16666666666666666,
+    "lower": 0.09024391642997268,
+    "upper": 0.2873651422972916,
+    "n": 54
+   },
+   "false_alarms_per_hour": 11.1340206185567,
+   "false_alarms_per_hour_bounds": [
+    6.028665757383742,
+    19.19717651635515
+   ],
+   "per_task": {},
+   "alpha": 0.05
+  }
+ }
+}

@@ -11,7 +11,7 @@
 [![Tests](https://img.shields.io/badge/tests-72%20passing-22c55e.svg)](tests)
 
 **Robot CI for learned robot policies.**
-It tells a lab whether a policy change is real — before the robot, the eval, or the launch demo tells them the hard way.
+It tells a lab whether a policy change is real - before the robot, the eval, or the launch demo tells them the hard way.
 
 [Why](#why-this-exists) · [What's inside](#whats-inside) · [Install](#install) · [Quickstart](#quickstart) · [Command reference](#command-reference) · [Python API](#python-api) · [Validation](#validated-on-real-data) · [License](#license)
 

@@ -11,7 +11,7 @@
 [![Tests](https://img.shields.io/badge/tests-72%20passing-22c55e.svg)](tests)
 
 **Robot CI for learned robot policies.**
-It tells a lab whether a policy change is real - before the robot, the eval, or the launch demo tells them the hard way.
+It tells a lab whether a policy change is real, before the robot, the eval, or the launch demo tells them the hard way.
 
 [Why](#why-this-exists) · [What's inside](#whats-inside) · [Install](#install) · [Quickstart](#quickstart) · [Command reference](#command-reference) · [Python API](#python-api) · [Validation](#validated-on-real-data) · [License](#license)
 
@@ -26,15 +26,15 @@ Robot learning has a measurement problem. These are published findings, not opin
 | The field today | Source |
 |---|---|
 | 0 of 13 audited real-robot VLA papers report a confidence interval | PhAIL, arXiv 2605.29710 |
-| A 50-trial success rate carries a 20–30 point wide 95% interval | Toyota Research Institute, LBM study |
-| Moving a camera or a tote shifts task completion by 22 points - more than the gap between models | PhAIL |
+| A 50-trial success rate carries a 20 to 30 point wide 95% interval | Toyota Research Institute, LBM study |
+| Moving a camera or a tote shifts task completion by 22 points, more than the gap between models | PhAIL |
 | The same weights with different action-normalization metadata: 28/28 → 2/28 | "Same Weights, Different Robot", arXiv 2606.03724 |
 | The same policy on a second, identical robot arm: 98% → 18% | SPACE, arXiv 2606.24049 |
 | Video-only VLM success judges cap at 0.77 balanced accuracy, 0.52 on contact-rich tasks | FailBench, arXiv 2609.03611 |
 
 robotruth is the layer that makes robot numbers mean something: **a number without an interval is not a result, and an evaluation of one configuration does not certify another.**
 
-It is a Python library and CLI. It is not a benchmark, not a leaderboard, not a simulator, and not a model. It runs next to your own stack - LeRobot, openpi, GR00T, or anything else - and reads files.
+It is a Python library and CLI. It is not a benchmark, not a leaderboard, not a simulator, and not a model. It runs next to your own stack (LeRobot, openpi, GR00T, or anything else) and reads files.
 
 ## What's inside
 
@@ -44,14 +44,14 @@ It is a Python library and CLI. It is not a benchmark, not a leaderboard, not a 
 
 | Module | Question it answers | Command |
 |---|---|---|
-| **Contract** | Is the policy you evaluated the policy you deployed? Weights, normalizer statistics, action semantics, control rate, cameras, embodiment - hashed into a manifest, compared fail-closed. | `robotruth contract` |
+| **Contract** | Is the policy you evaluated the policy you deployed? Weights, normalizer statistics, action semantics, control rate, cameras, embodiment, hashed into a manifest and compared fail-closed. | `robotruth contract` |
 | **Statistics** | Is checkpoint B really better than A? Intervals on every rate, paired designs, anytime-valid sequential tests, censored time-to-success, Bradley-Terry rankings, claims audits. | `robotruth stats` |
 | **Episodes** | What actually happened in each rollout? One record per episode with outcome, interventions, failure class and provenance; fleet metrics nobody publishes (interventions/hour, MTBI, autonomous fraction); MCAP bridge for Foxglove. | `robotruth episodes` |
-| **Fingerprint** | Did the cell or the robot unit change under you? Camera/lighting fingerprints from one frame; per-joint lag, backlash, offset and gain from one excitation run. | `robotruth fingerprint` |
-| **Judge** | Did the episode succeed? Action-stream features fused with a vision-language model, split-conformal calibration with abstention, false alarms per hour reported. Open-weight VLM backend — **no API key required**. | `robotruth judge` |
-| **Guard** | Is the policy failing *right now*? Mahalanobis + chunk-consistency scores with time-uniform conformal thresholds calibrated on your own successful rollouts. Emits ok / slow / handover / stop. | `robotruth guard` |
+| **Fingerprint** | Did the cell or the robot unit change under you? Camera and lighting fingerprints from one frame; per-joint lag, backlash, offset and gain from one excitation run. | `robotruth fingerprint` |
+| **Judge** | Did the episode succeed? Action-stream features fused with a vision-language model, split-conformal calibration with abstention, false alarms per hour reported. Open-weight VLM backend, so **no API key is required**. | `robotruth judge` |
+| **Guard** | Is the policy failing *right now*? Mahalanobis plus chunk-consistency scores with time-uniform conformal thresholds calibrated on your own successful rollouts. Emits ok / slow / handover / stop. Detection is not yet validated, see [Known limits](#known-limits). | `robotruth guard` |
 
-Every report is written as **Markdown and styled HTML**, and every rate in it carries a confidence interval — the report layer refuses to print one without it.
+Every report is written as **Markdown and styled HTML**, and every rate in it carries a confidence interval. The report layer refuses to print one without it.
 
 ## Install
 
@@ -97,7 +97,7 @@ robotruth stats schedule --policies base,cand --conditions pose1,pose2,pose3 --r
 robotruth stats compare results.csv --a base --b cand     # exit 1 if the candidate is worse
 ```
 
-The report: Wilson intervals on every rate, a paired difference over matched trials, an **anytime-valid sequential verdict** (stop the moment it decides — peeking is allowed by construction), censored time-to-success, and the number of trials you would need if the comparison is still noise.
+The report: Wilson intervals on every rate, a paired difference over matched trials, an **anytime-valid sequential verdict** (stop the moment it decides, since peeking is allowed by construction), censored time-to-success, and the number of trials you would need if the comparison is still noise.
 
 **3. Turn your logs into the fleet metrics nobody publishes.**
 
@@ -143,7 +143,7 @@ robotruth guard replay guard.json episode.npz                  # ok / slow / han
 | `robotruth fingerprint cell IMAGE` | Marker positions/poses, exposure, sharpness, colour balance from one frame |
 | `robotruth fingerprint diff REF CUR` | Drift verdict against evidence-based tolerances, exit 1 on FAIL |
 | `robotruth judge features / calibrate / run / evaluate` | Action-stream features; conformal calibration with abstain; judge a dataset; score against labels (balanced accuracy, false alarms/hour) |
-| `robotruth guard calibrate / replay / metrics` | Fit scorers + time-uniform thresholds on nominal episodes; replay any episode step-by-step; detection and false-alarm accounting |
+| `robotruth guard calibrate / replay / metrics` | Fit scorers and time-uniform thresholds on nominal episodes; replay any episode step-by-step; detection and false-alarm accounting |
 
 Every command that produces a verdict uses its **exit code** (0 pass, 1 fail), so all of it drops straight into CI.
 
@@ -170,13 +170,27 @@ print(verdict)   # e.g. "B_better after n=212: diff(B-A)=+0.101 [+0.012, +0.190]
 Everything below was measured by robotruth itself on public data (2026-09-18); the raw bundles live in [`examples/validation/2026-09-18`](examples/validation/2026-09-18).
 
 - **33 public datasets, 1,611 real robot episodes** ingested with zero errors.
-- **A real DAgger deployment log**: 129.6 interventions/hour [120.9, 138.7], autonomous fraction 0.000 [0.000, 0.029] - what "assisted autonomy" looks like in numbers.
-- **Five different physical SO-100/101 arms separated by fingerprint alone**: backlash 0.107–0.478, lag 101–135 ms.
+- **A real DAgger deployment log**: 129.6 interventions/hour [120.9, 138.7], autonomous fraction 0.000 [0.000, 0.029]. That is what "assisted autonomy" looks like in numbers.
+- **Five different physical SO-100/101 arms separated by fingerprint alone**: backlash 0.107 to 0.478, lag 101 to 135 ms.
 - **RoboArena re-analysed**: 3,284 real pairwise sessions, 15 policies, Bradley-Terry ranking with bootstrap errors.
-- **A 150-trial eval log audited**: 2 of 3 comparisons resolved at 95%; the third - a 10-point gap over 50 trials - is inside the noise.
+- **A 150-trial eval log audited**: 2 of 3 comparisons resolved at 95%; the third, a 10-point gap over 50 trials, is inside the noise.
 - **A live policy loop** (ACT in gym-aloha, guard attached to every inference): judge balanced accuracy **0.929** [0.651, 0.987] with zero false alarms; the guard's conformal false-alarm bound held in every run. [Video](examples/validation/2026-09-18/live_guard/act_aloha_live_compat.mp4).
-- **Open-weight vision judge, no API key** (Qwen2.5-VL-7B, one A10, 3.5 s/episode): balanced accuracy **0.555** [0.442, 0.663] zero-shot on 140 labeled real UR5 episodes, against the 0.77 frontier-API ceiling - stated plainly, because that gap is exactly what the fusion and calibration layers are for.
+- **The fused judge, on 323 labeled real episodes** (BotFails, 20 tasks, open-weight vision channel with no API key): fusing the action stream with the vision channel and calibrating takes the judge from answering everything at 0.614 balanced accuracy to answering a quarter of episodes at **0.921** [0.617, 0.972], with false alarms per hour cut from 11.1 to 2.7. The action channel alone abstains on everything, which is why fusion is the default.
+
+| judge | coverage | balanced accuracy on decided | false alarms/hour |
+|---|---|---|---|
+| action-stream only | 0.000 | abstains on everything | 0.00 |
+| vision only, uncalibrated | 1.000 | 0.614 [0.488, 0.727] | 11.13 [6.03, 19.20] |
+| **fused, calibrated** | **0.258** [0.181, 0.353] | **0.921** [0.617, 0.972] | **2.73** [0.94, 7.41] |
 - **Found in the wild during our own live test**: lerobot 0.6.1 silently drops an older checkpoint's normalization buffers, taking an 83% policy to 0% with only a log warning. The contract checker fails closed on precisely this.
+
+## Known limits
+
+Stated plainly, because a tool about honest measurement has to be honest about itself.
+
+- **The guard's detection rate is unvalidated.** Its conformal false-alarm bound is the part that has been measured, and even that is loose: across three independent calibration draws on a live policy, the default `max` method alarmed on 3, 0 and 0 of 17 held-out successful episodes, while the `bonferroni` method alarmed on 3 to 4 of 17, roughly 20 percent against a nominal 5 percent, because every time bin was saturated at 44 to 49 calibration episodes. Use `max`, give it as many nominal episodes as you can, and do not rely on the guard to catch failures until you have measured it on your own robot.
+- **The open-weight vision judge is weak on its own** (0.55 to 0.61 balanced accuracy). It is useful fused with the action channel and calibrated, as the table above shows. A frontier API backend is available behind the `[vlm]` extra and remains untested here.
+- **No external users yet.** Everything in this repository has been exercised by its author on public data. Error messages, overlay ergonomics and the docs have not met a stranger.
 
 ## Methods and their sources
 

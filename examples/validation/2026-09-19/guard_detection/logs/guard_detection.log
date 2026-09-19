@@ -1,0 +1,67 @@
+libEGL warning: failed to open /dev/dri/renderD129: Permission denied
+
+libEGL warning: failed to open /dev/dri/card1: Permission denied
+
+libEGL warning: failed to open /dev/dri/renderD128: Permission denied
+
+libEGL warning: failed to open /dev/dri/card0: Permission denied
+
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+WARNING:huggingface_hub.utils._http:Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Downloading: "https://download.pytorch.org/models/resnet18-f37072fd.pth" to /home/ubuntu/.cache/torch/hub/checkpoints/resnet18-f37072fd.pth
+  0%|          | 0.00/44.7M [00:00<?, ?B/s] 97%|█████████▋| 43.4M/44.7M [00:00<00:00, 455MB/s]100%|██████████| 44.7M/44.7M [00:00<00:00, 457MB/s]
+WARNING:root:Unexpected key(s) when loading model: ['normalize_inputs.buffer_observation_images_top.mean', 'normalize_inputs.buffer_observation_images_top.std', 'normalize_inputs.buffer_observation_state.mean', 'normalize_inputs.buffer_observation_state.std', 'normalize_targets.buffer_action.mean', 'normalize_targets.buffer_action.std', 'unnormalize_outputs.buffer_action.mean', 'unnormalize_outputs.buffer_action.std']
+cal 10/200 (8 ok, 26s/ep)
+cal 20/200 (16 ok, 26s/ep)
+cal 30/200 (26 ok, 25s/ep)
+cal 40/200 (34 ok, 25s/ep)
+cal 50/200 (40 ok, 26s/ep)
+cal 60/200 (46 ok, 26s/ep)
+cal 70/200 (54 ok, 26s/ep)
+cal 80/200 (63 ok, 26s/ep)
+cal 90/200 (72 ok, 26s/ep)
+cal 100/200 (79 ok, 26s/ep)
+cal 110/200 (86 ok, 26s/ep)
+cal 120/200 (95 ok, 26s/ep)
+cal 130/200 (104 ok, 26s/ep)
+cal 140/200 (112 ok, 26s/ep)
+cal 150/200 (121 ok, 26s/ep)
+cal 160/200 (129 ok, 26s/ep)
+cal 170/200 (139 ok, 26s/ep)
+cal 180/200 (148 ok, 26s/ep)
+cal 190/200 (156 ok, 26s/ep)
+cal 200/200 (164 ok, 26s/ep)
+calibration pool: 164/200 successes
+eval nominal: 17/20 successes
+fault freeze: 10/10 broke the task
+fault offset: 10/10 broke the task
+fault noise: 10/10 broke the task
+full max: fa 0/17, freeze (0, 10), offset (10, 10), noise (10, 10)
+full bonferroni: fa 0/17, freeze (0, 10), offset (10, 10), noise (9, 10)
+sub45-0 max: fa 2/17, freeze (0, 10), offset (10, 10), noise (10, 10)
+sub45-0 bonferroni: fa 3/17, freeze (0, 10), offset (10, 10), noise (9, 10)
+sub45-1 max: fa 0/17, freeze (0, 10), offset (10, 10), noise (10, 10)
+sub45-1 bonferroni: fa 1/17, freeze (0, 10), offset (10, 10), noise (9, 10)
+sub45-2 max: fa 0/17, freeze (0, 10), offset (10, 10), noise (10, 10)
+sub45-2 bonferroni: fa 3/17, freeze (0, 10), offset (9, 10), noise (9, 10)
+# Guard detection with policy-breaking faults
+
+Policy lerobot/act_aloha_sim_transfer_cube_human live in gym-aloha. Calibration pool 164 nominal episodes (from 200 runs). Evaluation: 20 held-out nominal plus 10 episodes per fault, faults injected into the executed action at t = 3.0 s. Alpha 0.05. An episode counts for detection only if the task actually failed.
+
+| pool | n | method | false alarms on successes | freeze det | offset det | noise det | median latency s |
+|---|---|---|---|---|---|---|---|
+| full | 164 | max | 0/17 | 0/10 | 10/10 | 10/10 | 0.04 |
+| full | 164 | bonferroni | 0/17 | 0/10 | 10/10 | 9/10 | 0.04 |
+| sub45-0 | 45 | max | 2/17 | 0/10 | 10/10 | 10/10 | 0.04 |
+| sub45-0 | 45 | bonferroni | 3/17 | 0/10 | 10/10 | 9/10 | 0.04 |
+| sub45-1 | 45 | max | 0/17 | 0/10 | 10/10 | 10/10 | 0.04 |
+| sub45-1 | 45 | bonferroni | 1/17 | 0/10 | 10/10 | 9/10 | 0.04 |
+| sub45-2 | 45 | max | 0/17 | 0/10 | 10/10 | 10/10 | 0.04 |
+| sub45-2 | 45 | bonferroni | 3/17 | 0/10 | 9/10 | 9/10 | 0.04 |
+
+Full-pool max method, all faults pooled: detection 20/30 = 0.667 [0.488, 0.808] (95% Wilson, n=30).
+Full-pool max method false-alarm rate on held-out successes: 0.000 [0.000, 0.184] (95% Wilson, n=17) (bound: 0.05).
+
+Total wall time 7097 s.
+
+GUARD_DETECTION_COMPLETE

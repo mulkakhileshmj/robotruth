@@ -18,7 +18,8 @@ Updated 2026-09-19. Published to https://github.com/mulkakhileshmj/robotruth.
 | 2026-09-18 ~19:45 IST | Lambda 1x A10 24 GB, us-east-1, 129.80.77.108 (terminated) | $1.29/h | 16 public datasets fetched (parquet and metadata only, no video); full suite 72 passed; wheel and sdist built and clean-install verified; end-to-end validation over 13+ LeRobot datasets, BotFails nested sets, SO101 eval logs, RoboArena pairwise sessions | examples/validation/2026-09-18 (33 datasets, 1,611 episodes, RoboArena BT ranking, SO101 audit, box logs); dist/ wheel and sdist |
 | 2026-09-18 ~20:30 IST | Lambda 1x A10 24 GB, us-east-1, 129.213.17.113 (terminated) | $1.29/h | openpi pi0_base probe (12 GB orbax hashed); live policy-loop test (ACT in gym-aloha, guard in the loop, judge vs sim truth, two runs); arm video | examples/validation/2026-09-18/final and live_guard |
 | 2026-09-18 ~22:40 IST | Lambda 1x A10 24 GB, us-east-1, 129.80.241.17 (terminated) | $1.29/h | 72 tests, 0.1.1 wheel and sdist, open VLM judge benchmark on 140 real UR5 episodes (Qwen2.5-VL-7B) | examples/validation/2026-09-18/vlm_judge, dist/ |
-| 2026-09-19 ~09:00 IST | Lambda 1x A10 24 GB, us-east-1, 150.136.95.69 | $1.29/h | guard stability over 3 calibration draws by 2 methods (212 live episodes); fused judge on 323 BotFails and 103 ur5fail episodes; 72 tests; arm video | examples/validation/2026-09-19 |
+| 2026-09-19 ~09:00 IST | Lambda 1x A10 24 GB, us-east-1, 150.136.95.69 (terminated) | $1.29/h | guard stability over 3 calibration draws by 2 methods (212 live episodes); fused judge on 323 BotFails and 103 ur5fail episodes; 72 tests; arm video | examples/validation/2026-09-19 |
+| 2026-09-19 ~17:30 IST | Lambda 1x A10 24 GB, us-east-1, 129.213.48.169 | $1.29/h | guard detection with policy-breaking faults (250 live episodes, 3 fault types, 8 calibrate-replay combinations); 72 tests; 0.1.3 wheel | examples/validation/2026-09-19/guard_detection, dist/ |
 
 ## Done
 
@@ -75,6 +76,18 @@ Fusing the action stream with the open-weight vision channel and calibrating tur
 | bonferroni | 4, 4, 3 | roughly 20 percent, violates alpha 0.05 at this sample size |
 
 Every bonferroni bin was saturated at 44 to 49 calibration episodes, so its guarantee did not hold. `max` stays the default and the caveat is now documented in `guard/conformal.py`. Detection could not be measured: the observation shift only broke the policy in 1 of 12 perturbed episodes, so there was almost nothing to detect. A perturbation that reliably breaks the policy, and more calibration episodes, are both needed before the guard's detection can be claimed.
+
+## 2026-09-19 guard detection (examples/validation/2026-09-19/guard_detection)
+
+The missing measurement. Faults injected into the executed action at t = 3.0 s, all of which broke the task (30/30): freeze (stall), offset (+0.15 rad, miscalibration), noise (sigma 0.2, erratic). Calibration pool 164 nominal live episodes; evaluation on 17 held-out successes and the 30 failures.
+
+| pool | method | false alarms | freeze | offset | noise | median latency |
+|---|---|---|---|---|---|---|
+| 164 | max | 0/17 | 0/10 | 10/10 | 10/10 | 0.04 s |
+| 164 | bonferroni | 0/17 | 0/10 | 10/10 | 9/10 | 0.04 s |
+| 45 (3 draws) | max | 2, 0, 0 of 17 | 0/10 | 10/10 each | 10/10 each | 0.04 s |
+
+Verdict: the guard detects distributional faults essentially instantly with a held false-alarm bound at proper calibration size, and is blind to stalls. The blind spot and the 150-episode calibration guidance are in the README. Next scorer: stagnation (near-zero executed motion over a sliding window), then re-run this experiment.
 
 ## Next
 

@@ -1,0 +1,170 @@
+[
+ {
+  "pool": "full",
+  "n_pool": 164,
+  "method": "max",
+  "false_alarms": 0,
+  "n_nominal": 17,
+  "det_freeze": [
+   0,
+   10
+  ],
+  "det_offset": [
+   10,
+   10
+  ],
+  "det_noise": [
+   10,
+   10
+  ],
+  "median_latency_s": 0.040000000000000036,
+  "saturated": false
+ },
+ {
+  "pool": "full",
+  "n_pool": 164,
+  "method": "bonferroni",
+  "false_alarms": 0,
+  "n_nominal": 17,
+  "det_freeze": [
+   0,
+   10
+  ],
+  "det_offset": [
+   10,
+   10
+  ],
+  "det_noise": [
+   9,
+   10
+  ],
+  "median_latency_s": 0.040000000000000036,
+  "saturated": true
+ },
+ {
+  "pool": "sub45-0",
+  "n_pool": 45,
+  "method": "max",
+  "false_alarms": 2,
+  "n_nominal": 17,
+  "det_freeze": [
+   0,
+   10
+  ],
+  "det_offset": [
+   10,
+   10
+  ],
+  "det_noise": [
+   10,
+   10
+  ],
+  "median_latency_s": 0.040000000000000036,
+  "saturated": false
+ },
+ {
+  "pool": "sub45-0",
+  "n_pool": 45,
+  "method": "bonferroni",
+  "false_alarms": 3,
+  "n_nominal": 17,
+  "det_freeze": [
+   0,
+   10
+  ],
+  "det_offset": [
+   10,
+   10
+  ],
+  "det_noise": [
+   9,
+   10
+  ],
+  "median_latency_s": 0.040000000000000036,
+  "saturated": true
+ },
+ {
+  "pool": "sub45-1",
+  "n_pool": 45,
+  "method": "max",
+  "false_alarms": 0,
+  "n_nominal": 17,
+  "det_freeze": [
+   0,
+   10
+  ],
+  "det_offset": [
+   10,
+   10
+  ],
+  "det_noise": [
+   10,
+   10
+  ],
+  "median_latency_s": 0.040000000000000036,
+  "saturated": false
+ },
+ {
+  "pool": "sub45-1",
+  "n_pool": 45,
+  "method": "bonferroni",
+  "false_alarms": 1,
+  "n_nominal": 17,
+  "det_freeze": [
+   0,
+   10
+  ],
+  "det_offset": [
+   10,
+   10
+  ],
+  "det_noise": [
+   9,
+   10
+  ],
+  "median_latency_s": 0.040000000000000036,
+  "saturated": true
+ },
+ {
+  "pool": "sub45-2",
+  "n_pool": 45,
+  "method": "max",
+  "false_alarms": 0,
+  "n_nominal": 17,
+  "det_freeze": [
+   0,
+   10
+  ],
+  "det_offset": [
+   10,
+   10
+  ],
+  "det_noise": [
+   10,
+   10
+  ],
+  "median_latency_s": 0.040000000000000036,
+  "saturated": false
+ },
+ {
+  "pool": "sub45-2",
+  "n_pool": 45,
+  "method": "bonferroni",
+  "false_alarms": 3,
+  "n_nominal": 17,
+  "det_freeze": [
+   0,
+   10
+  ],
+  "det_offset": [
+   9,
+   10
+  ],
+  "det_noise": [
+   9,
+   10
+  ],
+  "median_latency_s": 0.040000000000000036,
+  "saturated": true
+ }
+]

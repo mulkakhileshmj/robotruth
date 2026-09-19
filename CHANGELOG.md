@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.3 (2026-09-19)
+
+- Guard detection measured with policy-breaking faults injected into executed actions on a live policy (all 30 fault episodes failed the task). On a 164-episode calibration pool: offset (miscalibration) faults 10/10 detected, noise (erratic policy) faults 10/10 with max thresholds, median detection latency 0.04 s, 0/17 false alarms on held-out successes. Stall (freeze) faults 0/10: a frozen action stream is self-consistent and in-distribution, so the current scorers cannot see it; a stagnation scorer is the planned fix and the blind spot is documented in Known limits.
+- Calibration-size guidance is now measured: 45-episode pools leaked up to 3/17 false alarms in the same experiment while the 164-episode pool leaked none. Calibrate on 150 or more nominal episodes.
+
 ## 0.1.2 (2026-09-19)
 
 - Fused judge validated on real labeled data: on 323 BotFails episodes the fused and calibrated judge reaches 0.921 [0.617, 0.972] balanced accuracy at 25.8 percent coverage with 2.73 false alarms per hour, against 0.614 and 11.13 for the uncalibrated vision channel alone. The action channel alone abstains on everything, which is why fusion is the shipped default.

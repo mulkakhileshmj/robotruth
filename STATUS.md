@@ -13,25 +13,43 @@ Updated 2026-09-20. Published to https://github.com/mulkakhileshmj/robotruth.
 ## policyci (Policy CI subproject, policyci/)
 
 Started 2026-09-20 per docs/DESIGN_POLICY_CI.md. Separate package `robotruth-policyci`
-inside this repo, depends on robotruth (stats, episode schema, contract philosophy).
-Built so far, compiled locally, tests to run on the box:
+inside this repo, depending on robotruth (stats, episode schema, contract philosophy).
+It answers one question: is policy B better, worse or unsafe than policy A, and where.
 
-- scenario.py: content-addressed Scenario/Battery, tamper-proof save/load, seed batteries
+Built and under test on the box:
+
+- scenario.py: content-addressed Scenario/Battery, tamper-proof save/load. The same
+  battery hash (515e96ff75282363) reproduced across every relaunch today.
 - backend.py + backends/aloha.py: SimBackend interface, environment pins, gym-aloha
-  transfer-cube backend (reward stages as ground-truth gates)
-- policy_iface.py + policies/act_aloha.py: PolicyContract (hashed declaration),
-  ACT adapter with controlled variants (state_bias, drop_norm) for the regression demo
-- evaluator.py: versioned success definition, failure mapping into the robotruth taxonomy,
-  unavailable gates recorded as unavailable, never as passed
-- runner.py: battery runs -> EpisodeRecords + run_manifest.json (pins, hashes) + failure videos
-- regression.py: fail-closed comparability (battery/evaluator/pins), scenario diff,
-  A-vs-A noise floor, Wilson + paired CI + anytime-valid sequential verdict
-- report.py + cli.py: killer-screen Markdown report; `policyci battery|run|diff`
-- tests/test_policyci.py: identity, tamper detection, fail-closed checks, regression math
-- ops/run_policyci_box.sh: first-light box script (tests, battery 200, run A, A2 seed-1
-  noise floor, B with state_bias 0.06, both diffs, tar for pull-back)
+  transfer-cube backend with the dm-control reward stages as ground-truth gates.
+- policy_iface.py + policies/act_aloha.py: hashed PolicyContract; ACT adapter that
+  reattaches the normalization statistics lerobot silently drops, with controlled
+  variants (state_bias, drop_norm) that never touch the weights.
+- evaluator.py: versioned success definition; unavailable gates are recorded as
+  unavailable, never as passed.
+- runner.py: sharded battery runs -> EpisodeRecords + pinned run manifests + failure
+  videos; merge_shards refuses a manifest unless every scenario is covered exactly once.
+- regression.py: fail-closed comparability (battery, evaluator, pins), scenario diff,
+  A-vs-A noise floor, Wilson + paired CI + anytime-valid sequential verdict.
+- report.py / browser.py: Markdown report and a self-contained scenario browser with
+  baseline-vs-candidate replay side by side.
+- passport.py: tamper-evident Policy Passport, scoped explicitly to simulation evidence,
+  approving nothing without a measured noise floor.
+- tests: 15, covering identity, tamper detection, fail-closed checks, regression math,
+  the real robotruth objects the evaluator emits, and Passport digests.
+- ops/box_first_light.sh: gated on tests AND a real 2-episode smoke run before any sweep.
 
-Next: rent a box, run first light, pull results to policyci/examples/validation/2026-09-20.
+Lessons that cost GPU time today, each now encoded in the scripts:
+
+| symptom | cause | fix |
+|---|---|---|
+| every episode rejected | evaluator used a judged_by value outside the taxonomy | use JudgeSource.AUTOMATIC; tests now build real robotruth objects |
+| would crash on first failure | runner read .value off failure_class | the schema sets use_enum_values, so it is a plain string |
+| MuJoCo could not render | stock Lambda image ships no EGL vendor library | apt install libegl1 libosmesa6 in the box script |
+| load 148 on 30 cores, 4 episodes/min | each worker carried 65 torch/CUDA threads | torch.set_num_threads(1) in-process; env vars do not bind |
+
+Measured on an idle box: the ALOHA sim is single-threaded at 12 steps/s, so 400-step
+episodes cost ~24.5 s each and the core count, not the GPU, sets the wall clock.
 
 ## GPU box log
 

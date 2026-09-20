@@ -78,7 +78,7 @@ for BZ in $BIASES; do
   RUNS="$RUNS act_v19_bias${TAG}|${BZ}|0|1"
 done
 
-echo "=== launching: $(echo $RUNS | wc -w) runs x $SHARDS shards on $(nproc) vCPUs ==="
+echo "=== launching: $(echo $RUNS | wc -w) runs x $SHARDS shards on $(nproc --all) vCPUs ==="
 PIDS=""
 for R in $RUNS; do
   NAME=$(echo "$R" | cut -d'|' -f1)

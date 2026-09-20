@@ -1,0 +1,26 @@
+
+=== kantine__BotFails: fit 106, held-out successes 72, real failures 145
+  chunk_consistency  real_task_failures=0.51 freeze=0.40 offset=0.99 noise=0.98
+  mahalanobis        real_task_failures=0.53 freeze=0.99 offset=0.99 noise=0.98
+  action_variance    real_task_failures=0.50 freeze=0.39 offset=0.50 noise=0.98
+  density            real_task_failures=0.51 freeze=0.51 offset=0.95 noise=0.86
+  pca_recon          real_task_failures=0.53 freeze=0.99 offset=1.00 noise=0.98
+  iforest            real_task_failures=0.49 freeze=0.43 offset=0.72 noise=0.60
+  ocsvm              real_task_failures=0.52 freeze=0.90 offset=0.99 noise=0.86
+  rnd                real_task_failures=0.54 freeze=0.99 offset=0.99 noise=0.93
+  lstm_pred          real_task_failures=0.56 freeze=0.92 offset=0.96 noise=0.75
+  ours               real_task_failures=0.52 freeze=1.00 offset=1.00 noise=1.00
+
+=== lerobot__droid_1.0.1: fit 204, held-out successes 137, real failures 58
+  chunk_consistency  real_task_failures=0.31 freeze=0.26 offset=1.00 noise=0.98
+  mahalanobis        real_task_failures=0.40 freeze=0.99 offset=1.00 noise=0.99
+  action_variance    real_task_failures=0.31 freeze=0.26 offset=0.50 noise=0.98
+  density            real_task_failures=0.39 freeze=0.47 offset=0.77 noise=0.63
+  pca_recon          real_task_failures=0.36 freeze=0.99 offset=1.00 noise=0.99
+  iforest            real_task_failures=0.47 freeze=0.45 offset=0.65 noise=0.55
+  ocsvm              real_task_failures=0.50 freeze=0.54 offset=0.81 noise=0.61
+  rnd                real_task_failures=0.43 freeze=0.89 offset=0.98 noise=0.81
+  lstm_pred          real_task_failures=0.57 freeze=0.79 offset=0.96 noise=0.70
+  ours               real_task_failures=0.46 freeze=1.00 offset=1.00 noise=1.00
+
+BASELINE_COMPARISON_COMPLETE

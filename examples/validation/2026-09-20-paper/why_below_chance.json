@@ -1,0 +1,46 @@
+{
+ "kantine__BotFails": {
+  "steps": {
+   "median_success": 1194.0,
+   "median_failure": 1194.0,
+   "auroc": 0.4599961255327393
+  },
+  "motion_per_step": {
+   "median_success": 1.5660772486696037,
+   "median_failure": 1.3162161537616721,
+   "auroc": 0.4567222006974041
+  },
+  "total_motion": {
+   "median_success": 1968.1913771130226,
+   "median_failure": 1599.82551541655,
+   "auroc": 0.4524215420379698
+  },
+  "action_spread": {
+   "median_success": 7.16768268831423,
+   "median_failure": 5.350443963949751,
+   "auroc": 0.4614103060829136
+  }
+ },
+ "lerobot__droid_1.0.1": {
+  "steps": {
+   "median_success": 239.0,
+   "median_failure": 188.5,
+   "auroc": 0.3631307513398726
+  },
+  "motion_per_step": {
+   "median_success": 0.03309426938056403,
+   "median_failure": 0.028506587108725133,
+   "auroc": 0.3795125897461826
+  },
+  "total_motion": {
+   "median_success": 7.642129010603673,
+   "median_failure": 5.217077184934915,
+   "auroc": 0.30210334715340276
+  },
+  "action_spread": {
+   "median_success": 0.0019299686692811763,
+   "median_failure": 0.0015951432397042914,
+   "auroc": 0.3909394276468804
+  }
+ }
+}

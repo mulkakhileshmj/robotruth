@@ -48,7 +48,8 @@ def _cmd_run(args) -> int:
                                run_id=args.run_id or args.policy_name,
                                policy_seed=args.policy_seed,
                                video_failures=args.render,
-                               video_pass_every=args.video_pass_every if args.render else 0)
+                               video_pass_every=args.video_pass_every if args.render else 0,
+                               progress_every=args.progress_every)
         print(f"manifest -> {manifest}")
     finally:
         backend.close()
@@ -108,6 +109,7 @@ def main(argv: list[str] | None = None) -> int:
     pr.add_argument("--max-steps", type=int, default=400)
     pr.add_argument("--render", action="store_true", help="save replay videos for failures")
     pr.add_argument("--video-pass-every", type=int, default=50)
+    pr.add_argument("--progress-every", type=int, default=25)
     pr.set_defaults(fn=_cmd_run)
 
     pd = sub.add_parser("diff", help="regression report between two runs")

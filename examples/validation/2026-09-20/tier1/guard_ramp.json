@@ -1,0 +1,152 @@
+[
+ {
+  "fault": "freeze",
+  "ramp_steps": 0,
+  "ramp_s": 0.0,
+  "broke": 10,
+  "n": 10,
+  "detected": 10,
+  "detection": "1.000 [0.722, 1.000] (95% Wilson, n=10)",
+  "median_latency_s": 0.6800000000000002
+ },
+ {
+  "fault": "freeze",
+  "ramp_steps": 25,
+  "ramp_s": 0.5,
+  "broke": 10,
+  "n": 10,
+  "detected": 10,
+  "detection": "1.000 [0.722, 1.000] (95% Wilson, n=10)",
+  "median_latency_s": 1.2000000000000002
+ },
+ {
+  "fault": "freeze",
+  "ramp_steps": 50,
+  "ramp_s": 1.0,
+  "broke": 10,
+  "n": 10,
+  "detected": 10,
+  "detection": "1.000 [0.722, 1.000] (95% Wilson, n=10)",
+  "median_latency_s": 1.7000000000000002
+ },
+ {
+  "fault": "freeze",
+  "ramp_steps": 100,
+  "ramp_s": 2.0,
+  "broke": 10,
+  "n": 10,
+  "detected": 10,
+  "detection": "1.000 [0.722, 1.000] (95% Wilson, n=10)",
+  "median_latency_s": 2.6799999999999997
+ },
+ {
+  "fault": "freeze",
+  "ramp_steps": 200,
+  "ramp_s": 4.0,
+  "broke": 10,
+  "n": 10,
+  "detected": 10,
+  "detection": "1.000 [0.722, 1.000] (95% Wilson, n=10)",
+  "median_latency_s": 4.68
+ },
+ {
+  "fault": "offset",
+  "ramp_steps": 0,
+  "ramp_s": 0.0,
+  "broke": 10,
+  "n": 10,
+  "detected": 10,
+  "detection": "1.000 [0.722, 1.000] (95% Wilson, n=10)",
+  "median_latency_s": 0.040000000000000036
+ },
+ {
+  "fault": "offset",
+  "ramp_steps": 25,
+  "ramp_s": 0.5,
+  "broke": 10,
+  "n": 10,
+  "detected": 10,
+  "detection": "1.000 [0.722, 1.000] (95% Wilson, n=10)",
+  "median_latency_s": 0.4099999999999999
+ },
+ {
+  "fault": "offset",
+  "ramp_steps": 50,
+  "ramp_s": 1.0,
+  "broke": 10,
+  "n": 10,
+  "detected": 10,
+  "detection": "1.000 [0.722, 1.000] (95% Wilson, n=10)",
+  "median_latency_s": 1.04
+ },
+ {
+  "fault": "offset",
+  "ramp_steps": 100,
+  "ramp_s": 2.0,
+  "broke": 10,
+  "n": 10,
+  "detected": 10,
+  "detection": "1.000 [0.722, 1.000] (95% Wilson, n=10)",
+  "median_latency_s": 1.9900000000000002
+ },
+ {
+  "fault": "offset",
+  "ramp_steps": 200,
+  "ramp_s": 4.0,
+  "broke": 10,
+  "n": 10,
+  "detected": 10,
+  "detection": "1.000 [0.722, 1.000] (95% Wilson, n=10)",
+  "median_latency_s": 3.04
+ },
+ {
+  "fault": "noise",
+  "ramp_steps": 0,
+  "ramp_s": 0.0,
+  "broke": 10,
+  "n": 10,
+  "detected": 10,
+  "detection": "1.000 [0.722, 1.000] (95% Wilson, n=10)",
+  "median_latency_s": 0.040000000000000036
+ },
+ {
+  "fault": "noise",
+  "ramp_steps": 25,
+  "ramp_s": 0.5,
+  "broke": 9,
+  "n": 10,
+  "detected": 9,
+  "detection": "1.000 [0.701, 1.000] (95% Wilson, n=9)",
+  "median_latency_s": 0.16000000000000014
+ },
+ {
+  "fault": "noise",
+  "ramp_steps": 50,
+  "ramp_s": 1.0,
+  "broke": 9,
+  "n": 10,
+  "detected": 9,
+  "detection": "1.000 [0.701, 1.000] (95% Wilson, n=9)",
+  "median_latency_s": 0.2799999999999998
+ },
+ {
+  "fault": "noise",
+  "ramp_steps": 100,
+  "ramp_s": 2.0,
+  "broke": 10,
+  "n": 10,
+  "detected": 10,
+  "detection": "1.000 [0.722, 1.000] (95% Wilson, n=10)",
+  "median_latency_s": 0.5700000000000001
+ },
+ {
+  "fault": "noise",
+  "ramp_steps": 200,
+  "ramp_s": 4.0,
+  "broke": 10,
+  "n": 10,
+  "detected": 10,
+  "detection": "1.000 [0.722, 1.000] (95% Wilson, n=10)",
+  "median_latency_s": 1.0199999999999998
+ }
+]

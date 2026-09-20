@@ -1,8 +1,11 @@
+import json
+
 import numpy as np
 import pytest
 
 from robotruth.fingerprint import (
     CellFingerprint,
+    DriftDetector,
     UnitFingerprint,
     cell_fingerprint,
     diff_cell,
@@ -111,3 +114,38 @@ def test_cell_fingerprint_flags_lighting_and_blur():
     blurry = cell_fingerprint(_scene(blur=3), "top")
     rep = diff_cell(ref, blurry)
     assert any(f.metric == "sharpness" and f.severity in ("warn", "fail") for f in rep.findings)
+
+
+# calibrated drift detection ---------------------------------------------------------
+
+def _population(n, seed0=100, **kw):
+    return [unit_fingerprint(*_excitation(seed=seed0 + i, **kw), f"u{i}") for i in range(n)]
+
+
+def test_drift_detector_holds_its_false_alarm_rate_and_catches_offset():
+    nominal = _population(60)
+    det = DriftDetector(alpha=0.10, fields=("steady_error",)).fit(nominal)
+    assert det.fitted and not det.saturated_, det.summary()
+    held = _population(80, seed0=900)
+    fa = np.mean([det.alarms(fp) for fp in held])
+    assert fa <= 0.10 + 0.06, f"false alarm rate {fa:.3f}"
+    drifted = _population(30, seed0=500, offset=0.05)
+    assert np.mean([det.alarms(fp) for fp in drifted]) >= 0.9
+    worst = det.explain(drifted[0])[0]
+    assert worst[0].endswith("steady_error") and worst[2] > 1.0
+
+
+def test_drift_detector_reports_saturation_instead_of_an_uncertifiable_rate():
+    det = DriftDetector(alpha=0.01, fields=("steady_error",)).fit(_population(8))
+    assert det.saturated_ and det.achievable_alpha_ > 0.01
+    assert "SATURATED" in det.summary()
+
+
+def test_drift_detector_round_trips_and_needs_fitting():
+    det = DriftDetector(alpha=0.05, fields=("steady_error", "gain")).fit(_population(40))
+    fp = _population(1, seed0=777)[0]
+    again = DriftDetector.from_dict(json.loads(json.dumps(det.to_dict())))
+    assert again.score(fp) == pytest.approx(det.score(fp))
+    assert again.alarms(fp) == det.alarms(fp)
+    with pytest.raises(RuntimeError):
+        DriftDetector().score(fp)

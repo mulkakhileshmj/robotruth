@@ -14,15 +14,18 @@ Two fingerprints:
   exposure, sharpness, colour balance, and (with intrinsics) marker pose.
 
 `diff` compares two fingerprints against tolerances and returns findings the episode
-record can carry.
+record can carry. When you have a population of fingerprints from a working cell rather
+than a known tolerance, `DriftDetector` calibrates the threshold conformally instead.
 """
 
 from robotruth.fingerprint.unit import UnitFingerprint, unit_fingerprint, diff_unit
 from robotruth.fingerprint.cell import CellFingerprint, cell_fingerprint, diff_cell
 from robotruth.fingerprint.common import DriftFinding, DriftReport
+from robotruth.fingerprint.drift import DriftDetector
 
 __all__ = [
     "CellFingerprint",
+    "DriftDetector",
     "DriftFinding",
     "DriftReport",
     "UnitFingerprint",

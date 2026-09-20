@@ -67,6 +67,43 @@ Also surfaced: failure MODE shifts with dose (baseline 23 timeout / 7 grasp, bia
 19 timeout / 180 grasp), and at bias 0.02 the degraded policy FIXED 16 scenarios while
 breaking 74, so the baseline's failures are not simply "hard scenarios".
 
+Second run, with named scene factors (2026-09-20, examples/validation/2026-09-20-policyci-factors):
+1,280 episodes over a 256-scenario battery varying cube_x, cube_y and cube_yaw_deg. Every
+gap the first run exposed is now closed, and the three questions it could not ask are
+answered.
+
+THE FINDING. Clustering the unmodified public checkpoint's OWN failures, with no instruction
+to look at rotation, names rotation:
+
+| region | inside | elsewhere | lift | p |
+|---|---|---|---|---|
+| cube_y <= 0.42 and abs_cube_yaw_deg > 12.1 | 14/16 (87.5%) | 75/240 (31.2%) | 2.8x | 1.1e-05 |
+| cube_yaw_deg > 11.9 | 46/77 (59.7%) | 43/179 (24.0%) | 2.5x | 5.9e-08 |
+| abs_cube_yaw_deg > 12.1 | 66/153 (43.1%) | 23/103 (22.3%) | 1.9x | 4.2e-04 |
+
+Past about 12 degrees of cube yaw the failure rate roughly doubles. gym-aloha never rotates
+the cube in training or evaluation, so this is a genuine out-of-distribution limit of the
+checkpoint, and it is actionable by fixturing the part orientation rather than retraining.
+The same policy scores 65.2% [59.2, 70.8] on this battery against 85.0% on the seed-only
+one: the gap IS the rotation.
+
+NOISE FLOOR, now validated. Gaussian action noise (sigma 0.01) on identical weights gives
+19 of 157 passing scenarios flipping to failure, a floor of 12.1% [7.9, 18.1], 42 flips in
+either direction. Halving those 42 would have said 21 against a true one-directional count
+of 19, which is the estimate this release replaced.
+
+REGRESSION still caught against that real floor: bias 0.05 takes success from 65.2% to
+4.3%, 160 newly broken against a floor of 19, so 141 beyond noise, verdict WORSE, exit 1.
+
+Two things the run taught us, both now encoded:
+- Diffing a policy against its own rerun printed "no noise floor measured" on exactly the
+  comparison that measures it. same_policy() compares the executable parts of the contract
+  and ignores the run label; a self-comparison is reported as a floor measurement.
+- Diff hotspots are conditioned on baseline success, since a scenario can only be newly
+  broken if the baseline passed it. That is why the bias regression's hotspots land where
+  rotation is SMALL: the baseline already fails at high rotation, so those scenarios are
+  not eligible. The report states this.
+
 ## GPU box log
 
 | when | box | cost | what ran | results pulled to |
@@ -80,6 +117,7 @@ breaking 74, so the baseline's failures are not simply "hard scenarios".
 | 2026-09-19 ~18:30 IST | Lambda 1x A10 24 GB, us-east-1, 129.153.172.211 | $1.29/h | stagnation scorer built and measured twice (500 live episodes across two protocols); 54-dataset cross-dataset benchmark and HTML report; pooled BotFails judge and guard; guard stall video; 74 tests; 0.1.4 wheel | examples/validation/2026-09-19/guard_detection_v2, /benchmark, dist/ |
 | 2026-09-20 ~14:40 IST | Lambda 1x A10 24 GB, us-east-1, 129.213.87.96 | $1.29/h | tier 1: 400-episode false-alarm pool, gradual-ramp sweep, guard against real robot logs (own failures and injected faults), fingerprint offset sensitivity and conformal calibration, three second-combo attempts; 77 tests; 0.1.5 wheel | examples/validation/2026-09-20 |
 | 2026-09-20 ~13:00-15:05 IST | Lambda 1x A10 24 GB, us-east-1, 150.136.138.111 (terminated) | $1.29/h | policyci first light: 1,000 episodes, 5 policies, one 200-scenario battery, 31 workers; 4 comparisons; 515 replay videos | examples/validation/2026-09-20-policyci (evidence), results/pci_7 local (videos) |
+| 2026-09-20 ~19:00-21:40 IST | Lambda 1x A10 24 GB, us-east-1, 141.148.53.168 (terminated) | $1.29/h | policyci factor run: 1,280 episodes, 5 runs, 256-scenario factor battery (cube x, y, yaw), 31 workers; determinism, noise floor with injected variance, hotspot clustering; 339 replay videos | examples/validation/2026-09-20-policyci-factors (evidence), results/pcf_1 local (videos) |
 
 ## Done
 

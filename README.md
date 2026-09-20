@@ -238,10 +238,33 @@ ROBOTRUTH_HOST=ubuntu@<ip> bash policyci/ops/run_policyci_box.sh mysweep 200 6 "
 
 | Command | What it does |
 |---|---|
-| `policyci battery --n N --base-seed S -o FILE` | Sample a content-addressed battery. No simulator, no GPU |
-| `policyci run --battery FILE --policy-name NAME --out DIR` | Run one policy. `--shard/--num-shards` to parallelise, `--render` to save replays, `--state-bias/--drop-norm` for controlled variants |
+| `policyci battery --n N --base-seed S -o FILE` | Sample a content-addressed battery. No simulator, no GPU. Add `--factors` for named scene coordinates |
+| `policyci run --battery FILE --policy-name NAME --out DIR` | Run one policy. `--shard/--num-shards` to parallelise, `--render` to save replays, `--state-bias/--drop-norm` for controlled variants, `--action-noise` for a stochastic source |
 | `policyci merge SHARDS... --battery FILE --out DIR` | Recombine shards, fail-closed on incomplete coverage |
-| `policyci diff A B [--noise REF_A REF_B]` | The comparison. `--html` writes the scenario browser. Exit 1 if B is worse |
+| `policyci diff A B [--noise REF_A REF_B] [--battery FILE]` | The comparison. Pass `--battery` to get failure regions. `--html` writes the scenario browser. Exit 1 if B is worse |
+
+### Finding where a policy is weak
+
+A seed-only battery reproduces perfectly but cannot describe anything: it tells you *that*
+74 scenarios broke, not what they share. A factor battery gives every scenario named
+coordinates, and the diff then reports regions.
+
+```bash
+policyci battery --factors --n 256 --base-seed 0 -o battery.jsonl
+```
+
+```bash
+policyci diff runs/a/run_manifest.json runs/b/run_manifest.json --battery battery.jsonl -o diff.md
+```
+
+Regions come with Wilson intervals and a Fisher test, `|factor|` coordinates so symmetric
+effects are expressible, and nothing at all when the failures are genuinely spread out. A
+seed-only battery returns no regions rather than fabricated ones.
+
+Two things to know when reading them. Diff regions are conditioned on baseline success,
+because a scenario can only be *newly broken* if the baseline passed it, so a region where
+the baseline already fails cannot appear. And diffing a policy against its own rerun is a
+noise-floor measurement, not a regression test; the tool detects that and says so.
 
 ### What the wall clock actually depends on
 

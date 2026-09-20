@@ -35,17 +35,29 @@ def _scenario_policy_seed(policy_seed: int, scenario_hash: str) -> int:
 
 def run_battery(policy: Policy, backend: SimBackend, battery: Battery, out_dir: str | Path,
                 run_id: str, policy_seed: int = 0, video_failures: bool = True,
-                video_pass_every: int = 0, progress_every: int = 25) -> Path:
+                video_pass_every: int = 0, progress_every: int = 25,
+                shard: int = 0, num_shards: int = 1) -> Path:
+    """Run `policy` over the battery, or over one shard of it.
+
+    Sharding is a pure wall-clock optimisation and never changes a result: scenario
+    identity, the per-scenario policy seed and the evaluator are all functions of the
+    scenario hash alone, so shard k of n produces exactly the records it would have
+    produced in a single-process run. `merge_shards` recombines them and refuses to
+    emit a manifest until every scenario in the battery is covered exactly once.
+    """
+    if num_shards < 1 or not (0 <= shard < num_shards):
+        raise ValueError(f"bad shard {shard}/{num_shards}")
     out = Path(out_dir)
     out.mkdir(parents=True, exist_ok=True)
     videos = out / "videos"
     pins = backend.pins()
     t0 = time.time()
 
+    my_scenarios = [s for s in battery.scenarios if s.index % num_shards == shard]
     results_by_hash: dict[str, dict] = {}
     ep_path = out / "episodes.jsonl"
     with ep_path.open("w", encoding="utf-8") as f:
-        for i, scen in enumerate(battery.scenarios):
+        for i, scen in enumerate(my_scenarios):
             frames = []
             obs = backend.reset(scen)
             policy.reset(seed=_scenario_policy_seed(policy_seed, scen.hash))
@@ -96,7 +108,10 @@ def run_battery(policy: Policy, backend: SimBackend, battery: Battery, out_dir: 
                     print(f"[policyci] video save failed for {scen.short}: {e}")
             if progress_every and (i + 1) % progress_every == 0:
                 n_ok = sum(1 for r in results_by_hash.values() if r["success"])
-                print(f"[policyci] {i + 1}/{len(battery)}  success so far {n_ok}/{i + 1}", flush=True)
+                rate = (time.time() - t0) / (i + 1)
+                eta = rate * (len(my_scenarios) - i - 1) / 60
+                print(f"[policyci] {run_id} shard {shard}/{num_shards}: {i + 1}/{len(my_scenarios)} "
+                      f"success {n_ok}/{i + 1}  {rate:.1f}s/ep  eta {eta:.0f}m", flush=True)
 
     manifest = {
         "kind": "policyci.run",
@@ -107,6 +122,8 @@ def run_battery(policy: Policy, backend: SimBackend, battery: Battery, out_dir: 
         "battery_name": battery.name,
         "battery_hash": battery.battery_hash,
         "n_scenarios": len(battery),
+        "shard": shard,
+        "num_shards": num_shards,
         "policy": policy.contract.to_dict(),
         "policy_seed": policy_seed,
         "evaluator_version": EVALUATOR_VERSION,
@@ -118,6 +135,61 @@ def run_battery(policy: Policy, backend: SimBackend, battery: Battery, out_dir: 
     manifest["manifest_hash"] = content_hash({k: v for k, v in manifest.items() if k != "manifest_hash"})
     (out / "run_manifest.json").write_text(json.dumps(manifest, indent=1), encoding="utf-8")
     n_ok = sum(1 for r in results_by_hash.values() if r["success"])
-    print(f"[policyci] run {run_id} done: {n_ok}/{len(battery)} success, "
+    print(f"[policyci] run {run_id} shard {shard}/{num_shards} done: {n_ok}/{len(my_scenarios)} success, "
           f"{manifest['wall_clock_s']:.0f}s, manifest {manifest['manifest_hash'][:12]}")
+    return out / "run_manifest.json"
+
+
+def merge_shards(shard_manifests: list[str | Path], battery: Battery, out_dir: str | Path) -> Path:
+    """Recombine shard manifests into one run manifest, fail-closed.
+
+    Refuses unless every shard agrees on battery, policy contract, evaluator and pins,
+    and unless the union covers every scenario in the battery exactly once. A partial
+    run must not be presentable as a complete one.
+    """
+    manifests = [json.loads(Path(p).read_text(encoding="utf-8")) for p in shard_manifests]
+    if not manifests:
+        raise ValueError("no shard manifests given")
+    base = manifests[0]
+    for m in manifests[1:]:
+        for field in ("battery_hash", "evaluator_version", "pins_hash", "backend_id", "policy_seed"):
+            if m[field] != base[field]:
+                raise ValueError(f"shard disagreement on {field}: {m[field]} vs {base[field]}")
+        if m["policy"]["hash"] != base["policy"]["hash"]:
+            raise ValueError("shard disagreement on the policy contract hash")
+
+    merged: dict[str, dict] = {}
+    for m in manifests:
+        for h, r in m["results"].items():
+            if h in merged:
+                raise ValueError(f"scenario {h[:12]} ran in more than one shard")
+            merged[h] = r
+    expected = {s.hash for s in battery.scenarios}
+    missing = expected - set(merged)
+    extra = set(merged) - expected
+    if missing or extra:
+        raise ValueError(f"incomplete merge: {len(missing)} scenarios missing, {len(extra)} unexpected")
+
+    out = Path(out_dir)
+    out.mkdir(parents=True, exist_ok=True)
+    manifest = dict(base)
+    manifest.pop("manifest_hash", None)
+    manifest["shard"] = 0
+    manifest["num_shards"] = 1
+    manifest["merged_from"] = sorted(m["manifest_hash"] for m in manifests)
+    manifest["wall_clock_s"] = max(m["wall_clock_s"] for m in manifests)
+    manifest["wall_clock_s_summed"] = sum(m["wall_clock_s"] for m in manifests)
+    manifest["results"] = merged
+    manifest["n_scenarios"] = len(merged)
+    manifest["manifest_hash"] = content_hash({k: v for k, v in manifest.items() if k != "manifest_hash"})
+    (out / "run_manifest.json").write_text(json.dumps(manifest, indent=1), encoding="utf-8")
+
+    with (out / "episodes.jsonl").open("w", encoding="utf-8") as f:
+        for p in shard_manifests:
+            ep = Path(p).parent / "episodes.jsonl"
+            if ep.exists():
+                f.write(ep.read_text(encoding="utf-8"))
+    n_ok = sum(1 for r in merged.values() if r["success"])
+    print(f"[policyci] merged {len(manifests)} shards of {base['run_id']}: "
+          f"{n_ok}/{len(merged)} success, manifest {manifest['manifest_hash'][:12]}")
     return out / "run_manifest.json"

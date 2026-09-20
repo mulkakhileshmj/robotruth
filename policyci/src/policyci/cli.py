@@ -49,10 +49,20 @@ def _cmd_run(args) -> int:
                                policy_seed=args.policy_seed,
                                video_failures=args.render,
                                video_pass_every=args.video_pass_every if args.render else 0,
-                               progress_every=args.progress_every)
+                               progress_every=args.progress_every,
+                               shard=args.shard, num_shards=args.num_shards)
         print(f"manifest -> {manifest}")
     finally:
         backend.close()
+    return 0
+
+
+def _cmd_merge(args) -> int:
+    from policyci.scenario import Battery
+    from policyci.runner import merge_shards
+    battery = Battery.load(args.battery)
+    out = merge_shards(args.shards, battery, args.out)
+    print(f"manifest -> {out}")
     return 0
 
 
@@ -110,7 +120,15 @@ def main(argv: list[str] | None = None) -> int:
     pr.add_argument("--render", action="store_true", help="save replay videos for failures")
     pr.add_argument("--video-pass-every", type=int, default=50)
     pr.add_argument("--progress-every", type=int, default=25)
+    pr.add_argument("--shard", type=int, default=0, help="this worker's index")
+    pr.add_argument("--num-shards", type=int, default=1, help="total workers over the battery")
     pr.set_defaults(fn=_cmd_run)
+
+    pm = sub.add_parser("merge", help="recombine shard manifests into one run manifest")
+    pm.add_argument("shards", nargs="+", help="each shard's run_manifest.json")
+    pm.add_argument("--battery", required=True)
+    pm.add_argument("--out", required=True)
+    pm.set_defaults(fn=_cmd_merge)
 
     pd = sub.add_parser("diff", help="regression report between two runs")
     pd.add_argument("a")

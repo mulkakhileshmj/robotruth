@@ -92,6 +92,7 @@ def run_battery(policy: Policy, backend: SimBackend, battery: Battery, out_dir: 
                 tags=[f"scenario:{scen.hash}", f"battery:{battery.battery_hash[:12]}"],
             )
             f.write(rec.model_dump_json() + "\n")
+            f.flush()  # a long run must be observable while it is still in flight
             results_by_hash[scen.hash] = {"index": scen.index, "success": bool(outcome.success),
                                           "gates": gates, "max_reward": gt.get("max_reward"),
                                           "steps": gt.get("steps"),

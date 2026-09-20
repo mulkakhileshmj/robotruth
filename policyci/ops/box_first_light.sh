@@ -22,6 +22,13 @@ BIASES="${4:-0.02 0.05 0.10}"
 
 export PATH="$HOME/.local/bin:$PATH"
 export MUJOCO_GL=egl
+# One worker per core beats many threads per worker. With N workers already running,
+# per-process BLAS/OMP threading only oversubscribes: the first sweep hit load average
+# 123 on 30 cores and spent the difference in context switches.
+export OMP_NUM_THREADS=1
+export MKL_NUM_THREADS=1
+export OPENBLAS_NUM_THREADS=1
+export NUMEXPR_NUM_THREADS=1
 cd "$WORK/robotruth"
 
 # MuJoCo needs an EGL vendor library to render offscreen; a stock Lambda image has none.

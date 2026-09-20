@@ -52,7 +52,19 @@ COMBOS: dict[str, Combo] = {
         image_key="observation.images.top",
         obs_image_path=("pixels", "top"),
         max_steps=400, fps=50.0, expected_success=0.3,
-        notes="second task, same policy architecture and checkpoint family",
+        notes="second task, same architecture. Measured 2026-09-20: loads correctly and reaches "
+              "partial reward, but completed the task 0 of 10 times, so there is no nominal pool",
+    ),
+    "act_pusht": Combo(
+        name="act_pusht",
+        repo="aadarshram/act_pusht",
+        env_id="gym_pusht/PushT-v0",
+        policy_class="act",
+        image_key="observation.image",
+        obs_image_path=("pixels",),
+        max_steps=300, fps=10.0, expected_success=0.5,
+        notes="second task and control rate. Measured 2026-09-20: 1 of 8 successes, too weak to "
+              "calibrate a guard on. Needs pymunk<7; pymunk 7 removed the API gym-pusht calls",
     ),
     "diffusion_pusht": Combo(
         name="diffusion_pusht",
@@ -62,7 +74,9 @@ COMBOS: dict[str, Combo] = {
         image_key="observation.image",
         obs_image_path=("pixels",),
         max_steps=300, fps=10.0, expected_success=0.5,
-        notes="different architecture, different task, different control rate",
+        notes="different architecture. Measured 2026-09-20: loading this checkpoint raises an "
+              "uncorrectable ECC error on an A10 and poisons the GPU for every other process. "
+              "Run it alone if you want to chase it",
     ),
 }
 
@@ -84,7 +98,7 @@ def load_policy(combo: Combo, device: str):
     project exists to catch, so the statistics are read straight out of the checkpoint's
     safetensors and applied here instead of trusting the loader.
     """
-    from huggingface_hub import hf_hub_download
+    from huggingface_hub import hf_hub_download, list_repo_files
     from safetensors.torch import load_file
 
     if combo.policy_class == "act":
@@ -107,24 +121,86 @@ def load_policy(combo: Combo, device: str):
         feature, _, stat = rest.rpartition(".")
         stats[f"{group}|{feature}|{stat}"] = tensor.to(device)
 
+    # Newer lerobot checkpoints keep the statistics beside the weights in preprocessor and
+    # postprocessor files, keyed by the dotted feature name, instead of as buffers inside
+    # model.safetensors. Both layouts are in the wild, so read either.
+    extra: dict[str, Any] = {}
+    try:
+        for fname in list_repo_files(combo.repo):
+            if "normalizer_processor" in fname and fname.endswith(".safetensors"):
+                for key, tensor in load_file(hf_hub_download(combo.repo, fname)).items():
+                    feature, _, stat = key.rpartition(".")
+                    extra.setdefault(f"{feature.replace('.', '_')}|{stat}", tensor.to(device))
+    except Exception:  # noqa: BLE001
+        pass
+
     def pick(feature: str, stat: str):
         for group in ("normalize_inputs", "normalize_targets", "unnormalize_outputs"):
             v = stats.get(f"{group}|{feature}|{stat}")
             if v is not None:
                 return v
+        return extra.get(f"{feature}|{stat}")
+
+    def preferred_mode(feature_key: str) -> Optional[str]:
+        """Which scheme this policy's own config says to use for that feature."""
+        cfg = policy.config
+        feats = {**(getattr(cfg, "input_features", None) or {}),
+                 **(getattr(cfg, "output_features", None) or {})}
+        pf = feats.get(feature_key)
+        mapping = getattr(cfg, "normalization_mapping", None) or {}
+        if pf is None:
+            return None
+        ftype = getattr(pf.type, "name", str(pf.type))
+        mode = mapping.get(ftype) or mapping.get(str(ftype))
+        return getattr(mode, "value", None) or (str(mode) if mode is not None else None)
+
+    def spec(feature: str, feature_key: str) -> Optional[dict]:
+        """Resolve one feature's normalization, whichever scheme the checkpoint shipped.
+
+        lerobot writes mean/std for MEAN_STD features and min/max for MIN_MAX ones, and the
+        newer format ships all four. The policy's config says which to apply; picking the
+        wrong one runs the policy on differently scaled inputs than it was trained on, which
+        is precisely the failure this project exists to catch.
+        """
+        want = (preferred_mode(feature_key) or "").upper()
+        mean, std = pick(feature, "mean"), pick(feature, "std")
+        lo, hi = pick(feature, "min"), pick(feature, "max")
+        if want == "MIN_MAX" and lo is not None and hi is not None:
+            return {"mode": "min_max", "a": lo, "b": hi}
+        if want == "MEAN_STD" and mean is not None and std is not None:
+            return {"mode": "mean_std", "a": mean, "b": std}
+        if want and want not in ("MIN_MAX", "MEAN_STD"):
+            return {"mode": "identity", "a": None, "b": None}
+        if mean is not None and std is not None:
+            return {"mode": "mean_std", "a": mean, "b": std}
+        if lo is not None and hi is not None:
+            return {"mode": "min_max", "a": lo, "b": hi}
         return None
 
-    img_feat = combo.image_key.replace(".", "_")
-    resolved = {
-        "img_mean": pick(img_feat, "mean"), "img_std": pick(img_feat, "std"),
-        "state_mean": pick("observation_state", "mean"), "state_std": pick("observation_state", "std"),
-        "act_mean": pick("action", "mean"), "act_std": pick("action", "std"),
-    }
+    resolved = {"image": spec(combo.image_key.replace(".", "_"), combo.image_key),
+                "state": spec("observation_state", "observation.state"),
+                "action": spec("action", "action")}
     missing = [k for k, v in resolved.items() if v is None]
     if missing:
         raise RuntimeError(f"{combo.repo}: normalization statistics missing for {missing}; "
                            "this checkpoint cannot be run faithfully, which is itself a contract failure")
     return policy, resolved
+
+
+def _apply(x, s: dict):
+    if s["mode"] == "identity":
+        return x
+    if s["mode"] == "mean_std":
+        return (x - s["a"]) / (s["b"] + 1e-8)
+    return (x - s["a"]) / (s["b"] - s["a"] + 1e-8) * 2.0 - 1.0
+
+
+def _undo(x, s: dict):
+    if s["mode"] == "identity":
+        return x
+    if s["mode"] == "mean_std":
+        return x * (s["b"] + 1e-8) + s["a"]
+    return (x + 1.0) / 2.0 * (s["b"] - s["a"] + 1e-8) + s["a"]
 
 
 def obs_to_batch(combo: Combo, obs, device, torch):
@@ -141,9 +217,13 @@ def obs_to_batch(combo: Combo, obs, device, torch):
 
 def normalize_batch(combo: Combo, batch: dict, stats: dict):
     out = dict(batch)
-    out[combo.image_key] = (batch[combo.image_key] - stats["img_mean"]) / (stats["img_std"] + 1e-8)
-    out["observation.state"] = (batch["observation.state"] - stats["state_mean"]) / (stats["state_std"] + 1e-8)
+    out[combo.image_key] = _apply(batch[combo.image_key], stats["image"])
+    out["observation.state"] = _apply(batch["observation.state"], stats["state"])
     return out
+
+
+def unnormalize_action(action, stats: dict):
+    return _undo(action, stats["action"])
 
 
 def is_success(combo: Combo, max_reward: float, info: dict) -> bool:
@@ -176,7 +256,7 @@ def run_episode(combo: Combo, env, policy_and_stats, device, torch,
         batch = normalize_batch(combo, obs_to_batch(combo, obs, device, torch), stats)
         with torch.no_grad():
             action = policy.select_action(batch)
-        action = action * (stats["act_std"] + 1e-8) + stats["act_mean"]
+        action = unnormalize_action(action, stats)
         a = action.squeeze(0).cpu().numpy().astype(np.float32)
         strength = 0.0
         if fault and t >= onset_step:

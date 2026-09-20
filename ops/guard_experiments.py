@@ -274,6 +274,13 @@ def main() -> int:
         return mode_fa(out_dir, Path(sys.argv[3]), int(sys.argv[4]) if len(sys.argv) > 4 else 400)
     if mode == "ramp":
         return mode_ramp(out_dir, Path(sys.argv[3]), int(sys.argv[4]) if len(sys.argv) > 4 else 10)
+    if mode == "smoke":
+        from policy_zoo import smoke_test
+        combo, env, policy, device, torch = _setup(sys.argv[3])
+        rate, usable = smoke_test(combo, env, policy, device, torch,
+                                  n=int(sys.argv[4]) if len(sys.argv) > 4 else 10)
+        print(f"SMOKE_DONE {combo.name} rate={rate:.2f} usable={usable}")
+        return 0
     if mode == "combo":
         return mode_combo(out_dir, sys.argv[3],
                           int(sys.argv[4]) if len(sys.argv) > 4 else 200,

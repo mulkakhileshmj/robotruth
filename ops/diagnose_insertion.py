@@ -16,7 +16,8 @@ from pathlib import Path
 import numpy as np
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from policy_zoo import COMBOS, load_policy, make_env, normalize_batch, obs_to_batch  # noqa: E402
+from policy_zoo import (COMBOS, load_policy, make_env, normalize_batch, obs_to_batch,  # noqa: E402
+                        unnormalize_action)
 
 
 def main() -> int:
@@ -28,11 +29,13 @@ def main() -> int:
         combo = COMBOS[name]
         env = make_env(combo)
         policy, stats = load_policy(combo, device)
-        finite = {k: bool(torch.isfinite(v).all()) for k, v in stats.items()}
+        finite = {k: bool(torch.isfinite(s["a"]).all() and torch.isfinite(s["b"]).all())
+                  for k, s in stats.items()}
         print(f"\n== {name} ({combo.repo})")
-        print(f"   normalization stats all finite: {finite}")
-        print(f"   action mean norm {float(stats['act_mean'].norm()):.4f}, "
-              f"std norm {float(stats['act_std'].norm()):.4f}")
+        print(f"   normalization all finite: {finite}")
+        print(f"   action scheme {stats['action']['mode']}, "
+              f"a norm {float(stats['action']['a'].norm()):.4f}, "
+              f"b norm {float(stats['action']['b'].norm()):.4f}")
         peaks, actnorms = [], []
         for ep in range(n):
             obs, _ = env.reset()
@@ -42,7 +45,7 @@ def main() -> int:
                 batch = normalize_batch(combo, obs_to_batch(combo, obs, device, torch), stats)
                 with torch.no_grad():
                     a = policy.select_action(batch)
-                a = a * (stats["act_std"] + 1e-8) + stats["act_mean"]
+                a = unnormalize_action(a, stats)
                 a = a.squeeze(0).cpu().numpy().astype(np.float32)
                 actnorms.append(float(np.linalg.norm(a)))
                 obs, reward, term, trunc, _ = env.step(a)

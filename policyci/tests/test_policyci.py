@@ -164,3 +164,42 @@ def test_evaluator_output_survives_a_full_episode_record():
     )
     assert "grasp" in rec.model_dump_json()
     assert rec.outcome.success is False
+
+
+# --- passport
+
+def test_passport_is_tamper_evident_and_scoped(tmp_path):
+    from policyci.passport import build_passport, write_passport, verify_passport
+    a = _manifest("v18", [1] * 180 + [0] * 20)
+    b = _manifest("v19", [1] * 150 + [0] * 50)
+    d = diff_runs(a, b, noise_ref=(a, a))
+    p = build_passport(a, b, d)
+    path = write_passport(p, tmp_path / "passport.json")
+    assert verify_passport(path)
+
+    # it must never imply real-world performance
+    assert p["scope"]["evidence"] == "simulation_only"
+    assert "do not estimate real-world success" in p["scope"]["statement"]
+
+    # editing a result invalidates the digest
+    edited = json.loads(path.read_text(encoding="utf-8"))
+    edited["results"]["candidate_success"]["estimate"] = 0.99
+    path.write_text(json.dumps(edited), encoding="utf-8")
+    assert not verify_passport(path)
+
+
+def test_passport_blocks_a_worse_candidate_and_withholds_approval_without_a_floor():
+    from policyci.passport import build_passport
+    rng = np.random.default_rng(7)
+    xa = (rng.random(300) < 0.9).astype(int)
+    xb = xa.copy()
+    xb[np.flatnonzero(xa == 1)[:60]] = 0
+    a, b = _manifest("v18", xa.tolist()), _manifest("v19", xb.tolist())
+
+    worse = build_passport(a, b, diff_runs(a, b, noise_ref=(a, a)))
+    assert worse["decision"]["recommendation"] == "block"
+
+    # no noise floor -> nothing is approved, whatever the counts say
+    no_floor = build_passport(a, b, diff_runs(a, b))
+    assert no_floor["decision"]["recommendation"] == "insufficient_evidence"
+    assert no_floor["results"]["noise_floor_measured"] is False

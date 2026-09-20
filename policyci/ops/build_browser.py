@@ -14,6 +14,7 @@ import sys
 from pathlib import Path
 
 from policyci.browser import render_browser
+from policyci.passport import build_passport, verify_passport, write_passport
 from policyci.regression import ComparabilityError, diff_runs, load_manifest
 from policyci.report import render_diff
 
@@ -63,6 +64,10 @@ def main(root: str) -> int:
         render_diff(d, a, b, root / f"diff_{slug}.md")
         page = render_browser(d, a, b, battery, root / f"browser_{slug}.html", video_rel="videos")
         pages.append(page)
+        pp = build_passport(a, b, d, battery_path=battery)
+        ppath = write_passport(pp, root / f"passport_{slug}.json")
+        assert verify_passport(ppath), "passport failed its own digest check"
+        print(f"  passport: {pp['decision']['recommendation']:24s} {ppath.name}")
         floor = "no floor (this run IS the floor)" if ref is None else f"floor {d.noise_flips}"
         print(f"{name:22s} {d.sequential.decision:28s} A={d.a_rate.estimate:.3f} B={d.b_rate.estimate:.3f} "
               f"broken={len(d.newly_broken)} fixed={len(d.fixed)} {floor} -> {page.name}")

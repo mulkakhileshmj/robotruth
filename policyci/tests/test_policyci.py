@@ -138,7 +138,9 @@ def test_evaluate_builds_valid_robotruth_objects(gt, expect_success, expect_clas
     if expect_class is None:
         assert failure is None
     else:
-        assert failure is not None and failure.failure_class.value == expect_class
+        # the schema sets use_enum_values=True, so this field is a plain string
+        assert failure is not None
+        assert str(failure.failure_class) == expect_class
         # the subclass must be in the robotruth taxonomy or the model rejects it
         assert failure.subclass is not None
     # an absent gate is never reported as a passed gate

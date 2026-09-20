@@ -95,7 +95,7 @@ def run_battery(policy: Policy, backend: SimBackend, battery: Battery, out_dir: 
             results_by_hash[scen.hash] = {"index": scen.index, "success": bool(outcome.success),
                                           "gates": gates, "max_reward": gt.get("max_reward"),
                                           "steps": gt.get("steps"),
-                                          "failure": failure.failure_class.value if failure else None}
+                                          "failure": str(failure.failure_class) if failure else None}
             want_video = frames and (
                 (video_failures and not outcome.success)
                 or (video_pass_every and outcome.success and scen.index % video_pass_every == 0))

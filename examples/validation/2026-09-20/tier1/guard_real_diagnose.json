@@ -1,0 +1,62 @@
+{
+ "kantine__BotFails": [
+  {
+   "head": "main",
+   "component": "chunk_consistency",
+   "auroc": 0.5,
+   "median_failure_score": 0.0,
+   "median_success_score": 0.0
+  },
+  {
+   "head": "main",
+   "component": "action_stats",
+   "auroc": 0.511749680715198,
+   "median_failure_score": 2.7779448202381842,
+   "median_success_score": 2.6656038946252956
+  },
+  {
+   "head": "main",
+   "component": "stagnation",
+   "auroc": 0.5116219667943805,
+   "median_failure_score": 2.7546861284120014,
+   "median_success_score": 2.7546861284120014
+  },
+  {
+   "head": "stall",
+   "component": "stall",
+   "auroc": 0.5116219667943805,
+   "median_failure_score": 2.7546861284120014,
+   "median_success_score": 2.7546861284120014
+  }
+ ],
+ "lerobot__droid_1.0.1": [
+  {
+   "head": "main",
+   "component": "chunk_consistency",
+   "auroc": 0.5,
+   "median_failure_score": 0.0,
+   "median_success_score": 0.0
+  },
+  {
+   "head": "main",
+   "component": "action_stats",
+   "auroc": 0.32976230331436224,
+   "median_failure_score": 1.6478569596818433,
+   "median_success_score": 2.0536193291928866
+  },
+  {
+   "head": "main",
+   "component": "stagnation",
+   "auroc": 0.44291931704050885,
+   "median_failure_score": 4.219252905482652,
+   "median_success_score": 4.623784591962748
+  },
+  {
+   "head": "stall",
+   "component": "stall",
+   "auroc": 0.44291931704050885,
+   "median_failure_score": 4.219252905482652,
+   "median_success_score": 4.623784591962748
+  }
+ ]
+}

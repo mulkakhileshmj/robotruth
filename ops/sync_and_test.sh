@@ -5,7 +5,7 @@
 #   bash ops/sync_and_test.sh rt_judge tests/test_judge.py -q
 set -euo pipefail
 KEY="${ROBOTRUTH_SSH_KEY:-/c/Users/Lenovo/.ssh/id_ed25519_annotate_vast}"
-HOST="${ROBOTRUTH_HOST:-ubuntu@129.153.172.211}"
+HOST="${ROBOTRUTH_HOST:-ubuntu@129.213.87.96}"
 REMOTE_DIR="${1:-rt_main}"; shift || true
 PYTEST_ARGS="${*:--q}"
 LOCAL_ROOT="/d/robotruth"

@@ -1,0 +1,218 @@
+{
+ "Elvinky__pi05-piperx-7h-demo-dagger-full-episodes-20260914": {
+  "n_episodes": 120,
+  "false_alarms": 3,
+  "n_held_out": 48,
+  "offsets": {
+   "0.25 sd": {
+    "detected": 48,
+    "n": 48,
+    "interval": "1.000 [0.926, 1.000] (95% Wilson, n=48)"
+   },
+   "0.5 sd": {
+    "detected": 48,
+    "n": 48,
+    "interval": "1.000 [0.926, 1.000] (95% Wilson, n=48)"
+   },
+   "1 sd": {
+    "detected": 48,
+    "n": 48,
+    "interval": "1.000 [0.926, 1.000] (95% Wilson, n=48)"
+   },
+   "2 sd": {
+    "detected": 48,
+    "n": 48,
+    "interval": "1.000 [0.926, 1.000] (95% Wilson, n=48)"
+   }
+  }
+ },
+ "jccj__so100_block_in_cup": {
+  "n_episodes": 50,
+  "false_alarms": 0,
+  "n_held_out": 20,
+  "offsets": {
+   "0.25 sd": {
+    "detected": 20,
+    "n": 20,
+    "interval": "1.000 [0.839, 1.000] (95% Wilson, n=20)"
+   },
+   "0.5 sd": {
+    "detected": 20,
+    "n": 20,
+    "interval": "1.000 [0.839, 1.000] (95% Wilson, n=20)"
+   },
+   "1 sd": {
+    "detected": 20,
+    "n": 20,
+    "interval": "1.000 [0.839, 1.000] (95% Wilson, n=20)"
+   },
+   "2 sd": {
+    "detected": 20,
+    "n": 20,
+    "interval": "1.000 [0.839, 1.000] (95% Wilson, n=20)"
+   }
+  }
+ },
+ "kantine__BotFails": {
+  "n_episodes": 133,
+  "false_alarms": 2,
+  "n_held_out": 54,
+  "offsets": {
+   "0.25 sd": {
+    "detected": 53,
+    "n": 54,
+    "interval": "0.981 [0.902, 0.997] (95% Wilson, n=54)"
+   },
+   "0.5 sd": {
+    "detected": 53,
+    "n": 54,
+    "interval": "0.981 [0.902, 0.997] (95% Wilson, n=54)"
+   },
+   "1 sd": {
+    "detected": 53,
+    "n": 54,
+    "interval": "0.981 [0.902, 0.997] (95% Wilson, n=54)"
+   },
+   "2 sd": {
+    "detected": 53,
+    "n": 54,
+    "interval": "0.981 [0.902, 0.997] (95% Wilson, n=54)"
+   }
+  }
+ },
+ "lerobot__aloha_static_screw_driver": {
+  "n_episodes": 50,
+  "false_alarms": 4,
+  "n_held_out": 20,
+  "offsets": {
+   "0.25 sd": {
+    "detected": 20,
+    "n": 20,
+    "interval": "1.000 [0.839, 1.000] (95% Wilson, n=20)"
+   },
+   "0.5 sd": {
+    "detected": 20,
+    "n": 20,
+    "interval": "1.000 [0.839, 1.000] (95% Wilson, n=20)"
+   },
+   "1 sd": {
+    "detected": 20,
+    "n": 20,
+    "interval": "1.000 [0.839, 1.000] (95% Wilson, n=20)"
+   },
+   "2 sd": {
+    "detected": 20,
+    "n": 20,
+    "interval": "1.000 [0.839, 1.000] (95% Wilson, n=20)"
+   }
+  }
+ },
+ "lerobot__droid_1.0.1": {
+  "n_episodes": 119,
+  "false_alarms": 3,
+  "n_held_out": 48,
+  "offsets": {
+   "0.25 sd": {
+    "detected": 48,
+    "n": 48,
+    "interval": "1.000 [0.926, 1.000] (95% Wilson, n=48)"
+   },
+   "0.5 sd": {
+    "detected": 48,
+    "n": 48,
+    "interval": "1.000 [0.926, 1.000] (95% Wilson, n=48)"
+   },
+   "1 sd": {
+    "detected": 48,
+    "n": 48,
+    "interval": "1.000 [0.926, 1.000] (95% Wilson, n=48)"
+   },
+   "2 sd": {
+    "detected": 48,
+    "n": 48,
+    "interval": "1.000 [0.926, 1.000] (95% Wilson, n=48)"
+   }
+  }
+ },
+ "lerobot__svla_so100_pickplace": {
+  "n_episodes": 50,
+  "false_alarms": 6,
+  "n_held_out": 20,
+  "offsets": {
+   "0.25 sd": {
+    "detected": 20,
+    "n": 20,
+    "interval": "1.000 [0.839, 1.000] (95% Wilson, n=20)"
+   },
+   "0.5 sd": {
+    "detected": 20,
+    "n": 20,
+    "interval": "1.000 [0.839, 1.000] (95% Wilson, n=20)"
+   },
+   "1 sd": {
+    "detected": 20,
+    "n": 20,
+    "interval": "1.000 [0.839, 1.000] (95% Wilson, n=20)"
+   },
+   "2 sd": {
+    "detected": 20,
+    "n": 20,
+    "interval": "1.000 [0.839, 1.000] (95% Wilson, n=20)"
+   }
+  }
+ },
+ "lerobot__svla_so101_pickplace": {
+  "n_episodes": 50,
+  "false_alarms": 1,
+  "n_held_out": 20,
+  "offsets": {
+   "0.25 sd": {
+    "detected": 20,
+    "n": 20,
+    "interval": "1.000 [0.839, 1.000] (95% Wilson, n=20)"
+   },
+   "0.5 sd": {
+    "detected": 20,
+    "n": 20,
+    "interval": "1.000 [0.839, 1.000] (95% Wilson, n=20)"
+   },
+   "1 sd": {
+    "detected": 20,
+    "n": 20,
+    "interval": "1.000 [0.839, 1.000] (95% Wilson, n=20)"
+   },
+   "2 sd": {
+    "detected": 20,
+    "n": 20,
+    "interval": "1.000 [0.839, 1.000] (95% Wilson, n=20)"
+   }
+  }
+ },
+ "sixpigs1__so100_pick_cube_in_box": {
+  "n_episodes": 100,
+  "false_alarms": 4,
+  "n_held_out": 40,
+  "offsets": {
+   "0.25 sd": {
+    "detected": 40,
+    "n": 40,
+    "interval": "1.000 [0.912, 1.000] (95% Wilson, n=40)"
+   },
+   "0.5 sd": {
+    "detected": 40,
+    "n": 40,
+    "interval": "1.000 [0.912, 1.000] (95% Wilson, n=40)"
+   },
+   "1 sd": {
+    "detected": 40,
+    "n": 40,
+    "interval": "1.000 [0.912, 1.000] (95% Wilson, n=40)"
+   },
+   "2 sd": {
+    "detected": 40,
+    "n": 40,
+    "interval": "1.000 [0.912, 1.000] (95% Wilson, n=40)"
+   }
+  }
+ }
+}

@@ -1,0 +1,224 @@
+{
+ "jpizarrom__hilserl_so100_grocery_so100_2025112223_20": {
+  "n_calibration": 228,
+  "n_held_out": 153,
+  "false_alarms": 0,
+  "false_alarm_interval": "0.000 [0.000, 0.024] (95% Wilson, n=153)",
+  "faults": {
+   "freeze": {
+    "detected": 153,
+    "n": 153,
+    "interval": "1.000 [0.976, 1.000] (95% Wilson, n=153)",
+    "median_latency_s": 0.15000000000000036
+   },
+   "offset 0.25 sd": {
+    "detected": 0,
+    "n": 153,
+    "interval": "0.000 [0.000, 0.024] (95% Wilson, n=153)",
+    "median_latency_s": null
+   },
+   "offset 0.5 sd": {
+    "detected": 0,
+    "n": 153,
+    "interval": "0.000 [0.000, 0.024] (95% Wilson, n=153)",
+    "median_latency_s": null
+   },
+   "offset 1 sd": {
+    "detected": 0,
+    "n": 153,
+    "interval": "0.000 [0.000, 0.024] (95% Wilson, n=153)",
+    "median_latency_s": null
+   },
+   "offset 2 sd": {
+    "detected": 0,
+    "n": 153,
+    "interval": "0.000 [0.000, 0.024] (95% Wilson, n=153)",
+    "median_latency_s": null
+   },
+   "offset 4 sd": {
+    "detected": 2,
+    "n": 153,
+    "interval": "0.013 [0.004, 0.046] (95% Wilson, n=153)",
+    "median_latency_s": 5.824999618530274
+   },
+   "noise 0.25 sd": {
+    "detected": 153,
+    "n": 153,
+    "interval": "1.000 [0.976, 1.000] (95% Wilson, n=153)",
+    "median_latency_s": 0.09999999999999964
+   },
+   "noise 0.5 sd": {
+    "detected": 153,
+    "n": 153,
+    "interval": "1.000 [0.976, 1.000] (95% Wilson, n=153)",
+    "median_latency_s": 0.09999999999999964
+   },
+   "noise 1 sd": {
+    "detected": 153,
+    "n": 153,
+    "interval": "1.000 [0.976, 1.000] (95% Wilson, n=153)",
+    "median_latency_s": 0.09999999999999964
+   },
+   "noise 2 sd": {
+    "detected": 153,
+    "n": 153,
+    "interval": "1.000 [0.976, 1.000] (95% Wilson, n=153)",
+    "median_latency_s": 0.09999999999999964
+   },
+   "noise 4 sd": {
+    "detected": 153,
+    "n": 153,
+    "interval": "1.000 [0.976, 1.000] (95% Wilson, n=153)",
+    "median_latency_s": 0.09999999999999964
+   }
+  }
+ },
+ "kantine__BotFails": {
+  "n_calibration": 106,
+  "n_held_out": 72,
+  "false_alarms": 0,
+  "false_alarm_interval": "0.000 [0.000, 0.051] (95% Wilson, n=72)",
+  "faults": {
+   "freeze": {
+    "detected": 72,
+    "n": 72,
+    "interval": "1.000 [0.949, 1.000] (95% Wilson, n=72)",
+    "median_latency_s": 0.10000044504801409
+   },
+   "offset 0.25 sd": {
+    "detected": 0,
+    "n": 72,
+    "interval": "0.000 [0.000, 0.051] (95% Wilson, n=72)",
+    "median_latency_s": null
+   },
+   "offset 0.5 sd": {
+    "detected": 0,
+    "n": 72,
+    "interval": "0.000 [0.000, 0.051] (95% Wilson, n=72)",
+    "median_latency_s": null
+   },
+   "offset 1 sd": {
+    "detected": 2,
+    "n": 72,
+    "interval": "0.028 [0.008, 0.096] (95% Wilson, n=72)",
+    "median_latency_s": 3.033333841959635
+   },
+   "offset 2 sd": {
+    "detected": 50,
+    "n": 72,
+    "interval": "0.694 [0.580, 0.789] (95% Wilson, n=72)",
+    "median_latency_s": 0.06666717529297017
+   },
+   "offset 4 sd": {
+    "detected": 72,
+    "n": 72,
+    "interval": "1.000 [0.949, 1.000] (95% Wilson, n=72)",
+    "median_latency_s": 0.06666666666666643
+   },
+   "noise 0.25 sd": {
+    "detected": 72,
+    "n": 72,
+    "interval": "1.000 [0.949, 1.000] (95% Wilson, n=72)",
+    "median_latency_s": 0.06666666666666643
+   },
+   "noise 0.5 sd": {
+    "detected": 72,
+    "n": 72,
+    "interval": "1.000 [0.949, 1.000] (95% Wilson, n=72)",
+    "median_latency_s": 0.06666666666666643
+   },
+   "noise 1 sd": {
+    "detected": 72,
+    "n": 72,
+    "interval": "1.000 [0.949, 1.000] (95% Wilson, n=72)",
+    "median_latency_s": 0.06666666666666643
+   },
+   "noise 2 sd": {
+    "detected": 72,
+    "n": 72,
+    "interval": "1.000 [0.949, 1.000] (95% Wilson, n=72)",
+    "median_latency_s": 0.06666666666666643
+   },
+   "noise 4 sd": {
+    "detected": 72,
+    "n": 72,
+    "interval": "1.000 [0.949, 1.000] (95% Wilson, n=72)",
+    "median_latency_s": 0.06666666666666643
+   }
+  }
+ },
+ "lerobot__droid_1.0.1": {
+  "n_calibration": 204,
+  "n_held_out": 137,
+  "false_alarms": 2,
+  "false_alarm_interval": "0.015 [0.004, 0.052] (95% Wilson, n=137)",
+  "faults": {
+   "freeze": {
+    "detected": 136,
+    "n": 137,
+    "interval": "0.993 [0.960, 0.999] (95% Wilson, n=137)",
+    "median_latency_s": 0.20000000000000018
+   },
+   "offset 0.25 sd": {
+    "detected": 4,
+    "n": 137,
+    "interval": "0.029 [0.011, 0.073] (95% Wilson, n=137)",
+    "median_latency_s": 2.9333336512247725
+   },
+   "offset 0.5 sd": {
+    "detected": 10,
+    "n": 137,
+    "interval": "0.073 [0.040, 0.129] (95% Wilson, n=137)",
+    "median_latency_s": 2.633333746592204
+   },
+   "offset 1 sd": {
+    "detected": 62,
+    "n": 137,
+    "interval": "0.453 [0.372, 0.536] (95% Wilson, n=137)",
+    "median_latency_s": 0.13333339691162038
+   },
+   "offset 2 sd": {
+    "detected": 124,
+    "n": 137,
+    "interval": "0.905 [0.844, 0.944] (95% Wilson, n=137)",
+    "median_latency_s": 0.1333332777023315
+   },
+   "offset 4 sd": {
+    "detected": 136,
+    "n": 137,
+    "interval": "0.993 [0.960, 0.999] (95% Wilson, n=137)",
+    "median_latency_s": 0.13333326975504534
+   },
+   "noise 0.25 sd": {
+    "detected": 136,
+    "n": 137,
+    "interval": "0.993 [0.960, 0.999] (95% Wilson, n=137)",
+    "median_latency_s": 0.13333326975504534
+   },
+   "noise 0.5 sd": {
+    "detected": 136,
+    "n": 137,
+    "interval": "0.993 [0.960, 0.999] (95% Wilson, n=137)",
+    "median_latency_s": 0.13333326975504534
+   },
+   "noise 1 sd": {
+    "detected": 136,
+    "n": 137,
+    "interval": "0.993 [0.960, 0.999] (95% Wilson, n=137)",
+    "median_latency_s": 0.13333326975504534
+   },
+   "noise 2 sd": {
+    "detected": 136,
+    "n": 137,
+    "interval": "0.993 [0.960, 0.999] (95% Wilson, n=137)",
+    "median_latency_s": 0.13333326975504534
+   },
+   "noise 4 sd": {
+    "detected": 136,
+    "n": 137,
+    "interval": "0.993 [0.960, 0.999] (95% Wilson, n=137)",
+    "median_latency_s": 0.13333326975504534
+   }
+  }
+ }
+}

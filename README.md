@@ -293,18 +293,31 @@ noise floor is genuinely zero and the negative control passed trivially. Scenari
 is validated harder than expected; the noise-floor feature is not validated at all, because
 there was no noise to separate from signal.
 
+**It finds real weaknesses, not just injected ones.** Second run
+([bundle](examples/validation/2026-09-20-policyci-factors)), 256 scenarios varying cube x,
+y and yaw. Clustering the *unmodified public checkpoint's own* failures, with no instruction
+to look at rotation:
+
+| region | inside | elsewhere | lift |
+|---|---|---|---|
+| `cube_y <= 0.42 and abs_cube_yaw_deg > 12.1` | 14/16 (87.5%) | 75/240 (31.2%) | 2.8x |
+| `cube_yaw_deg > 11.9` | 46/77 (59.7%) | 43/179 (24.0%) | 2.5x |
+| `abs_cube_yaw_deg > 12.1` | 66/153 (43.1%) | 23/103 (22.3%) | 1.9x |
+
+Past about 12 degrees of cube rotation the failure rate roughly doubles. gym-aloha never
+rotates the cube, in training or evaluation, so this is a genuine out-of-distribution limit
+of the checkpoint, and it is actionable without retraining: fixture the part orientation.
+
+The noise floor also works now that there is variance to measure: with Gaussian action noise
+on identical weights, 19 of 157 passing scenarios flipped, a floor of 12.1% [7.9, 18.1].
+
 **Not built yet, and you will notice:**
 
-- **A scenario is only a reset seed.** There are no named factors for object pose, lighting,
-  clutter or occlusion, and there is no clustering code. The tool tells you *that* 37
-  scenarios broke and hands you the videos, but not *what they have in common*. The
-  "regression concentrated at 35 degrees rotation" screen in the design note does not exist.
 - **You cannot bring your own policy yet.** The policy interface is an in-process Python
   class, not a service contract, so adapting a new policy means writing an adapter in-tree.
-- **The noise floor is a point estimate.** It halves the total flips and subtracts, from a
-  single pair of runs, with no interval of its own. The *verdict* is a proper statistic; the
-  "beyond noise" figure is indicative only, and the tool labels it as such.
-- **One cell.** ALOHA transfer cube in gym-aloha. Nothing else has been tried.
+- **Three factors, one cell.** Cube x, y and yaw on ALOHA transfer cube. No lighting,
+  clutter, occlusion or camera factors, and no second task or robot.
+- **Simulation only.** No calibration exists between these numbers and a real robot.
 
 ## Trying this as an outside engineer
 

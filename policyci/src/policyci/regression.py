@@ -158,6 +158,8 @@ class Diff:
     determinism: str | None = None       # "deterministic" | "stochastic" | None if unmeasured
     hotspots: list = field(default_factory=list)
 
+    is_self_comparison: bool = False
+
     @property
     def significant_regressions(self) -> int | None:
         if self.noise_flips is None:
@@ -170,6 +172,21 @@ def _outcome_vectors(a: dict, b: dict) -> tuple[list[str], np.ndarray, np.ndarra
     xa = np.array([1.0 if a["results"][h]["success"] else 0.0 for h in hashes])
     xb = np.array([1.0 if b["results"][h]["success"] else 0.0 for h in hashes])
     return hashes, xa, xb
+
+
+def same_policy(a: dict, b: dict) -> bool:
+    """Do these two runs execute the same policy?
+
+    The contract hash covers weights, action semantics, control rate and any controlled
+    variant, but also the run's NAME, which differs between a baseline and its rerun. So
+    compare the executable parts and ignore the label.
+    """
+    pa, pb = a.get("policy", {}), b.get("policy", {})
+    keys = ("model_id", "weights_sha256", "action_dim", "action_semantics",
+            "control_hz", "variant")
+    if not all(k in pa and k in pb for k in keys):
+        return False
+    return all(pa[k] == pb[k] for k in keys)
 
 
 def count_flips(a: dict, b: dict) -> int:
@@ -196,6 +213,7 @@ def diff_runs(a: dict, b: dict, noise_ref: tuple[dict, dict] | None = None,
     noise_flips = None
     floor = None
     determinism = None
+    self_pair = same_policy(a, b)
     if noise_ref is not None:
         ra, rb = noise_ref
         check_comparable(ra, rb, allow_pin_mismatch=allow_pin_mismatch)
@@ -204,6 +222,16 @@ def diff_runs(a: dict, b: dict, noise_ref: tuple[dict, dict] | None = None,
         floor = measure_noise_floor(ra, rb, alpha=alpha)
         noise_flips = floor.expected_broken
         determinism = floor.determinism
+    elif self_pair:
+        # Diffing a policy against itself IS the floor measurement. Asking the user for a
+        # separate --noise reference here was backwards: the most natural way to ask "is
+        # this cell deterministic" printed "no noise floor measured" on the very comparison
+        # that measures it.
+        floor = measure_noise_floor(a, b, alpha=alpha)
+        determinism = floor.determinism
+        warnings.append(
+            "These two runs use the same policy, so this comparison IS a noise-floor "
+            "measurement, not a regression test. Reported as such.")
 
     hotspots: list = []
     if scenario_params and broken:
@@ -218,4 +246,5 @@ def diff_runs(a: dict, b: dict, noise_ref: tuple[dict, dict] | None = None,
         sequential=sequential_paired_test(xa.tolist(), xb.tolist(), alpha=alpha, stop_early=False),
         fixed=fixed, newly_broken=broken, noise_flips=noise_flips, warnings=warnings,
         floor=floor, determinism=determinism, hotspots=hotspots,
+        is_self_comparison=self_pair,
     )

@@ -407,3 +407,35 @@ def test_cube_pose_is_built_from_named_factors():
     np.testing.assert_allclose(pose[3], np.cos(np.pi / 4), atol=1e-9)
     np.testing.assert_allclose(pose[6], np.sin(np.pi / 4), atol=1e-9)
     np.testing.assert_allclose(pose[4:6], [0.0, 0.0], atol=1e-12)
+
+
+def test_diffing_a_policy_against_itself_is_a_floor_measurement():
+    """Asking 'is this cell deterministic' by diffing a policy against its own rerun used
+    to print 'no noise floor measured' on exactly the comparison that measures it."""
+    from policyci.regression import same_policy
+    bat = sample_seed_battery("b", "t", "backend", n=50, base_seed=1)
+    rng = np.random.default_rng(3)
+    base = {s.hash: int(rng.random() < 0.8) for s in bat.scenarios}
+
+    a = _shard_manifest("act_v18", bat, base, 0, 1)
+    a2 = _shard_manifest("act_v18_s1", bat, base, 0, 1)   # different NAME, same policy
+    for m in (a, a2):
+        m["policy"].update({"model_id": "m", "weights_sha256": "w", "action_dim": 14,
+                            "action_semantics": "joint_position", "control_hz": 50.0,
+                            "variant": {}})
+    assert same_policy(a, a2), "the run label must not make two runs look like two policies"
+
+    d = diff_runs(a, a2)                      # no --noise reference supplied
+    assert d.is_self_comparison
+    assert d.floor is not None and d.floor.is_deterministic
+    assert d.determinism == "deterministic"
+    assert any("same policy" in w for w in d.warnings)
+
+    # a genuinely different policy is NOT treated as a floor
+    b = _shard_manifest("act_v19", bat, base, 0, 1)
+    b["policy"].update({"model_id": "m", "weights_sha256": "w", "action_dim": 14,
+                        "action_semantics": "joint_position", "control_hz": 50.0,
+                        "variant": {"state_bias": 0.05}})
+    d2 = diff_runs(a, b)
+    assert not d2.is_self_comparison
+    assert d2.floor is None

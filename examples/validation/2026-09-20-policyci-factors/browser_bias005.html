@@ -1,0 +1,1511 @@
+<!doctype html><html lang='en'><head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width,initial-scale=1'>
+<title>act_v19_bias005 vs act_v18</title><style>
+:root{--bg:#ffffff;--fg:#14161a;--muted:#5b6470;--line:#e3e6ea;--card:#f7f8fa;
+--ok:#15803d;--bad:#b91c1c;--warn:#a16207;--accent:#1d4ed8;}
+:root:not([data-theme="light"]){@media (prefers-color-scheme:dark){
+:root{--bg:#0f1115;--fg:#e8eaed;--muted:#9aa3af;--line:#252a32;--card:#161a21;
+--ok:#4ade80;--bad:#f87171;--warn:#fbbf24;--accent:#60a5fa;}}}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+--bg:#0f1115;--fg:#e8eaed;--muted:#9aa3af;--line:#252a32;--card:#161a21;
+--ok:#4ade80;--bad:#f87171;--warn:#fbbf24;--accent:#60a5fa;}}
+:root[data-theme="dark"]{--bg:#0f1115;--fg:#e8eaed;--muted:#9aa3af;--line:#252a32;
+--card:#161a21;--ok:#4ade80;--bad:#f87171;--warn:#fbbf24;--accent:#60a5fa;}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);margin:0;padding:0 16px 64px;
+font:15px/1.55 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;}
+.wrap{max-width:1040px;margin:0 auto}
+h1{font-size:26px;margin:28px 0 4px;letter-spacing:-.01em}
+h2{font-size:18px;margin:34px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--line)}
+.sub{color:var(--muted);font-size:13px;margin:0 0 20px}
+.verdict{display:inline-block;padding:7px 14px;border-radius:7px;font-weight:600;font-size:15px}
+.v-worse{background:color-mix(in srgb,var(--bad) 16%,transparent);color:var(--bad)}
+.v-better{background:color-mix(in srgb,var(--ok) 16%,transparent);color:var(--ok)}
+.v-none{background:color-mix(in srgb,var(--muted) 16%,transparent);color:var(--muted)}
+table{border-collapse:collapse;width:100%;font-size:14px;margin:10px 0}
+th,td{text-align:left;padding:7px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--muted);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.04em}
+code{font:13px ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--muted)}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px}
+.card h3{margin:0 0 6px;font-size:14px;font-family:ui-monospace,monospace}
+.vids{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
+.vids figure{margin:0}
+.vids figcaption{font-size:11px;color:var(--muted);margin-bottom:3px}
+video{width:100%;border-radius:6px;background:#000;display:block}
+.none{color:var(--muted);font-size:13px;font-style:italic}
+.pill{display:inline-block;padding:1px 7px;border-radius:99px;font-size:11px;font-weight:600}
+.p-pass{background:color-mix(in srgb,var(--ok) 18%,transparent);color:var(--ok)}
+.p-fail{background:color-mix(in srgb,var(--bad) 18%,transparent);color:var(--bad)}
+.p-na{background:color-mix(in srgb,var(--muted) 15%,transparent);color:var(--muted)}
+.note{background:var(--card);border-left:3px solid var(--accent);padding:10px 14px;
+border-radius:0 7px 7px 0;font-size:13px;color:var(--muted);margin:14px 0}
+footer{margin-top:44px;padding-top:14px;border-top:1px solid var(--line);
+font-size:12px;color:var(--muted)}
+@media(max-width:560px){.vids{grid-template-columns:1fr}}
+</style></head><body><div class='wrap'>
+<h1>act_v19_bias005 vs act_v18</h1>
+<p class='sub'>Battery <code>5996cc2a571ad4dc</code> &middot; 256 scenarios &middot; task <code>aloha_transfer_cube</code> &middot; evaluator <code>0.1.0</code></p>
+<p><span class='verdict v-worse'>WORSE</span></p>
+<h2>Headline</h2><table><tr><th>metric</th><th>act_v18</th><th>act_v19_bias005</th></tr>
+<tr><td>Success rate</td><td>65.2% <span style='color:var(--muted)'>[59.2, 70.8]</span></td><td>4.3% <span style='color:var(--muted)'>[2.4, 7.5]</span></td></tr></table>
+<p>Paired difference (B minus A): <strong>-60.9% <span style='color:var(--muted)'>[-67.3, -54.6]</span></strong><br>Anytime-valid sequential estimate: -0.611 [-0.724, -0.497] at n=256.</p>
+<h2>Scenario diff</h2><table><tr><th>quantity</th><th>value</th><th>what it means</th></tr>
+<tr><td>Newly broken</td><td><strong>160</strong></td><td>passed under A, failed under B</td></tr>
+<tr><td>Noise floor</td><td><strong>19</strong></td><td>expected one-directional flips from running the same policy twice</td></tr>
+<tr><td>Beyond noise</td><td><strong>141</strong></td><td>what is left once the floor is subtracted</td></tr>
+<tr><td>Cell</td><td><strong>stochastic cell</strong></td><td>Measured floor: 19 of 157 passing scenarios flipped to failure when the same policy was run again (12.1% [7.9, 18.1]). 42 scenarios flipped in either direction.</td></tr>
+<tr><td>Fixed</td><td><strong>4</strong></td><td>failed under A, passed under B</td></tr></table>
+<div class='note'>A flip count on its own is not a regression. The verdict above comes from a paired, anytime-valid test over matched scenarios, and the floor is measured by running one policy against itself on these same scenes.</div>
+<h2>Where the failures concentrate</h2>
+<table><tr><th>region</th><th>inside</th><th>elsewhere</th><th>lift</th><th>p</th></tr>
+<tr><td><code>cube_y &gt; 0.42</code></td><td><strong>151/230</strong> 65.7% <span style='color:var(--muted)'>[59, 71]</span></td><td>9/26 34.6%</td><td><strong>1.9x</strong></td><td>2.3e-03</td></tr>
+<tr><td><code>cube_yaw_deg &lt;= 11.9</code></td><td><strong>129/179</strong> 72.1% <span style='color:var(--muted)'>[65, 78]</span></td><td>31/77 40.3%</td><td><strong>1.8x</strong></td><td>1.7e-06</td></tr>
+<tr><td><code>abs_cube_yaw_deg &lt;= 12.1</code></td><td><strong>76/103</strong> 73.8% <span style='color:var(--muted)'>[65, 81]</span></td><td>84/153 54.9%</td><td><strong>1.3x</strong></td><td>1.6e-03</td></tr>
+</table>
+<h2>Newly broken scenarios (160)</h2>
+<div class='cards'>
+<div class='card'>
+<h3>bb5cd1d76e42 <span style='color:var(--muted)'>#1</span></h3>
+<div><code>{&quot;reset_seed&quot;: 1367864806, &quot;cube_x&quot;: 0.1453, &quot;cube_y&quot;: 0.572802, &quot;cube_yaw_deg&quot;: -14.276427, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>timeout</strong> &middot; reward 4.0 &rarr; 2.0</div>
+<div style='margin-top:6px'><span class='pill p-pass'>grasp: pass</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/bb5cd1d76e42_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/bb5cd1d76e42_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>050e4251e9c7 <span style='color:var(--muted)'>#3</span></h3>
+<div><code>{&quot;reset_seed&quot;: 579362555, &quot;cube_x&quot;: 0.135988, &quot;cube_y&quot;: 0.511081, &quot;cube_yaw_deg&quot;: 5.624358, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/050e4251e9c7_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/050e4251e9c7_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>637dfa65d5aa <span style='color:var(--muted)'>#4</span></h3>
+<div><code>{&quot;reset_seed&quot;: 661058651, &quot;cube_x&quot;: 0.096205, &quot;cube_y&quot;: 0.449974, &quot;cube_yaw_deg&quot;: 3.110237, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/637dfa65d5aa_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/637dfa65d5aa_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>5324adf7593e <span style='color:var(--muted)'>#5</span></h3>
+<div><code>{&quot;reset_seed&quot;: 87989972, &quot;cube_x&quot;: 0.010019, &quot;cube_y&quot;: 0.479013, &quot;cube_yaw_deg&quot;: -2.70503, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/5324adf7593e_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/5324adf7593e_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>a6937a4fce38 <span style='color:var(--muted)'>#6</span></h3>
+<div><code>{&quot;reset_seed&quot;: 161576974, &quot;cube_x&quot;: 0.092735, &quot;cube_y&quot;: 0.569982, &quot;cube_yaw_deg&quot;: -5.866012, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>timeout</strong> &middot; reward 4.0 &rarr; 2.0</div>
+<div style='margin-top:6px'><span class='pill p-pass'>grasp: pass</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/a6937a4fce38_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/a6937a4fce38_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>1960af17880d <span style='color:var(--muted)'>#7</span></h3>
+<div><code>{&quot;reset_seed&quot;: 35492826, &quot;cube_x&quot;: 0.194434, &quot;cube_y&quot;: 0.561976, &quot;cube_yaw_deg&quot;: 23.754565, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/1960af17880d_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/1960af17880d_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>05c4fce2fe2e <span style='color:var(--muted)'>#8</span></h3>
+<div><code>{&quot;reset_seed&quot;: 376383645, &quot;cube_x&quot;: 0.026082, &quot;cube_y&quot;: 0.4247, &quot;cube_yaw_deg&quot;: -5.389971, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/05c4fce2fe2e_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/05c4fce2fe2e_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>c82176a2e4eb <span style='color:var(--muted)'>#9</span></h3>
+<div><code>{&quot;reset_seed&quot;: 1746484539, &quot;cube_x&quot;: 0.11564, &quot;cube_y&quot;: 0.536964, &quot;cube_yaw_deg&quot;: -15.621201, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>timeout</strong> &middot; reward 4.0 &rarr; 2.0</div>
+<div style='margin-top:6px'><span class='pill p-pass'>grasp: pass</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/c82176a2e4eb_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/c82176a2e4eb_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>2a0dc40dc998 <span style='color:var(--muted)'>#10</span></h3>
+<div><code>{&quot;reset_seed&quot;: 1394609702, &quot;cube_x&quot;: 0.173681, &quot;cube_y&quot;: 0.425477, &quot;cube_yaw_deg&quot;: 13.562087, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/2a0dc40dc998_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/2a0dc40dc998_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>2883c1826316 <span style='color:var(--muted)'>#11</span></h3>
+<div><code>{&quot;reset_seed&quot;: 1960127675, &quot;cube_x&quot;: 0.192405, &quot;cube_y&quot;: 0.53084, &quot;cube_yaw_deg&quot;: 28.989787, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/2883c1826316_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/2883c1826316_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>599f04bf1d0a <span style='color:var(--muted)'>#13</span></h3>
+<div><code>{&quot;reset_seed&quot;: 1302740407, &quot;cube_x&quot;: 0.171595, &quot;cube_y&quot;: 0.444085, &quot;cube_yaw_deg&quot;: -29.606688, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/599f04bf1d0a_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/599f04bf1d0a_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>969194617883 <span style='color:var(--muted)'>#14</span></h3>
+<div><code>{&quot;reset_seed&quot;: 2084654369, &quot;cube_x&quot;: 0.022973, &quot;cube_y&quot;: 0.459111, &quot;cube_yaw_deg&quot;: 24.751964, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/969194617883_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/969194617883_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>e56330daa8bd <span style='color:var(--muted)'>#16</span></h3>
+<div><code>{&quot;reset_seed&quot;: 1357791198, &quot;cube_x&quot;: 0.143684, &quot;cube_y&quot;: 0.510287, &quot;cube_yaw_deg&quot;: -12.137601, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/e56330daa8bd_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/e56330daa8bd_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>53544b05e1a8 <span style='color:var(--muted)'>#17</span></h3>
+<div><code>{&quot;reset_seed&quot;: 1167425778, &quot;cube_x&quot;: 0.017782, &quot;cube_y&quot;: 0.590721, &quot;cube_yaw_deg&quot;: 10.064398, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/53544b05e1a8_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/53544b05e1a8_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>d1703201f0eb <span style='color:var(--muted)'>#19</span></h3>
+<div><code>{&quot;reset_seed&quot;: 2008052738, &quot;cube_x&quot;: 0.061878, &quot;cube_y&quot;: 0.43107, &quot;cube_yaw_deg&quot;: 16.394058, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/d1703201f0eb_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/d1703201f0eb_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>405fd66c6b45 <span style='color:var(--muted)'>#22</span></h3>
+<div><code>{&quot;reset_seed&quot;: 1440696407, &quot;cube_x&quot;: 0.140469, &quot;cube_y&quot;: 0.500045, &quot;cube_yaw_deg&quot;: -23.757448, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/405fd66c6b45_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/405fd66c6b45_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>16863c530e5b <span style='color:var(--muted)'>#23</span></h3>
+<div><code>{&quot;reset_seed&quot;: 5880883, &quot;cube_x&quot;: 0.048355, &quot;cube_y&quot;: 0.49404, &quot;cube_yaw_deg&quot;: 3.532698, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>timeout</strong> &middot; reward 4.0 &rarr; 2.0</div>
+<div style='margin-top:6px'><span class='pill p-pass'>grasp: pass</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/16863c530e5b_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/16863c530e5b_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>eb9a7c752e2d <span style='color:var(--muted)'>#24</span></h3>
+<div><code>{&quot;reset_seed&quot;: 846428919, &quot;cube_x&quot;: 0.051218, &quot;cube_y&quot;: 0.54066, &quot;cube_yaw_deg&quot;: 10.898462, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>timeout</strong> &middot; reward 4.0 &rarr; 2.0</div>
+<div style='margin-top:6px'><span class='pill p-pass'>grasp: pass</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/eb9a7c752e2d_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/eb9a7c752e2d_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>68f2c0448c16 <span style='color:var(--muted)'>#25</span></h3>
+<div><code>{&quot;reset_seed&quot;: 1841261662, &quot;cube_x&quot;: 0.195762, &quot;cube_y&quot;: 0.554203, &quot;cube_yaw_deg&quot;: 19.454274, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/68f2c0448c16_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/68f2c0448c16_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>815cc72533db <span style='color:var(--muted)'>#26</span></h3>
+<div><code>{&quot;reset_seed&quot;: 1190382222, &quot;cube_x&quot;: 0.100821, &quot;cube_y&quot;: 0.546516, &quot;cube_yaw_deg&quot;: -14.943218, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>timeout</strong> &middot; reward 4.0 &rarr; 2.0</div>
+<div style='margin-top:6px'><span class='pill p-pass'>grasp: pass</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/815cc72533db_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/815cc72533db_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>776bdaed0627 <span style='color:var(--muted)'>#27</span></h3>
+<div><code>{&quot;reset_seed&quot;: 72124473, &quot;cube_x&quot;: 0.126174, &quot;cube_y&quot;: 0.566774, &quot;cube_yaw_deg&quot;: 9.425206, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>timeout</strong> &middot; reward 4.0 &rarr; 2.0</div>
+<div style='margin-top:6px'><span class='pill p-pass'>grasp: pass</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/776bdaed0627_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/776bdaed0627_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>1aeb0d0fda82 <span style='color:var(--muted)'>#29</span></h3>
+<div><code>{&quot;reset_seed&quot;: 1566923138, &quot;cube_x&quot;: 0.023491, &quot;cube_y&quot;: 0.54991, &quot;cube_yaw_deg&quot;: -5.795863, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/1aeb0d0fda82_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/1aeb0d0fda82_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>5ed134ff8b23 <span style='color:var(--muted)'>#30</span></h3>
+<div><code>{&quot;reset_seed&quot;: 1818006482, &quot;cube_x&quot;: 0.154744, &quot;cube_y&quot;: 0.583619, &quot;cube_yaw_deg&quot;: 9.840303, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>timeout</strong> &middot; reward 4.0 &rarr; 2.0</div>
+<div style='margin-top:6px'><span class='pill p-pass'>grasp: pass</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/5ed134ff8b23_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/5ed134ff8b23_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>30554aea570a <span style='color:var(--muted)'>#31</span></h3>
+<div><code>{&quot;reset_seed&quot;: 377217572, &quot;cube_x&quot;: 0.03995, &quot;cube_y&quot;: 0.525796, &quot;cube_yaw_deg&quot;: 6.572529, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/30554aea570a_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/30554aea570a_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>0f6ec2a84560 <span style='color:var(--muted)'>#32</span></h3>
+<div><code>{&quot;reset_seed&quot;: 191741830, &quot;cube_x&quot;: 0.102228, &quot;cube_y&quot;: 0.548459, &quot;cube_yaw_deg&quot;: -7.239829, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>timeout</strong> &middot; reward 4.0 &rarr; 2.0</div>
+<div style='margin-top:6px'><span class='pill p-pass'>grasp: pass</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/0f6ec2a84560_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/0f6ec2a84560_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>04ec4fcaedee <span style='color:var(--muted)'>#33</span></h3>
+<div><code>{&quot;reset_seed&quot;: 1853662620, &quot;cube_x&quot;: 0.085295, &quot;cube_y&quot;: 0.467594, &quot;cube_yaw_deg&quot;: -13.882587, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/04ec4fcaedee_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/04ec4fcaedee_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>84b3dabe86c7 <span style='color:var(--muted)'>#36</span></h3>
+<div><code>{&quot;reset_seed&quot;: 172656923, &quot;cube_x&quot;: 0.128093, &quot;cube_y&quot;: 0.409584, &quot;cube_yaw_deg&quot;: 2.199756, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/84b3dabe86c7_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/84b3dabe86c7_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>598c45d18130 <span style='color:var(--muted)'>#37</span></h3>
+<div><code>{&quot;reset_seed&quot;: 643626383, &quot;cube_x&quot;: 0.117165, &quot;cube_y&quot;: 0.525219, &quot;cube_yaw_deg&quot;: 15.230627, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>timeout</strong> &middot; reward 4.0 &rarr; 2.0</div>
+<div style='margin-top:6px'><span class='pill p-pass'>grasp: pass</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/598c45d18130_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/598c45d18130_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>b2df1cfa675c <span style='color:var(--muted)'>#38</span></h3>
+<div><code>{&quot;reset_seed&quot;: 1033071480, &quot;cube_x&quot;: 0.036127, &quot;cube_y&quot;: 0.486318, &quot;cube_yaw_deg&quot;: -21.780259, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/b2df1cfa675c_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/b2df1cfa675c_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>4da09ac021f5 <span style='color:var(--muted)'>#40</span></h3>
+<div><code>{&quot;reset_seed&quot;: 865948037, &quot;cube_x&quot;: 0.069262, &quot;cube_y&quot;: 0.543414, &quot;cube_yaw_deg&quot;: -22.726421, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>timeout</strong> &middot; reward 4.0 &rarr; 2.0</div>
+<div style='margin-top:6px'><span class='pill p-pass'>grasp: pass</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/4da09ac021f5_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/4da09ac021f5_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>42be238f98b8 <span style='color:var(--muted)'>#42</span></h3>
+<div><code>{&quot;reset_seed&quot;: 11494707, &quot;cube_x&quot;: 0.156337, &quot;cube_y&quot;: 0.52248, &quot;cube_yaw_deg&quot;: 1.845807, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/42be238f98b8_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/42be238f98b8_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>a176710816e4 <span style='color:var(--muted)'>#43</span></h3>
+<div><code>{&quot;reset_seed&quot;: 266896303, &quot;cube_x&quot;: 0.007587, &quot;cube_y&quot;: 0.469073, &quot;cube_yaw_deg&quot;: -18.879865, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/a176710816e4_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/a176710816e4_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>702298d045a1 <span style='color:var(--muted)'>#44</span></h3>
+<div><code>{&quot;reset_seed&quot;: 17790419, &quot;cube_x&quot;: 0.011086, &quot;cube_y&quot;: 0.586281, &quot;cube_yaw_deg&quot;: -8.973849, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/702298d045a1_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/702298d045a1_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>2cd8a080fad7 <span style='color:var(--muted)'>#45</span></h3>
+<div><code>{&quot;reset_seed&quot;: 1440154963, &quot;cube_x&quot;: 0.178584, &quot;cube_y&quot;: 0.568892, &quot;cube_yaw_deg&quot;: -24.053087, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/2cd8a080fad7_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/2cd8a080fad7_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>9048a45ec843 <span style='color:var(--muted)'>#47</span></h3>
+<div><code>{&quot;reset_seed&quot;: 1389828892, &quot;cube_x&quot;: 0.031567, &quot;cube_y&quot;: 0.437619, &quot;cube_yaw_deg&quot;: -18.08097, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/9048a45ec843_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/9048a45ec843_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>2c08160452e7 <span style='color:var(--muted)'>#49</span></h3>
+<div><code>{&quot;reset_seed&quot;: 1321529463, &quot;cube_x&quot;: 0.079045, &quot;cube_y&quot;: 0.470769, &quot;cube_yaw_deg&quot;: 29.805515, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/2c08160452e7_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/2c08160452e7_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>b555d7da62e1 <span style='color:var(--muted)'>#50</span></h3>
+<div><code>{&quot;reset_seed&quot;: 1640795441, &quot;cube_x&quot;: 0.093742, &quot;cube_y&quot;: 0.435652, &quot;cube_yaw_deg&quot;: 18.497196, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/b555d7da62e1_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/b555d7da62e1_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>b2e8982be6fe <span style='color:var(--muted)'>#51</span></h3>
+<div><code>{&quot;reset_seed&quot;: 823941273, &quot;cube_x&quot;: 0.119803, &quot;cube_y&quot;: 0.559942, &quot;cube_yaw_deg&quot;: -2.977184, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>timeout</strong> &middot; reward 4.0 &rarr; 2.0</div>
+<div style='margin-top:6px'><span class='pill p-pass'>grasp: pass</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/b2e8982be6fe_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/b2e8982be6fe_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>89b94cd67a3b <span style='color:var(--muted)'>#53</span></h3>
+<div><code>{&quot;reset_seed&quot;: 2141492029, &quot;cube_x&quot;: 0.000735, &quot;cube_y&quot;: 0.54189, &quot;cube_yaw_deg&quot;: -15.335103, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/89b94cd67a3b_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/89b94cd67a3b_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>33b70005fc48 <span style='color:var(--muted)'>#54</span></h3>
+<div><code>{&quot;reset_seed&quot;: 1728701086, &quot;cube_x&quot;: 0.044931, &quot;cube_y&quot;: 0.415643, &quot;cube_yaw_deg&quot;: 9.193197, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/33b70005fc48_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/33b70005fc48_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>33bbf6f89a14 <span style='color:var(--muted)'>#55</span></h3>
+<div><code>{&quot;reset_seed&quot;: 2106327850, &quot;cube_x&quot;: 0.189602, &quot;cube_y&quot;: 0.507602, &quot;cube_yaw_deg&quot;: 20.188331, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/33bbf6f89a14_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/33bbf6f89a14_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>a9109e0143d1 <span style='color:var(--muted)'>#58</span></h3>
+<div><code>{&quot;reset_seed&quot;: 2040324894, &quot;cube_x&quot;: 0.100094, &quot;cube_y&quot;: 0.544678, &quot;cube_yaw_deg&quot;: 17.890338, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>timeout</strong> &middot; reward 4.0 &rarr; 2.0</div>
+<div style='margin-top:6px'><span class='pill p-pass'>grasp: pass</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/a9109e0143d1_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/a9109e0143d1_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>8c2724112758 <span style='color:var(--muted)'>#59</span></h3>
+<div><code>{&quot;reset_seed&quot;: 1396850658, &quot;cube_x&quot;: 0.118782, &quot;cube_y&quot;: 0.516464, &quot;cube_yaw_deg&quot;: -17.987871, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/8c2724112758_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/8c2724112758_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>56dbeb51e459 <span style='color:var(--muted)'>#60</span></h3>
+<div><code>{&quot;reset_seed&quot;: 1804554973, &quot;cube_x&quot;: 0.007921, &quot;cube_y&quot;: 0.481057, &quot;cube_yaw_deg&quot;: -4.48623, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/56dbeb51e459_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/56dbeb51e459_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>0e8da8b839f8 <span style='color:var(--muted)'>#62</span></h3>
+<div><code>{&quot;reset_seed&quot;: 1511830742, &quot;cube_x&quot;: 0.190316, &quot;cube_y&quot;: 0.557883, &quot;cube_yaw_deg&quot;: -18.412828, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/0e8da8b839f8_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/0e8da8b839f8_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>8eca978de350 <span style='color:var(--muted)'>#65</span></h3>
+<div><code>{&quot;reset_seed&quot;: 290117534, &quot;cube_x&quot;: 0.041741, &quot;cube_y&quot;: 0.45312, &quot;cube_yaw_deg&quot;: -8.61859, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/8eca978de350_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/8eca978de350_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>423e16ef04b4 <span style='color:var(--muted)'>#66</span></h3>
+<div><code>{&quot;reset_seed&quot;: 1243185673, &quot;cube_x&quot;: 0.048454, &quot;cube_y&quot;: 0.436258, &quot;cube_yaw_deg&quot;: 8.59695, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/423e16ef04b4_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/423e16ef04b4_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>3340fa7da83c <span style='color:var(--muted)'>#67</span></h3>
+<div><code>{&quot;reset_seed&quot;: 1549384411, &quot;cube_x&quot;: 0.098291, &quot;cube_y&quot;: 0.458068, &quot;cube_yaw_deg&quot;: 15.423022, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/3340fa7da83c_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/3340fa7da83c_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>15d3ce997c3e <span style='color:var(--muted)'>#69</span></h3>
+<div><code>{&quot;reset_seed&quot;: 1128189815, &quot;cube_x&quot;: 0.01635, &quot;cube_y&quot;: 0.473047, &quot;cube_yaw_deg&quot;: -11.893148, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/15d3ce997c3e_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/15d3ce997c3e_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>7b29a390c558 <span style='color:var(--muted)'>#71</span></h3>
+<div><code>{&quot;reset_seed&quot;: 666239354, &quot;cube_x&quot;: 0.099433, &quot;cube_y&quot;: 0.452275, &quot;cube_yaw_deg&quot;: -17.670725, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/7b29a390c558_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/7b29a390c558_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>730b33ce2cd4 <span style='color:var(--muted)'>#72</span></h3>
+<div><code>{&quot;reset_seed&quot;: 908297867, &quot;cube_x&quot;: 0.171974, &quot;cube_y&quot;: 0.468381, &quot;cube_yaw_deg&quot;: -25.526396, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/730b33ce2cd4_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/730b33ce2cd4_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>8b75422a3102 <span style='color:var(--muted)'>#74</span></h3>
+<div><code>{&quot;reset_seed&quot;: 1543657888, &quot;cube_x&quot;: 0.130411, &quot;cube_y&quot;: 0.575726, &quot;cube_yaw_deg&quot;: 6.124487, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>timeout</strong> &middot; reward 4.0 &rarr; 2.0</div>
+<div style='margin-top:6px'><span class='pill p-pass'>grasp: pass</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/8b75422a3102_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/8b75422a3102_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>365a78c486c5 <span style='color:var(--muted)'>#75</span></h3>
+<div><code>{&quot;reset_seed&quot;: 1910160578, &quot;cube_x&quot;: 0.185442, &quot;cube_y&quot;: 0.48555, &quot;cube_yaw_deg&quot;: -19.25708, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/365a78c486c5_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/365a78c486c5_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>8d81ed2937f5 <span style='color:var(--muted)'>#78</span></h3>
+<div><code>{&quot;reset_seed&quot;: 1141051469, &quot;cube_x&quot;: 0.063209, &quot;cube_y&quot;: 0.447204, &quot;cube_yaw_deg&quot;: 0.188148, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/8d81ed2937f5_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/8d81ed2937f5_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>be5b5331d8d4 <span style='color:var(--muted)'>#80</span></h3>
+<div><code>{&quot;reset_seed&quot;: 1444696807, &quot;cube_x&quot;: 0.181107, &quot;cube_y&quot;: 0.40081, &quot;cube_yaw_deg&quot;: 5.20291, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/be5b5331d8d4_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/be5b5331d8d4_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>7fa3637d3c16 <span style='color:var(--muted)'>#81</span></h3>
+<div><code>{&quot;reset_seed&quot;: 1227350964, &quot;cube_x&quot;: 0.008999, &quot;cube_y&quot;: 0.459521, &quot;cube_yaw_deg&quot;: -6.469418, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/7fa3637d3c16_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/7fa3637d3c16_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>1a8c258d2c42 <span style='color:var(--muted)'>#83</span></h3>
+<div><code>{&quot;reset_seed&quot;: 691209253, &quot;cube_x&quot;: 0.176691, &quot;cube_y&quot;: 0.471577, &quot;cube_yaw_deg&quot;: -27.029425, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/1a8c258d2c42_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/1a8c258d2c42_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>de6981824941 <span style='color:var(--muted)'>#86</span></h3>
+<div><code>{&quot;reset_seed&quot;: 1083230752, &quot;cube_x&quot;: 0.146322, &quot;cube_y&quot;: 0.432977, &quot;cube_yaw_deg&quot;: 4.031438, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>timeout</strong> &middot; reward 4.0 &rarr; 2.0</div>
+<div style='margin-top:6px'><span class='pill p-pass'>grasp: pass</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/de6981824941_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/de6981824941_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>7f2d3c9ec304 <span style='color:var(--muted)'>#87</span></h3>
+<div><code>{&quot;reset_seed&quot;: 725658830, &quot;cube_x&quot;: 0.020842, &quot;cube_y&quot;: 0.520471, &quot;cube_yaw_deg&quot;: 13.306564, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/7f2d3c9ec304_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/7f2d3c9ec304_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>51e0f787d888 <span style='color:var(--muted)'>#88</span></h3>
+<div><code>{&quot;reset_seed&quot;: 1633503581, &quot;cube_x&quot;: 0.034873, &quot;cube_y&quot;: 0.576236, &quot;cube_yaw_deg&quot;: -21.923768, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/51e0f787d888_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/51e0f787d888_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>6dc8811452d1 <span style='color:var(--muted)'>#90</span></h3>
+<div><code>{&quot;reset_seed&quot;: 704750836, &quot;cube_x&quot;: 0.153325, &quot;cube_y&quot;: 0.453241, &quot;cube_yaw_deg&quot;: -16.204437, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/6dc8811452d1_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/6dc8811452d1_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>0783cafb9f0c <span style='color:var(--muted)'>#91</span></h3>
+<div><code>{&quot;reset_seed&quot;: 1911849612, &quot;cube_x&quot;: 0.1182, &quot;cube_y&quot;: 0.484515, &quot;cube_yaw_deg&quot;: -13.120741, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/0783cafb9f0c_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/0783cafb9f0c_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>319606e4d0ae <span style='color:var(--muted)'>#93</span></h3>
+<div><code>{&quot;reset_seed&quot;: 487817217, &quot;cube_x&quot;: 0.01877, &quot;cube_y&quot;: 0.567575, &quot;cube_yaw_deg&quot;: 21.385911, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/319606e4d0ae_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/319606e4d0ae_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>97acf034b438 <span style='color:var(--muted)'>#96</span></h3>
+<div><code>{&quot;reset_seed&quot;: 104252791, &quot;cube_x&quot;: 0.132367, &quot;cube_y&quot;: 0.592114, &quot;cube_yaw_deg&quot;: 10.22077, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 1.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/97acf034b438_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/97acf034b438_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>ef54bf3edd31 <span style='color:var(--muted)'>#97</span></h3>
+<div><code>{&quot;reset_seed&quot;: 180421576, &quot;cube_x&quot;: 0.16713, &quot;cube_y&quot;: 0.484003, &quot;cube_yaw_deg&quot;: -10.178564, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/ef54bf3edd31_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/ef54bf3edd31_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>a98cd9d1dad6 <span style='color:var(--muted)'>#98</span></h3>
+<div><code>{&quot;reset_seed&quot;: 809899613, &quot;cube_x&quot;: 0.094981, &quot;cube_y&quot;: 0.577667, &quot;cube_yaw_deg&quot;: 24.580619, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>timeout</strong> &middot; reward 4.0 &rarr; 2.0</div>
+<div style='margin-top:6px'><span class='pill p-pass'>grasp: pass</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/a98cd9d1dad6_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/a98cd9d1dad6_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>57d616e6e45b <span style='color:var(--muted)'>#100</span></h3>
+<div><code>{&quot;reset_seed&quot;: 860813095, &quot;cube_x&quot;: 0.053987, &quot;cube_y&quot;: 0.455794, &quot;cube_yaw_deg&quot;: 0.928074, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/57d616e6e45b_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/57d616e6e45b_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>3cfb9f343bb9 <span style='color:var(--muted)'>#103</span></h3>
+<div><code>{&quot;reset_seed&quot;: 514041964, &quot;cube_x&quot;: 0.067695, &quot;cube_y&quot;: 0.498304, &quot;cube_yaw_deg&quot;: 1.314451, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>timeout</strong> &middot; reward 4.0 &rarr; 2.0</div>
+<div style='margin-top:6px'><span class='pill p-pass'>grasp: pass</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/3cfb9f343bb9_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/3cfb9f343bb9_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>079788b4097e <span style='color:var(--muted)'>#104</span></h3>
+<div><code>{&quot;reset_seed&quot;: 1700138881, &quot;cube_x&quot;: 0.066599, &quot;cube_y&quot;: 0.539501, &quot;cube_yaw_deg&quot;: -24.278527, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>timeout</strong> &middot; reward 4.0 &rarr; 2.0</div>
+<div style='margin-top:6px'><span class='pill p-pass'>grasp: pass</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/079788b4097e_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/079788b4097e_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>f65ca3c84242 <span style='color:var(--muted)'>#105</span></h3>
+<div><code>{&quot;reset_seed&quot;: 1882235552, &quot;cube_x&quot;: 0.138963, &quot;cube_y&quot;: 0.413495, &quot;cube_yaw_deg&quot;: -11.550019, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/f65ca3c84242_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/f65ca3c84242_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>d2a69d3df904 <span style='color:var(--muted)'>#107</span></h3>
+<div><code>{&quot;reset_seed&quot;: 125773896, &quot;cube_x&quot;: 0.11134, &quot;cube_y&quot;: 0.537579, &quot;cube_yaw_deg&quot;: 20.604841, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>timeout</strong> &middot; reward 4.0 &rarr; 2.0</div>
+<div style='margin-top:6px'><span class='pill p-pass'>grasp: pass</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/d2a69d3df904_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/d2a69d3df904_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>1b259c65ed9d <span style='color:var(--muted)'>#108</span></h3>
+<div><code>{&quot;reset_seed&quot;: 1441526998, &quot;cube_x&quot;: 0.056487, &quot;cube_y&quot;: 0.501306, &quot;cube_yaw_deg&quot;: 29.724513, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>timeout</strong> &middot; reward 4.0 &rarr; 2.0</div>
+<div style='margin-top:6px'><span class='pill p-pass'>grasp: pass</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/1b259c65ed9d_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/1b259c65ed9d_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>5c01b95c7726 <span style='color:var(--muted)'>#109</span></h3>
+<div><code>{&quot;reset_seed&quot;: 721805890, &quot;cube_x&quot;: 0.088535, &quot;cube_y&quot;: 0.550498, &quot;cube_yaw_deg&quot;: 19.141431, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>timeout</strong> &middot; reward 4.0 &rarr; 2.0</div>
+<div style='margin-top:6px'><span class='pill p-pass'>grasp: pass</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/5c01b95c7726_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/5c01b95c7726_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>64fef53aa2cd <span style='color:var(--muted)'>#111</span></h3>
+<div><code>{&quot;reset_seed&quot;: 322722697, &quot;cube_x&quot;: 0.146075, &quot;cube_y&quot;: 0.450654, &quot;cube_yaw_deg&quot;: -0.675801, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/64fef53aa2cd_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/64fef53aa2cd_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>3b5973a025b1 <span style='color:var(--muted)'>#112</span></h3>
+<div><code>{&quot;reset_seed&quot;: 1846923786, &quot;cube_x&quot;: 0.112665, &quot;cube_y&quot;: 0.555034, &quot;cube_yaw_deg&quot;: -0.755263, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>timeout</strong> &middot; reward 4.0 &rarr; 2.0</div>
+<div style='margin-top:6px'><span class='pill p-pass'>grasp: pass</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/3b5973a025b1_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/3b5973a025b1_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>4099b3442909 <span style='color:var(--muted)'>#113</span></h3>
+<div><code>{&quot;reset_seed&quot;: 967096425, &quot;cube_x&quot;: 0.162846, &quot;cube_y&quot;: 0.470303, &quot;cube_yaw_deg&quot;: 17.645392, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/4099b3442909_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/4099b3442909_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>632dda3c3ae5 <span style='color:var(--muted)'>#114</span></h3>
+<div><code>{&quot;reset_seed&quot;: 1921983830, &quot;cube_x&quot;: 0.072096, &quot;cube_y&quot;: 0.562777, &quot;cube_yaw_deg&quot;: -3.658908, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>timeout</strong> &middot; reward 4.0 &rarr; 2.0</div>
+<div style='margin-top:6px'><span class='pill p-pass'>grasp: pass</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/632dda3c3ae5_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/632dda3c3ae5_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>eb10b9cf8a54 <span style='color:var(--muted)'>#115</span></h3>
+<div><code>{&quot;reset_seed&quot;: 1710093347, &quot;cube_x&quot;: 0.039005, &quot;cube_y&quot;: 0.431839, &quot;cube_yaw_deg&quot;: -11.38462, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/eb10b9cf8a54_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/eb10b9cf8a54_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>aa003c9fa1c4 <span style='color:var(--muted)'>#117</span></h3>
+<div><code>{&quot;reset_seed&quot;: 495300371, &quot;cube_x&quot;: 0.197537, &quot;cube_y&quot;: 0.589383, &quot;cube_yaw_deg&quot;: 4.28995, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/aa003c9fa1c4_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/aa003c9fa1c4_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>ae64d6c7545c <span style='color:var(--muted)'>#121</span></h3>
+<div><code>{&quot;reset_seed&quot;: 868768460, &quot;cube_x&quot;: 0.180269, &quot;cube_y&quot;: 0.464787, &quot;cube_yaw_deg&quot;: -22.269818, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/ae64d6c7545c_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/ae64d6c7545c_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>d3e7b67dd2e3 <span style='color:var(--muted)'>#122</span></h3>
+<div><code>{&quot;reset_seed&quot;: 2140277469, &quot;cube_x&quot;: 0.065172, &quot;cube_y&quot;: 0.512351, &quot;cube_yaw_deg&quot;: 5.865109, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>timeout</strong> &middot; reward 4.0 &rarr; 2.0</div>
+<div style='margin-top:6px'><span class='pill p-pass'>grasp: pass</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/d3e7b67dd2e3_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/d3e7b67dd2e3_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>154883ebe0b0 <span style='color:var(--muted)'>#123</span></h3>
+<div><code>{&quot;reset_seed&quot;: 426303516, &quot;cube_x&quot;: 0.073354, &quot;cube_y&quot;: 0.524647, &quot;cube_yaw_deg&quot;: 11.157502, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/154883ebe0b0_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/154883ebe0b0_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>61eefa043cf7 <span style='color:var(--muted)'>#127</span></h3>
+<div><code>{&quot;reset_seed&quot;: 1246254308, &quot;cube_x&quot;: 0.046723, &quot;cube_y&quot;: 0.49223, &quot;cube_yaw_deg&quot;: 7.696273, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>timeout</strong> &middot; reward 4.0 &rarr; 2.0</div>
+<div style='margin-top:6px'><span class='pill p-pass'>grasp: pass</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/61eefa043cf7_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/61eefa043cf7_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>afb372782a71 <span style='color:var(--muted)'>#130</span></h3>
+<div><code>{&quot;reset_seed&quot;: 1937191049, &quot;cube_x&quot;: 0.105596, &quot;cube_y&quot;: 0.461127, &quot;cube_yaw_deg&quot;: -17.271392, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/afb372782a71_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/afb372782a71_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>75928ac709f2 <span style='color:var(--muted)'>#132</span></h3>
+<div><code>{&quot;reset_seed&quot;: 1912112502, &quot;cube_x&quot;: 0.133009, &quot;cube_y&quot;: 0.583526, &quot;cube_yaw_deg&quot;: 14.665815, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>timeout</strong> &middot; reward 4.0 &rarr; 2.0</div>
+<div style='margin-top:6px'><span class='pill p-pass'>grasp: pass</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/75928ac709f2_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/75928ac709f2_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>9146cde11458 <span style='color:var(--muted)'>#133</span></h3>
+<div><code>{&quot;reset_seed&quot;: 428456152, &quot;cube_x&quot;: 0.077815, &quot;cube_y&quot;: 0.517811, &quot;cube_yaw_deg&quot;: -20.844822, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/9146cde11458_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/9146cde11458_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>6c9f762db9ae <span style='color:var(--muted)'>#135</span></h3>
+<div><code>{&quot;reset_seed&quot;: 2023172498, &quot;cube_x&quot;: 0.05782, &quot;cube_y&quot;: 0.582606, &quot;cube_yaw_deg&quot;: 3.789681, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>timeout</strong> &middot; reward 4.0 &rarr; 2.0</div>
+<div style='margin-top:6px'><span class='pill p-pass'>grasp: pass</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/6c9f762db9ae_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/6c9f762db9ae_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>18b0366e0031 <span style='color:var(--muted)'>#136</span></h3>
+<div><code>{&quot;reset_seed&quot;: 104360713, &quot;cube_x&quot;: 0.117834, &quot;cube_y&quot;: 0.513604, &quot;cube_yaw_deg&quot;: -14.755877, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>timeout</strong> &middot; reward 4.0 &rarr; 2.0</div>
+<div style='margin-top:6px'><span class='pill p-pass'>grasp: pass</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/18b0366e0031_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/18b0366e0031_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>1f40727bc36d <span style='color:var(--muted)'>#139</span></h3>
+<div><code>{&quot;reset_seed&quot;: 226549387, &quot;cube_x&quot;: 0.091493, &quot;cube_y&quot;: 0.474507, &quot;cube_yaw_deg&quot;: -16.724148, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/1f40727bc36d_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/1f40727bc36d_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>ae9de17154b5 <span style='color:var(--muted)'>#140</span></h3>
+<div><code>{&quot;reset_seed&quot;: 1095352898, &quot;cube_x&quot;: 0.187087, &quot;cube_y&quot;: 0.530292, &quot;cube_yaw_deg&quot;: -15.885362, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/ae9de17154b5_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/ae9de17154b5_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>2be0d4405c6b <span style='color:var(--muted)'>#142</span></h3>
+<div><code>{&quot;reset_seed&quot;: 1640650566, &quot;cube_x&quot;: 0.042444, &quot;cube_y&quot;: 0.421281, &quot;cube_yaw_deg&quot;: -4.947616, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/2be0d4405c6b_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/2be0d4405c6b_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>364c2cfd7170 <span style='color:var(--muted)'>#143</span></h3>
+<div><code>{&quot;reset_seed&quot;: 1991049240, &quot;cube_x&quot;: 0.090918, &quot;cube_y&quot;: 0.52702, &quot;cube_yaw_deg&quot;: 11.809172, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>timeout</strong> &middot; reward 4.0 &rarr; 2.0</div>
+<div style='margin-top:6px'><span class='pill p-pass'>grasp: pass</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/364c2cfd7170_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/364c2cfd7170_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>9cfbd6365457 <span style='color:var(--muted)'>#144</span></h3>
+<div><code>{&quot;reset_seed&quot;: 880091737, &quot;cube_x&quot;: 0.193208, &quot;cube_y&quot;: 0.536261, &quot;cube_yaw_deg&quot;: -23.14052, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/9cfbd6365457_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/9cfbd6365457_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>122ba9952942 <span style='color:var(--muted)'>#145</span></h3>
+<div><code>{&quot;reset_seed&quot;: 945702738, &quot;cube_x&quot;: 0.181625, &quot;cube_y&quot;: 0.490263, &quot;cube_yaw_deg&quot;: -4.754711, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/122ba9952942_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/122ba9952942_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>1bb9f80dc8e4 <span style='color:var(--muted)'>#147</span></h3>
+<div><code>{&quot;reset_seed&quot;: 2049967474, &quot;cube_x&quot;: 0.19516, &quot;cube_y&quot;: 0.599241, &quot;cube_yaw_deg&quot;: -19.610426, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/1bb9f80dc8e4_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/1bb9f80dc8e4_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>5fd20167775b <span style='color:var(--muted)'>#150</span></h3>
+<div><code>{&quot;reset_seed&quot;: 107014967, &quot;cube_x&quot;: 0.1096, &quot;cube_y&quot;: 0.418091, &quot;cube_yaw_deg&quot;: 22.809891, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/5fd20167775b_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/5fd20167775b_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>b26c45ecbac9 <span style='color:var(--muted)'>#152</span></h3>
+<div><code>{&quot;reset_seed&quot;: 2030045015, &quot;cube_x&quot;: 0.175831, &quot;cube_y&quot;: 0.523135, &quot;cube_yaw_deg&quot;: -10.351121, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/b26c45ecbac9_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/b26c45ecbac9_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>59ea99a1f0ca <span style='color:var(--muted)'>#155</span></h3>
+<div><code>{&quot;reset_seed&quot;: 2136953472, &quot;cube_x&quot;: 0.086245, &quot;cube_y&quot;: 0.460788, &quot;cube_yaw_deg&quot;: -29.324447, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/59ea99a1f0ca_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/59ea99a1f0ca_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>31dfc512f3d7 <span style='color:var(--muted)'>#156</span></h3>
+<div><code>{&quot;reset_seed&quot;: 1296558496, &quot;cube_x&quot;: 0.045698, &quot;cube_y&quot;: 0.489207, &quot;cube_yaw_deg&quot;: 15.65225, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>timeout</strong> &middot; reward 4.0 &rarr; 2.0</div>
+<div style='margin-top:6px'><span class='pill p-pass'>grasp: pass</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/31dfc512f3d7_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/31dfc512f3d7_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>c9166834e3ec <span style='color:var(--muted)'>#157</span></h3>
+<div><code>{&quot;reset_seed&quot;: 2037841023, &quot;cube_x&quot;: 0.147598, &quot;cube_y&quot;: 0.548007, &quot;cube_yaw_deg&quot;: -13.404332, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>timeout</strong> &middot; reward 4.0 &rarr; 2.0</div>
+<div style='margin-top:6px'><span class='pill p-pass'>grasp: pass</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/c9166834e3ec_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/c9166834e3ec_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>729d9f557ed5 <span style='color:var(--muted)'>#164</span></h3>
+<div><code>{&quot;reset_seed&quot;: 902462478, &quot;cube_x&quot;: 0.183949, &quot;cube_y&quot;: 0.465147, &quot;cube_yaw_deg&quot;: -7.408781, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/729d9f557ed5_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/729d9f557ed5_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>b98b6aa247dc <span style='color:var(--muted)'>#166</span></h3>
+<div><code>{&quot;reset_seed&quot;: 494452712, &quot;cube_x&quot;: 0.016853, &quot;cube_y&quot;: 0.426685, &quot;cube_yaw_deg&quot;: -7.753435, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/b98b6aa247dc_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/b98b6aa247dc_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>c7d6d7e13227 <span style='color:var(--muted)'>#168</span></h3>
+<div><code>{&quot;reset_seed&quot;: 166879142, &quot;cube_x&quot;: 0.107803, &quot;cube_y&quot;: 0.538685, &quot;cube_yaw_deg&quot;: -21.136573, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>timeout</strong> &middot; reward 4.0 &rarr; 2.0</div>
+<div style='margin-top:6px'><span class='pill p-pass'>grasp: pass</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/c7d6d7e13227_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/c7d6d7e13227_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>dba16170b9ef <span style='color:var(--muted)'>#169</span></h3>
+<div><code>{&quot;reset_seed&quot;: 890466655, &quot;cube_x&quot;: 0.106272, &quot;cube_y&quot;: 0.501642, &quot;cube_yaw_deg&quot;: -6.787656, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/dba16170b9ef_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/dba16170b9ef_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>791ca13c6087 <span style='color:var(--muted)'>#170</span></h3>
+<div><code>{&quot;reset_seed&quot;: 605291690, &quot;cube_x&quot;: 0.052653, &quot;cube_y&quot;: 0.428504, &quot;cube_yaw_deg&quot;: -1.367043, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/791ca13c6087_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/791ca13c6087_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>b8deaeeb193c <span style='color:var(--muted)'>#171</span></h3>
+<div><code>{&quot;reset_seed&quot;: 1577291459, &quot;cube_x&quot;: 0.063553, &quot;cube_y&quot;: 0.499806, &quot;cube_yaw_deg&quot;: -26.468973, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>timeout</strong> &middot; reward 4.0 &rarr; 2.0</div>
+<div style='margin-top:6px'><span class='pill p-pass'>grasp: pass</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/b8deaeeb193c_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/b8deaeeb193c_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>ca5db003813a <span style='color:var(--muted)'>#175</span></h3>
+<div><code>{&quot;reset_seed&quot;: 2001582934, &quot;cube_x&quot;: 0.049405, &quot;cube_y&quot;: 0.416708, &quot;cube_yaw_deg&quot;: -25.622847, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/ca5db003813a_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/ca5db003813a_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>4342d12158ca <span style='color:var(--muted)'>#178</span></h3>
+<div><code>{&quot;reset_seed&quot;: 284241473, &quot;cube_x&quot;: 0.198319, &quot;cube_y&quot;: 0.564688, &quot;cube_yaw_deg&quot;: -2.210687, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/4342d12158ca_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/4342d12158ca_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>d2b637519e07 <span style='color:var(--muted)'>#179</span></h3>
+<div><code>{&quot;reset_seed&quot;: 1565548042, &quot;cube_x&quot;: 0.1496, &quot;cube_y&quot;: 0.44516, &quot;cube_yaw_deg&quot;: 24.1922, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/d2b637519e07_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/d2b637519e07_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>d10070709c97 <span style='color:var(--muted)'>#180</span></h3>
+<div><code>{&quot;reset_seed&quot;: 2083753425, &quot;cube_x&quot;: 0.137603, &quot;cube_y&quot;: 0.560691, &quot;cube_yaw_deg&quot;: -23.322203, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>timeout</strong> &middot; reward 4.0 &rarr; 2.0</div>
+<div style='margin-top:6px'><span class='pill p-pass'>grasp: pass</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/d10070709c97_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/d10070709c97_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>a95e49298d88 <span style='color:var(--muted)'>#183</span></h3>
+<div><code>{&quot;reset_seed&quot;: 2078605664, &quot;cube_x&quot;: 0.021172, &quot;cube_y&quot;: 0.446525, &quot;cube_yaw_deg&quot;: -9.93905, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/a95e49298d88_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/a95e49298d88_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>b50761a1d5a9 <span style='color:var(--muted)'>#185</span></h3>
+<div><code>{&quot;reset_seed&quot;: 31581548, &quot;cube_x&quot;: 0.152137, &quot;cube_y&quot;: 0.550889, &quot;cube_yaw_deg&quot;: 10.717817, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/b50761a1d5a9_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/b50761a1d5a9_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>8ec49f01d5fa <span style='color:var(--muted)'>#187</span></h3>
+<div><code>{&quot;reset_seed&quot;: 1854652970, &quot;cube_x&quot;: 0.019613, &quot;cube_y&quot;: 0.506117, &quot;cube_yaw_deg&quot;: -28.394488, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/8ec49f01d5fa_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/8ec49f01d5fa_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>432b28fa26a5 <span style='color:var(--muted)'>#188</span></h3>
+<div><code>{&quot;reset_seed&quot;: 176863876, &quot;cube_x&quot;: 0.038186, &quot;cube_y&quot;: 0.41244, &quot;cube_yaw_deg&quot;: 5.734165, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/432b28fa26a5_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/432b28fa26a5_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>4a54bd33284d <span style='color:var(--muted)'>#189</span></h3>
+<div><code>{&quot;reset_seed&quot;: 2107100303, &quot;cube_x&quot;: 0.052214, &quot;cube_y&quot;: 0.508744, &quot;cube_yaw_deg&quot;: 7.963451, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>timeout</strong> &middot; reward 4.0 &rarr; 2.0</div>
+<div style='margin-top:6px'><span class='pill p-pass'>grasp: pass</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/4a54bd33284d_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/4a54bd33284d_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>cf99f0598bd6 <span style='color:var(--muted)'>#190</span></h3>
+<div><code>{&quot;reset_seed&quot;: 1776774048, &quot;cube_x&quot;: 0.122364, &quot;cube_y&quot;: 0.441818, &quot;cube_yaw_deg&quot;: 2.761751, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/cf99f0598bd6_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/cf99f0598bd6_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>e5f2c7541c14 <span style='color:var(--muted)'>#191</span></h3>
+<div><code>{&quot;reset_seed&quot;: 2055593207, &quot;cube_x&quot;: 0.030972, &quot;cube_y&quot;: 0.547482, &quot;cube_yaw_deg&quot;: -16.472303, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/e5f2c7541c14_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/e5f2c7541c14_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>0347be293e78 <span style='color:var(--muted)'>#194</span></h3>
+<div><code>{&quot;reset_seed&quot;: 1109958447, &quot;cube_x&quot;: 0.103059, &quot;cube_y&quot;: 0.578452, &quot;cube_yaw_deg&quot;: 3.343143, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>timeout</strong> &middot; reward 4.0 &rarr; 2.0</div>
+<div style='margin-top:6px'><span class='pill p-pass'>grasp: pass</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/0347be293e78_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/0347be293e78_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>0ef5b2ec076a <span style='color:var(--muted)'>#195</span></h3>
+<div><code>{&quot;reset_seed&quot;: 2088704472, &quot;cube_x&quot;: 0.169691, &quot;cube_y&quot;: 0.595634, &quot;cube_yaw_deg&quot;: -4.249353, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>timeout</strong> &middot; reward 4.0 &rarr; 2.0</div>
+<div style='margin-top:6px'><span class='pill p-pass'>grasp: pass</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/0ef5b2ec076a_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/0ef5b2ec076a_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>839a9849bb95 <span style='color:var(--muted)'>#196</span></h3>
+<div><code>{&quot;reset_seed&quot;: 788603697, &quot;cube_x&quot;: 0.141341, &quot;cube_y&quot;: 0.580216, &quot;cube_yaw_deg&quot;: 22.516978, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>timeout</strong> &middot; reward 4.0 &rarr; 2.0</div>
+<div style='margin-top:6px'><span class='pill p-pass'>grasp: pass</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/839a9849bb95_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/839a9849bb95_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>c511cdefa381 <span style='color:var(--muted)'>#197</span></h3>
+<div><code>{&quot;reset_seed&quot;: 1911122052, &quot;cube_x&quot;: 0.128537, &quot;cube_y&quot;: 0.55555, &quot;cube_yaw_deg&quot;: 15.829764, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>timeout</strong> &middot; reward 4.0 &rarr; 2.0</div>
+<div style='margin-top:6px'><span class='pill p-pass'>grasp: pass</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/c511cdefa381_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/c511cdefa381_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>b99f95311ce7 <span style='color:var(--muted)'>#200</span></h3>
+<div><code>{&quot;reset_seed&quot;: 493018052, &quot;cube_x&quot;: 0.192183, &quot;cube_y&quot;: 0.515843, &quot;cube_yaw_deg&quot;: -0.392954, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/b99f95311ce7_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/b99f95311ce7_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>02c0fc80864b <span style='color:var(--muted)'>#201</span></h3>
+<div><code>{&quot;reset_seed&quot;: 1030766217, &quot;cube_x&quot;: 0.152612, &quot;cube_y&quot;: 0.503369, &quot;cube_yaw_deg&quot;: -1.074906, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>timeout</strong> &middot; reward 4.0 &rarr; 2.0</div>
+<div style='margin-top:6px'><span class='pill p-pass'>grasp: pass</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/02c0fc80864b_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/02c0fc80864b_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>c14b249233ce <span style='color:var(--muted)'>#202</span></h3>
+<div><code>{&quot;reset_seed&quot;: 701897158, &quot;cube_x&quot;: 0.082722, &quot;cube_y&quot;: 0.571352, &quot;cube_yaw_deg&quot;: 27.889078, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>timeout</strong> &middot; reward 4.0 &rarr; 2.0</div>
+<div style='margin-top:6px'><span class='pill p-pass'>grasp: pass</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/c14b249233ce_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/c14b249233ce_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>e49bbe72d822 <span style='color:var(--muted)'>#205</span></h3>
+<div><code>{&quot;reset_seed&quot;: 1722025429, &quot;cube_x&quot;: 0.012205, &quot;cube_y&quot;: 0.53304, &quot;cube_yaw_deg&quot;: -6.147872, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/e49bbe72d822_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/e49bbe72d822_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>fb22b1e867d6 <span style='color:var(--muted)'>#206</span></h3>
+<div><code>{&quot;reset_seed&quot;: 299909236, &quot;cube_x&quot;: 0.108481, &quot;cube_y&quot;: 0.579102, &quot;cube_yaw_deg&quot;: -2.031733, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>timeout</strong> &middot; reward 4.0 &rarr; 2.0</div>
+<div style='margin-top:6px'><span class='pill p-pass'>grasp: pass</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/fb22b1e867d6_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/fb22b1e867d6_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>44c71b2389f8 <span style='color:var(--muted)'>#208</span></h3>
+<div><code>{&quot;reset_seed&quot;: 2085146283, &quot;cube_x&quot;: 0.150195, &quot;cube_y&quot;: 0.455341, &quot;cube_yaw_deg&quot;: -8.83343, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/44c71b2389f8_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/44c71b2389f8_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>8cf6c5d4d010 <span style='color:var(--muted)'>#209</span></h3>
+<div><code>{&quot;reset_seed&quot;: 571510407, &quot;cube_x&quot;: 0.076285, &quot;cube_y&quot;: 0.443035, &quot;cube_yaw_deg&quot;: -1.582392, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 1.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/8cf6c5d4d010_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/8cf6c5d4d010_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>c4a1f14bce08 <span style='color:var(--muted)'>#210</span></h3>
+<div><code>{&quot;reset_seed&quot;: 915743486, &quot;cube_x&quot;: 0.071661, &quot;cube_y&quot;: 0.43208, &quot;cube_yaw_deg&quot;: -16.880914, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/c4a1f14bce08_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/c4a1f14bce08_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>b3667cede262 <span style='color:var(--muted)'>#212</span></h3>
+<div><code>{&quot;reset_seed&quot;: 1411099204, &quot;cube_x&quot;: 0.09412, &quot;cube_y&quot;: 0.497293, &quot;cube_yaw_deg&quot;: -25.833406, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/b3667cede262_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/b3667cede262_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>2fe40f6f6a76 <span style='color:var(--muted)'>#215</span></h3>
+<div><code>{&quot;reset_seed&quot;: 1999344461, &quot;cube_x&quot;: 0.139374, &quot;cube_y&quot;: 0.495477, &quot;cube_yaw_deg&quot;: 10.502952, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/2fe40f6f6a76_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/2fe40f6f6a76_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>b4e472efd0b6 <span style='color:var(--muted)'>#216</span></h3>
+<div><code>{&quot;reset_seed&quot;: 1486119655, &quot;cube_x&quot;: 0.01069, &quot;cube_y&quot;: 0.495018, &quot;cube_yaw_deg&quot;: -7.615828, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/b4e472efd0b6_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/b4e472efd0b6_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>595bf15f7eb5 <span style='color:var(--muted)'>#217</span></h3>
+<div><code>{&quot;reset_seed&quot;: 86996089, &quot;cube_x&quot;: 0.059787, &quot;cube_y&quot;: 0.491545, &quot;cube_yaw_deg&quot;: -24.649967, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/595bf15f7eb5_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/595bf15f7eb5_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>ebe98d3d2f97 <span style='color:var(--muted)'>#218</span></h3>
+<div><code>{&quot;reset_seed&quot;: 1748708618, &quot;cube_x&quot;: 0.03371, &quot;cube_y&quot;: 0.519618, &quot;cube_yaw_deg&quot;: -26.033325, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>timeout</strong> &middot; reward 4.0 &rarr; 2.0</div>
+<div style='margin-top:6px'><span class='pill p-pass'>grasp: pass</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/ebe98d3d2f97_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/ebe98d3d2f97_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>3a7cc50d7d3e <span style='color:var(--muted)'>#219</span></h3>
+<div><code>{&quot;reset_seed&quot;: 1571971334, &quot;cube_x&quot;: 0.127336, &quot;cube_y&quot;: 0.466959, &quot;cube_yaw_deg&quot;: -26.812675, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/3a7cc50d7d3e_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/3a7cc50d7d3e_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>46ca2d68dd70 <span style='color:var(--muted)'>#220</span></h3>
+<div><code>{&quot;reset_seed&quot;: 393575409, &quot;cube_x&quot;: 0.003148, &quot;cube_y&quot;: 0.456975, &quot;cube_yaw_deg&quot;: -2.526868, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/46ca2d68dd70_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/46ca2d68dd70_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>af153e187fd1 <span style='color:var(--muted)'>#221</span></h3>
+<div><code>{&quot;reset_seed&quot;: 1319356500, &quot;cube_x&quot;: 0.087129, &quot;cube_y&quot;: 0.528805, &quot;cube_yaw_deg&quot;: -22.820175, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>timeout</strong> &middot; reward 4.0 &rarr; 2.0</div>
+<div style='margin-top:6px'><span class='pill p-pass'>grasp: pass</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/af153e187fd1_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/af153e187fd1_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>b4f6c92cd14a <span style='color:var(--muted)'>#222</span></h3>
+<div><code>{&quot;reset_seed&quot;: 1077333835, &quot;cube_x&quot;: 0.121577, &quot;cube_y&quot;: 0.559185, &quot;cube_yaw_deg&quot;: 8.837258, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/b4f6c92cd14a_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/b4f6c92cd14a_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>2e58ffd0eafe <span style='color:var(--muted)'>#224</span></h3>
+<div><code>{&quot;reset_seed&quot;: 1991575180, &quot;cube_x&quot;: 0.133633, &quot;cube_y&quot;: 0.572632, &quot;cube_yaw_deg&quot;: -9.15612, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>timeout</strong> &middot; reward 4.0 &rarr; 2.0</div>
+<div style='margin-top:6px'><span class='pill p-pass'>grasp: pass</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/2e58ffd0eafe_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/2e58ffd0eafe_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>e57ab02ef35c <span style='color:var(--muted)'>#227</span></h3>
+<div><code>{&quot;reset_seed&quot;: 34341977, &quot;cube_x&quot;: 0.077152, &quot;cube_y&quot;: 0.552558, &quot;cube_yaw_deg&quot;: 11.372836, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>timeout</strong> &middot; reward 4.0 &rarr; 2.0</div>
+<div style='margin-top:6px'><span class='pill p-pass'>grasp: pass</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/e57ab02ef35c_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/e57ab02ef35c_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>bc56ce93e86d <span style='color:var(--muted)'>#228</span></h3>
+<div><code>{&quot;reset_seed&quot;: 196017830, &quot;cube_x&quot;: 0.043633, &quot;cube_y&quot;: 0.503057, &quot;cube_yaw_deg&quot;: -19.157149, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>timeout</strong> &middot; reward 4.0 &rarr; 2.0</div>
+<div style='margin-top:6px'><span class='pill p-pass'>grasp: pass</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/bc56ce93e86d_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/bc56ce93e86d_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>08f1518aa297 <span style='color:var(--muted)'>#229</span></h3>
+<div><code>{&quot;reset_seed&quot;: 1627687382, &quot;cube_x&quot;: 0.050109, &quot;cube_y&quot;: 0.445398, &quot;cube_yaw_deg&quot;: -27.775802, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/08f1518aa297_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/08f1518aa297_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>f38ece680d79 <span style='color:var(--muted)'>#230</span></h3>
+<div><code>{&quot;reset_seed&quot;: 320704861, &quot;cube_x&quot;: 0.125661, &quot;cube_y&quot;: 0.457636, &quot;cube_yaw_deg&quot;: -29.87192, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/f38ece680d79_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/f38ece680d79_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>1c8a7c6a8f47 <span style='color:var(--muted)'>#231</span></h3>
+<div><code>{&quot;reset_seed&quot;: 1101140972, &quot;cube_x&quot;: 0.182928, &quot;cube_y&quot;: 0.519023, &quot;cube_yaw_deg&quot;: -24.439267, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/1c8a7c6a8f47_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/1c8a7c6a8f47_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>7c207f907498 <span style='color:var(--muted)'>#232</span></h3>
+<div><code>{&quot;reset_seed&quot;: 1929953604, &quot;cube_x&quot;: 0.080659, &quot;cube_y&quot;: 0.535597, &quot;cube_yaw_deg&quot;: 2.81654, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>timeout</strong> &middot; reward 4.0 &rarr; 2.0</div>
+<div style='margin-top:6px'><span class='pill p-pass'>grasp: pass</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/7c207f907498_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/7c207f907498_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>7d4058bf590d <span style='color:var(--muted)'>#234</span></h3>
+<div><code>{&quot;reset_seed&quot;: 575371960, &quot;cube_x&quot;: 0.182251, &quot;cube_y&quot;: 0.404376, &quot;cube_yaw_deg&quot;: -10.66383, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/7d4058bf590d_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/7d4058bf590d_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>71587335a99e <span style='color:var(--muted)'>#236</span></h3>
+<div><code>{&quot;reset_seed&quot;: 1062733147, &quot;cube_x&quot;: 0.033155, &quot;cube_y&quot;: 0.44094, &quot;cube_yaw_deg&quot;: -12.623073, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/71587335a99e_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/71587335a99e_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>e1b4c4bf4b33 <span style='color:var(--muted)'>#237</span></h3>
+<div><code>{&quot;reset_seed&quot;: 1806715099, &quot;cube_x&quot;: 0.061354, &quot;cube_y&quot;: 0.581383, &quot;cube_yaw_deg&quot;: 18.627212, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 1.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/e1b4c4bf4b33_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/e1b4c4bf4b33_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>70902cd598b9 <span style='color:var(--muted)'>#238</span></h3>
+<div><code>{&quot;reset_seed&quot;: 1341434674, &quot;cube_x&quot;: 0.131284, &quot;cube_y&quot;: 0.565065, &quot;cube_yaw_deg&quot;: 25.098725, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 1.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/70902cd598b9_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/70902cd598b9_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>11e555adb205 <span style='color:var(--muted)'>#242</span></h3>
+<div><code>{&quot;reset_seed&quot;: 485792374, &quot;cube_x&quot;: 0.02902, &quot;cube_y&quot;: 0.478021, &quot;cube_yaw_deg&quot;: -4.105508, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/11e555adb205_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/11e555adb205_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>f1c6c073acc0 <span style='color:var(--muted)'>#245</span></h3>
+<div><code>{&quot;reset_seed&quot;: 2074602520, &quot;cube_x&quot;: 0.151235, &quot;cube_y&quot;: 0.54376, &quot;cube_yaw_deg&quot;: 25.449507, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/f1c6c073acc0_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/f1c6c073acc0_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>a66985d80134 <span style='color:var(--muted)'>#246</span></h3>
+<div><code>{&quot;reset_seed&quot;: 302913355, &quot;cube_x&quot;: 0.144389, &quot;cube_y&quot;: 0.436889, &quot;cube_yaw_deg&quot;: 28.061316, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/a66985d80134_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/a66985d80134_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>a100a6f35c06 <span style='color:var(--muted)'>#248</span></h3>
+<div><code>{&quot;reset_seed&quot;: 1635307037, &quot;cube_x&quot;: 0.160129, &quot;cube_y&quot;: 0.465635, &quot;cube_yaw_deg&quot;: -12.379076, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/a100a6f35c06_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/a100a6f35c06_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>28b6efbe80f7 <span style='color:var(--muted)'>#249</span></h3>
+<div><code>{&quot;reset_seed&quot;: 555907480, &quot;cube_x&quot;: 0.088185, &quot;cube_y&quot;: 0.478244, &quot;cube_yaw_deg&quot;: -13.654249, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/28b6efbe80f7_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/28b6efbe80f7_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>2a4f22fa4641 <span style='color:var(--muted)'>#250</span></h3>
+<div><code>{&quot;reset_seed&quot;: 585528511, &quot;cube_x&quot;: 0.129494, &quot;cube_y&quot;: 0.553303, &quot;cube_yaw_deg&quot;: 28.650618, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/2a4f22fa4641_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/2a4f22fa4641_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>58d0537eada7 <span style='color:var(--muted)'>#251</span></h3>
+<div><code>{&quot;reset_seed&quot;: 518994643, &quot;cube_x&quot;: 0.161839, &quot;cube_y&quot;: 0.480362, &quot;cube_yaw_deg&quot;: 11.543534, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>timeout</strong> &middot; reward 4.0 &rarr; 2.0</div>
+<div style='margin-top:6px'><span class='pill p-pass'>grasp: pass</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/58d0537eada7_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/58d0537eada7_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>70d832792dc3 <span style='color:var(--muted)'>#252</span></h3>
+<div><code>{&quot;reset_seed&quot;: 450152621, &quot;cube_x&quot;: 0.089477, &quot;cube_y&quot;: 0.406777, &quot;cube_yaw_deg&quot;: 6.859148, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>grasp</strong> &middot; reward 4.0 &rarr; 0.0</div>
+<div style='margin-top:6px'><span class='pill p-fail'>grasp: fail</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/70d832792dc3_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/70d832792dc3_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>eada3e7f68f2 <span style='color:var(--muted)'>#253</span></h3>
+<div><code>{&quot;reset_seed&quot;: 1907219570, &quot;cube_x&quot;: 0.02434, &quot;cube_y&quot;: 0.580998, &quot;cube_yaw_deg&quot;: 9.104341, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>timeout</strong> &middot; reward 4.0 &rarr; 2.0</div>
+<div style='margin-top:6px'><span class='pill p-pass'>grasp: pass</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/eada3e7f68f2_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/eada3e7f68f2_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>78235b4616af <span style='color:var(--muted)'>#254</span></h3>
+<div><code>{&quot;reset_seed&quot;: 469485974, &quot;cube_x&quot;: 0.175006, &quot;cube_y&quot;: 0.528969, &quot;cube_yaw_deg&quot;: 5.088318, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>timeout</strong> &middot; reward 4.0 &rarr; 2.0</div>
+<div style='margin-top:6px'><span class='pill p-pass'>grasp: pass</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/78235b4616af_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/78235b4616af_act_v19_bias005.mp4'></video></figure>
+</div></div>
+<div class='card'>
+<h3>ce457f5f93eb <span style='color:var(--muted)'>#255</span></h3>
+<div><code>{&quot;reset_seed&quot;: 485050903, &quot;cube_x&quot;: 0.148582, &quot;cube_y&quot;: 0.546024, &quot;cube_yaw_deg&quot;: -20.604503, &quot;_factors_version&quot;: &quot;0.1&quot;}</code></div>
+<div style='margin-top:6px'>B failure: <strong>timeout</strong> &middot; reward 4.0 &rarr; 2.0</div>
+<div style='margin-top:6px'><span class='pill p-pass'>grasp: pass</span> <span class='pill p-fail'>transfer: fail</span> <span class='pill p-fail'>time_budget: fail</span> <span class='pill p-na'>collision: unavailable</span> <span class='pill p-na'>placement_error: unavailable</span></div>
+<div class='vids'>
+<figure><figcaption>act_v18 (passed)</figcaption><video controls preload='none' src='videos/act_v18/ce457f5f93eb_act_v18.mp4'></video></figure>
+<figure><figcaption>act_v19_bias005 (failed)</figcaption><video controls preload='none' src='videos/act_v19_bias005/ce457f5f93eb_act_v19_bias005.mp4'></video></figure>
+</div></div>
+</div>
+<footer>
+Run manifests <code>7353b63d580f4a32</code> and <code>30a7d1180e0519f4</code>. Pins <code>59cdd82cfd86dc3a</code>. Simulator: 3.8.1 MuJoCo, NVIDIA A10.<br>A number without an interval is not a result.
+</footer></div></body></html>

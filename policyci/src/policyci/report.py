@@ -38,6 +38,11 @@ def render_diff(d: Diff, a: dict, b: dict, out_path: str | Path) -> Path:
     lines.append("")
     lines.append("## Run-to-run variation")
     lines.append("")
+    if getattr(d, "is_self_comparison", False):
+        lines.append("**These two runs execute the same policy.** This is a noise-floor "
+                     "measurement, not a regression test: any difference below is "
+                     "run-to-run variation by construction.")
+        lines.append("")
     if d.floor is None:
         lines.append("**Not measured.** Run the same policy twice over this battery before "
                      "reading anything into the scenario counts below. Without it, a broken "
@@ -64,6 +69,11 @@ def render_diff(d: Diff, a: dict, b: dict, out_path: str | Path) -> Path:
     lines.append("")
 
     lines.append("## Where the failures concentrate")
+    lines.append("")
+    lines.append("_A scenario can only be newly broken if the baseline passed it, so these "
+                 "regions are conditioned on baseline success. A region where the baseline "
+                 "already fails cannot appear here, however weak the candidate is there. To "
+                 "find the baseline's own weak regions, cluster its failures directly._")
     lines.append("")
     if not d.hotspots:
         lines.append("_No region of the scene space concentrates these failures beyond "

@@ -25,16 +25,18 @@ class AlohaTransferCubeBackend:
     max_steps = 400
     control_hz = 50.0
 
-    def __init__(self, render: bool = False, max_steps: int = 400):
+    def __init__(self, render: bool = False, max_steps: int = 400, video_stride: int = 2):
         import gymnasium as gym
         import gym_aloha  # noqa: F401  (registers envs)
         self.max_steps = max_steps
         self._env = gym.make(ENV_ID, obs_type="pixels_agent_pos", max_episode_steps=max_steps)
         self._render = render
+        self._video_stride = max(1, video_stride)
         self._max_reward = 0.0
         self._steps = 0
         self._t_grasp: int | None = None
         self._t_lift: int | None = None
+        self._last_frame = None
 
     def pins(self) -> dict:
         return environment_pins({"env_id": ENV_ID, "obs_type": "pixels_agent_pos",
@@ -52,6 +54,11 @@ class AlohaTransferCubeBackend:
     def step(self, action: Any) -> StepResult:
         obs, reward, terminated, truncated, info = self._env.step(np.asarray(action))
         self._steps += 1
+        if self._render and self._steps % self._video_stride == 0:
+            # the observation already carries the top camera image: no second render pass
+            self._last_frame = obs["pixels"]["top"]
+        else:
+            self._last_frame = None
         r = float(reward)
         if r >= 1 and self._t_grasp is None:
             self._t_grasp = self._steps
@@ -73,12 +80,8 @@ class AlohaTransferCubeBackend:
         }
 
     def render_frame(self):
-        if not self._render:
-            return None
-        try:
-            return self._env.render()
-        except Exception:
-            return None
+        """The frame captured by the last step, or None. Free: it reuses the observation."""
+        return self._last_frame
 
     def close(self) -> None:
         self._env.close()

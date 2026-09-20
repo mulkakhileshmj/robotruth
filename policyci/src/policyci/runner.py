@@ -91,7 +91,7 @@ def run_battery(policy: Policy, backend: SimBackend, battery: Battery, out_dir: 
                 try:
                     import imageio.v2 as imageio
                     videos.mkdir(exist_ok=True)
-                    imageio.mimsave(videos / f"{scen.short}_{policy.contract.name}.mp4", frames, fps=25)
+                    imageio.mimsave(videos / f"{scen.short}_{policy.contract.name}.mp4", frames, fps=12)
                 except Exception as e:  # video is evidence, not a dependency
                     print(f"[policyci] video save failed for {scen.short}: {e}")
             if progress_every and (i + 1) % progress_every == 0:

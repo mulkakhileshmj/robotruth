@@ -38,12 +38,28 @@ PY=.venv/bin/python
 CLI=.venv/bin/policyci
 
 echo "=== policyci tests on $(hostname) ==="
-$PY -m pytest policyci/tests -q 2>&1 | tail -5
+if ! $PY -m pytest policyci/tests -q 2>&1 | tail -5; then
+  echo "ABORT: tests failed, not spending GPU time on a broken tree"; exit 1
+fi
 
 OUT="$WORK/out"
 mkdir -p "$OUT/logs"
 echo "=== battery ==="
 $CLI battery --n "$N" --base-seed 0 -o "$OUT/battery_b1.jsonl"
+
+# Smoke test: one real episode end to end before committing the box to a long sweep.
+# Unit tests cannot catch a runtime failure in the simulator, policy or record path;
+# this does, in about a minute, instead of after every worker has burned an hour.
+echo "=== smoke test: 2 scenarios, full path ==="
+$CLI battery --n 2 --base-seed 999 -o "$OUT/battery_smoke.jsonl" >/dev/null
+if ! $CLI run --battery "$OUT/battery_smoke.jsonl" --policy-name smoke \
+      --out "$OUT/smoke" --policy-seed 0 --render --progress-every 1 2>&1 | tail -4; then
+  echo "ABORT: smoke test failed, see above"; exit 1
+fi
+if [ ! -s "$OUT/smoke/episodes.jsonl" ]; then
+  echo "ABORT: smoke test wrote no episode records"; exit 1
+fi
+echo "smoke ok: $(wc -l < "$OUT/smoke/episodes.jsonl") episode records written"
 
 echo "=== warm the checkpoint cache once, before the parallel readers start ==="
 $PY -c "from huggingface_hub import snapshot_download as d; d('lerobot/act_aloha_sim_transfer_cube_human')" >/dev/null 2>&1

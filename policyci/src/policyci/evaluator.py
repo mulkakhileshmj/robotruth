@@ -13,10 +13,11 @@ unavailable rather than silently passed: an absent gate is not a passed gate.
 
 from __future__ import annotations
 
-from robotruth.schema import FailureClass, FailureInfo, Outcome
+from robotruth.schema import FailureClass, FailureInfo, JudgeSource, Outcome
 
 EVALUATOR_VERSION = "0.1.0"
-JUDGED_BY = "environment"
+# simulator ground truth is a scripted success check, which is what AUTOMATIC means here
+JUDGED_BY = JudgeSource.AUTOMATIC
 
 
 def evaluate(gt: dict, control_hz: float) -> tuple[Outcome, FailureInfo | None, dict]:

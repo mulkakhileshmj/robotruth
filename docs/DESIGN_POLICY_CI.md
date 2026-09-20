@@ -180,6 +180,33 @@ Sim results and physical validation are separate stages by design. CI works befo
 
 First physical experiment, when hardware exists: 20 to 50 real trials, stratified across sim-predicted easy / borderline / hard scenarios (not only hard ones), scored for rank correlation between sim difficulty and real failure. That is the first calibration datum. The judge and guard modules run on the physical side. No hardware is needed to build and prove everything above; the GPU box covers all of v1.
 
+## Measured: what actually sets the wall clock (2026-09-20, Lambda A10)
+
+The plan assumed the GPU would be the constraint. It is not. Numbers from the box:
+
+| what | measured |
+|---|---|
+| ALOHA sim, one worker, 400-step episode | 24.5 s |
+| simulator step rate, single-threaded | 12 steps/s |
+| aggregate throughput, 30 workers on 30 vCPUs | 11 episodes/min |
+| implied parallel speedup from 30x workers | about 4x |
+
+The reason is rendering. This image cannot create an NVIDIA EGL context, so MuJoCo falls
+back to Mesa's software rasteriser: rendering is CPU and memory-bandwidth bound, and 30
+workers contend for it. Policy inference does run on the GPU, and it is not the bottleneck
+(ACT emits 100-step action chunks, so the model runs about four times per episode).
+
+Consequences for the design, not just for one run:
+
+- The cost model for a battery is CPU-hours, not GPU-hours. A cheap many-core box beats an
+  expensive GPU box for this workload, and the simulator backend choice should be judged on
+  headless render throughput before anything else.
+- Getting hardware offscreen rendering working is worth more than any other optimisation
+  available here, plausibly 5x or more. It belongs in the base image, not the run bundle.
+- Battery size is a real cost decision. 200 scenarios gives roughly a five point interval on
+  a success rate near 90 percent; 100 gives about seven. That trade should be stated
+  whenever a battery size is chosen, because the interval is the product.
+
 ## Build order
 
 1. Simulator interface + MuJoCo backend + one pick-and-place scene with a public baseline policy (proves the runner end to end)

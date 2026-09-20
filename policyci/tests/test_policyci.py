@@ -203,3 +203,75 @@ def test_passport_blocks_a_worse_candidate_and_withholds_approval_without_a_floo
     no_floor = build_passport(a, b, diff_runs(a, b))
     assert no_floor["decision"]["recommendation"] == "insufficient_evidence"
     assert no_floor["results"]["noise_floor_measured"] is False
+
+
+# --- shard merge: sharding must never change a result, and a partial run must never
+# --- be presentable as a complete one.
+
+def _shard_manifest(name, battery, outcomes_by_hash, shard, num_shards, **kw):
+    mine = {s.hash: outcomes_by_hash[s.hash] for s in battery.scenarios
+            if s.index % num_shards == shard}
+    results = {h: {"index": next(s.index for s in battery.scenarios if s.hash == h),
+                   "success": bool(v), "gates": {}, "max_reward": 4 if v else 1,
+                   "steps": 400, "failure": None if v else "grasp"}
+               for h, v in mine.items()}
+    pins = kw.get("pins", {"mujoco": "3.1"})
+    m = {"kind": "policyci.run", "runner_version": "0.1.0", "run_id": name, "task": "t",
+         "backend_id": kw.get("backend_id", "backend"), "battery_name": battery.name,
+         "battery_hash": kw.get("battery_hash", battery.battery_hash),
+         "n_scenarios": len(battery), "shard": shard, "num_shards": num_shards,
+         "policy": {"name": name, "hash": kw.get("policy_hash", "ph_" + name)},
+         "policy_seed": kw.get("policy_seed", 0),
+         "evaluator_version": kw.get("evaluator", "0.1.0"),
+         "pins": pins, "pins_hash": content_hash(pins),
+         "wall_clock_s": 10.0, "results": results}
+    m["manifest_hash"] = content_hash({k: v for k, v in m.items() if k != "manifest_hash"})
+    return m
+
+
+def _write(m, path):
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(m), encoding="utf-8")
+    return path
+
+
+def test_merge_reconstructs_the_whole_battery(tmp_path):
+    from policyci.runner import merge_shards
+    bat = sample_seed_battery("b", "t", "backend", n=40, base_seed=1)
+    rng = np.random.default_rng(3)
+    truth = {s.hash: int(rng.random() < 0.85) for s in bat.scenarios}
+    paths = [_write(_shard_manifest("v18", bat, truth, k, 4),
+                    tmp_path / f"shard{k}" / "run_manifest.json") for k in range(4)]
+    out = merge_shards(paths, bat, tmp_path / "merged")
+    merged = json.loads(out.read_text(encoding="utf-8"))
+    assert merged["n_scenarios"] == 40
+    assert merged["num_shards"] == 1
+    # every scenario present, and every outcome identical to the unsharded truth
+    for s in bat.scenarios:
+        assert merged["results"][s.hash]["success"] == bool(truth[s.hash])
+
+
+def test_merge_refuses_incomplete_or_inconsistent_shards(tmp_path):
+    from policyci.runner import merge_shards
+    bat = sample_seed_battery("b", "t", "backend", n=40, base_seed=1)
+    truth = {s.hash: 1 for s in bat.scenarios}
+
+    # a missing shard must not yield a manifest
+    partial = [_write(_shard_manifest("v18", bat, truth, k, 4),
+                      tmp_path / f"p{k}" / "run_manifest.json") for k in range(3)]
+    with pytest.raises(ValueError, match="incomplete merge"):
+        merge_shards(partial, bat, tmp_path / "m1")
+
+    # shards run under different simulator pins must not be combined
+    mixed = [_write(_shard_manifest("v18", bat, truth, k, 4), tmp_path / f"x{k}" / "run_manifest.json")
+             for k in range(3)]
+    mixed.append(_write(_shard_manifest("v18", bat, truth, 3, 4, pins={"mujoco": "9.9"}),
+                        tmp_path / "x3" / "run_manifest.json"))
+    with pytest.raises(ValueError, match="pins_hash"):
+        merge_shards(mixed, bat, tmp_path / "m2")
+
+    # the same scenario appearing twice is a double count, not a merge
+    dup = [_write(_shard_manifest("v18", bat, truth, 0, 4), tmp_path / f"d{k}" / "run_manifest.json")
+           for k in range(2)]
+    with pytest.raises(ValueError, match="more than one shard"):
+        merge_shards(dup, bat, tmp_path / "m3")

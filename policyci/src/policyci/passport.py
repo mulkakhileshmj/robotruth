@@ -84,11 +84,20 @@ def build_passport(a: dict, b: dict, d: Diff, battery_path: str | Path | None = 
             "fixed": len(d.fixed),
             "noise_floor_measured": d.noise_flips is not None,
             "noise_floor": d.noise_flips,
+            "cell_determinism": d.determinism,
+            "run_to_run_variation": d.floor.to_dict() if d.floor is not None else None,
+            "failure_regions": [h.to_dict() for h in getattr(d, "hotspots", [])],
             "regressions_beyond_noise": d.significant_regressions,
             "failure_pareto": dict(sorted(failures.items(), key=lambda kv: -kv[1])),
         },
 
         "known_limits": [
+            ("This cell is deterministic: two runs of the same policy agreed everywhere, so "
+             "the noise floor is exactly zero and every scenario difference is real."
+             if d.floor is not None and d.floor.is_deterministic else
+             "Run-to-run variation was measured and is reported with an interval."
+             if d.floor is not None else
+             "Run-to-run variation was NOT measured, so no scenario count here is evidence."),
             "Collision and placement-error gates are not observable in this environment and are "
             "recorded as unavailable, never as passed.",
             "Physics is not bit-reproducible across simulator versions or drivers; a comparison "

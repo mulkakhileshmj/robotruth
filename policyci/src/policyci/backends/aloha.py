@@ -38,13 +38,46 @@ class AlohaTransferCubeBackend:
         self._t_lift: int | None = None
         self._last_frame = None
 
+    @staticmethod
+    def _pose_from(params: dict):
+        """The 7-vector [x, y, z, qw, qx, qy, qz], or None for a seed-only scenario."""
+        if "cube_x" not in params and "cube_y" not in params and "cube_yaw_deg" not in params:
+            return None
+        import numpy as np
+        from policyci.factors import yaw_to_quat
+        x = float(params.get("cube_x", 0.1))
+        y = float(params.get("cube_y", 0.5))
+        z = float(params.get("cube_z", 0.05))
+        quat = yaw_to_quat(float(params.get("cube_yaw_deg", 0.0)))
+        return np.concatenate([[x, y, z], quat])
+
     def pins(self) -> dict:
         return environment_pins({"env_id": ENV_ID, "obs_type": "pixels_agent_pos",
                                  "max_steps": self.max_steps})
 
     def reset(self, scenario: Scenario) -> Any:
+        """Reconstruct the scenario's scene.
+
+        A seed-only scenario just reseeds gym-aloha's own sampler. A factor scenario names
+        the cube pose explicitly, which is the whole point: a failure can then be described
+        as a region rather than a list of hashes. gym-aloha sets the module-level box pose
+        from `sample_box_pose` immediately before the dm-control reset, so overriding that
+        function for the duration of the call is the least invasive way to place the cube.
+        Note that gym-aloha never rotates the cube itself, so a yaw factor is genuinely
+        out of distribution rather than an injected fault.
+        """
         seed = int(scenario.params["reset_seed"])
-        obs, _info = self._env.reset(seed=seed)
+        pose = self._pose_from(scenario.params)
+        if pose is None:
+            obs, _info = self._env.reset(seed=seed)
+        else:
+            import gym_aloha.env as ge
+            original = ge.sample_box_pose
+            ge.sample_box_pose = lambda *a, **k: pose
+            try:
+                obs, _info = self._env.reset(seed=seed)
+            finally:
+                ge.sample_box_pose = original
         self._max_reward = 0.0
         self._steps = 0
         self._t_grasp = None

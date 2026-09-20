@@ -21,9 +21,18 @@ from pathlib import Path
 
 def _cmd_battery(args) -> int:
     from policyci.scenario import sample_seed_battery
-    bat = sample_seed_battery(name=args.name, task="aloha_transfer_cube",
-                              backend_id="gym_aloha.transfer_cube.v0",
-                              n=args.n, base_seed=args.base_seed)
+    if args.factors:
+        from policyci.factors import SPACES, sample_factor_battery
+        space = SPACES[args.task]
+        bat = sample_factor_battery(name=args.name, space=space,
+                                    backend_id="gym_aloha.transfer_cube.v0",
+                                    n=args.n, base_seed=args.base_seed)
+        print("factors: " + ", ".join(f"{f.name} in [{f.low}, {f.high}] {f.unit}"
+                                      for f in space.factors))
+    else:
+        bat = sample_seed_battery(name=args.name, task=args.task,
+                                  backend_id="gym_aloha.transfer_cube.v0",
+                                  n=args.n, base_seed=args.base_seed)
     path = bat.save(args.out)
     print(f"battery {bat.battery_hash[:16]} with {len(bat)} scenarios -> {path}")
     return 0
@@ -41,6 +50,8 @@ def _cmd_run(args) -> int:
         variant["state_bias"] = args.state_bias
     if args.drop_norm:
         variant["drop_norm"] = True
+    if args.action_noise:
+        variant["action_noise"] = args.action_noise
     backend = AlohaTransferCubeBackend(render=args.render, max_steps=args.max_steps)
     try:
         policy = ACTAlohaPolicy(name=args.policy_name, device=args.device, variant=variant)
@@ -74,9 +85,14 @@ def _cmd_diff(args) -> int:
     noise_ref = None
     if args.noise:
         noise_ref = (load_manifest(args.noise[0]), load_manifest(args.noise[1]))
+    scenario_params = None
+    if args.battery:
+        from policyci.scenario import Battery
+        scenario_params = {s.hash: s.params for s in Battery.load(args.battery).scenarios}
     try:
         d = diff_runs(a, b, noise_ref=noise_ref, alpha=args.alpha,
-                      allow_pin_mismatch=args.allow_pin_mismatch)
+                      allow_pin_mismatch=args.allow_pin_mismatch,
+                      scenario_params=scenario_params)
     except ComparabilityError as e:
         print(f"REFUSED: {e}", file=sys.stderr)
         return 2
@@ -89,7 +105,13 @@ def _cmd_diff(args) -> int:
     print(f"{d.b_name} vs {d.a_name}: {VERDICT_TEXT.get(d.sequential.decision)}")
     print(f"  A {d.a_rate}")
     print(f"  B {d.b_rate}")
+    if d.floor is not None:
+        print(f"  {d.floor.statement}")
     nb = len(d.newly_broken)
+    if d.hotspots:
+        print("  regions where failure concentrates:")
+        for h in d.hotspots:
+            print(f"    {h}")
     if d.noise_flips is not None:
         print(f"  newly broken {nb} (noise floor {d.noise_flips}, beyond noise {d.significant_regressions}), fixed {len(d.fixed)}")
     else:
@@ -108,6 +130,10 @@ def main(argv: list[str] | None = None) -> int:
     pb.add_argument("--name", default="aloha_transfer_cube_b1")
     pb.add_argument("--n", type=int, default=200)
     pb.add_argument("--base-seed", type=int, default=0)
+    pb.add_argument("--task", default="aloha_transfer_cube")
+    pb.add_argument("--factors", action="store_true",
+                    help="named scene factors (cube x, y, yaw) instead of a bare seed, "
+                         "so failures can be described as a region")
     pb.add_argument("-o", "--out", default="battery.jsonl")
     pb.set_defaults(fn=_cmd_battery)
 
@@ -119,6 +145,9 @@ def main(argv: list[str] | None = None) -> int:
     pr.add_argument("--policy-seed", type=int, default=0)
     pr.add_argument("--state-bias", type=float, default=0.0)
     pr.add_argument("--drop-norm", action="store_true")
+    pr.add_argument("--action-noise", type=float, default=0.0,
+                    help="Gaussian sigma on the action, a stochastic source so the noise "
+                         "floor has something to measure")
     pr.add_argument("--device", default="cuda")
     pr.add_argument("--max-steps", type=int, default=400)
     pr.add_argument("--render", action="store_true", help="save replay videos for failures")

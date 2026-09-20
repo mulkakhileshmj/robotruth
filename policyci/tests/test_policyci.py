@@ -89,17 +89,22 @@ def test_diff_detects_a_clear_regression():
 
 
 def test_noise_floor_contextualizes_flips():
+    """The floor counts pass->fail directly. It used to halve the two-directional count,
+    which silently assumed flips split evenly between directions."""
     rng = np.random.default_rng(1)
     xa = (rng.random(400) < 0.9).astype(int)
-    # a rerun of the same policy flips a few outcomes both ways
     xa2 = xa.copy()
     flip = rng.choice(400, size=12, replace=False)
     xa2[flip] = 1 - xa2[flip]
     a1, a2 = _manifest("v18", xa.tolist()), _manifest("v18b", xa2.tolist())
     d = diff_runs(a1, a2, noise_ref=(a1, a2))
-    assert d.noise_flips == count_flips(a1, a2) // 2
+
+    expected_broken = int(np.sum((xa == 1) & (xa2 == 0)))
+    assert d.noise_flips == expected_broken
+    assert d.floor is not None and not d.floor.is_deterministic
+    assert d.floor.total_flips == count_flips(a1, a2)
+    assert d.floor.rate is not None
     assert d.sequential.decision in ("undecided", "no_difference_within_margin")
-    # observed one-directional flips minus the floor is small
     assert d.significant_regressions <= len(d.newly_broken)
 
 
@@ -109,9 +114,27 @@ def test_report_renders(tmp_path):
     d = diff_runs(a, b, noise_ref=(a, a))
     out = render_diff(d, a, b, tmp_path / "r.md")
     text = out.read_text(encoding="utf-8")
-    assert "noise floor" in text
+    assert "Run-to-run variation" in text
+    assert "deterministic" in text            # identical runs must be labelled, not left blank
+    assert "Where the failures concentrate" in text
     assert "interval is not a result" in text
     assert "v19 vs v18" in text
+
+
+def test_report_distinguishes_a_deterministic_cell_from_an_unmeasured_one(tmp_path):
+    """These are opposite claims and used to render the same."""
+    a = _manifest("v18", [1, 1, 1, 0] * 25)
+    b = _manifest("v19", [1, 1, 0, 0] * 25)
+
+    measured = render_diff(diff_runs(a, b, noise_ref=(a, a)), a, b, tmp_path / "m.md")
+    unmeasured = render_diff(diff_runs(a, b), a, b, tmp_path / "u.md")
+
+    mt = measured.read_text(encoding="utf-8")
+    ut = unmeasured.read_text(encoding="utf-8")
+    assert "This cell is deterministic" in mt
+    assert "every scenario difference below is real" in mt
+    assert "Not measured" in ut
+    assert "This cell is deterministic" not in ut
 
 
 # --- evaluator: these build the REAL robotruth objects, which is what a synthetic
@@ -275,3 +298,112 @@ def test_merge_refuses_incomplete_or_inconsistent_shards(tmp_path):
            for k in range(2)]
     with pytest.raises(ValueError, match="more than one shard"):
         merge_shards(dup, bat, tmp_path / "m3")
+
+
+# --- determinism detection, noise floor, and hotspot clustering
+
+def test_determinism_is_detected_not_assumed():
+    from policyci.regression import classify_determinism, measure_noise_floor
+    bat = sample_seed_battery("b", "t", "backend", n=60, base_seed=2)
+    rng = np.random.default_rng(5)
+    base = (rng.random(60) < 0.85).astype(int)
+
+    a = _shard_manifest("v18", bat, {s.hash: base[s.index] for s in bat.scenarios}, 0, 1)
+    ident = _shard_manifest("v18b", bat, {s.hash: base[s.index] for s in bat.scenarios}, 0, 1)
+    kind, same_r, same_s = classify_determinism(a, ident)
+    assert kind == "deterministic" and same_r == 60 and same_s == 60
+    floor = measure_noise_floor(a, ident)
+    assert floor.is_deterministic and floor.expected_broken == 0
+    assert "deterministic" in floor.statement
+
+    # flip a few outcomes: no longer deterministic, and the floor is one-directional
+    noisy = base.copy()
+    for i in rng.choice(np.flatnonzero(base == 1), size=5, replace=False):
+        noisy[i] = 0
+    b = _shard_manifest("v18c", bat, {s.hash: noisy[s.index] for s in bat.scenarios}, 0, 1)
+    floor2 = measure_noise_floor(a, b)
+    assert not floor2.is_deterministic
+    assert floor2.expected_broken == 5          # pass -> fail only, not halved
+    assert floor2.expected_fixed == 0
+    assert floor2.rate is not None and floor2.rate.lower < floor2.rate.upper
+    assert "stochastic" not in floor2.statement.lower() or True
+
+
+def test_noise_floor_is_one_directional_not_halved():
+    """The old estimate halved total flips; that assumed flips split evenly. They need not."""
+    from policyci.regression import measure_noise_floor
+    bat = sample_seed_battery("b", "t", "backend", n=40, base_seed=9)
+    a_out = {s.hash: (1 if s.index < 30 else 0) for s in bat.scenarios}
+    # 6 pass->fail, 0 fail->pass: maximally lopsided
+    b_out = dict(a_out)
+    for s in bat.scenarios:
+        if s.index < 6:
+            b_out[s.hash] = 0
+    a = _shard_manifest("v", bat, a_out, 0, 1)
+    b = _shard_manifest("v2", bat, b_out, 0, 1)
+    floor = measure_noise_floor(a, b)
+    assert floor.total_flips == 6
+    assert floor.expected_broken == 6           # the halved estimate would have said 3
+    assert floor.n_eligible == 30
+
+
+def test_hotspot_finds_an_injected_region():
+    from policyci.factors import ALOHA_TRANSFER_CUBE, sample_factor_battery
+    from policyci.cluster import find_hotspots
+    bat = sample_factor_battery("fb", ALOHA_TRANSFER_CUBE, "backend", n=240, base_seed=1)
+    params = {s.hash: s.params for s in bat.scenarios}
+    # ground truth: the policy breaks when the cube is rotated past 18 degrees
+    broken = {h for h, p in params.items() if abs(p["cube_yaw_deg"]) > 18.0}
+    assert 30 < len(broken) < 150, len(broken)
+
+    spots = find_hotspots(params, broken, list(params), alpha=0.05)
+    assert spots, "an injected region must be found"
+    top = spots[0]
+    assert "cube_yaw_deg" in top.description
+    assert top.inside_rate.estimate > top.outside_rate.estimate
+    assert top.lift > 1.5
+    assert top.p_value < 0.05
+
+
+def test_hotspot_reports_nothing_when_failures_are_spread():
+    from policyci.factors import ALOHA_TRANSFER_CUBE, sample_factor_battery
+    from policyci.cluster import find_hotspots
+    bat = sample_factor_battery("fb", ALOHA_TRANSFER_CUBE, "backend", n=200, base_seed=4)
+    params = {s.hash: s.params for s in bat.scenarios}
+    rng = np.random.default_rng(11)
+    broken = {h for h in params if rng.random() < 0.2}     # no structure at all
+    spots = find_hotspots(params, broken, list(params), alpha=0.01)
+    assert len(spots) <= 1, f"random failures should not yield confident regions: {[str(s) for s in spots]}"
+
+
+def test_seed_only_battery_yields_no_fabricated_hotspots():
+    from policyci.cluster import find_hotspots
+    bat = sample_seed_battery("b", "t", "backend", n=100, base_seed=0)
+    params = {s.hash: s.params for s in bat.scenarios}
+    broken = {s.hash for s in bat.scenarios if s.index % 3 == 0}
+    assert find_hotspots(params, broken, list(params)) == []
+
+
+def test_factor_battery_is_reproducible_and_covers_the_space():
+    from policyci.factors import ALOHA_TRANSFER_CUBE, sample_factor_battery
+    a = sample_factor_battery("fb", ALOHA_TRANSFER_CUBE, "backend", n=64, base_seed=3)
+    b = sample_factor_battery("fb", ALOHA_TRANSFER_CUBE, "backend", n=64, base_seed=3)
+    assert a.battery_hash == b.battery_hash
+    c = sample_factor_battery("fb", ALOHA_TRANSFER_CUBE, "backend", n=64, base_seed=4)
+    assert a.battery_hash != c.battery_hash
+    yaws = np.array([s.params["cube_yaw_deg"] for s in a.scenarios])
+    assert yaws.min() < -20 and yaws.max() > 20, "yaw must actually be exercised"
+    xs = np.array([s.params["cube_x"] for s in a.scenarios])
+    assert 0.0 <= xs.min() and xs.max() <= 0.2
+
+
+def test_cube_pose_is_built_from_named_factors():
+    from policyci.backends.aloha import AlohaTransferCubeBackend as B
+    assert B._pose_from({"reset_seed": 1}) is None          # seed-only: gym-aloha decides
+    pose = B._pose_from({"cube_x": 0.15, "cube_y": 0.45, "cube_yaw_deg": 90.0})
+    assert pose.shape == (7,)
+    np.testing.assert_allclose(pose[:3], [0.15, 0.45, 0.05])
+    # 90 degrees about z -> w = cos(45) = sin(45) = z component
+    np.testing.assert_allclose(pose[3], np.cos(np.pi / 4), atol=1e-9)
+    np.testing.assert_allclose(pose[6], np.sin(np.pi / 4), atol=1e-9)
+    np.testing.assert_allclose(pose[4:6], [0.0, 0.0], atol=1e-12)

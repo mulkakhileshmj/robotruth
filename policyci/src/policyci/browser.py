@@ -126,12 +126,37 @@ def render_browser(d: Diff, a: dict, b: dict, battery_path: str | Path | None,
     else:
         p.append("<tr><td>Noise floor</td><td><strong>not measured</strong></td>"
                  "<td>run the same policy twice before trusting any count here</td></tr>")
+    if getattr(d, "floor", None) is not None:
+        label = "deterministic cell" if d.floor.is_deterministic else "stochastic cell"
+        p.append(f"<tr><td>Cell</td><td><strong>{_e(label)}</strong></td>"
+                 f"<td>{_e(d.floor.statement)}</td></tr>")
     p.append(f"<tr><td>Fixed</td><td><strong>{len(d.fixed)}</strong></td>"
              "<td>failed under A, passed under B</td></tr></table>")
 
     p.append("<div class='note'>A flip count on its own is not a regression. The verdict above "
              "comes from a paired, anytime-valid test over matched scenarios, and the floor is "
              "measured by running one policy against itself on these same scenes.</div>")
+
+    p.append("<h2>Where the failures concentrate</h2>")
+    if not getattr(d, "hotspots", None):
+        p.append("<p class='none'>No region of the scene space concentrates these failures "
+                 "beyond chance, or this battery carries no named factors. A seed-only "
+                 "battery can list broken scenarios but cannot describe them as a region.</p>")
+    else:
+        p.append("<table><tr><th>region</th><th>inside</th><th>elsewhere</th>"
+                 "<th>lift</th><th>p</th></tr>")
+        for h in d.hotspots:
+            p.append(
+                f"<tr><td><code>{_e(h.description)}</code></td>"
+                f"<td><strong>{h.n_broken_inside}/{h.n_inside}</strong> "
+                f"{100 * h.inside_rate.estimate:.1f}% "
+                f"<span style='color:var(--muted)'>[{100 * h.inside_rate.lower:.0f}, "
+                f"{100 * h.inside_rate.upper:.0f}]</span></td>"
+                f"<td>{h.n_broken_outside}/{h.n_outside} "
+                f"{100 * h.outside_rate.estimate:.1f}%</td>"
+                f"<td><strong>{h.lift:.1f}x</strong></td>"
+                f"<td>{h.p_value:.1e}</td></tr>")
+        p.append("</table>")
 
     p.append(f"<h2>Newly broken scenarios ({len(d.newly_broken)})</h2>")
     if not d.newly_broken:

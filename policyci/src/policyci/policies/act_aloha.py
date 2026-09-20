@@ -70,6 +70,13 @@ class ACTAlohaPolicy:
                 "act_std": sd["unnormalize_outputs.buffer_action.std"].to(device),
             }
         self._state_bias = float(variant.get("state_bias", 0.0))
+        # A stochastic source, so the noise floor has something to measure. ACT emits an
+        # action chunk rather than sampling, and MuJoCo from a fixed seed is deterministic,
+        # so without this the cell is bit-identical run to run and the floor is trivially
+        # zero. This is NOT a degradation knob: at small sigma the policy is unchanged in
+        # expectation, it simply stops repeating itself exactly.
+        self._action_noise = float(variant.get("action_noise", 0.0))
+        self._rng = np.random.default_rng(0)
 
         self.contract = PolicyContract(
             name=name,
@@ -85,6 +92,7 @@ class ACTAlohaPolicy:
     def reset(self, seed: int | None = None) -> None:
         if seed is not None:
             self._torch.manual_seed(seed)
+            self._rng = np.random.default_rng(seed)
         self._policy.reset()
 
     def act(self, obs: Any) -> np.ndarray:
@@ -104,4 +112,7 @@ class ACTAlohaPolicy:
             batch = {"observation.images.top": img_t, "observation.state": state_t}
             with torch.no_grad():
                 action = self._policy.select_action(batch)
-        return action.squeeze(0).cpu().numpy()
+        a = action.squeeze(0).cpu().numpy()
+        if self._action_noise > 0.0:
+            a = a + self._rng.normal(0.0, self._action_noise, size=a.shape)
+        return a

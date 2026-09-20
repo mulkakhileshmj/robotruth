@@ -36,17 +36,48 @@ def render_diff(d: Diff, a: dict, b: dict, out_path: str | Path) -> Path:
     lines.append(f"**Verdict: {VERDICT_TEXT.get(seq.decision, seq.decision)}** "
                  f"(anytime-valid, n={seq.n}, diff {seq.estimate:+.3f} [{seq.lower:+.3f}, {seq.upper:+.3f}])")
     lines.append("")
+    lines.append("## Run-to-run variation")
+    lines.append("")
+    if d.floor is None:
+        lines.append("**Not measured.** Run the same policy twice over this battery before "
+                     "reading anything into the scenario counts below. Without it, a broken "
+                     "scenario and a coin flip look identical.")
+    elif d.floor.is_deterministic:
+        lines.append(f"**This cell is deterministic.** {d.floor.statement}")
+        lines.append("")
+        lines.append("That is the strong case, not a missing measurement: with no run-to-run "
+                     "variation, every scenario difference below is real.")
+    else:
+        lines.append(f"**This cell is stochastic.** {d.floor.statement}")
+    lines.append("")
     lines.append("## Scenario diff")
     lines.append("")
     if d.noise_flips is not None:
         sig = d.significant_regressions
         lines.append(f"- Newly broken: {len(d.newly_broken)} observed | "
-                     f"noise floor {d.noise_flips} (from A-vs-A on the same battery) | "
-                     f"beyond noise: {sig}")
+                     f"expected from run-to-run variation alone: {d.noise_flips} | "
+                     f"beyond that: {sig}")
     else:
         lines.append(f"- Newly broken: {len(d.newly_broken)} observed | "
                      f"noise floor NOT MEASURED: run the same policy twice first")
     lines.append(f"- Fixed: {len(d.fixed)}")
+    lines.append("")
+
+    lines.append("## Where the failures concentrate")
+    lines.append("")
+    if not d.hotspots:
+        lines.append("_No region of the scene space concentrates these failures beyond "
+                     "chance, or the battery carries no named factors. A seed-only battery "
+                     "cannot describe a region; sample one with `--factors`._")
+    else:
+        lines.append("| region | inside | elsewhere | lift | p |")
+        lines.append("|---|---|---|---|---|")
+        for h in d.hotspots:
+            lines.append(
+                f"| `{h.description}` | {h.n_broken_inside}/{h.n_inside} "
+                f"({100 * h.inside_rate.estimate:.1f}% [{100 * h.inside_rate.lower:.0f}, "
+                f"{100 * h.inside_rate.upper:.0f}]) | {h.n_broken_outside}/{h.n_outside} "
+                f"({100 * h.outside_rate.estimate:.1f}%) | {h.lift:.1f}x | {h.p_value:.1e} |")
     lines.append("")
     if d.newly_broken:
         lines.append("### Newly broken scenarios")

@@ -82,6 +82,10 @@ def _cmd_diff(args) -> int:
         return 2
     out = args.out or "policyci_diff.md"
     render_diff(d, a, b, out)
+    if args.html:
+        from policyci.browser import render_browser
+        page = render_browser(d, a, b, args.battery, args.html, video_rel=args.video_rel)
+        print(f"  browser -> {page}")
     print(f"{d.b_name} vs {d.a_name}: {VERDICT_TEXT.get(d.sequential.decision)}")
     print(f"  A {d.a_rate}")
     print(f"  B {d.b_rate}")
@@ -138,6 +142,9 @@ def main(argv: list[str] | None = None) -> int:
     pd.add_argument("--alpha", type=float, default=0.05)
     pd.add_argument("--allow-pin-mismatch", action="store_true")
     pd.add_argument("-o", "--out", default=None)
+    pd.add_argument("--html", default=None, help="also write the scenario browser page here")
+    pd.add_argument("--battery", default=None, help="battery file, so the page can show each seed")
+    pd.add_argument("--video-rel", default="videos", help="videos dir relative to the html page")
     pd.set_defaults(fn=_cmd_diff)
 
     args = p.parse_args(argv)

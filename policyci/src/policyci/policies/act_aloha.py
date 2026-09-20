@@ -43,6 +43,15 @@ class ACTAlohaPolicy:
         self._device = device
         variant = dict(variant or {})
 
+        # Env vars alone do not constrain torch here: workers still carried ~65 threads and
+        # drove the box past load 100. Set it on the library directly. One thread per worker
+        # is right whenever the sweep already runs one worker per core.
+        try:
+            torch.set_num_threads(1)
+            torch.set_num_interop_threads(1)
+        except Exception:
+            pass  # set_num_interop_threads raises if the pool is already started
+
         self._policy = ACTPolicy.from_pretrained(MODEL_ID)
         self._policy.to(device)
         self._policy.eval()

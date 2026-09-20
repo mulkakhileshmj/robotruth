@@ -34,6 +34,12 @@ Nothing existing is rewritten. Policy CI composes the existing modules.
 
 ## The frozen first cell
 
+Amendment 2026-09-20: the build starts on ALOHA transfer-cube in gym-aloha (MuJoCo) with the
+public `lerobot/act_aloha_sim_transfer_cube_human` ACT checkpoint, because robotruth already
+validated that exact policy live on the box (~83-87% success, known normalization failure
+mode). Franka/UR5 bin picking becomes cell two behind the same backend interface. The rest
+of this section describes the target cell, unchanged.
+
 - Robot: Franka or UR5 class arm (simulated), parallel gripper
 - Task class: bin picking / pick-and-place, one task class only for at least a year
 - Simulator backend 1: MuJoCo (or Genesis), because it is free, fast, headless-friendly and pip-installable on a rented GPU box

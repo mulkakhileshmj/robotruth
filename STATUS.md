@@ -10,6 +10,29 @@ Updated 2026-09-20. Published to https://github.com/mulkakhileshmj/robotruth.
 - Public tools only. Methods, not code, are borrowed from prior work.
 - A number without an interval is not a result.
 
+## policyci (Policy CI subproject, policyci/)
+
+Started 2026-09-20 per docs/DESIGN_POLICY_CI.md. Separate package `robotruth-policyci`
+inside this repo, depends on robotruth (stats, episode schema, contract philosophy).
+Built so far, compiled locally, tests to run on the box:
+
+- scenario.py: content-addressed Scenario/Battery, tamper-proof save/load, seed batteries
+- backend.py + backends/aloha.py: SimBackend interface, environment pins, gym-aloha
+  transfer-cube backend (reward stages as ground-truth gates)
+- policy_iface.py + policies/act_aloha.py: PolicyContract (hashed declaration),
+  ACT adapter with controlled variants (state_bias, drop_norm) for the regression demo
+- evaluator.py: versioned success definition, failure mapping into the robotruth taxonomy,
+  unavailable gates recorded as unavailable, never as passed
+- runner.py: battery runs -> EpisodeRecords + run_manifest.json (pins, hashes) + failure videos
+- regression.py: fail-closed comparability (battery/evaluator/pins), scenario diff,
+  A-vs-A noise floor, Wilson + paired CI + anytime-valid sequential verdict
+- report.py + cli.py: killer-screen Markdown report; `policyci battery|run|diff`
+- tests/test_policyci.py: identity, tamper detection, fail-closed checks, regression math
+- ops/run_policyci_box.sh: first-light box script (tests, battery 200, run A, A2 seed-1
+  noise floor, B with state_bias 0.06, both diffs, tar for pull-back)
+
+Next: rent a box, run first light, pull results to policyci/examples/validation/2026-09-20.
+
 ## GPU box log
 
 | when | box | cost | what ran | results pulled to |

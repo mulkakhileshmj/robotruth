@@ -132,7 +132,19 @@ failure class this project exists to catch.
 
 `guard_experiments.py fa`
 
-Pending; see `guard_fa.md` in this directory.
+The 0.1.4 bound rested on 18 held-out successes, so its interval reached 0.176: a true rate
+of 15 percent would have produced the same observation. 400 fresh nominal episodes were run
+against the same saved 150-episode calibration pool. 338 succeeded and 62 failed on their own,
+and a false alarm counts only on an episode the policy actually completed.
+
+| measurement | false alarms | 95% interval |
+|---|---|---|
+| 0.1.4 | 0/18 | [0.000, 0.176] |
+| this run | **0/338** | **[0.000, 0.011]** |
+
+The bound is now tight enough to mean something: the true rate is under about 1 percent
+rather than possibly 17. This is the same policy and task as every other live number here,
+so it bounds the false-alarm rate of this guard on this task, not of guards in general.
 
 ## 7. The fingerprint threshold is now calibrated, not guessed
 

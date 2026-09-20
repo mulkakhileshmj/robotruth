@@ -1,6 +1,6 @@
 # robotruth status
 
-Updated 2026-09-19. Published to https://github.com/mulkakhileshmj/robotruth.
+Updated 2026-09-20. Published to https://github.com/mulkakhileshmj/robotruth.
 
 ## Rules for this project
 
@@ -21,6 +21,7 @@ Updated 2026-09-19. Published to https://github.com/mulkakhileshmj/robotruth.
 | 2026-09-19 ~09:00 IST | Lambda 1x A10 24 GB, us-east-1, 150.136.95.69 (terminated) | $1.29/h | guard stability over 3 calibration draws by 2 methods (212 live episodes); fused judge on 323 BotFails and 103 ur5fail episodes; 72 tests; arm video | examples/validation/2026-09-19 |
 | 2026-09-19 ~17:30 IST | Lambda 1x A10 24 GB, us-east-1, 129.213.48.169 | $1.29/h | guard detection with policy-breaking faults (250 live episodes, 3 fault types, 8 calibrate-replay combinations); 72 tests; 0.1.3 wheel | examples/validation/2026-09-19/guard_detection, dist/ |
 | 2026-09-19 ~18:30 IST | Lambda 1x A10 24 GB, us-east-1, 129.153.172.211 | $1.29/h | stagnation scorer built and measured twice (500 live episodes across two protocols); 54-dataset cross-dataset benchmark and HTML report; pooled BotFails judge and guard; guard stall video; 74 tests; 0.1.4 wheel | examples/validation/2026-09-19/guard_detection_v2, /benchmark, dist/ |
+| 2026-09-20 ~14:40 IST | Lambda 1x A10 24 GB, us-east-1, 129.213.87.96 | $1.29/h | tier 1: 400-episode false-alarm pool, gradual-ramp sweep, guard against real robot logs (own failures and injected faults), fingerprint offset sensitivity and conformal calibration, three second-combo attempts; 77 tests; 0.1.5 wheel | examples/validation/2026-09-20 |
 
 ## Done
 
@@ -111,10 +112,42 @@ Pooled detection 30/30 = 1.000 [0.886, 1.000]; false alarms 0.000 [0.000, 0.176]
 
 54 public datasets ingested with zero errors: RoboMIND and AgiBotWorld task ports (BAAI-DataCube, LeRobot v3), OpenX conversions (IPEC-COMMUNITY), DROID, BotFails, and the DAgger and HIL-SERL intervention logs. One HTML report (`benchmark.html`) leads with the labelled sets, since that is where identification can be checked against truth, then covers every dataset, guard replay, fingerprints and a per-dataset failure breakdown. Most public sets are demo-only and are reported as unlabelled rather than scored.
 
+## 2026-09-20 tier 1 (examples/validation/2026-09-20)
+
+Aimed at the four gaps in the 0.1.4 envelope. Two closed, one corrected the product claim,
+one is still open.
+
+**The guard's claim was too broad.** Against real robot logs it caught 5/145 of BotFails'
+own failures and 0/58 of DROID's. Per-head AUROC, which is threshold-free, came out at 0.50
+to 0.51 and 0.33 to 0.44, so no threshold would help. A robot that fails a task keeps moving
+normally. What the guard detects is an execution fault, and that does transfer to real
+robots: stalls and erratic control in 153/153, 72/72 and 136/137 real episodes within 0.1 to
+0.2 s, false alarms inside the bound. Constant offsets need about 2 sd, and on the HIL-SERL
+corpus were missed at every magnitude. `DriftDetector` catches those at 0.25 sd, so the
+division of labour is fingerprint for miscalibration, guard for stalls and erratic control,
+vision judge for task failure. Nothing detects a normal-looking robot failing its task from
+actions alone.
+
+**False alarms, closed.** 0/338 held-out successes, [0.000, 0.011], against 0.1.4's 0/18
+whose interval reached 0.176.
+
+**Gradual faults, closed.** Detection holds at 100% for ramps from 0 to 4 s; the delay tracks
+how long the fault takes to leave the envelope rather than being a fixed lag.
+
+**Fingerprint threshold, closed.** Conformal at alpha 0.05 gives 3/270 false alarms against
+23/270 for the three-sigma rule, detection of a 0.25 sd offset unchanged at 268/270, and the
+three leaks are exactly the datasets where the detector declared itself saturated.
+
+**Second policy and task, still open.** The public insertion checkpoint completes 0/10, a
+community PushT checkpoint 1/8, and `lerobot/diffusion_pusht` raises an uncorrectable ECC
+error on an A10 and poisons the GPU for every other process. Working public sim checkpoints
+are scarce.
+
+
 ## Next
 
 1. PyPI upload; publish LAUNCH_NOTE.md.
 2. Anthropic API key, then validate the judge VLM channel on BotFails and the Guardian failure sets (frames are on the box paths in examples/validation).
-3. Guard against a gradual degradation, not only abrupt injected faults: ramp the fault in over seconds and measure latency as a function of ramp rate. The saved npz rollouts make the replay side free; only the new rollouts need GPU.
-4. Guard replay against the HIL-SERL failure episodes with reward signals as truth.
+3. A robot in the loop. Everything real so far is replay: the guard watches recordings and never intervenes, so nothing says what happens when it actually gates a robot.
+4. A second working policy and task, which needs a checkpoint that performs its task well enough to calibrate on.
 5. First external user. Everything here has been exercised by its author only.

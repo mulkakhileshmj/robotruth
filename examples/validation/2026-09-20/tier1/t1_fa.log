@@ -1,0 +1,30 @@
+libEGL warning: failed to open /dev/dri/renderD129: Permission denied
+
+libEGL warning: failed to open /dev/dri/card1: Permission denied
+
+libEGL warning: failed to open /dev/dri/renderD128: Permission denied
+
+libEGL warning: failed to open /dev/dri/card0: Permission denied
+
+WARNING:root:Unexpected key(s) when loading model: ['normalize_inputs.buffer_observation_images_top.mean', 'normalize_inputs.buffer_observation_images_top.std', 'normalize_inputs.buffer_observation_state.mean', 'normalize_inputs.buffer_observation_state.std', 'normalize_targets.buffer_action.mean', 'normalize_targets.buffer_action.std', 'unnormalize_outputs.buffer_action.mean', 'unnormalize_outputs.buffer_action.std']
+calibrating on 150 saved nominal episodes
+nominal 25/400 (22 ok, 0 alarms, 28s/ep)
+nominal 50/400 (40 ok, 0 alarms, 29s/ep)
+nominal 75/400 (61 ok, 0 alarms, 28s/ep)
+nominal 100/400 (82 ok, 0 alarms, 28s/ep)
+nominal 125/400 (106 ok, 0 alarms, 28s/ep)
+nominal 150/400 (126 ok, 0 alarms, 28s/ep)
+nominal 175/400 (145 ok, 0 alarms, 28s/ep)
+nominal 200/400 (167 ok, 0 alarms, 27s/ep)
+nominal 225/400 (189 ok, 0 alarms, 27s/ep)
+nominal 250/400 (210 ok, 0 alarms, 27s/ep)
+nominal 275/400 (232 ok, 0 alarms, 27s/ep)
+nominal 300/400 (253 ok, 0 alarms, 26s/ep)
+nominal 325/400 (275 ok, 0 alarms, 26s/ep)
+nominal 350/400 (297 ok, 0 alarms, 26s/ep)
+nominal 375/400 (320 ok, 0 alarms, 26s/ep)
+nominal 400/400 (338 ok, 0 alarms, 26s/ep)
+
+Total wall time 10397 s.
+
+GUARD_FA_COMPLETE

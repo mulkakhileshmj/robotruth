@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.1.5 (2026-09-20)
+
+- **The guard's scope is corrected, and the correction is measured.** Replayed against real robot logs it caught 5/145 of BotFails' own failures and 0/58 of DROID's. A threshold-free AUROC per scorer head came out at 0.50 to 0.51 and 0.33 to 0.44, so there is no signal to recover: a robot that fails a task keeps moving normally, and the action stream does not show it. The guard detects execution faults, where the robot stops behaving like itself, and the README no longer implies otherwise.
+- **That capability does transfer to real robots.** Stalls and erratic control were detected in 153/153, 72/72 and 136/137 real episodes across three physical-robot corpora within 0.1 to 0.2 s, with false alarms inside the 0.05 bound. Constant offsets need about two standard deviations, and on one corpus were missed at every magnitude tried.
+- **False alarms measured on a pool that can carry the claim**: 0/338 held-out successes, interval [0.000, 0.011]. The 0.1.4 bound rested on 18 episodes and its interval reached 0.176, wide enough to hide a 17 percent true rate.
+- **Gradual faults are detected too.** Every previous number used a step change. Faults ramping to full strength over 0.5 to 4 s are still detected 100% of the time, and the delay tracks how long the fault takes to leave the nominal envelope rather than being a fixed lag.
+- **`robotruth.fingerprint.DriftDetector`**: a calibrated drift alarm for when you have a population of fingerprints instead of a known tolerance. Median and scaled MAD for the centre and spread, so one already-drifted unit cannot mask the drift it represents, and a split-conformal threshold on the worst standardised per-joint deviation. On eight real datasets and 270 held-out clean episodes it gives 3/270 false alarms against 23/270 for a three-sigma rule, with detection of a 0.25 sd offset unchanged at 268/270. It reports itself saturated rather than claiming a rate too few fingerprints can certify.
+- The policy loader reads min/max scaling and the newer lerobot layout that keeps statistics in separate preprocessor files, taking the scheme from the policy's own config instead of guessing.
+- Known limit, unchanged and now stated plainly: every live guard number comes from one policy on one task. Three attempts at a second combination failed, one of them because `lerobot/diffusion_pusht` raises an uncorrectable ECC error on an A10 and poisons the GPU for other processes.
+
 ## 0.1.4 (2026-09-19)
 
 - **The stall blind spot is closed.** A `StagnationScorer` watches windowed motion of the action stream, and `calibrate_guard` now gives it its own conformal threshold in a `MultiHeadScorer` instead of averaging it into the composite, alarming on the union of the two heads with alpha split between them. Measured on the same live policy and fault protocol as 0.1.3, on a 150-episode calibration pool: stall, offset and noise faults all detected 10/10, pooled 30/30 = 1.000 [0.886, 1.000], median latency 0.04 s, 0/18 false alarms on held-out successes.

@@ -1,0 +1,16 @@
+libEGL warning: failed to open /dev/dri/renderD129: Permission denied
+
+libEGL warning: failed to open /dev/dri/card1: Permission denied
+
+libEGL warning: failed to open /dev/dri/renderD128: Permission denied
+
+libEGL warning: failed to open /dev/dri/card0: Permission denied
+
+WARNING:root:Unexpected key(s) when loading model: ['normalize_inputs.buffer_observation_images_top.mean', 'normalize_inputs.buffer_observation_images_top.std', 'normalize_inputs.buffer_observation_state.mean', 'normalize_inputs.buffer_observation_state.std', 'normalize_targets.buffer_action.mean', 'normalize_targets.buffer_action.std', 'unnormalize_outputs.buffer_action.mean', 'unnormalize_outputs.buffer_action.std']
+smoke test act_aloha_insertion: 0/10 successes (model card suggests about 30%), usable=False
+# Guard detection on act_aloha_insertion: not run
+
+Policy lerobot/act_aloha_sim_insertion_human scored 0% success in a 10-episode smoke test in gym_aloha/AlohaInsertion-v0, against roughly 30% on its model card. Calibrating a guard on a policy that does not perform the task would describe the nominal behaviour of a broken policy, so this combination is reported as unusable rather than measured. The loading path, not the guard, is the thing to fix.
+
+COMBO_SKIPPED
+

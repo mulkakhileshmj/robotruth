@@ -1,0 +1,30 @@
+collected 14 sources in 57s
+-- Elvinky__pi05-piperx-7h-demo-dagger-full-episodes-20260914: 0 labelled episodes
+   {'skipped': True, 'n_success': 0, 'n_failure': 0}
+-- Elvinky__so101-fold-clothes-dagger-20260909: 0 labelled episodes
+   {'skipped': True, 'n_success': 0, 'n_failure': 0}
+-- TheMuz__rollout_kirby_dagger_v2_iter1_20260507_143451: 0 labelled episodes
+   {'skipped': True, 'n_success': 0, 'n_failure': 0}
+-- jccj__so100_block_in_cup: 0 labelled episodes
+   {'skipped': True, 'n_success': 0, 'n_failure': 0}
+-- jpizarrom__hilserl_so100_grocery_so100_2025112223_20: 381 labelled episodes
+   {'skipped': True, 'n_success': 381, 'n_failure': 0}
+-- k-chan-l__rollout_dice_color_sort_dagger: 0 labelled episodes
+   {'skipped': True, 'n_success': 0, 'n_failure': 0}
+-- kantine__BotFails: 323 labelled episodes
+   {'n_success': 178, 'n_failure': 145, 'n_calibration': 124, 'n_held_out': 54, 'detected': 5, 'false_alarms': 0, 'detection_interval': '0.034 [0.015, 0.078] (95% Wilson, n=145)', 'false_alarm_interval': '0.000 [0.000, 0.066] (95% Wilson, n=54)', 'median_lead_s': 16.300000700071536, 'false_alarms_per_hour': '0.0', 'stall_head_saturated': False}
+-- lerobot__aloha_static_screw_driver: 0 labelled episodes
+   {'skipped': True, 'n_success': 0, 'n_failure': 0}
+-- lerobot__droid_1.0.1: 399 labelled episodes
+   {'n_success': 341, 'n_failure': 58, 'n_calibration': 238, 'n_held_out': 103, 'detected': 0, 'false_alarms': 4, 'detection_interval': '0.000 [0.000, 0.062] (95% Wilson, n=58)', 'false_alarm_interval': '0.039 [0.015, 0.096] (95% Wilson, n=103)', 'median_lead_s': None, 'false_alarms_per_hour': '6.438152033352334', 'stall_head_saturated': False}
+-- lerobot__example_hil_serl_dataset: 15 labelled episodes
+   {'skipped': True, 'n_success': 1, 'n_failure': 14}
+-- lerobot__svla_so100_pickplace: 0 labelled episodes
+   {'skipped': True, 'n_success': 0, 'n_failure': 0}
+-- lerobot__svla_so101_pickplace: 0 labelled episodes
+   {'skipped': True, 'n_success': 0, 'n_failure': 0}
+-- recast-robotics__rollout_dagger_r1_s2_b0_20260915_121327: 10 labelled episodes
+   {'skipped': True, 'n_success': 10, 'n_failure': 0}
+-- sixpigs1__so100_pick_cube_in_box: 0 labelled episodes
+   {'skipped': True, 'n_success': 0, 'n_failure': 0}
+REAL_LOGS_COMPLETE

@@ -1,6 +1,6 @@
 [project]
 name = "robotruth"
-version = "0.1.4"
+version = "0.1.5"
 description = "Robot CI: tells a robot lab whether a policy change is real. Contract checks, honest statistics, drift fingerprints and calibrated outcome judging for learned robot policies."
 readme = "README.md"
 requires-python = ">=3.11"

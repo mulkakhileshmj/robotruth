@@ -102,7 +102,7 @@ def mode_fa(out_dir: Path, ep_dir: Path, n_nominal: int) -> int:
              f"episodes (from the 0.1.4 run). Held-out episodes run fresh here: {n_nominal}, of which "
              f"{successes} succeeded and {natural_failures} failed on their own. A false alarm is an "
              "alert raised during an episode the policy actually completed.", "",
-             f"False alarms: {alarms}/{successes} = {iv} (95% Wilson), against a 0.05 bound.", "",
+             f"False alarms: {alarms}/{successes} = {iv}, against a 0.05 bound.", "",
              f"For comparison, 0.1.4 measured 0/18 = {wilson(0, 18)}, an interval wide enough to hide "
              "a 17 percent true rate.", "",
              f"Total wall time {time.time()-t0:.0f} s.", "", "GUARD_FA_COMPLETE"]

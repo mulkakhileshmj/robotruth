@@ -1,0 +1,26 @@
+libEGL warning: failed to open /dev/dri/renderD129: Permission denied
+
+libEGL warning: failed to open /dev/dri/card1: Permission denied
+
+libEGL warning: failed to open /dev/dri/renderD128: Permission denied
+
+libEGL warning: failed to open /dev/dri/card0: Permission denied
+
+WARNING:root:Unexpected key(s) when loading model: ['normalize_inputs.buffer_observation_images_top.mean', 'normalize_inputs.buffer_observation_images_top.std', 'normalize_inputs.buffer_observation_state.mean', 'normalize_inputs.buffer_observation_state.std', 'normalize_targets.buffer_action.mean', 'normalize_targets.buffer_action.std', 'unnormalize_outputs.buffer_action.mean', 'unnormalize_outputs.buffer_action.std']
+calibrating on 150 saved nominal episodes
+freeze ramp 0.0s: broke 10/10, detected 10/10, median latency 0.6800000000000002
+freeze ramp 0.5s: broke 10/10, detected 10/10, median latency 1.2000000000000002
+freeze ramp 1.0s: broke 10/10, detected 10/10, median latency 1.7000000000000002
+freeze ramp 2.0s: broke 10/10, detected 10/10, median latency 2.6799999999999997
+freeze ramp 4.0s: broke 10/10, detected 10/10, median latency 4.68
+offset ramp 0.0s: broke 10/10, detected 10/10, median latency 0.040000000000000036
+offset ramp 0.5s: broke 10/10, detected 10/10, median latency 0.4099999999999999
+offset ramp 1.0s: broke 10/10, detected 10/10, median latency 1.04
+offset ramp 2.0s: broke 10/10, detected 10/10, median latency 1.9900000000000002
+offset ramp 4.0s: broke 10/10, detected 10/10, median latency 3.04
+noise ramp 0.0s: broke 10/10, detected 10/10, median latency 0.040000000000000036
+noise ramp 0.5s: broke 9/10, detected 9/9, median latency 0.16000000000000014
+noise ramp 1.0s: broke 9/10, detected 9/9, median latency 0.2799999999999998
+noise ramp 2.0s: broke 10/10, detected 10/10, median latency 0.5700000000000001
+noise ramp 4.0s: broke 10/10, detected 10/10, median latency 1.0199999999999998
+GUARD_RAMP_COMPLETE

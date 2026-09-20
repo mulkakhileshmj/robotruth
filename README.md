@@ -13,7 +13,7 @@
 **Robot CI for learned robot policies.**
 It tells a lab whether a policy change is real, before the robot, the eval, or the launch demo tells them the hard way.
 
-[Why](#why-this-exists) · [What's inside](#whats-inside) · [Install](#install) · [Quickstart](#quickstart) · [Command reference](#command-reference) · [Python API](#python-api) · [Validation](#validated-on-real-data) · [License](#license)
+[Why](#why-this-exists) · [What's inside](#whats-inside) · [Install](#install) · [Quickstart](#quickstart) · [Policy CI](#policy-ci) · [Try it](#trying-this-as-an-outside-engineer) · [Commands](#robotruth-command-reference) · [Validation](#validated-on-real-data) · [Limits](#known-limits)
 
 </div>
 
@@ -52,6 +52,12 @@ It is a Python library and CLI. It is not a benchmark, not a leaderboard, not a 
 | **Guard** | Has the robot stopped behaving like itself *right now*? Mahalanobis, chunk-consistency and action-statistics scores in one head, a stagnation score in its own head, both with time-uniform conformal thresholds calibrated on your own successful rollouts. Emits ok / slow / handover / stop. Measured on real robot logs: stalls and erratic control caught in **361/362 episodes** within 0.2 s, with **0/338 false alarms** in simulation. It detects *execution* faults, not task failures, see [Known limits](#known-limits). | `robotruth guard` |
 
 Every report is written as **Markdown and styled HTML**, and every rate in it carries a confidence interval. The report layer refuses to print one without it.
+
+And one companion package, at an earlier stage:
+
+| Package | Question it answers | Command | Maturity |
+|---|---|---|---|
+| **[policyci](policyci/)** | Is policy B better, worse or unsafe than policy A, and which scenarios broke? Runs both policies over the same deterministic battery of scenes, diffs them scenario by scenario, measures a noise floor by running one policy against itself, and issues a signed deploy record. | `policyci` | **Prototype.** The loop runs end to end; it has not yet produced a published result. See [Policy CI](#policy-ci). |
 
 ## Install
 
@@ -122,7 +128,209 @@ robotruth guard calibrate nominal_episodes/ -o guard.json      # thresholds from
 robotruth guard replay guard.json episode.npz                  # ok / slow / handover / stop, exit 1 on alert
 ```
 
-## Command reference
+## Policy CI
+
+`robotruth` measures runs you already have. **policyci** generates them: it takes one policy,
+runs it over a fixed set of scenes, and answers whether the next version got better or worse
+and exactly where.
+
+It is a separate package in this repository and it is **early**. Read
+[Where Policy CI stands](#where-policy-ci-stands) before spending a day on it.
+
+### The idea in one loop
+
+```
+battery of scenarios  ->  run policy A  ->  run policy A again (different policy seed)
+        |                      |                      |
+        |                      |                      +--> the noise floor
+        |                      |
+        |                      +--> run policy B
+        |
+        +--> diff A vs B, scenario by scenario, against that floor
+                       |
+                       +--> verdict + replay videos + a deploy record
+```
+
+Three properties make the numbers mean something:
+
+- **A scenario is a value, not a run.** Each scene is a parameter vector with a content hash,
+  and a battery is the hash of all of them. "Ran battery `515e96ff`" is a reproducible claim,
+  and a battery file that has been edited refuses to load.
+- **Comparisons fail closed.** A different battery, a different evaluator version or different
+  simulator pins mean the two runs did not see the same test, so the diff is refused rather
+  than served. Physics is not bit-reproducible across engine versions or drivers.
+- **Nothing is approved without a measured noise floor.** The same policy run twice will not
+  agree on every scenario. Until you have measured that disagreement, a count of broken
+  scenarios is not evidence, and the deploy record says `insufficient_evidence`.
+
+### Install
+
+```bash
+uv pip install -e ".[dev]"                 # robotruth
+uv pip install -e "policyci[aloha,dev]"    # policyci plus the ALOHA/MuJoCo cell
+```
+
+On a fresh Linux box MuJoCo cannot render offscreen until an EGL vendor library is present:
+
+```bash
+sudo apt-get install -y libegl1 libosmesa6 ffmpeg
+export MUJOCO_GL=egl
+```
+
+### Quickstart
+
+The reference cell is `lerobot/act_aloha_sim_transfer_cube_human` in `gym-aloha`, unmodified
+weights. Roughly 25 s per episode per worker, so start small.
+
+```bash
+policyci battery --n 20 --base-seed 0 -o battery.jsonl
+```
+
+```bash
+policyci run --battery battery.jsonl --policy-name act_v18 --out runs/a --policy-seed 0 --render
+```
+
+```bash
+policyci run --battery battery.jsonl --policy-name act_v18_s1 --out runs/a2 --policy-seed 1
+```
+
+```bash
+policyci run --battery battery.jsonl --policy-name act_v19 --state-bias 0.05 --out runs/b --policy-seed 0 --render
+```
+
+```bash
+policyci diff runs/a/run_manifest.json runs/b/run_manifest.json --noise runs/a/run_manifest.json runs/a2/run_manifest.json -o diff.md --html browser.html --battery battery.jsonl
+```
+
+Step 3 is the one people skip. It runs the *same* policy at a different policy seed, which is
+what makes the diff in step 5 interpretable. Run the negative control first and be suspicious
+if it reports a regression:
+
+```bash
+policyci diff runs/a/run_manifest.json runs/a2/run_manifest.json -o control.md
+```
+
+`--state-bias` perturbs proprioception to create a controlled regression; the weights are
+never modified. `--drop-norm` reproduces the lerobot normalization bug described above.
+`policyci diff` exits 1 when the candidate is worse, so it drops into CI unchanged.
+
+### Sharding, because the bottleneck is cores
+
+A battery splits across workers. Sharding is wall-clock only: the per-scenario policy seed
+derives from the scenario hash, so shard *k* of *n* produces exactly what one process would,
+and the merge refuses a manifest unless every scenario is covered exactly once.
+
+```bash
+for K in 0 1 2 3; do policyci run --battery battery.jsonl --policy-name act_v18 --out runs/a/shard$K --shard $K --num-shards 4 & done; wait
+```
+
+```bash
+policyci merge runs/a/shard*/run_manifest.json --battery battery.jsonl --out runs/a_merged
+```
+
+A whole sweep on one box, with tests and a two-episode smoke run gated in front of it:
+
+```bash
+ROBOTRUTH_HOST=ubuntu@<ip> bash policyci/ops/run_policyci_box.sh mysweep 200 6 "0.02 0.05 0.10"
+```
+
+### policyci command reference
+
+| Command | What it does |
+|---|---|
+| `policyci battery --n N --base-seed S -o FILE` | Sample a content-addressed battery. No simulator, no GPU |
+| `policyci run --battery FILE --policy-name NAME --out DIR` | Run one policy. `--shard/--num-shards` to parallelise, `--render` to save replays, `--state-bias/--drop-norm` for controlled variants |
+| `policyci merge SHARDS... --battery FILE --out DIR` | Recombine shards, fail-closed on incomplete coverage |
+| `policyci diff A B [--noise REF_A REF_B]` | The comparison. `--html` writes the scenario browser. Exit 1 if B is worse |
+
+### What the wall clock actually depends on
+
+Measured on a Lambda A10 with 30 vCPUs, 2026-09-20. **The GPU is not the bottleneck.**
+
+| | measured |
+|---|---|
+| one 400-step episode, one worker | 24.5 s |
+| simulator step rate, single-threaded | 12 steps/s |
+| 30 workers on 30 vCPUs, aggregate | 11 episodes/min |
+| speedup from 30x parallelism | about 4x |
+
+The cause is rendering. When EGL cannot create an NVIDIA context, MuJoCo falls back to Mesa's
+software rasteriser, which is CPU and memory-bandwidth bound, so workers contend. Policy
+inference does run on the GPU and is cheap: ACT emits 100-step action chunks, so the model
+runs about four times per episode. **Budget a battery in CPU-hours, not GPU-hours**, and put
+hardware offscreen rendering in the base image if you can get it working.
+
+Battery size is the other real cost decision, because the interval is the product: about five
+points at n=200 near a 90 percent success rate, about seven at n=100.
+
+### Where Policy CI stands
+
+Stated honestly, so you can decide whether it is worth your afternoon.
+
+**Works, and is tested:** deterministic scenario and battery identity with tamper detection;
+fail-closed comparability on battery, evaluator and simulator pins; sharded runs with a merge
+that refuses partial coverage; Wilson intervals, a paired difference and an anytime-valid
+sequential verdict; a scenario browser with baseline and candidate replays side by side; a
+content-hashed deploy record that approves nothing without a measured noise floor.
+
+**Not built yet, and you will notice:**
+
+- **A scenario is only a reset seed.** There are no named factors for object pose, lighting,
+  clutter or occlusion, and there is no clustering code. The tool tells you *that* 37
+  scenarios broke and hands you the videos, but not *what they have in common*. The
+  "regression concentrated at 35 degrees rotation" screen in the design note does not exist.
+- **You cannot bring your own policy yet.** The policy interface is an in-process Python
+  class, not a service contract, so adapting a new policy means writing an adapter in-tree.
+- **The noise floor is a point estimate.** It halves the total flips and subtracts, from a
+  single pair of runs, with no interval of its own. The *verdict* is a proper statistic; the
+  "beyond noise" figure is indicative only, and the tool labels it as such.
+- **One cell.** ALOHA transfer cube in gym-aloha. Nothing else has been tried.
+
+## Trying this as an outside engineer
+
+Everything in this repository was written and exercised by its author. **No stranger has run
+it.** If you are willing to be that stranger, the most useful thing you can do is to not be
+polite about it.
+
+A reasonable first hour, no GPU needed:
+
+```bash
+git clone https://github.com/mulkakhileshmj/robotruth.git && cd robotruth
+```
+
+```bash
+uv venv .venv && uv pip install -e ".[dev]" && .venv/bin/python -m pytest -q
+```
+
+```bash
+robotruth stats interval 43 50
+```
+
+```bash
+robotruth episodes taxonomy
+```
+
+```bash
+robotruth episodes from-lerobot <any LeRobot dataset dir> -o episodes.jsonl && robotruth episodes metrics episodes.jsonl --out-dir reports/
+```
+
+Then, with a GPU box and an afternoon, the Policy CI quickstart above at `--n 20`.
+
+**What is worth reporting back**, roughly in order of value:
+
+1. **Where you got stuck, with the command and the error.** Install, EGL, CUDA, a dataset that
+   would not ingest. The first five minutes matter most.
+2. **Anything the tool told you that was wrong**, or any number it printed that you could not
+   trace back to evidence. That is the one failure mode this project cannot tolerate.
+3. **What you expected a command to do that it did not.** Naming, defaults, where output lands.
+4. **Whether the Policy CI negative control behaved** on your hardware. Two runs of the same
+   policy must not be reported as a regression.
+5. **What you would actually use, and what you would never use.** An honest "this is not for
+   me, because X" is worth more than a feature request.
+
+Open an issue, or send the terminal transcript. Reproduction detail beats prose.
+
+## robotruth command reference
 
 | Command | What it does |
 |---|---|
@@ -215,7 +423,8 @@ src/robotruth/judge/         hybrid outcome judge: features, fusion, conformal c
 src/robotruth/guard/         runtime monitor: scorers, conformal thresholds, hard limits, replay, metrics
 ops/                         GPU-box scripts used for the validation runs
 examples/                    real-checkpoint probes, manifests, and the full validation bundles
-tests/                       72 tests, including simulation checks of interval coverage and false-alarm rates
+tests/                       robotruth tests, including simulation checks of interval coverage and false-alarm rates
+policyci/                    Policy CI: scenario batteries, sharded runs, regression diffs, deploy records (prototype)
 ```
 
 ## Contributing & citation

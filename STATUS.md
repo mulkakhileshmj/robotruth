@@ -51,6 +51,22 @@ Lessons that cost GPU time today, each now encoded in the scripts:
 Measured on an idle box: the ALOHA sim is single-threaded at 12 steps/s, so 400-step
 episodes cost ~24.5 s each and the core count, not the GPU, sets the wall clock.
 
+First light (2026-09-20, examples/validation/2026-09-20-policyci): baseline 85.0%
+[79.4, 89.3], matching the 83-87% this checkpoint is documented to reach. All three
+controlled regressions caught and blocked (paired differences -29.0%, -81.5%, -84.5%);
+the identical-policy pair was not called a regression.
+
+The honest caveat, recorded in the design note: the cell is bit-deterministic (0/200
+outcome disagreements, 200/200 identical reward AND step count between two baseline runs),
+so the noise floor is genuinely zero and the negative control passed trivially. Scenario
+identity is validated harder than expected; the noise-floor machinery is not validated at
+all, because there was no noise to separate. It needs a stochastic policy or scene
+randomisation before that feature can be claimed.
+
+Also surfaced: failure MODE shifts with dose (baseline 23 timeout / 7 grasp, bias 0.10
+19 timeout / 180 grasp), and at bias 0.02 the degraded policy FIXED 16 scenarios while
+breaking 74, so the baseline's failures are not simply "hard scenarios".
+
 ## GPU box log
 
 | when | box | cost | what ran | results pulled to |
@@ -63,6 +79,7 @@ episodes cost ~24.5 s each and the core count, not the GPU, sets the wall clock.
 | 2026-09-19 ~17:30 IST | Lambda 1x A10 24 GB, us-east-1, 129.213.48.169 | $1.29/h | guard detection with policy-breaking faults (250 live episodes, 3 fault types, 8 calibrate-replay combinations); 72 tests; 0.1.3 wheel | examples/validation/2026-09-19/guard_detection, dist/ |
 | 2026-09-19 ~18:30 IST | Lambda 1x A10 24 GB, us-east-1, 129.153.172.211 | $1.29/h | stagnation scorer built and measured twice (500 live episodes across two protocols); 54-dataset cross-dataset benchmark and HTML report; pooled BotFails judge and guard; guard stall video; 74 tests; 0.1.4 wheel | examples/validation/2026-09-19/guard_detection_v2, /benchmark, dist/ |
 | 2026-09-20 ~14:40 IST | Lambda 1x A10 24 GB, us-east-1, 129.213.87.96 | $1.29/h | tier 1: 400-episode false-alarm pool, gradual-ramp sweep, guard against real robot logs (own failures and injected faults), fingerprint offset sensitivity and conformal calibration, three second-combo attempts; 77 tests; 0.1.5 wheel | examples/validation/2026-09-20 |
+| 2026-09-20 ~13:00-15:05 IST | Lambda 1x A10 24 GB, us-east-1, 150.136.138.111 (terminated) | $1.29/h | policyci first light: 1,000 episodes, 5 policies, one 200-scenario battery, 31 workers; 4 comparisons; 515 replay videos | examples/validation/2026-09-20-policyci (evidence), results/pci_7 local (videos) |
 
 ## Done
 

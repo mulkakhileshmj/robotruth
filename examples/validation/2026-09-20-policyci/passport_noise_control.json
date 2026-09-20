@@ -1,0 +1,142 @@
+{
+ "kind": "policyci.passport",
+ "passport_version": "0.1",
+ "created_utc": "2026-09-20T15:07:13.918999+00:00",
+ "scope": {
+  "evidence": "simulation_only",
+  "statement": "These results characterise behaviour in the named simulator under the named battery. They do not estimate real-world success: no sim-to-real calibration exists for this cell yet."
+ },
+ "candidate": {
+  "role": "candidate",
+  "name": "act_v18_s1",
+  "model_id": "lerobot/act_aloha_sim_transfer_cube_human",
+  "action_dim": 14,
+  "action_semantics": "joint_position",
+  "control_hz": 50.0,
+  "obs_keys": [
+   "observation.images.top",
+   "observation.state"
+  ],
+  "weights_sha256": "42772891cb6eba1e7bc36ad8e12c0fa0723c61f036fa235c725ce6026e6e81df",
+  "variant": {},
+  "iface_version": "0.1",
+  "hash": "f9109a02dbcbd297218e796828d66be6516106bee1a3f009ec34330348cbefb1",
+  "policy_seed": 1
+ },
+ "baseline": {
+  "role": "baseline",
+  "name": "act_v18",
+  "model_id": "lerobot/act_aloha_sim_transfer_cube_human",
+  "action_dim": 14,
+  "action_semantics": "joint_position",
+  "control_hz": 50.0,
+  "obs_keys": [
+   "observation.images.top",
+   "observation.state"
+  ],
+  "weights_sha256": "42772891cb6eba1e7bc36ad8e12c0fa0723c61f036fa235c725ce6026e6e81df",
+  "variant": {},
+  "iface_version": "0.1",
+  "hash": "349353f47d691add8628a00178e5c995d5255309266199a032d4c8fa707e009b",
+  "policy_seed": 0
+ },
+ "test_definition": {
+  "task": "aloha_transfer_cube",
+  "backend_id": "gym_aloha.transfer_cube.v0",
+  "battery_name": "aloha_transfer_cube_b1",
+  "battery_hash": "515e96ff75282363dafc8f5426cb0f49988d78ae1abb82fbcd9ba59c30301ffb",
+  "n_scenarios": 200,
+  "evaluator_version": "0.1.0",
+  "runner_version": "0.1.0"
+ },
+ "environment_pins": {
+  "python": "3.12.14",
+  "platform": "Linux-6.8.0-1046-nvidia-x86_64-with-glibc2.35",
+  "numpy": "2.5.3",
+  "gymnasium": "1.3.0",
+  "gym_aloha": "0.1.4",
+  "mujoco": "3.8.1",
+  "dm_control": "1.0.41",
+  "torch": "2.10.0",
+  "lerobot": "0.4.4",
+  "gpu": "NVIDIA A10",
+  "env_id": "gym_aloha/AlohaTransferCube-v0",
+  "obs_type": "pixels_agent_pos",
+  "max_steps": 400
+ },
+ "pins_hash": "59cdd82cfd86dc3a424a061e332b9cdb22312f27f590d0951dd0d4f285d2bf8a",
+ "results": {
+  "baseline_success": {
+   "estimate": 0.85,
+   "lower": 0.7939442071583334,
+   "upper": 0.89286406437758,
+   "method": "Wilson",
+   "alpha": 0.05,
+   "n": 200
+  },
+  "candidate_success": {
+   "estimate": 0.85,
+   "lower": 0.7939442071583334,
+   "upper": 0.89286406437758,
+   "method": "Wilson",
+   "alpha": 0.05,
+   "n": 200
+  },
+  "paired_difference": {
+   "estimate": 0.0,
+   "lower": 0.0,
+   "upper": 0.0,
+   "method": "paired Wald"
+  },
+  "sequential": {
+   "decision": "undecided",
+   "estimate": 0.0,
+   "lower": -0.07377758908227872,
+   "upper": 0.07377758908227872,
+   "alpha": 0.05,
+   "n": 200,
+   "anytime_valid": true
+  },
+  "newly_broken": 0,
+  "fixed": 0,
+  "noise_floor_measured": false,
+  "noise_floor": null,
+  "regressions_beyond_noise": null,
+  "failure_pareto": {
+   "timeout": 23,
+   "grasp": 7
+  }
+ },
+ "known_limits": [
+  "Collision and placement-error gates are not observable in this environment and are recorded as unavailable, never as passed.",
+  "Physics is not bit-reproducible across simulator versions or drivers; a comparison is only valid against runs carrying the same pins hash."
+ ],
+ "evidence": {
+  "baseline_manifest_hash": "9a3294cbb211339e20352041c4029764edc2f98265f1b9d15caea3b29e1f9549",
+  "candidate_manifest_hash": "40de1646011b9265210e5bd47c625a3d5dc25291d9d5e7d9e7138aab674b19eb",
+  "baseline_merged_from": [
+   "668553b604e87aa111c471194df709a52c19b2a5e5d91ed6070987d25f705217",
+   "a62e8e50b54683174c09fa46228a6c81872dddb8b493d4edbf1f71b7e2edd876",
+   "a849ab56b5a406bcedc737bd321da7216fb3faa2b83359c2688639114e5446db",
+   "c0ef5d745ef1080633dc210538e28bdd70e7e4dc35cc7a0b40a7be4a39d90078",
+   "c818e12f9667f7fdb73c3e9a9b726bae0936cb2bd38895293bbd845da354a676",
+   "d8d615422072e2142e499a778476d7d3417706656d015586a8a1cd72d4b539d4"
+  ],
+  "candidate_merged_from": [
+   "1645e78521754415e0d344de21f18caa4295322422202c8ff87da4d322b5a6f5",
+   "4d65a366d751bdca3a119acfacb70ca24a4e1eb76f862a7998e7c5c4baeb1553",
+   "79f0bcec10c88da3b1cf4e9b4aecd7676063962b965e587c84552958aded0d84",
+   "a5336c454270efb679f5a05853d3ba36249d090086a6b468f8cbf6445cfff39f",
+   "c9657b61a9f706145159e9d0414276334251ecca94b2176e799ec2ca5cbc9fd9",
+   "cd2980c2b9f9bb34683f915df4e660acc12a366a8eec7602a7d6a262f82ce1b1"
+  ],
+  "broken_scenarios": [],
+  "fixed_scenarios": [],
+  "warnings": []
+ },
+ "decision": {
+  "recommendation": "insufficient_evidence",
+  "reason": "No noise floor was measured, so the scenario diff cannot be separated from run-to-run variation."
+ },
+ "passport_hash": "843b5430d9d103fab52a76884f3b7a46a04a6d6950ebdcd95cf94e060a440314"
+}

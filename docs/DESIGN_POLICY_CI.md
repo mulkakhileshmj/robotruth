@@ -207,6 +207,38 @@ Consequences for the design, not just for one run:
   a success rate near 90 percent; 100 gives about seven. That trade should be stated
   whenever a battery size is chosen, because the interval is the product.
 
+## Measured: the noise floor assumption was wrong for this cell (2026-09-20)
+
+Foundation item 2 assumed a policy run twice would disagree on some scenarios, and built the
+whole "observed / noise / significant" product rule on that. First light shows the assumption
+does not hold here. Two baseline runs over 200 scenarios produced 0 outcome disagreements,
+identical reward in 200/200 and identical step counts in 200/200.
+
+The cause: ACT emits an action chunk rather than sampling, and MuJoCo from a fixed reset seed
+is deterministic. `--policy-seed` therefore changes nothing, and the noise floor is exactly
+zero.
+
+This is good news for identity and bad news for the feature:
+
+- Scenario identity is validated harder than expected. Independent processes across six
+  shards reconstructed identical scenes and identical trajectories from content hashes alone.
+- The noise-floor machinery remains unvalidated. It returned zero because nothing varied, not
+  because it distinguished variation from regression.
+
+What follows for the design:
+
+- **Noise is a property of the cell, not a constant of the product.** The report must state
+  which it is, because "noise floor 0" from a deterministic cell and "noise floor 0" from an
+  unmeasured one are different claims, and today they render the same.
+- **The floor must be measured against a source of variance that actually exists**: a
+  stochastic policy, or scene randomisation applied independently of scenario identity. The
+  second needs care, since the whole point of a scenario is that it reproduces.
+- **A deterministic cell is the easy case and should be detected and declared.** When two runs
+  are bit-identical, every scenario difference is real, and the tool can say so with more
+  confidence than the statistics alone justify.
+- **Equivalence needs a margin.** Two provably identical runs currently return "inconclusive"
+  because a zero margin makes an equivalence claim unreachable. Set a default.
+
 ## Build order
 
 1. Simulator interface + MuJoCo backend + one pick-and-place scene with a public baseline policy (proves the runner end to end)

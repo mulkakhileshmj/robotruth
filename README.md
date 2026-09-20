@@ -57,7 +57,7 @@ And one companion package, at an earlier stage:
 
 | Package | Question it answers | Command | Maturity |
 |---|---|---|---|
-| **[policyci](policyci/)** | Is policy B better, worse or unsafe than policy A, and which scenarios broke? Runs both policies over the same deterministic battery of scenes, diffs them scenario by scenario, measures a noise floor by running one policy against itself, and issues a signed deploy record. | `policyci` | **Prototype.** The loop runs end to end; it has not yet produced a published result. See [Policy CI](#policy-ci). |
+| **[policyci](policyci/)** | Is policy B better, worse or unsafe than policy A, and which scenarios broke? Runs both policies over the same deterministic battery of scenes, diffs them scenario by scenario, measures a noise floor by running one policy against itself, and issues a deploy record. | `policyci` | **Prototype**, with [one published run](examples/validation/2026-09-20-policyci): 1,000 episodes, 3 controlled regressions caught, 0 false alarms on the identical-policy control. See [Policy CI](#policy-ci). |
 
 ## Install
 
@@ -272,6 +272,26 @@ fail-closed comparability on battery, evaluator and simulator pins; sharded runs
 that refuses partial coverage; Wilson intervals, a paired difference and an anytime-valid
 sequential verdict; a scenario browser with baseline and candidate replays side by side; a
 content-hashed deploy record that approves nothing without a measured noise floor.
+
+**First light** ([full bundle](examples/validation/2026-09-20-policyci)), 1,000 episodes over
+one 200-scenario battery:
+
+| run | success | paired diff | verdict |
+|---|---|---|---|
+| act_v18 (baseline) | 85.0% [79.4, 89.3] | — | — |
+| same policy, seed 1 | 85.0% [79.4, 89.3] | 0.0% [0.0, 0.0] | not a regression |
+| bias 0.02 | 56.0% [49.1, 62.7] | −29.0% [−37.4, −20.6] | **worse**, blocked |
+| bias 0.05 | 3.5% | −81.5% [−87.1, −75.9] | **worse**, blocked |
+| bias 0.10 | 0.5% | −84.5% [−89.5, −79.5] | **worse**, blocked |
+
+The baseline matches the 83 to 87 percent this checkpoint is documented to reach, which is
+the end-to-end check on policy loading, normalization, simulator and evaluator at once.
+
+**But read the caveat**: this cell is bit-deterministic. Two baseline runs disagreed on
+0 of 200 scenarios, with identical reward *and* identical step counts in all 200. So the
+noise floor is genuinely zero and the negative control passed trivially. Scenario identity
+is validated harder than expected; the noise-floor feature is not validated at all, because
+there was no noise to separate from signal.
 
 **Not built yet, and you will notice:**
 

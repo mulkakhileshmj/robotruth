@@ -1,0 +1,2860 @@
+{
+ "kind": "policyci.run",
+ "runner_version": "0.1.0",
+ "run_id": "act_v19_bias002",
+ "task": "aloha_transfer_cube",
+ "backend_id": "gym_aloha.transfer_cube.v0",
+ "battery_name": "aloha_transfer_cube_b1",
+ "battery_hash": "515e96ff75282363dafc8f5426cb0f49988d78ae1abb82fbcd9ba59c30301ffb",
+ "n_scenarios": 200,
+ "shard": 0,
+ "num_shards": 1,
+ "policy": {
+  "name": "act_v19_bias002",
+  "model_id": "lerobot/act_aloha_sim_transfer_cube_human",
+  "action_dim": 14,
+  "action_semantics": "joint_position",
+  "control_hz": 50.0,
+  "obs_keys": [
+   "observation.images.top",
+   "observation.state"
+  ],
+  "weights_sha256": "42772891cb6eba1e7bc36ad8e12c0fa0723c61f036fa235c725ce6026e6e81df",
+  "variant": {
+   "state_bias": 0.02
+  },
+  "iface_version": "0.1",
+  "hash": "fa9243c1b5b1ffaea90fe7040d676f7962c572b16fac851016068b8eaf55a97d"
+ },
+ "policy_seed": 0,
+ "evaluator_version": "0.1.0",
+ "pins": {
+  "python": "3.12.14",
+  "platform": "Linux-6.8.0-1046-nvidia-x86_64-with-glibc2.35",
+  "numpy": "2.5.3",
+  "gymnasium": "1.3.0",
+  "gym_aloha": "0.1.4",
+  "mujoco": "3.8.1",
+  "dm_control": "1.0.41",
+  "torch": "2.10.0",
+  "lerobot": "0.4.4",
+  "gpu": "NVIDIA A10",
+  "env_id": "gym_aloha/AlohaTransferCube-v0",
+  "obs_type": "pixels_agent_pos",
+  "max_steps": 400
+ },
+ "pins_hash": "59cdd82cfd86dc3a424a061e332b9cdb22312f27f590d0951dd0d4f285d2bf8a",
+ "wall_clock_s": 4985.616956233978,
+ "results": {
+  "218b360f3b8dfed62df2d56f3370aec9f8bc4d74b4a74020947090a3adc7bc73": {
+   "index": 0,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 265,
+   "failure": null
+  },
+  "470c97aa9df71800eb1650d8fe4fbcea745c727fa88a02adacdc5174123e18fa": {
+   "index": 6,
+   "success": false,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "fail",
+    "time_budget": "fail",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 2.0,
+   "steps": 400,
+   "failure": "timeout"
+  },
+  "e69734a6c9df077baa11da4e962c62b27c25eea4b5c874f89f23af45671761c1": {
+   "index": 12,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 329,
+   "failure": null
+  },
+  "835f4a542f6146887ef8fbaf6f82ca87ab3fc9f15a963613455762f9bd49ab63": {
+   "index": 18,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 298,
+   "failure": null
+  },
+  "f3624f37b7f6055d5a84e5edf0d3e781c4afe035ff37508a433b3946e9faf504": {
+   "index": 24,
+   "success": false,
+   "gates": {
+    "grasp": "fail",
+    "transfer": "fail",
+    "time_budget": "fail",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 1.0,
+   "steps": 400,
+   "failure": "grasp"
+  },
+  "543a3a0869cebdbee1f71a9138904588e52a643c928aa92a00cda9d021e7c2b0": {
+   "index": 30,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 268,
+   "failure": null
+  },
+  "9e78d41a524e503b4549e7ad2fc91b9a779c02229214ab1645550977d827384f": {
+   "index": 36,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 279,
+   "failure": null
+  },
+  "374cc672c561fe16172c2ed4e0f41d4e6ea284b8ad8d9b7baeecd7e75cf2ad07": {
+   "index": 42,
+   "success": false,
+   "gates": {
+    "grasp": "fail",
+    "transfer": "fail",
+    "time_budget": "fail",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 1.0,
+   "steps": 400,
+   "failure": "grasp"
+  },
+  "5c838d1857ad817a5d56bf0d0ea0046860619e0c6f5c926d3367e76bed21a212": {
+   "index": 48,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 327,
+   "failure": null
+  },
+  "49f6084251fca2e2a7ad718202a1dedc5703b99c0962bd922b73b8ed71551774": {
+   "index": 54,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 336,
+   "failure": null
+  },
+  "e0a095230764a099209e6518d7357ec525071df954d273776b26ae4bb834dab6": {
+   "index": 60,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 293,
+   "failure": null
+  },
+  "d678ddd6a6b1b157a630f824f5f1939c62d94813748a07b86c57033eefa08e57": {
+   "index": 66,
+   "success": false,
+   "gates": {
+    "grasp": "fail",
+    "transfer": "fail",
+    "time_budget": "fail",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 0.0,
+   "steps": 400,
+   "failure": "grasp"
+  },
+  "eee409b49cd2c7a1ce920ae3c0d0dee4c09fc9b4d6a3d6f4b9914dbcde6b43e7": {
+   "index": 72,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 264,
+   "failure": null
+  },
+  "349cbc5f34f6ec30a4127ebb34222ca4508a0371a2f7a1b19db30f23c82a748c": {
+   "index": 78,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 260,
+   "failure": null
+  },
+  "e6f7539d243698f996e4ce10993bbc77394d30a86f940cea056dbdaaca8cba91": {
+   "index": 84,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 361,
+   "failure": null
+  },
+  "c6e7a320ee029ff0dbfdbfd31e47501cae5cd8130a2d50f4bd70815469187116": {
+   "index": 90,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 282,
+   "failure": null
+  },
+  "dcfe2f91903a6c4a9af3869a6d56bf0e44a2da366ed179b47d48929c0187d4fa": {
+   "index": 96,
+   "success": false,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "fail",
+    "time_budget": "fail",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 2.0,
+   "steps": 400,
+   "failure": "timeout"
+  },
+  "1e96d7ca71e47d08fefe5ceebc8e94b25bd62fb91e02d4316bcac930b9b4ab33": {
+   "index": 102,
+   "success": false,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "fail",
+    "time_budget": "fail",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 2.0,
+   "steps": 400,
+   "failure": "timeout"
+  },
+  "bfc8b9caf773a1247b91a5cc28e1166691a906a1aa0c52526bd622d2a18a421a": {
+   "index": 108,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 300,
+   "failure": null
+  },
+  "ac1dfcfe5d08219c7b13266d7b67adcd9fb46867cc6df3c1d1d64674b65d19e4": {
+   "index": 114,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 290,
+   "failure": null
+  },
+  "d106c682d2f3d0808047db87cb31555358b5ccdf975587d7e62eab96074bd0e4": {
+   "index": 120,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 286,
+   "failure": null
+  },
+  "5ac273d024e5d011b0fa82115189784a41ed107a387289f46e4250c928342d55": {
+   "index": 126,
+   "success": false,
+   "gates": {
+    "grasp": "fail",
+    "transfer": "fail",
+    "time_budget": "fail",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 0.0,
+   "steps": 400,
+   "failure": "grasp"
+  },
+  "dc9116fa60f6fb682788aef944ece273c31a58af190817a9e3bab6dece8d5370": {
+   "index": 132,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 251,
+   "failure": null
+  },
+  "7560ef6f3cb752ac4f54d3071422d97473ac24794e002693e0d557c750785381": {
+   "index": 138,
+   "success": false,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "fail",
+    "time_budget": "fail",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 2.0,
+   "steps": 400,
+   "failure": "timeout"
+  },
+  "d495ebde7f40e27cce1a35451d0df22bc6799114cf7e6e218ddbcbba6c08c1ca": {
+   "index": 144,
+   "success": false,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "fail",
+    "time_budget": "fail",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 2.0,
+   "steps": 400,
+   "failure": "timeout"
+  },
+  "500588b838aaf4f90f82923683c2be07563ac11487a5f823bc9ef10810e1d059": {
+   "index": 150,
+   "success": false,
+   "gates": {
+    "grasp": "fail",
+    "transfer": "fail",
+    "time_budget": "fail",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 0.0,
+   "steps": 400,
+   "failure": "grasp"
+  },
+  "11ae43691c4013591891f4b213b577ccf2b82d3d11a9d1c8f758e0030fbc307f": {
+   "index": 156,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 278,
+   "failure": null
+  },
+  "0a4f14716a0a4ea6e79ea23aa483b00f059cd3aa000f272d65b1ba372834c896": {
+   "index": 162,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 266,
+   "failure": null
+  },
+  "8d796740cedac7e333e38dd9e5b3239a48df27588b392e3d49ddecdbf7caac68": {
+   "index": 168,
+   "success": false,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "fail",
+    "time_budget": "fail",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 2.0,
+   "steps": 400,
+   "failure": "timeout"
+  },
+  "330e156b117bb5022d607de21f0364b408d639841cd8c913073d1382b678112c": {
+   "index": 174,
+   "success": false,
+   "gates": {
+    "grasp": "fail",
+    "transfer": "fail",
+    "time_budget": "fail",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 0.0,
+   "steps": 400,
+   "failure": "grasp"
+  },
+  "4e77bca604e9465920172c401835a8accb25aa5b936d2e79a66e817895817b99": {
+   "index": 180,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 298,
+   "failure": null
+  },
+  "75a1a586b7f79a73991571d506953c1fb5810322ae8ed8444508fcbd0bae2c98": {
+   "index": 186,
+   "success": false,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "fail",
+    "time_budget": "fail",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 2.0,
+   "steps": 400,
+   "failure": "timeout"
+  },
+  "4f172364d4a22f667d716adfb1c47d0c6fb0b0cd1ce2b55d770c63629122f384": {
+   "index": 192,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 299,
+   "failure": null
+  },
+  "38ec2f427d0f91d62935dd0d3536c06d576e5068fc160bb9c26ba06e4361ae9e": {
+   "index": 198,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 244,
+   "failure": null
+  },
+  "886f35a0fc1b9df3807813b5a5b3a9c51dac2785419bc4432b14123be29aa3d5": {
+   "index": 1,
+   "success": false,
+   "gates": {
+    "grasp": "fail",
+    "transfer": "fail",
+    "time_budget": "fail",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 0.0,
+   "steps": 400,
+   "failure": "grasp"
+  },
+  "f060b34bb765ece4a7b969b7f5e74d82feaf1666cc818d47a36af28f38143b56": {
+   "index": 7,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 285,
+   "failure": null
+  },
+  "bffef68ead34a5425510156932d3f83537d64854319fc52057c44dccf8672029": {
+   "index": 13,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 266,
+   "failure": null
+  },
+  "4feb2585b50f55a02d9362a5e8d2925e092dadc586916207855c0672c2108833": {
+   "index": 19,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 277,
+   "failure": null
+  },
+  "c75a4a402b9fb4e90385c93b2b2e189b420fc9d0025f059ccc19c43287a2886b": {
+   "index": 25,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 269,
+   "failure": null
+  },
+  "6b9104248e8f5645df71a07981cd8308ab649d0ca45026247988aa10cbfc7367": {
+   "index": 31,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 276,
+   "failure": null
+  },
+  "3bc78b834a356f13be5e5965f4ece2a2ee62eb6a25b1cdb55244c3e49728f8e4": {
+   "index": 37,
+   "success": false,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "fail",
+    "time_budget": "fail",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 2.0,
+   "steps": 400,
+   "failure": "timeout"
+  },
+  "8375f62d3bed6e57074feb343ed3a9197a13b0ebafea527a68bd643e1962ac72": {
+   "index": 43,
+   "success": false,
+   "gates": {
+    "grasp": "fail",
+    "transfer": "fail",
+    "time_budget": "fail",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 0.0,
+   "steps": 400,
+   "failure": "grasp"
+  },
+  "03c4a950a856f628bd967ac3fa55349dd91ab2ae9d79e9abcd6c4dc5daec1f56": {
+   "index": 49,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 286,
+   "failure": null
+  },
+  "29f9b71c1f9aac1b3ce8591dc391c076d82422a3a06c9d4e68e28aaa7530093d": {
+   "index": 55,
+   "success": false,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "fail",
+    "time_budget": "fail",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 2.0,
+   "steps": 400,
+   "failure": "timeout"
+  },
+  "c081f96f50115d8f46349277b3e2a59d69657a078621994fd011d607087be790": {
+   "index": 61,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 302,
+   "failure": null
+  },
+  "6b813e2d6083fb39c8e2f8125eae606956e199577817b50c199cac392f3c06aa": {
+   "index": 67,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 323,
+   "failure": null
+  },
+  "80fab9d9fa549af4df50c7d8947e4fb45bf6e86d1dc9e8424463668a8e2614ae": {
+   "index": 73,
+   "success": false,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "fail",
+    "time_budget": "fail",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 2.0,
+   "steps": 400,
+   "failure": "timeout"
+  },
+  "bceb9c4f1ee467d8bd4484f8284e1109cd8245538e4baec01eefa9b729989530": {
+   "index": 79,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 284,
+   "failure": null
+  },
+  "fef620bf146aa38dd7b5c59bf52b918d35ad38e8988605d8df8007bfd5d30c42": {
+   "index": 85,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 269,
+   "failure": null
+  },
+  "b9f9f05aa8b16a6c799b38e050712575239303e5dbeb7289e2cb3a66b0061947": {
+   "index": 91,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 238,
+   "failure": null
+  },
+  "955d77ea2329672f936793f645ffb4114b7700d6c19d2bd32799d8e71b31c23a": {
+   "index": 97,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 320,
+   "failure": null
+  },
+  "e3410890733505874b6666d6fa90bb08f56f07c5751182b00ead467123bcee91": {
+   "index": 103,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 262,
+   "failure": null
+  },
+  "592a189411122d974493c2e07627b3b4692c885041d0bff198cd349967d61e6f": {
+   "index": 109,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 261,
+   "failure": null
+  },
+  "dc158395399bf866c74c58a9b17ca415cb9ae3e15eb51aeffcc2863fb2e0609b": {
+   "index": 115,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 274,
+   "failure": null
+  },
+  "87d3c591b3edad16a35d76a622f856cbba86e86d5c57aa4d33177ba108d747f4": {
+   "index": 121,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 289,
+   "failure": null
+  },
+  "02b0a9b33edfef73b5ff0bc40ed3cafc9ed7cb56c165a14ff0b33992de75583d": {
+   "index": 127,
+   "success": false,
+   "gates": {
+    "grasp": "fail",
+    "transfer": "fail",
+    "time_budget": "fail",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 0.0,
+   "steps": 400,
+   "failure": "grasp"
+  },
+  "6042b0b491e75e0ae61eac8e3fc8b869ddd3ecd4be3735cb881aa6c0419c6b2d": {
+   "index": 133,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 225,
+   "failure": null
+  },
+  "c5058d1c08bdd6ccc96c3e63f4251535f80e9c47fd638d4aaeb36c45c475312e": {
+   "index": 139,
+   "success": false,
+   "gates": {
+    "grasp": "fail",
+    "transfer": "fail",
+    "time_budget": "fail",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 0.0,
+   "steps": 400,
+   "failure": "grasp"
+  },
+  "3d9575d3f7962ea170fc67920d5d75455d2eaf55d589e655c5101c11a3b902ba": {
+   "index": 145,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 277,
+   "failure": null
+  },
+  "e8de6881661e1aa922f4ddb5af5c4ebe7b2ccb8ff77a44ad3acb0561a00f22e9": {
+   "index": 151,
+   "success": false,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "fail",
+    "time_budget": "fail",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 2.0,
+   "steps": 400,
+   "failure": "timeout"
+  },
+  "3a2b6bbcc7f65d248524ee455241ac6a93a73b50b62e1338496b9e0a60d9a7be": {
+   "index": 157,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 295,
+   "failure": null
+  },
+  "d36b496421fe8518f49afdc2ad87d56f59c34c093dfb67814bd80671ee25a4be": {
+   "index": 163,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 330,
+   "failure": null
+  },
+  "b85811a2c872744070ece007062ab90aeee88c52528062fc196d35d105451318": {
+   "index": 169,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 268,
+   "failure": null
+  },
+  "b07f4e8d0790ef99467a76a2de8dc9efee68d2f888f1cc3228e74c563da0c660": {
+   "index": 175,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 246,
+   "failure": null
+  },
+  "6a47c8b566e4ecf66b6dd0c7727d9b02a23e5726fa33924d00d119050988204e": {
+   "index": 181,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 258,
+   "failure": null
+  },
+  "0beffb042eafa34c1a80a06ac89d413f59c14807684c9083e2e6067e54d3b762": {
+   "index": 187,
+   "success": false,
+   "gates": {
+    "grasp": "fail",
+    "transfer": "fail",
+    "time_budget": "fail",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 0.0,
+   "steps": 400,
+   "failure": "grasp"
+  },
+  "36d67cdd27379bcd9098da44aa349f641b77258a33f15ce60e84158592f0faa4": {
+   "index": 193,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 319,
+   "failure": null
+  },
+  "c63872679c821b792b01ff082f2ca3fd39a9bf7aa3912d18f0132c50a56940dd": {
+   "index": 199,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 283,
+   "failure": null
+  },
+  "5e416104fde104e12710dd228808903b87eacc8e5694325489cd318db329fbea": {
+   "index": 2,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 277,
+   "failure": null
+  },
+  "55d69d57855f5f72717847161a718db7e4a38596e022a32d794396fe0ccb9819": {
+   "index": 8,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 271,
+   "failure": null
+  },
+  "abc58f7f862b3f42edf0d802df4469a480536b88718e0367b8ce29877c665ff5": {
+   "index": 14,
+   "success": false,
+   "gates": {
+    "grasp": "fail",
+    "transfer": "fail",
+    "time_budget": "fail",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 0.0,
+   "steps": 400,
+   "failure": "grasp"
+  },
+  "184ebec33507b990b3695105458ad3b7f8ad07c61456e7e9993af098ada23c48": {
+   "index": 20,
+   "success": false,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "fail",
+    "time_budget": "fail",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 2.0,
+   "steps": 400,
+   "failure": "timeout"
+  },
+  "a7ae20fd0e5fcf1d97fd599ae5aa596203462ba3e39a061ae24cbdb1ef290e2d": {
+   "index": 26,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 298,
+   "failure": null
+  },
+  "862f4fc5ea4647e616ff9d86e2acfda4a321966cdd26e0123c90ce448ef37001": {
+   "index": 32,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 254,
+   "failure": null
+  },
+  "18fd153309e2ff0d0cb5700ba997c2a35d4b672903e67c1cf7f5d16855e1372c": {
+   "index": 38,
+   "success": false,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "fail",
+    "time_budget": "fail",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 2.0,
+   "steps": 400,
+   "failure": "timeout"
+  },
+  "926370404c2df11779a486a766b8f2ce21d3c226c4971fe51a960487156bf416": {
+   "index": 44,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 330,
+   "failure": null
+  },
+  "071961b48b7ed51ffc56910d127c7225e6007f7869848db745bd086d65778ce9": {
+   "index": 50,
+   "success": false,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "fail",
+    "time_budget": "fail",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 2.0,
+   "steps": 400,
+   "failure": "timeout"
+  },
+  "039138114ea147fd91e8741a2d4c41c3beae622760e2925f1c4d4049af0102ca": {
+   "index": 56,
+   "success": false,
+   "gates": {
+    "grasp": "fail",
+    "transfer": "fail",
+    "time_budget": "fail",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 0.0,
+   "steps": 400,
+   "failure": "grasp"
+  },
+  "1acafd98a753a020f7d80d61e35f126ea518316003a3406e1e38a0ca18bf0368": {
+   "index": 62,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 272,
+   "failure": null
+  },
+  "cf42a6597568f08ef18a76c65940c1737b8f54c4a7cef2daf8d400765a7e1e21": {
+   "index": 68,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 267,
+   "failure": null
+  },
+  "de4af1fb42c0d010ccb312f6039c1f821528b739a5c8a5dfdf00f12437386926": {
+   "index": 74,
+   "success": false,
+   "gates": {
+    "grasp": "fail",
+    "transfer": "fail",
+    "time_budget": "fail",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 0.0,
+   "steps": 400,
+   "failure": "grasp"
+  },
+  "08d10b4623cdb3d878d1ce8a659eefc9f3f399f5c3aa1023a2a91a7c68ae62af": {
+   "index": 80,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 261,
+   "failure": null
+  },
+  "2a8d7a9727537a609927713bf2f02b2d73d9d65f27e1bca75fdbe9131d3fd2de": {
+   "index": 86,
+   "success": false,
+   "gates": {
+    "grasp": "fail",
+    "transfer": "fail",
+    "time_budget": "fail",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 0.0,
+   "steps": 400,
+   "failure": "grasp"
+  },
+  "db0ad14be05fec9e76e805f03f529fe997970a7d6d2afa20b8312f67dc9c6d57": {
+   "index": 92,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 294,
+   "failure": null
+  },
+  "f666f7d21d55127f872e10dfe0d846312c8070740e88ce5c0bb001e1675a6328": {
+   "index": 98,
+   "success": false,
+   "gates": {
+    "grasp": "fail",
+    "transfer": "fail",
+    "time_budget": "fail",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 0.0,
+   "steps": 400,
+   "failure": "grasp"
+  },
+  "59dadc400ba8d222d545d031f04861e9661b97f470ad670937ad4d5be996d012": {
+   "index": 104,
+   "success": false,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "fail",
+    "time_budget": "fail",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 2.0,
+   "steps": 400,
+   "failure": "timeout"
+  },
+  "817d1c4dfe517b9a53c73eb47c9551cf60f2fbfe033a64dd090b421afb792f60": {
+   "index": 110,
+   "success": false,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "fail",
+    "time_budget": "fail",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 2.0,
+   "steps": 400,
+   "failure": "timeout"
+  },
+  "480daa0b3c8586a87acf0e4e460a0e8b5d13022c8f7f182253cc29d26a3e3f67": {
+   "index": 116,
+   "success": false,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "fail",
+    "time_budget": "fail",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 2.0,
+   "steps": 400,
+   "failure": "timeout"
+  },
+  "5423f396c788ed6eaa519eccdef3f40cdba6426dd465e8f1ab1bcef758f739a0": {
+   "index": 122,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 328,
+   "failure": null
+  },
+  "378baeb56a177d4a64de325812644a8af7c293713b972de9d847e607b80880c8": {
+   "index": 128,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 278,
+   "failure": null
+  },
+  "960c17a3e84d058b34253ad91f04e5978a54fda583e167f120b9740c2336c79f": {
+   "index": 134,
+   "success": false,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "fail",
+    "time_budget": "fail",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 2.0,
+   "steps": 400,
+   "failure": "timeout"
+  },
+  "2d7157d14bac6e3b75056915d0c42925b6389d15bcf9760c963dcfff91acaf7f": {
+   "index": 140,
+   "success": false,
+   "gates": {
+    "grasp": "fail",
+    "transfer": "fail",
+    "time_budget": "fail",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 0.0,
+   "steps": 400,
+   "failure": "grasp"
+  },
+  "56ad113a756dc675ab76f586a8d6de9b83a6060acb77e1476efee95364269c88": {
+   "index": 146,
+   "success": false,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "fail",
+    "time_budget": "fail",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 2.0,
+   "steps": 400,
+   "failure": "timeout"
+  },
+  "03f139afe8604440ef01862e2787fd7552c583b31dca9c693dcb53d6858082b3": {
+   "index": 152,
+   "success": false,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "fail",
+    "time_budget": "fail",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 2.0,
+   "steps": 400,
+   "failure": "timeout"
+  },
+  "7adb8f61fac1583596ad8ef283f9e3e169b944efd7df7d2b89d2e21322ca98b6": {
+   "index": 158,
+   "success": false,
+   "gates": {
+    "grasp": "fail",
+    "transfer": "fail",
+    "time_budget": "fail",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 1.0,
+   "steps": 400,
+   "failure": "grasp"
+  },
+  "3e4b8ca4748b22d07100b85f213877932ae76eb626427f13ae49667848dca5a1": {
+   "index": 164,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 315,
+   "failure": null
+  },
+  "c4bb70020f81020ee505cf53682667e0e41b85e976d495639d595a150b140ee0": {
+   "index": 170,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 331,
+   "failure": null
+  },
+  "1818259193cd40142285ff3b050195a73e666f0d16b9ea78037f8f86743118cf": {
+   "index": 176,
+   "success": false,
+   "gates": {
+    "grasp": "fail",
+    "transfer": "fail",
+    "time_budget": "fail",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 0.0,
+   "steps": 400,
+   "failure": "grasp"
+  },
+  "2aef522a7d047964e10f8f24871070fba4509d91058cb584005464d0e92ab2d7": {
+   "index": 182,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 262,
+   "failure": null
+  },
+  "0058055ba4c92d892334e6530a89c47988e919bd3e445ce17579b30c982a67d8": {
+   "index": 188,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 257,
+   "failure": null
+  },
+  "e29b99e6827f07d7742421361ecb06985b36600a47ed2beabce38f00249ca7b8": {
+   "index": 194,
+   "success": false,
+   "gates": {
+    "grasp": "fail",
+    "transfer": "fail",
+    "time_budget": "fail",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 1.0,
+   "steps": 400,
+   "failure": "grasp"
+  },
+  "9f64b0d1a58ecf6e184ff705c9ac9204dbc358f1af793d91507218991f68943e": {
+   "index": 3,
+   "success": false,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "fail",
+    "time_budget": "fail",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 2.0,
+   "steps": 400,
+   "failure": "timeout"
+  },
+  "443acdb24cfb7c35d5a9545eb2c0f51c14a3d3b03e715e7568241188f6911831": {
+   "index": 9,
+   "success": false,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "fail",
+    "time_budget": "fail",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 2.0,
+   "steps": 400,
+   "failure": "timeout"
+  },
+  "ff4a22472cdc3702b7240b87e8323831d867f9258dd90b8120fe08662f20ca95": {
+   "index": 15,
+   "success": false,
+   "gates": {
+    "grasp": "fail",
+    "transfer": "fail",
+    "time_budget": "fail",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 0.0,
+   "steps": 400,
+   "failure": "grasp"
+  },
+  "932bcd9c6a0023bfc7ecf1197aed1988e80d41ee6aa98ea1ebd691f6d39573df": {
+   "index": 21,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 270,
+   "failure": null
+  },
+  "f46d4c63f80eca685cbf4b4c0f817cf9de3a45ecbaae76dc54c53d300e23d7f0": {
+   "index": 27,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 298,
+   "failure": null
+  },
+  "f88b2a62c6de883adb162f626b212496a5c0f176b5150852de51edff2a387cb1": {
+   "index": 33,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 296,
+   "failure": null
+  },
+  "e6fe22ba4972ed3e1f05d8774eca36b3cde02591ef4296e12c8a231a074e3c6f": {
+   "index": 39,
+   "success": false,
+   "gates": {
+    "grasp": "fail",
+    "transfer": "fail",
+    "time_budget": "fail",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 0.0,
+   "steps": 400,
+   "failure": "grasp"
+  },
+  "2a5e12332134d35a9cd0907e8af9525c117267fda4294944a7a8df2a232b14f1": {
+   "index": 45,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 296,
+   "failure": null
+  },
+  "c77e609ae4ad879dff2f42d6aa2c4aa7945fff40fe8c3917d435d5e8be9f2142": {
+   "index": 51,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 279,
+   "failure": null
+  },
+  "5a88538e4642925bdefe02cbb45e338e6710932d699d8a1ed1288da1ed712994": {
+   "index": 57,
+   "success": false,
+   "gates": {
+    "grasp": "fail",
+    "transfer": "fail",
+    "time_budget": "fail",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 1.0,
+   "steps": 400,
+   "failure": "grasp"
+  },
+  "1047205a5c8e6bd0220df1aeebfe9b4ee7fae064164f32fa2e7d60c2876f4fd7": {
+   "index": 63,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 269,
+   "failure": null
+  },
+  "d9e4be3fc9e82edd9fd423cd8dd11662791f5080c2dc6ddeec710435c271251a": {
+   "index": 69,
+   "success": false,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "fail",
+    "time_budget": "fail",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 2.0,
+   "steps": 400,
+   "failure": "timeout"
+  },
+  "d1146b940da6fd41bc5d61afac11d3308fda7e11d83f51c0a29f174df5dd06b7": {
+   "index": 75,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 294,
+   "failure": null
+  },
+  "397bb9e6c5f5187f51de718cd79f3c59a0978be642fc327b464a2f764523bc95": {
+   "index": 81,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 268,
+   "failure": null
+  },
+  "7fed2cb0c35eb02479f00a041a4f999abf4048eafcbfc15ef0fed04e4554aba0": {
+   "index": 87,
+   "success": false,
+   "gates": {
+    "grasp": "fail",
+    "transfer": "fail",
+    "time_budget": "fail",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 0.0,
+   "steps": 400,
+   "failure": "grasp"
+  },
+  "ea54ce3b9cf4a8bfbe7b51795a1d8c0edd7d87fbc9d1009dd5a064badd79c02d": {
+   "index": 93,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 331,
+   "failure": null
+  },
+  "b0039eee77db3d07fcd5aecf7000a75f482c8c5de4c8a245e83474dcf2c510a9": {
+   "index": 99,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 299,
+   "failure": null
+  },
+  "88f3fec966fd36304e5e4d36bc1ea42f535a5fc229490476469983736814c4f0": {
+   "index": 105,
+   "success": false,
+   "gates": {
+    "grasp": "fail",
+    "transfer": "fail",
+    "time_budget": "fail",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 1.0,
+   "steps": 400,
+   "failure": "grasp"
+  },
+  "b1f4a5b4ea481fe339cebb8642b56b668763d4beed9eceb52a474c398baf9bbb": {
+   "index": 111,
+   "success": false,
+   "gates": {
+    "grasp": "fail",
+    "transfer": "fail",
+    "time_budget": "fail",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 0.0,
+   "steps": 400,
+   "failure": "grasp"
+  },
+  "1ad8dc4f1c98b0b2e9374c4b2ae7a7759c8fe103b46eb20ffd805aa77bc14ce0": {
+   "index": 117,
+   "success": false,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "fail",
+    "time_budget": "fail",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 2.0,
+   "steps": 400,
+   "failure": "timeout"
+  },
+  "94575c4c8499238cb0d669d9138050bce9a0bd9ceb857600bd0635b8d74ac0f4": {
+   "index": 123,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 293,
+   "failure": null
+  },
+  "a9598fd0673b345ec91b47d477a2515b7bda6288d68cfc73537801d0855affd5": {
+   "index": 129,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 249,
+   "failure": null
+  },
+  "34ad5194d3e3c34bce2f920fdc2e211c4bf3af1137a7ff5dcde3eddd5500295e": {
+   "index": 135,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 264,
+   "failure": null
+  },
+  "319cc67cb2d07d5f32e63a4512e6ff3190255ca02fe0c12fdacb15a328b4e1e1": {
+   "index": 141,
+   "success": false,
+   "gates": {
+    "grasp": "fail",
+    "transfer": "fail",
+    "time_budget": "fail",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 0.0,
+   "steps": 400,
+   "failure": "grasp"
+  },
+  "ef754a8b898da5ef91e00e145946815a330916e3fab9c7ff47d194aad7246982": {
+   "index": 147,
+   "success": false,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "fail",
+    "time_budget": "fail",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 2.0,
+   "steps": 400,
+   "failure": "timeout"
+  },
+  "e7dc0a466cec01e15406d710e3b1698e3eeb7aa24c1ce155904cda5b8f82402a": {
+   "index": 153,
+   "success": false,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "fail",
+    "time_budget": "fail",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 2.0,
+   "steps": 400,
+   "failure": "timeout"
+  },
+  "b32be7cb3d610b8781ad1c21bf6a931dc84ceb8e7651be441c91b30b68edfc51": {
+   "index": 159,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 300,
+   "failure": null
+  },
+  "0bf0cb6094d281a41b1b3802cb1b8e5542388eca639ebd8a8895ff9bfc3e4f59": {
+   "index": 165,
+   "success": false,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "fail",
+    "time_budget": "fail",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 2.0,
+   "steps": 400,
+   "failure": "timeout"
+  },
+  "157bd12f36cfc80dd7b19b7c45c8af0e1ba4ce1aaa939635c54cdd3d02125aed": {
+   "index": 171,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 256,
+   "failure": null
+  },
+  "4a076842fc08a4d3b36a7c56dba9c8ee530845571e310fc9010e178303a9dc3f": {
+   "index": 177,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 257,
+   "failure": null
+  },
+  "143021f3b2216f595124c82bc47edb590a073e3f050352cc10ec8510dac4f9d3": {
+   "index": 183,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 252,
+   "failure": null
+  },
+  "cdba11f3df8a39c8a0b7025be03dfdc5e8b3e1a34f42c65559a9bd79b9dc0f52": {
+   "index": 189,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 324,
+   "failure": null
+  },
+  "fdd313664028e4c57683a6e5deedfdc6bdd4ccafd1125d9f7f3d21944e699e46": {
+   "index": 195,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 280,
+   "failure": null
+  },
+  "49a7b9fe8a04d6942eb2668508b44fdd14c9a34166bb989c092418989533ee2f": {
+   "index": 4,
+   "success": false,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "fail",
+    "time_budget": "fail",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 2.0,
+   "steps": 400,
+   "failure": "timeout"
+  },
+  "2f0601455f22db4581dfb97c5ca66c94db06e1508680c7fed59ee900f30bdc8f": {
+   "index": 10,
+   "success": false,
+   "gates": {
+    "grasp": "fail",
+    "transfer": "fail",
+    "time_budget": "fail",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 1.0,
+   "steps": 400,
+   "failure": "grasp"
+  },
+  "6b7e11f16f4ceae3505344f8f532a8c18a1f75866c5763e1dcdac2c115bf660b": {
+   "index": 16,
+   "success": false,
+   "gates": {
+    "grasp": "fail",
+    "transfer": "fail",
+    "time_budget": "fail",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 0.0,
+   "steps": 400,
+   "failure": "grasp"
+  },
+  "6739b7a3f392669cacee624d6206008ecfe6632602efb1c45efbeb7159f0925c": {
+   "index": 22,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 299,
+   "failure": null
+  },
+  "86044038eda6e9a744a716ff02e225adc17e7ec62dc3a14455d493595cfdfa3a": {
+   "index": 28,
+   "success": false,
+   "gates": {
+    "grasp": "fail",
+    "transfer": "fail",
+    "time_budget": "fail",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 0.0,
+   "steps": 400,
+   "failure": "grasp"
+  },
+  "d042c0d25d6a14d0dfae8b298bacf93bf04712fc4f777547b4cfab305ff25ed9": {
+   "index": 34,
+   "success": false,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "fail",
+    "time_budget": "fail",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 2.0,
+   "steps": 400,
+   "failure": "timeout"
+  },
+  "c00dcf987a9f71713b8cffe7d0571659434da859595a9d52efbb1b8de457418b": {
+   "index": 40,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 319,
+   "failure": null
+  },
+  "86910c665591c060903c90c9fd39d8ddaa631513ce37eabe1b033ff0c381e1f8": {
+   "index": 46,
+   "success": false,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "fail",
+    "time_budget": "fail",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 2.0,
+   "steps": 400,
+   "failure": "timeout"
+  },
+  "7dd427e4972647bb3b2d159d838dc7b7cb3214d03839f138cc439f455b4db82b": {
+   "index": 52,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 253,
+   "failure": null
+  },
+  "517fc501a9f97bc2e9647f247ba3c75185d2a25a4f8ba59797f028e552dd067d": {
+   "index": 58,
+   "success": false,
+   "gates": {
+    "grasp": "fail",
+    "transfer": "fail",
+    "time_budget": "fail",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 0.0,
+   "steps": 400,
+   "failure": "grasp"
+  },
+  "7844958f5ded85b4c020e8c9f3dee3a5c1e8c10ac52185b2538957fd98cb2b41": {
+   "index": 64,
+   "success": false,
+   "gates": {
+    "grasp": "fail",
+    "transfer": "fail",
+    "time_budget": "fail",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 1.0,
+   "steps": 400,
+   "failure": "grasp"
+  },
+  "a1a64d5261482c4d4ef094e25dd77db97dcbb30e498460c1291b749ee9015459": {
+   "index": 70,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 266,
+   "failure": null
+  },
+  "8ef4442efbc88b6ef3a47f01f1ce93508a481875163ebdbf267e1938a0a73c9f": {
+   "index": 76,
+   "success": false,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "fail",
+    "time_budget": "fail",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 2.0,
+   "steps": 400,
+   "failure": "timeout"
+  },
+  "925988ffeffe3f76ef5c113e00145e03133f977d59a18555b63e744638cfb330": {
+   "index": 82,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 273,
+   "failure": null
+  },
+  "e2ef0e81ba131b28adb5af33cd0703b6ab241926fd2436374bceb3bf33c87888": {
+   "index": 88,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 259,
+   "failure": null
+  },
+  "e08059ead28104a90098581b6faf638f50eec0db368e596f6cff5e6ff43caff7": {
+   "index": 94,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 281,
+   "failure": null
+  },
+  "10a0f36590d6de29db56cfb095312f3ddf69450ec61d66b0ea14f18face9830d": {
+   "index": 100,
+   "success": false,
+   "gates": {
+    "grasp": "fail",
+    "transfer": "fail",
+    "time_budget": "fail",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 0.0,
+   "steps": 400,
+   "failure": "grasp"
+  },
+  "016915012e985cf8697ce6fe9d05f686ddb02355b3106f52882f25c9bac04a17": {
+   "index": 106,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 317,
+   "failure": null
+  },
+  "a535617318d1ea8bfb51bb49a21d4068d12140e5a3789ee713b0cefcb3727417": {
+   "index": 112,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 258,
+   "failure": null
+  },
+  "220371257759cfcfe7ea9ea28efe36ab8094cd3fb2b5c82cc7df3e35dde81379": {
+   "index": 118,
+   "success": false,
+   "gates": {
+    "grasp": "fail",
+    "transfer": "fail",
+    "time_budget": "fail",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 1.0,
+   "steps": 400,
+   "failure": "grasp"
+  },
+  "6444d19089ecc6c67665aaa2403d3e881de3e1e79b367c8137132f2ea051f14e": {
+   "index": 124,
+   "success": false,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "fail",
+    "time_budget": "fail",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 2.0,
+   "steps": 400,
+   "failure": "timeout"
+  },
+  "9976de6f0e30fe6771c0efbc453a2cb667ea4b9a510fa93eed1e42e182692316": {
+   "index": 130,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 296,
+   "failure": null
+  },
+  "eae99de1428ec0e3eb48c23797d0efcff2c5eaabd30d3be45dc7f40eafb4a43b": {
+   "index": 136,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 259,
+   "failure": null
+  },
+  "cf3f805b4bc188199c877095d76a4a51c016ad4a9ad9526fb7d2fbaab322b4ad": {
+   "index": 142,
+   "success": false,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "fail",
+    "time_budget": "fail",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 2.0,
+   "steps": 400,
+   "failure": "timeout"
+  },
+  "77f4d7922aaad45169643dfa05316a22abbf944b7a32dd0461dff9431b300205": {
+   "index": 148,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 275,
+   "failure": null
+  },
+  "a5944acced644f1aee9ee2ca5e9524474bafce2846ad196ba1fe93f8471caa2b": {
+   "index": 154,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 286,
+   "failure": null
+  },
+  "fd5c8c42c4af1fc44bf6ebe4573ca6cf360bbeead9c9164e3beeece986917c15": {
+   "index": 160,
+   "success": false,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "fail",
+    "time_budget": "fail",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 2.0,
+   "steps": 400,
+   "failure": "timeout"
+  },
+  "68809a1782a63d5017c4c7696dfd49fe616016c284d8090fabb4202e2065107f": {
+   "index": 166,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 272,
+   "failure": null
+  },
+  "98004dc8ba920c93c119865750e82b903076b2a0c8918b6600aa4d7381d93bee": {
+   "index": 172,
+   "success": false,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "fail",
+    "time_budget": "fail",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 2.0,
+   "steps": 400,
+   "failure": "timeout"
+  },
+  "e63bb000c0cb7ae5290403175f1fddb274db421ee77b0569cf4e9880a30244e6": {
+   "index": 178,
+   "success": false,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "fail",
+    "time_budget": "fail",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 2.0,
+   "steps": 400,
+   "failure": "timeout"
+  },
+  "bc338e286ee4b2bf8253021ba40a83e1f0b33672db24bdfb6c1c6a035dc6dfb8": {
+   "index": 184,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 273,
+   "failure": null
+  },
+  "c9930a292442483f96f950e4719dafa9626fc8c44fd7ad46a03cca2b602f7a8c": {
+   "index": 190,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 264,
+   "failure": null
+  },
+  "effe0fcefdab0f51f47ebdc2752336027cc925b22817822a4b796a64d9b3d5f9": {
+   "index": 196,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 247,
+   "failure": null
+  },
+  "25c68bd7144deedb10c871074733eb7321b68b82ddb3cc33d7d6eace61f27a6e": {
+   "index": 5,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 238,
+   "failure": null
+  },
+  "7f9af9a9ad14447db4a16ed3ca6b81827d45f66df0ebc35db434df64c08c3fba": {
+   "index": 11,
+   "success": false,
+   "gates": {
+    "grasp": "fail",
+    "transfer": "fail",
+    "time_budget": "fail",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 0.0,
+   "steps": 400,
+   "failure": "grasp"
+  },
+  "937ac657aae9525fb8fae18fc3eef13a7b9f764d512d1ae00e9ddb77a09de97f": {
+   "index": 17,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 257,
+   "failure": null
+  },
+  "90ec5f0e25316804220d72fac7192ac492175b3bf1a745a83b818e25bfd36963": {
+   "index": 23,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 236,
+   "failure": null
+  },
+  "3a8030a47343a63be36765559b802ca767bb65d28c614141a75eb07e3552bbc9": {
+   "index": 29,
+   "success": false,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "fail",
+    "time_budget": "fail",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 2.0,
+   "steps": 400,
+   "failure": "timeout"
+  },
+  "ef9b72124ce45200ec22e2d72ee2fb1f461905e8d8125607827c423de876f736": {
+   "index": 35,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 288,
+   "failure": null
+  },
+  "a3d09d1409b27d6ff3ad9be8ccc6346aca31bb9140d3e6ac87690022e59f81d4": {
+   "index": 41,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 276,
+   "failure": null
+  },
+  "67645f845b4a4d88098cbbac37b7e7f38048abf3a31a0e1ece9cc9f24bfe4906": {
+   "index": 47,
+   "success": false,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "fail",
+    "time_budget": "fail",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 2.0,
+   "steps": 400,
+   "failure": "timeout"
+  },
+  "e99c76becb48c18bd84b768a457def617874b3b88cfa3e4d1984d17e32e398fe": {
+   "index": 53,
+   "success": false,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "fail",
+    "time_budget": "fail",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 2.0,
+   "steps": 400,
+   "failure": "timeout"
+  },
+  "12cfbc2aa00a9d6f689a24ecabcd7a956e1f64acce397134263ee4c6f20526a8": {
+   "index": 59,
+   "success": false,
+   "gates": {
+    "grasp": "fail",
+    "transfer": "fail",
+    "time_budget": "fail",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 0.0,
+   "steps": 400,
+   "failure": "grasp"
+  },
+  "d2c522a8d9b460ef9cf9aaea19ae134246f9db6aab288b247b002ad602d193cd": {
+   "index": 65,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 266,
+   "failure": null
+  },
+  "f09a37c6238abc010337afef206b1b8edfdff5c9cc1744a13c2e98326d044619": {
+   "index": 71,
+   "success": false,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "fail",
+    "time_budget": "fail",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 2.0,
+   "steps": 400,
+   "failure": "timeout"
+  },
+  "5366ba7e5d5728c62d3c849f908f9fcf52cd6311b30ea3dbce0d52e4dcdd1445": {
+   "index": 77,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 336,
+   "failure": null
+  },
+  "81511849a78ce1ded13337a880e5992769f413ce65bf77b10deb20bd9a6c193f": {
+   "index": 83,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 252,
+   "failure": null
+  },
+  "c8200f8a4875cc7aedde76099a72891b2660e1d745d9930cd7f44eb75e505863": {
+   "index": 89,
+   "success": false,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "fail",
+    "time_budget": "fail",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 2.0,
+   "steps": 400,
+   "failure": "timeout"
+  },
+  "adcb3922d6d7d9b624e359ac8e17f288795c5d4c879ed84be39d2f198d9791eb": {
+   "index": 95,
+   "success": false,
+   "gates": {
+    "grasp": "fail",
+    "transfer": "fail",
+    "time_budget": "fail",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 0.0,
+   "steps": 400,
+   "failure": "grasp"
+  },
+  "d06f46ec20f85f6ca688ed69ad76b53e5c83932a6dd3fbc457bb32a53ba06715": {
+   "index": 101,
+   "success": false,
+   "gates": {
+    "grasp": "fail",
+    "transfer": "fail",
+    "time_budget": "fail",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 0.0,
+   "steps": 400,
+   "failure": "grasp"
+  },
+  "d41a7256d3797e6644b6b58c8303d1a8c10e6eadaf17121a36bc9aaed23fa12f": {
+   "index": 107,
+   "success": false,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "fail",
+    "time_budget": "fail",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 2.0,
+   "steps": 400,
+   "failure": "timeout"
+  },
+  "fa724ea5bbf2af4cfaa45906871f5430e079ca940f824106d0902b158f57afc8": {
+   "index": 113,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 256,
+   "failure": null
+  },
+  "348a2a35db988a1bd1bafd3f3d4374c2537e0f6498aca59596a86ceeb01ff771": {
+   "index": 119,
+   "success": false,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "fail",
+    "time_budget": "fail",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 2.0,
+   "steps": 400,
+   "failure": "timeout"
+  },
+  "4f0a7e6a3210654f9d7ecee499596787450ea77a353524c7cc7f7eb1c9ecbc52": {
+   "index": 125,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 264,
+   "failure": null
+  },
+  "5939e7d929d1a1397c220cd6f6b5969fd5d9c5f83b9c66f304a329069ed4b1cb": {
+   "index": 131,
+   "success": false,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "fail",
+    "time_budget": "fail",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 2.0,
+   "steps": 400,
+   "failure": "timeout"
+  },
+  "ec61f90a06bad9a377a2e9e084db832d4b8c9f8b629d9b0c55aa77e3643aa1cf": {
+   "index": 137,
+   "success": false,
+   "gates": {
+    "grasp": "fail",
+    "transfer": "fail",
+    "time_budget": "fail",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 0.0,
+   "steps": 400,
+   "failure": "grasp"
+  },
+  "e057ccac9a7453e8173fec4554afecfbb07c57602e5a7aa2e9af95adc0d03490": {
+   "index": 143,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 277,
+   "failure": null
+  },
+  "57a8acc64ae63b285a7cd51c2cd97f39c506281694ed94cb9efa9c500f5a6943": {
+   "index": 149,
+   "success": false,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "fail",
+    "time_budget": "fail",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 2.0,
+   "steps": 400,
+   "failure": "timeout"
+  },
+  "fb20ecfe86c714d10d4c5e1df3161cdb313051d9ab51bfa05644c3c79730b620": {
+   "index": 155,
+   "success": false,
+   "gates": {
+    "grasp": "fail",
+    "transfer": "fail",
+    "time_budget": "fail",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 1.0,
+   "steps": 400,
+   "failure": "grasp"
+  },
+  "eb58de19c62046767d87ec19e5ccac288db2e27a2b5980a338d1e4fa0715cf2b": {
+   "index": 161,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 268,
+   "failure": null
+  },
+  "cdc5c422bc6ae912340861027954f838058263a630a217a28cf3c42ebb640b0a": {
+   "index": 167,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 334,
+   "failure": null
+  },
+  "c1e8bed52c855b007c8141564625b5592ee8cdad40b59de61307120095b60790": {
+   "index": 173,
+   "success": false,
+   "gates": {
+    "grasp": "fail",
+    "transfer": "fail",
+    "time_budget": "fail",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 0.0,
+   "steps": 400,
+   "failure": "grasp"
+  },
+  "970ac71166fc30ce92ec6ac6d419974346680d00456383a4f6d39b4e11da9878": {
+   "index": 179,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 254,
+   "failure": null
+  },
+  "4d6ceaca1b1703711b08f7329bf495e3e66027259df42744b769d0d5104728f9": {
+   "index": 185,
+   "success": false,
+   "gates": {
+    "grasp": "fail",
+    "transfer": "fail",
+    "time_budget": "fail",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 0.0,
+   "steps": 400,
+   "failure": "grasp"
+  },
+  "81a116ee120768704000991e641e6a08c941b3dc8ce48239c1b6d6e0d61f44fb": {
+   "index": 191,
+   "success": true,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "pass",
+    "time_budget": "pass",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 4.0,
+   "steps": 280,
+   "failure": null
+  },
+  "6eb51e1724b7ec64288fc8fa8ecbf7a8ac8df51e04b6f4d15d3e85aea59d37f9": {
+   "index": 197,
+   "success": false,
+   "gates": {
+    "grasp": "pass",
+    "transfer": "fail",
+    "time_budget": "fail",
+    "collision": "unavailable",
+    "placement_error": "unavailable"
+   },
+   "max_reward": 2.0,
+   "steps": 400,
+   "failure": "timeout"
+  }
+ },
+ "merged_from": [
+  "0122bd4e96fb28b406640924622a693f5b19cc953385b5808c5a066e53be9fc1",
+  "3eaf778069678a0d7dc2d58d3aa113c0e890ca7290f36c6ffc525b5da96581d5",
+  "4ebefe2bd7e266d5aee63e1eafe78e24541fc5217443c039aadac7c681f65655",
+  "60d3ca21ef524f20455893bae612a681dbf1ce5a0fce06052886feb824d5c65b",
+  "67f208e42572ef372bacbb149b796322af0f92ab81ba11dc58f5f52de16b7fcb",
+  "ce9674eb10b39c7bfaecb77eb8813545a4621c8d77d1a586676aaca75d7c6256"
+ ],
+ "wall_clock_s_summed": 29356.437098026276,
+ "manifest_hash": "1099bdc4245cea27ade5e4d4c6ef73785a4b2d2106877f32e8402fcdbcfe09a3"
+}

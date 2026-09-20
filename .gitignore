@@ -13,3 +13,6 @@ data/
 *.pt
 *.pth
 .env
+
+# policyci pulled results (large: videos, episode logs)
+results/

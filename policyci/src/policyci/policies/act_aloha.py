@@ -90,7 +90,7 @@ class ACTAlohaPolicy:
             batch = {"observation.images.top": img_t, "observation.state": state_t}
             with torch.no_grad():
                 action = self._policy.select_action(batch)
-            action = action * self._stats["act_std"] + self._stats["act_mean"]
+            action = action * (self._stats["act_std"] + 1e-8) + self._stats["act_mean"]
         else:
             batch = {"observation.images.top": img_t, "observation.state": state_t}
             with torch.no_grad():

@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.1.6 (2026-09-21)
+
+- First release published to PyPI, so `pip install robotruth` works. Publishing goes through PyPI trusted publishing from GitHub Actions, which means no API token exists in this repository or its secrets.
+- **Baseline study.** Our monitor being at chance on real task failures turned out to be a fact about the signal rather than about our scorers. Nine other detectors covering the families used in recent work, the chunk consistency of VLA-FAIL, the distance, density and action-variance signals of FAIL-Detect, random network distillation, a GRU sequence model, and isolation forest, one-class SVM and PCA reconstruction, were each fitted on successful episodes only and scored on the same held-out episodes. All ten catch injected execution faults. All ten are at chance on the failures the robots actually had, with AUROC from 0.31 to 0.57 across BotFails and DROID.
+- Nine of the twenty detector and corpus pairs land below 0.5, which is not the same as no signal: the score runs backwards. On DROID a failed episode runs 188 steps against 239 and covers 5.2 units of total motion against 7.6, so a policy that fails does less and any score built on movement reads failure as quiet and quiet as normal. A monitor tuned on that data would spend its alarm budget on the successes.
+- `ops/baseline_comparison.py` runs the comparison and `ops/why_below_chance.py` measures the mechanism; full output is in `examples/validation/2026-09-20-paper`.
+
 ## 0.1.5 (2026-09-20)
 
 - **The guard's scope is corrected, and the correction is measured.** Replayed against real robot logs it caught 5/145 of BotFails' own failures and 0/58 of DROID's. A threshold-free AUROC per scorer head came out at 0.50 to 0.51 and 0.33 to 0.44, so there is no signal to recover: a robot that fails a task keeps moving normally, and the action stream does not show it. The guard detects execution faults, where the robot stops behaving like itself, and the README no longer implies otherwise.

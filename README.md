@@ -4,11 +4,12 @@
 
 <br/>
 
+[![PyPI](https://img.shields.io/pypi/v/robotruth?color=38bdf8&label=pypi)](https://pypi.org/project/robotruth/)
 [![CI](https://github.com/mulkakhileshmj/robotruth/actions/workflows/ci.yml/badge.svg)](https://github.com/mulkakhileshmj/robotruth/actions/workflows/ci.yml)
-[![Release](https://img.shields.io/github/v/release/mulkakhileshmj/robotruth?color=38bdf8)](https://github.com/mulkakhileshmj/robotruth/releases)
+[![Publish](https://github.com/mulkakhileshmj/robotruth/actions/workflows/publish.yml/badge.svg)](https://github.com/mulkakhileshmj/robotruth/actions/workflows/publish.yml)
+[![Python](https://img.shields.io/pypi/pyversions/robotruth?color=3776ab)](pyproject.toml)
 [![License](https://img.shields.io/badge/license-Apache%202.0-818cf8.svg)](LICENSE)
-[![Python](https://img.shields.io/badge/python-3.11%20%7C%203.12-3776ab.svg)](pyproject.toml)
-[![Tests](https://img.shields.io/badge/tests-72%20passing-22c55e.svg)](tests)
+[![Tests](https://img.shields.io/badge/tests-77%20passing-22c55e.svg)](tests)
 
 **Robot CI for learned robot policies.**
 It tells a lab whether a policy change is real, before the robot, the eval, or the launch demo tells them the hard way.
@@ -62,25 +63,38 @@ And one companion package, at an earlier stage:
 ## Install
 
 ```bash
-pip install robotruth            # from a release wheel (see Releases) or PyPI when published
+pip install robotruth
 ```
 
-From source:
+Python 3.11 or newer. The core has no GPU requirement and pulls only numpy, scipy, pydantic,
+typer, rich, jinja2, safetensors, pyarrow and pyyaml. Check it landed:
+
+```bash
+robotruth --version
+```
+
+Optional extras, none of them needed for the contract, statistics, episode or fingerprint
+modules:
+
+```bash
+pip install "robotruth[open-vlm]"   # judge vision channel on your own GPU (Qwen-VL via transformers)
+pip install "robotruth[vlm]"        # judge vision channel via the Claude API
+pip install "robotruth[mcap]"       # MCAP bridge for Foxglove and Rerun
+pip install "robotruth[gpu]"        # CUDA path for the Mahalanobis scorer
+```
+
+From source, if you want to run the tests or change something:
 
 ```bash
 git clone https://github.com/mulkakhileshmj/robotruth.git
 cd robotruth
 uv venv .venv && uv pip install -e ".[dev]"
-.venv/bin/python -m pytest -q    # 72 tests
+.venv/bin/python -m pytest -q    # 77 tests
 ```
 
-Optional extras:
-
-```bash
-pip install "robotruth[open-vlm]"   # judge vision channel on your own GPU (Qwen-VL via transformers)
-pip install "robotruth[vlm]"        # judge vision channel via the Claude API
-pip install "robotruth[mcap]"       # MCAP bridge for Foxglove / Rerun
-```
+Releases are published to PyPI from GitHub Actions using
+[trusted publishing](https://docs.pypi.org/trusted-publishers/), so no API token exists in
+this repository or its secrets. Tagging a version is what ships it.
 
 ## Quickstart
 
@@ -301,7 +315,7 @@ one 200-scenario battery:
 
 | run | success | paired diff | verdict |
 |---|---|---|---|
-| act_v18 (baseline) | 85.0% [79.4, 89.3] | — | — |
+| act_v18 (baseline) | 85.0% [79.4, 89.3] | n/a | n/a |
 | same policy, seed 1 | 85.0% [79.4, 89.3] | 0.0% [0.0, 0.0] | not a regression |
 | bias 0.02 | 56.0% [49.1, 62.7] | −29.0% [−37.4, −20.6] | **worse**, blocked |
 | bias 0.05 | 3.5% | −81.5% [−87.1, −75.9] | **worse**, blocked |
@@ -441,6 +455,8 @@ Everything below was measured by robotruth itself on public data (2026-09-18); t
 - **A 150-trial eval log audited**: 2 of 3 comparisons resolved at 95%; the third, a 10-point gap over 50 trials, is inside the noise.
 - **A live policy loop** (ACT in gym-aloha, guard attached to every inference): judge balanced accuracy **0.929** [0.651, 0.987] with zero false alarms; the guard's conformal false-alarm bound held in every run. [Video](examples/validation/2026-09-18/live_guard/act_aloha_live_compat.mp4).
 - **Guard on real robot logs** (2026-09-20, [`examples/validation/2026-09-20`](examples/validation/2026-09-20)): stalls and erratic control detected in **361 of 362** real episodes across three physical-robot corpora within 0.1 to 0.2 s, false alarms inside the 0.05 bound. The same replay also showed the guard is **near chance on real task failures** (AUROC 0.50 to 0.51), which corrected the scope of the claim rather than confirming it.
+- **That limit is the approach, not our code** (2026-09-20, [`examples/validation/2026-09-20-paper`](examples/validation/2026-09-20-paper)). We ran nine other detectors over the same episodes, covering the families used in recent work: the chunk consistency of VLA-FAIL, the distance, density and action-variance signals of FAIL-Detect, random network distillation, a GRU sequence model, and isolation forest, one-class SVM and PCA reconstruction. All ten catch injected execution faults. All ten are at chance on the failures the robots actually had, **AUROC 0.31 to 0.57**. Methods sharing almost nothing in construction do not agree that closely by accident.
+- **Nine of the twenty detector and corpus pairs score below 0.5**, which is not the same as no signal. The score runs backwards. On DROID a failed episode runs 188 steps against 239 and covers 5.2 units of total motion against 7.6, so a policy that fails does less, and any score built on movement reads failure as quiet and quiet as normal. A monitor tuned on that data would spend its alarm budget on the successes. Reproduce with `ops/baseline_comparison.py` and `ops/why_below_chance.py`.
 - **False alarms, on 338 held-out successes**: **0/338 = 0.000 [0.000, 0.011]**, replacing a bound whose interval previously reached 0.176.
 - **The fingerprint's drift threshold is calibrated**: conformal at alpha 0.05 gives 3/270 false alarms against 23/270 for a three-sigma rule, with detection of a 0.25 sd offset unchanged at 268/270.
 - **Guard detection, measured with faults that actually break the policy** (30/30 injected faults failed the task): stall, offset and noise faults all detected **30/30 = 1.000 [0.886, 1.000]** at **0.04 s median latency** on a 150-episode calibration pool. Faults that ramp in gradually over up to 4 s are still detected 100% of the time. Stalls needed a dedicated head: inside the averaged composite they scored 1/10, because a frozen action stream is self-consistent and in-distribution, so the stagnation score was diluted by three detectors reporting nominal. Both experiments are published side by side in `examples/validation/2026-09-19/guard_detection_v2/`. [Video of the guard watching a stall](examples/validation/2026-09-19/guard_detection_v2/multi_head/guard_stall_compat.mp4): a nominal episode where it stays quiet, then the same policy frozen mid-task, alarm raised 0.68 s after the stall in that episode.
